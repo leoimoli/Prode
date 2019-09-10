@@ -17,5 +17,13 @@ namespace Prode.Clase_Maestra
                 "Mordovia Arena", "Rostov Arena","Estadio Fisht","Ekaterimburgo Arena"};
             }
         }
+        public static string[] Años
+        {
+            get
+            {
+                return new string[] { "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030" };
+            }
+        }
+
     }
 }

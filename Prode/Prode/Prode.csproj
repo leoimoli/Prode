@@ -33,7 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=6.4.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\..\..\Desktop\Leo\MySql.Data.DLL</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,21 +49,61 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CargarTorneoWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CargarTorneoWF.Designer.cs">
+      <DependentUpon>CargarTorneoWF.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cargar_PartidosWF.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Cargar_PartidosWF.Designer.cs">
       <DependentUpon>Cargar_PartidosWF.cs</DependentUpon>
     </Compile>
+    <Compile Include="Clases_Maestras\Sesion.cs" />
     <Compile Include="Clases_Maestras\ValoresConstantes.cs" />
     <Compile Include="Dao\Consultar.cs" />
     <Compile Include="Dao\InsertDao.cs" />
+    <Compile Include="Dao\TorneoDao.cs" />
+    <Compile Include="Dao\UsuarioDao.cs" />
+    <Compile Include="Entidades\Torneo.cs" />
+    <Compile Include="Entidades\Usuario.cs" />
+    <Compile Include="InicioWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InicioWF.Designer.cs">
+      <DependentUpon>InicioWF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterWF.Designer.cs">
+      <DependentUpon>MasterWF.cs</DependentUpon>
+    </Compile>
     <Compile Include="Negocio\Consultar.cs" />
     <Compile Include="Negocio\Insert.cs" />
+    <Compile Include="Negocio\TorneoNeg.cs" />
+    <Compile Include="Negocio\UsuarioNeg.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CargarTorneoWF.resx">
+      <DependentUpon>CargarTorneoWF.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cargar_PartidosWF.resx">
       <DependentUpon>Cargar_PartidosWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InicioWF.resx">
+      <DependentUpon>InicioWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginWF.resx">
+      <DependentUpon>LoginWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterWF.resx">
+      <DependentUpon>MasterWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -71,6 +113,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -84,6 +127,51 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\configuraciones.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jugadores-de-futbol-en-el-campo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\primer-lugar-trofeo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\betting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\futbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\programar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\marcador.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono-de-inicio-silueta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuario-hombre%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\desconectarte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\accesorios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deshacer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apoyo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

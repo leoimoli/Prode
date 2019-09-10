@@ -16,7 +16,7 @@ namespace Prode
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Cargar_PartidosWF());
+            Application.Run(new CargarTorneoWF());
         }
     }
 }
