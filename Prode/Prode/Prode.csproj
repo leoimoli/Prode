@@ -67,8 +67,21 @@
     <Compile Include="Dao\InsertDao.cs" />
     <Compile Include="Dao\TorneoDao.cs" />
     <Compile Include="Dao\UsuarioDao.cs" />
+    <Compile Include="Entidades\Equipos.cs" />
     <Compile Include="Entidades\Torneo.cs" />
     <Compile Include="Entidades\Usuario.cs" />
+    <Compile Include="EquiposWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EquiposWF.Designer.cs">
+      <DependentUpon>EquiposWF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FechaWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FechaWF.Designer.cs">
+      <DependentUpon>FechaWF.cs</DependentUpon>
+    </Compile>
     <Compile Include="InicioWF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +98,7 @@
       <DependentUpon>MasterWF.cs</DependentUpon>
     </Compile>
     <Compile Include="Negocio\Consultar.cs" />
+    <Compile Include="Negocio\EquiposNeg.cs" />
     <Compile Include="Negocio\Insert.cs" />
     <Compile Include="Negocio\TorneoNeg.cs" />
     <Compile Include="Negocio\UsuarioNeg.cs" />
@@ -95,6 +109,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Cargar_PartidosWF.resx">
       <DependentUpon>Cargar_PartidosWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EquiposWF.resx">
+      <DependentUpon>EquiposWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FechaWF.resx">
+      <DependentUpon>FechaWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InicioWF.resx">
       <DependentUpon>InicioWF.cs</DependentUpon>
