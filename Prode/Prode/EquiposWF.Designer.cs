@@ -39,9 +39,10 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtImagen = new System.Windows.Forms.TextBox();
+            this.btnCargarImagen = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -72,6 +73,7 @@
             // 
             // btnBuscar
             // 
+            this.btnBuscar.Image = global::Prode.Properties.Resources.buscar;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnBuscar.Location = new System.Drawing.Point(590, 19);
             this.btnBuscar.Name = "btnBuscar";
@@ -79,6 +81,7 @@
             this.btnBuscar.TabIndex = 3;
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtBuscar
             // 
@@ -114,6 +117,7 @@
             // 
             // btnHabilitarBuscar
             // 
+            this.btnHabilitarBuscar.Image = global::Prode.Properties.Resources.buscar;
             this.btnHabilitarBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnHabilitarBuscar.Location = new System.Drawing.Point(45, 98);
             this.btnHabilitarBuscar.Name = "btnHabilitarBuscar";
@@ -126,6 +130,7 @@
             // 
             // btnNuevoEquipo
             // 
+            this.btnNuevoEquipo.Image = global::Prode.Properties.Resources.equipo;
             this.btnNuevoEquipo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnNuevoEquipo.Location = new System.Drawing.Point(45, 19);
             this.btnNuevoEquipo.Name = "btnNuevoEquipo";
@@ -150,6 +155,7 @@
             // 
             // btnEliminar
             // 
+            this.btnEliminar.Image = global::Prode.Properties.Resources.boton_eliminar;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnEliminar.Location = new System.Drawing.Point(45, 255);
             this.btnEliminar.Name = "btnEliminar";
@@ -159,9 +165,11 @@
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Visible = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnEditar
             // 
+            this.btnEditar.Image = global::Prode.Properties.Resources.editar_1_;
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnEditar.Location = new System.Drawing.Point(45, 175);
             this.btnEditar.Name = "btnEditar";
@@ -175,9 +183,10 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.progressBar1);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.txtImagen);
+            this.groupBox1.Controls.Add(this.btnCargarImagen);
             this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.progressBar1);
             this.groupBox1.Controls.Add(this.txtDireccion);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label14);
@@ -194,34 +203,43 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Equipo";
             // 
+            // txtImagen
+            // 
+            this.txtImagen.Location = new System.Drawing.Point(624, 168);
+            this.txtImagen.Name = "txtImagen";
+            this.txtImagen.Size = new System.Drawing.Size(211, 20);
+            this.txtImagen.TabIndex = 40;
+            // 
+            // btnCargarImagen
+            // 
+            this.btnCargarImagen.BackColor = System.Drawing.Color.Transparent;
+            this.btnCargarImagen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCargarImagen.Image = global::Prode.Properties.Resources.subir;
+            this.btnCargarImagen.Location = new System.Drawing.Point(708, 194);
+            this.btnCargarImagen.Name = "btnCargarImagen";
+            this.btnCargarImagen.Size = new System.Drawing.Size(49, 39);
+            this.btnCargarImagen.TabIndex = 39;
+            this.btnCargarImagen.UseVisualStyleBackColor = false;
+            this.btnCargarImagen.Click += new System.EventHandler(this.btnCargarImagen_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.pictureBox1.Location = new System.Drawing.Point(647, 19);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(150, 145);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 38;
+            this.pictureBox1.TabStop = false;
+            // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(337, 201);
+            this.progressBar1.Location = new System.Drawing.Point(288, 280);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(330, 23);
             this.progressBar1.TabIndex = 37;
             this.progressBar1.Value = 50;
             this.progressBar1.Visible = false;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(785, 82);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(50, 49);
-            this.button1.TabIndex = 36;
-            this.button1.Text = "Cargar";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(624, 58);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(152, 100);
-            this.pictureBox1.TabIndex = 35;
-            this.pictureBox1.TabStop = false;
             // 
             // txtDireccion
             // 
@@ -255,7 +273,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(530, 95);
+            this.label4.Location = new System.Drawing.Point(572, 93);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 20);
             this.label4.TabIndex = 30;
@@ -290,8 +308,9 @@
             // btnGuardar
             // 
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Image = global::Prode.Properties.Resources.apoyo;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnGuardar.Location = new System.Drawing.Point(482, 309);
+            this.btnGuardar.Location = new System.Drawing.Point(482, 322);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(80, 51);
             this.btnGuardar.TabIndex = 11;
@@ -303,8 +322,9 @@
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Image = global::Prode.Properties.Resources.error;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCancelar.Location = new System.Drawing.Point(384, 309);
+            this.btnCancelar.Location = new System.Drawing.Point(384, 322);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(80, 51);
             this.btnCancelar.TabIndex = 10;
@@ -323,6 +343,7 @@
             this.Controls.Add(this.groupBox2);
             this.Name = "EquiposWF";
             this.Text = "Equipos";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.EquiposWF_Load);
             this.Controls.SetChildIndex(this.groupBox2, 0);
             this.Controls.SetChildIndex(this.groupBox3, 0);
@@ -359,9 +380,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNombreEstadio;
         private System.Windows.Forms.TextBox txtNombreEquipo;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.TextBox txtImagen;
+        private System.Windows.Forms.Button btnCargarImagen;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Prode
 {
-    public partial class FechaWF : Form
+    public partial class FechaWF : MasterWF
     {
         public FechaWF()
         {
             InitializeComponent();
+        }
+
+        private void FechaWF_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

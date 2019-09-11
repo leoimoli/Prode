@@ -61,9 +61,12 @@
     <Compile Include="Cargar_PartidosWF.Designer.cs">
       <DependentUpon>Cargar_PartidosWF.cs</DependentUpon>
     </Compile>
+    <Compile Include="Clases_Maestras\AutoCompletePorEquipo.cs" />
+    <Compile Include="Clases_Maestras\Funciones.cs" />
     <Compile Include="Clases_Maestras\Sesion.cs" />
     <Compile Include="Clases_Maestras\ValoresConstantes.cs" />
     <Compile Include="Dao\Consultar.cs" />
+    <Compile Include="Dao\EquipoDao.cs" />
     <Compile Include="Dao\InsertDao.cs" />
     <Compile Include="Dao\TorneoDao.cs" />
     <Compile Include="Dao\UsuarioDao.cs" />
@@ -192,6 +195,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\apoyo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\equipo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editar%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton-eliminar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\subir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buscar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

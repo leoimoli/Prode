@@ -10,8 +10,8 @@ namespace Prode.Entidades
     {
         public int idEquipo { get; set; }
         public string NombreEquipo { get; set; }
-        public long Escudo { get; set; }
-        public int NombreEstadio { get; set; }
+        public byte[] Escudo { get; set; }
+        public string NombreEstadio { get; set; }
         public string Direccion { get; set; }
         public int idUsuario { get; set; }
     }
