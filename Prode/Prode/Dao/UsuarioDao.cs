@@ -111,11 +111,11 @@ namespace Prode.Dao
                     listaUsuario.Apellido = item["Apellido"].ToString();
                     listaUsuario.Nombre = item["Nombre"].ToString();
                     listaUsuario.Dni = item["Dni"].ToString();
-                    listaUsuario.FechaDeAlta = Convert.ToDateTime(item["FechaDeAlta"].ToString());
-                    listaUsuario.FechaUltimaConexion = Convert.ToDateTime(item["UltimoInicioSesion"].ToString());
+                    listaUsuario.FechaDeAlta = Convert.ToDateTime(item["FechaAlta"].ToString());
+                    listaUsuario.FechaUltimaConexion = Convert.ToDateTime(item["FechaUltimaConexion"].ToString());
                     listaUsuario.Contraseña = item["Contrasenia"].ToString();
                     listaUsuario.Estado = item["Estado"].ToString();
-                    listaUsuario.Perfil = item["Perfil"].ToString();
+                    listaUsuario.Perfil = item["idPerfil"].ToString();
                     lista.Add(listaUsuario);
                 }
             }

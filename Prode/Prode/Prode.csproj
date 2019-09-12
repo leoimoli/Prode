@@ -94,6 +94,9 @@
     <Compile Include="LoginWF.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="LoginWF.Designer.cs">
+      <DependentUpon>LoginWF.cs</DependentUpon>
+    </Compile>
     <Compile Include="MasterWF.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -44,6 +44,8 @@
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.equiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cargarEquiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -73,7 +75,8 @@
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.torneosToolStripMenuItem});
+            this.torneosToolStripMenuItem,
+            this.equiposToolStripMenuItem});
             this.clientesToolStripMenuItem.Image = global::Prode.Properties.Resources.configuraciones;
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
             this.clientesToolStripMenuItem.Size = new System.Drawing.Size(151, 25);
@@ -93,16 +96,17 @@
             // 
             this.cargarTorneoToolStripMenuItem.Image = global::Prode.Properties.Resources.accesorios;
             this.cargarTorneoToolStripMenuItem.Name = "cargarTorneoToolStripMenuItem";
-            this.cargarTorneoToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
+            this.cargarTorneoToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.cargarTorneoToolStripMenuItem.Text = "Cargar Torneo";
             this.cargarTorneoToolStripMenuItem.Click += new System.EventHandler(this.cargarTorneoToolStripMenuItem_Click);
             // 
             // cargarFechaToolStripMenuItem
             // 
-            this.cargarFechaToolStripMenuItem.Image = global::Prode.Properties.Resources.jugadores_de_futbol_en_el_campo;
+            this.cargarFechaToolStripMenuItem.Image = global::Prode.Properties.Resources.calendario;
             this.cargarFechaToolStripMenuItem.Name = "cargarFechaToolStripMenuItem";
-            this.cargarFechaToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
-            this.cargarFechaToolStripMenuItem.Text = "Cargar Partidos";
+            this.cargarFechaToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.cargarFechaToolStripMenuItem.Text = "Cargar Fechas";
+            this.cargarFechaToolStripMenuItem.Click += new System.EventHandler(this.cargarFechaToolStripMenuItem_Click);
             // 
             // periciasToolStripMenuItem
             // 
@@ -176,6 +180,23 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Prode Versión-1.0.0";
             // 
+            // equiposToolStripMenuItem
+            // 
+            this.equiposToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cargarEquiposToolStripMenuItem});
+            this.equiposToolStripMenuItem.Image = global::Prode.Properties.Resources.equipo;
+            this.equiposToolStripMenuItem.Name = "equiposToolStripMenuItem";
+            this.equiposToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.equiposToolStripMenuItem.Text = "Equipos";
+            // 
+            // cargarEquiposToolStripMenuItem
+            // 
+            this.cargarEquiposToolStripMenuItem.Image = global::Prode.Properties.Resources.equipo;
+            this.cargarEquiposToolStripMenuItem.Name = "cargarEquiposToolStripMenuItem";
+            this.cargarEquiposToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
+            this.cargarEquiposToolStripMenuItem.Text = "Cargar Equipos";
+            this.cargarEquiposToolStripMenuItem.Click += new System.EventHandler(this.cargarEquiposToolStripMenuItem_Click);
+            // 
             // MasterWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -212,5 +233,7 @@
         private System.Windows.Forms.ToolStripMenuItem cargarFechaToolStripMenuItem;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ToolStripMenuItem equiposToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cargarEquiposToolStripMenuItem;
     }
 }

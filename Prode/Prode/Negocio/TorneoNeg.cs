@@ -46,7 +46,7 @@ namespace Prode.Negocio
                                            MessageBoxIcon.Exclamation);
                 throw new Exception();
             }
-            if (_torneo.CantidadFechas == null ||_torneo.CantidadFechas == 0)
+            if (_torneo.CantidadFechas == null || _torneo.CantidadFechas == 0)
             {
                 const string message = "El campo Cantidad de Fechas es obligatorio.";
                 const string caption = "Error";
@@ -55,6 +55,18 @@ namespace Prode.Negocio
                                            MessageBoxIcon.Exclamation);
                 throw new Exception();
             }
+        }
+
+        public static List<string> CargarComboTorneos()
+        {
+            List<string> lista = new List<string>();
+            lista = TorneoDao.CargarComboTorneos();
+            return lista;
+        }
+        public static bool ValidarFecha(string fecha, string torneo, string temporada)
+        {
+            bool fechaValida = TorneoDao.ValidarFecha(fecha, torneo, temporada);
+            return fechaValida;
         }
     }
 }

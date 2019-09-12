@@ -48,6 +48,88 @@ namespace Prode.Dao
             connection.Close();
             return exito;
         }
+
+        public static List<string> CargarComboEquipo()
+        {
+            List<string> _listaEquipos = new List<string>();
+            connection.Close();
+            connection.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { };
+            string proceso = "CargarComboEquipo";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    _listaEquipos.Add(item["Nombre"].ToString());
+                }
+            }
+
+            connection.Close();
+            return _listaEquipos;
+        }
+
+        public static List<string> CargarComboEstadios()
+        {
+            List<string> _listaEstadios = new List<string>();
+            connection.Close();
+            connection.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { };
+            string proceso = "CargarComboEstadios";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    _listaEstadios.Add(item["Estadio"].ToString());
+                }
+            }
+
+            connection.Close();
+            return _listaEstadios;
+        }
+
+        public static byte[] BuscarImagenEquipoLocal(string nombreEquipoLocal)
+        {
+            byte[] _escudoLocal = null;
+            connection.Close();
+            connection.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { new MySqlParameter("NombreEquipoLocal_in", nombreEquipoLocal) };
+            string proceso = "BuscarImagenEquipoLocal";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    if (item[0].ToString() != string.Empty)
+                    {
+                        _escudoLocal = (byte[])item["Escudo"];
+                    }
+                }
+            }
+
+            connection.Close();
+            return _escudoLocal;
+        }
+
         public static bool ValidarEquipoExistente(string nombreEquipo)
         {
             connection.Close();

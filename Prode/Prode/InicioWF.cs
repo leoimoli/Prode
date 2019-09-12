@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Prode
 {
-    public partial class InicioWF : Form
+    public partial class InicioWF : MasterWF
     {
         public InicioWF()
         {
             InitializeComponent();
+        }
+
+        private void InicioWF_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -39,7 +39,10 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InicioWF";
             this.Text = "InicioWF";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.InicioWF_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

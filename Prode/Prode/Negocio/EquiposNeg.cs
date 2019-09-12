@@ -52,6 +52,21 @@ namespace Prode.Negocio
             }
             return exito;
         }
+
+        public static List<string> CargarComboEquipo()
+        {
+            List<string> lista = new List<string>();
+            lista = EquipoDao.CargarComboEquipo();
+            return lista;
+        }
+
+        public static List<string> CargarComboEstadios()
+        {
+            List<string> lista = new List<string>();
+            lista = EquipoDao.CargarComboEstadios();
+            return lista;
+        }
+
         private static bool ValidarEquipoExistente(string nombreEquipo)
         {
             bool existe = EquipoDao.ValidarEquipoExistente(nombreEquipo);
@@ -77,6 +92,12 @@ namespace Prode.Negocio
                                            MessageBoxIcon.Exclamation);
                 throw new Exception();
             }
+        }
+
+        public static byte[] BuscarImagenEquipoLocal(string equipoLocal)
+        {
+            byte[] EscudoLocal = EquipoDao.BuscarImagenEquipoLocal(equipoLocal);
+            return EscudoLocal;
         }
 
         public static List<Equipos> BuscarEquipoPorNombre(string Nombre)

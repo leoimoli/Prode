@@ -22,5 +22,17 @@ namespace Prode
             _torneo.Show();
             Hide();
         }
+        private void cargarEquiposToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EquiposWF _equipo = new EquiposWF();
+            _equipo.Show();
+            Hide();
+        }
+        private void cargarFechaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FechaWF _fecha = new FechaWF();
+            _fecha.Show();
+            Hide();
+        }
     }
 }

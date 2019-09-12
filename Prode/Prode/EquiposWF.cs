@@ -86,7 +86,6 @@ namespace Prode
                 throw new Exception();
             }
         }
-
         private void btnHabilitarBuscar_Click(object sender, EventArgs e)
         {
             try
