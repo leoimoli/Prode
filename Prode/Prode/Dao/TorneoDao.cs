@@ -70,39 +70,78 @@ namespace Prode.Dao
             return Existe;
         }
 
+        public static bool ValidarNroFechaExistente(string nroFecha, string torneo, string temporada)
+        {
+            bool FechaValida = false;
+            int idTorneo = BuscaIdtorneoPorNombreTemporada(torneo, temporada);
+            if (idTorneo > 0)
+            {
+
+                int FechaExistente = 0;
+                connection.Close();
+                connection.Open();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                DataTable Tabla = new DataTable();
+                MySqlParameter[] oParam = { new MySqlParameter("idTorneo_in", idTorneo),
+                new MySqlParameter("NroFecha_in", nroFecha)};
+                string proceso = "ValidarNroFechaExistente";
+                MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+                dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+                dt.SelectCommand.Parameters.AddRange(oParam);
+                dt.Fill(Tabla);
+                if (Tabla.Rows.Count > 0)
+                {
+                    foreach (DataRow item in Tabla.Rows)
+                    {
+                        FechaExistente = Convert.ToInt32(item["totalFechas"].ToString());
+                    }
+                }
+                if (FechaExistente > 0)
+                {
+                    FechaValida = false;
+                }
+                else { FechaValida = true; }
+            }
+            connection.Close();
+            return FechaValida;
+        }
         public static bool ValidarFecha(string fecha, string torneo, string temporada)
         {
             bool FechaValida = false;
             int idTorneo = BuscaIdtorneoPorNombreTemporada(torneo, temporada);
             if (idTorneo > 0)
             {
-             // int Fechas
-             //   connection.Close();
-             //   connection.Open();
-             //   MySqlCommand cmd = new MySqlCommand();
-             //   cmd.Connection = connection;
-             //   DataTable Tabla = new DataTable();
-             //   MySqlParameter[] oParam = { new MySqlParameter("NombreTorneo_in", torneo),
-             //new MySqlParameter("Temporada_in", temporada)};
-             //   string proceso = "BuscaIdtorneoPorNombreTemporada";
-             //   MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
-             //   dt.SelectCommand.CommandType = CommandType.StoredProcedure;
-             //   dt.SelectCommand.Parameters.AddRange(oParam);
-             //   dt.Fill(Tabla);
-             //   if (Tabla.Rows.Count > 0)
-             //   {
-             //       foreach (DataRow item in Tabla.Rows)
-             //       {
-             //           idTorneo = Convert.ToInt32(item["idTorneo"].ToString());
-             //       }
-             //   }
-
-             //   connection.Close();
-             //   return idTorneo;
+                int CantidadFechas = 0;
+                int FechasCargadas = 0;
+                connection.Close();
+                connection.Open();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                DataTable Tabla = new DataTable();
+                MySqlParameter[] oParam = { new MySqlParameter("idTorneo_in", idTorneo) };
+                string proceso = "ContadorDeFechasPorIdTorneo";
+                MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+                dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+                dt.SelectCommand.Parameters.AddRange(oParam);
+                dt.Fill(Tabla);
+                if (Tabla.Rows.Count > 0)
+                {
+                    foreach (DataRow item in Tabla.Rows)
+                    {
+                        FechasCargadas = Convert.ToInt32(item["totalFechas"].ToString());
+                        CantidadFechas = Convert.ToInt32(item["CantidadFechas"].ToString());
+                    }
+                }
+                if (FechasCargadas <= CantidadFechas)
+                {
+                    FechaValida = false;
+                }
+                else { FechaValida = true; }
             }
+            connection.Close();
             return FechaValida;
         }
-
         private static int BuscaIdtorneoPorNombreTemporada(string torneo, string temporada)
         {
             int idTorneo = 0;
@@ -111,7 +150,7 @@ namespace Prode.Dao
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = connection;
             DataTable Tabla = new DataTable();
-            MySqlParameter[] oParam = { new MySqlParameter("NombreTorneo_in", torneo),
+            MySqlParameter[] oParam = { new MySqlParameter("Nombre_in", torneo),
              new MySqlParameter("Temporada_in", temporada)};
             string proceso = "BuscaIdtorneoPorNombreTemporada";
             MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
@@ -129,7 +168,6 @@ namespace Prode.Dao
             connection.Close();
             return idTorneo;
         }
-
         public static List<string> CargarComboTorneos()
         {
             List<string> _listaTorneo = new List<string>();

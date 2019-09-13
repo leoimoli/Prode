@@ -68,5 +68,11 @@ namespace Prode.Negocio
             bool fechaValida = TorneoDao.ValidarFecha(fecha, torneo, temporada);
             return fechaValida;
         }
+
+        public static bool ValidarNroFechaExistente(string NroFecha, string torneo, string temporada)
+        {
+            bool NroFechaValido = TorneoDao.ValidarNroFechaExistente(NroFecha, torneo, temporada);
+            return NroFechaValido;
+        }
     }
 }

@@ -129,11 +129,21 @@ namespace Prode
             string var = torneo;
             string Torneo = var.Split('-')[0];
             string Temporada = var.Split('-')[1];
-
-
             bool FechaValida = TorneoNeg.ValidarFecha(txtFecha.Text, Torneo, Temporada);
-            string fecha = dtFecha.Value.ToShortDateString();
-            dataGridView1.Rows.Add(fecha, cmbEstadio.Text, " ", cmbLocal.Text, " ",  cmbVisitante.Text, " ");
+            bool NroFechaValido = TorneoNeg.ValidarNroFechaExistente(txtFecha.Text, Torneo, Temporada);
+            if (FechaValida == false)
+            {
+                const string message2 = "Ya se alcanzo el máximo de fechas predispuesta para el torneo seleccionado.";
+                const string caption2 = "Error";
+                var result2 = MessageBox.Show(message2, caption2,
+                                             MessageBoxButtons.OK,
+                                             MessageBoxIcon.Error);
+            }
+            else
+            {
+                string fecha = dtFecha.Value.ToShortDateString();
+                dataGridView1.Rows.Add(fecha, cmbEstadio.Text, " ", cmbLocal.Text, " ", cmbVisitante.Text, " ");
+            }
         }
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
