@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Prode.Entidades;
+using Prode.Clases_Maestras;
 
 namespace Prode
 {
@@ -72,43 +74,53 @@ namespace Prode
         private void cmbLocal_SelectedIndexChanged(object sender, EventArgs e)
         {
             string equipoLocal = cmbLocal.Text;
-            if (cmbVisitante.Text == equipoLocal)
+            if (equipoLocal != "Seleccione")
             {
-                const string message2 = "El equipo ya fue seleccionado como equipo Visitante.";
-                const string caption2 = "Error";
-                var result2 = MessageBox.Show(message2, caption2,
-                                             MessageBoxButtons.OK,
-                                             MessageBoxIcon.Error);
-            }
-            else
-            {
-                byte[] EscudoLocal = EquiposNeg.BuscarImagenEquipoLocal(equipoLocal);
-                if (EscudoLocal != null)
+                if (cmbVisitante.Text == equipoLocal)
                 {
-                    Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(EscudoLocal);
-                    pictureBoxLocal.Image = foto1;
+                    const string message2 = "El equipo ya fue seleccionado como equipo Visitante.";
+                    const string caption2 = "Error";
+                    var result2 = MessageBox.Show(message2, caption2,
+                                                 MessageBoxButtons.OK,
+                                                 MessageBoxIcon.Error);
+                }
+                else
+                {
+                    byte[] EscudoLocal = EquiposNeg.BuscarImagenEquipoLocal(equipoLocal);
+                    if (EscudoLocal != null)
+                    {
+                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(EscudoLocal);
+                        pictureBoxLocal.Image = foto1;
+                    }
+                    string EstadioLocal = EquiposNeg.BuscarEstadioPorEquipoLocalSeleccionado(equipoLocal);
+                    if (EstadioLocal != null)
+                    {
+                        cmbEstadio.Text = EstadioLocal;
+                    }
                 }
             }
-
         }
         private void cmbVisitante_SelectedIndexChanged(object sender, EventArgs e)
         {
             string equipoVisitante = cmbVisitante.Text;
-            if (cmbLocal.Text == equipoVisitante)
+            if (equipoVisitante != "Seleccione")
             {
-                const string message2 = "El equipo ya fue seleccionado como equipo Local.";
-                const string caption2 = "Error";
-                var result2 = MessageBox.Show(message2, caption2,
-                                             MessageBoxButtons.OK,
-                                             MessageBoxIcon.Error);
-            }
-            else
-            {
-                byte[] EscudoVisitante = EquiposNeg.BuscarImagenEquipoLocal(equipoVisitante);
-                if (EscudoVisitante != null)
+                if (cmbLocal.Text == equipoVisitante)
                 {
-                    Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(EscudoVisitante);
-                    pictureBoxVisitante.Image = foto1;
+                    const string message2 = "El equipo ya fue seleccionado como equipo Local.";
+                    const string caption2 = "Error";
+                    var result2 = MessageBox.Show(message2, caption2,
+                                                 MessageBoxButtons.OK,
+                                                 MessageBoxIcon.Error);
+                }
+                else
+                {
+                    byte[] EscudoVisitante = EquiposNeg.BuscarImagenEquipoLocal(equipoVisitante);
+                    if (EscudoVisitante != null)
+                    {
+                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(EscudoVisitante);
+                        pictureBoxVisitante.Image = foto1;
+                    }
                 }
             }
         }
@@ -120,35 +132,145 @@ namespace Prode
             pictureBoxLocal.Image = null;
             pictureBoxVisitante.Image = null;
         }
-        #endregion
-
-        #region Botones
-        private void btnCargar_Click(object sender, EventArgs e)
+        private void ProgressBar()
         {
+            progressBar1.Visible = true;
+            progressBar1.Maximum = 100000;
+            progressBar1.Step = 1;
+
+            for (int j = 0; j < 100000; j++)
+            {
+                Caluculate(j);
+                progressBar1.PerformStep();
+            }
+        }
+        private void Caluculate(int i)
+        {
+            double pow = Math.Pow(i, i);
+        }
+        private void LimpiarTodo()
+        {
+            progressBar1.Value = Convert.ToInt32(null);
+            progressBar1.Visible = false;
+            LimpiarCamposDeCarga();
+            dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
+        }
+        private List<Fecha> CargarEntidad()
+        {
+            Fecha _fecha = new Fecha();
             var torneo = cmbTorneo.Text;
             string var = torneo;
             string Torneo = var.Split('-')[0];
             string Temporada = var.Split('-')[1];
-            bool FechaValida = TorneoNeg.ValidarFecha(txtFecha.Text, Torneo, Temporada);
-            bool NroFechaValido = TorneoNeg.ValidarNroFechaExistente(txtFecha.Text, Torneo, Temporada);
-            if (FechaValida == false)
+            _fecha.Torneo = Torneo;
+            _fecha.NroFecha = txtFecha.Text;
+            int idusuarioLogueado = Sesion.UsuarioLogueado.IdUsuario;
+            List<Entidades.Fecha> listaFechaEstatica = new List<Fecha>();
+            for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
             {
-                const string message2 = "Ya se alcanzo el máximo de fechas predispuesta para el torneo seleccionado.";
-                const string caption2 = "Error";
-                var result2 = MessageBox.Show(message2, caption2,
-                                             MessageBoxButtons.OK,
-                                             MessageBoxIcon.Error);
+                Fecha listaFecha = new Fecha();
+                DateTime dia = Convert.ToDateTime(this.dataGridView1.Rows[i].Cells[0].Value.ToString());
+                string estadio = Convert.ToString(this.dataGridView1.Rows[i].Cells[1].Value.ToString());
+                string equipoLocal = Convert.ToString(this.dataGridView1.Rows[i].Cells[3].Value.ToString());
+                string equipoVisitante = Convert.ToString(this.dataGridView1.Rows[i].Cells[5].Value.ToString());
+                string campeonato = _fecha.Torneo;
+                string temporada = Temporada;
+                string nroFecha = _fecha.NroFecha;
+                listaFecha.Dia = dia;
+                listaFecha.Estadio = estadio;
+                listaFecha.EquipoLocal = equipoLocal;
+                listaFecha.EquipoVisitante = equipoVisitante;
+                listaFecha.Torneo = campeonato;
+                listaFecha.Temporada = temporada;
+                listaFecha.NroFecha = nroFecha;
+                listaFechaEstatica.Add(listaFecha);
             }
-            else
+
+            return listaFechaEstatica;
+        }
+        #endregion
+        #region Botones
+        private void btnCargar_Click(object sender, EventArgs e)
+        {
+            try
             {
-                string fecha = dtFecha.Value.ToShortDateString();
-                dataGridView1.Rows.Add(fecha, cmbEstadio.Text, " ", cmbLocal.Text, " ", cmbVisitante.Text, " ");
+                var torneo = cmbTorneo.Text;
+                string var = torneo;
+                string Torneo = var.Split('-')[0];
+                string Temporada = var.Split('-')[1];
+                bool FechaValida = TorneoNeg.ValidarFecha(txtFecha.Text, Torneo, Temporada);
+                bool NroFechaValido = TorneoNeg.ValidarNroFechaExistente(txtFecha.Text, Torneo, Temporada);
+                if (FechaValida == false)
+                {
+                    const string message2 = "Ya se alcanzo el máximo de fechas predispuesta para el torneo seleccionado.";
+                    const string caption2 = "Error";
+                    var result2 = MessageBox.Show(message2, caption2,
+                                                 MessageBoxButtons.OK,
+                                                 MessageBoxIcon.Error);
+                    throw new Exception();
+                }
+                if (NroFechaValido == false)
+                {
+                    const string message2 = "Ya existe una fecha con el mismo número para el torneo seleccionado.";
+                    const string caption2 = "Error";
+                    var result2 = MessageBox.Show(message2, caption2,
+                                                 MessageBoxButtons.OK,
+                                                 MessageBoxIcon.Error);
+                    throw new Exception();
+                }
+                else
+                {
+                    string fecha = dtFecha.Value.ToShortDateString();
+                    dataGridView1.Rows.Add(fecha, cmbEstadio.Text, " ", cmbLocal.Text, " ", cmbVisitante.Text, " ");
+                }
             }
+            catch (Exception ex)
+            { }
         }
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarCamposDeCarga();
         }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            LimpiarTodo();
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<Fecha> _Fecha = CargarEntidad();
+                if (_Fecha.Count > 0)
+                {
+                    bool Exito = FechaNeg.GuardarFecha(_Fecha);
+                    if (Exito == true)
+                    {
+                        ProgressBar();
+                        const string message2 = "Se registro la fecha exitosamente.";
+                        const string caption2 = "Éxito";
+                        var result2 = MessageBox.Show(message2, caption2,
+                                                     MessageBoxButtons.OK,
+                                                     MessageBoxIcon.Asterisk);
+                        LimpiarTodo();
+                    }
+                }
+
+                else
+                {
+                    const string message = "No se ingreso información para cargar.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+            }
+            catch (Exception ex)
+            { }
+        }
         #endregion
+
+
+
     }
 }

@@ -25,5 +25,13 @@ namespace Prode.Clase_Maestra
             }
         }
 
+        public static string[] Sexo
+        {
+            get
+            {
+                return new string[] { "Masculino", "Femenino"};
+            }
+        }
+
     }
 }

@@ -100,6 +100,12 @@ namespace Prode.Negocio
             return EscudoLocal;
         }
 
+        public static string BuscarEstadioPorEquipoLocalSeleccionado(string equipoLocal)
+        {
+           string EstadioLocal = EquipoDao.BuscarEstadioPorEquipoLocalSeleccionado(equipoLocal);
+            return EstadioLocal;
+        }
+
         public static List<Equipos> BuscarEquipoPorNombre(string Nombre)
         {
             List<Equipos> _equipos = new List<Equipos>();

@@ -96,6 +96,7 @@
             // 
             // cmbTemporada
             // 
+            this.cmbTemporada.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTemporada.FormattingEnabled = true;
             this.cmbTemporada.Location = new System.Drawing.Point(200, 89);
             this.cmbTemporada.Name = "cmbTemporada";

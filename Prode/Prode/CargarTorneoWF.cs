@@ -92,7 +92,7 @@ namespace Prode
         private void CargarCombo()
         {
             cmbTemporada.Focus();
-            string[] Años = Clase_Maestra.ValoresConstantes.Años;
+            string[] Años = Clase_Maestra.ValoresConstantes.Sexo;
             cmbTemporada.Items.Add("Seleccione");
             cmbTemporada.Items.Clear();
             foreach (string item in Años)

@@ -101,6 +101,31 @@ namespace Prode.Dao
             return _listaEstadios;
         }
 
+        public static string BuscarEstadioPorEquipoLocalSeleccionado(string equipoLocal)
+        {
+            string _EstadioLocal = null;
+            connection.Close();
+            connection.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { new MySqlParameter("Nombre_in", equipoLocal) };
+            string proceso = "BuscarEstadioPorEquipoLocalSeleccionado";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    _EstadioLocal = item["Estadio"].ToString();
+                }
+            }
+
+            connection.Close();
+            return _EstadioLocal;
+        }
         public static byte[] BuscarImagenEquipoLocal(string nombreEquipoLocal)
         {
             byte[] _escudoLocal = null;
@@ -129,7 +154,6 @@ namespace Prode.Dao
             connection.Close();
             return _escudoLocal;
         }
-
         public static bool ValidarEquipoExistente(string nombreEquipo)
         {
             connection.Close();
@@ -155,7 +179,6 @@ namespace Prode.Dao
             connection.Close();
             return Existe;
         }
-
         public static List<Equipos> BuscarEquipoPorNombre(string nombre)
         {
             connection.Close();

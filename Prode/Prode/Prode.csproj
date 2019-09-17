@@ -49,6 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApostadoresWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApostadoresWF.Designer.cs">
+      <DependentUpon>ApostadoresWF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CargarJugadasWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CargarJugadasWF.Designer.cs">
+      <DependentUpon>CargarJugadasWF.cs</DependentUpon>
+    </Compile>
     <Compile Include="CargarTorneoWF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,12 +77,16 @@
     <Compile Include="Clases_Maestras\Funciones.cs" />
     <Compile Include="Clases_Maestras\Sesion.cs" />
     <Compile Include="Clases_Maestras\ValoresConstantes.cs" />
+    <Compile Include="Dao\ApostadoresDao.cs" />
     <Compile Include="Dao\Consultar.cs" />
     <Compile Include="Dao\EquipoDao.cs" />
+    <Compile Include="Dao\FechaDao.cs" />
     <Compile Include="Dao\InsertDao.cs" />
     <Compile Include="Dao\TorneoDao.cs" />
     <Compile Include="Dao\UsuarioDao.cs" />
+    <Compile Include="Entidades\Apostadores.cs" />
     <Compile Include="Entidades\Equipos.cs" />
+    <Compile Include="Entidades\Fecha.cs" />
     <Compile Include="Entidades\Torneo.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="EquiposWF.cs">
@@ -103,13 +119,21 @@
     <Compile Include="MasterWF.Designer.cs">
       <DependentUpon>MasterWF.cs</DependentUpon>
     </Compile>
+    <Compile Include="Negocio\ApostadoresNeg.cs" />
     <Compile Include="Negocio\Consultar.cs" />
     <Compile Include="Negocio\EquiposNeg.cs" />
+    <Compile Include="Negocio\FechaNeg.cs" />
     <Compile Include="Negocio\Insert.cs" />
     <Compile Include="Negocio\TorneoNeg.cs" />
     <Compile Include="Negocio\UsuarioNeg.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ApostadoresWF.resx">
+      <DependentUpon>ApostadoresWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CargarJugadasWF.resx">
+      <DependentUpon>CargarJugadasWF.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CargarTorneoWF.resx">
       <DependentUpon>CargarTorneoWF.cs</DependentUpon>
     </EmbeddedResource>

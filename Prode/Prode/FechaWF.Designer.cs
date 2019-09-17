@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.pictureBoxVisitante = new System.Windows.Forms.PictureBox();
             this.pictureBoxLocal = new System.Windows.Forms.PictureBox();
             this.btnCargar = new System.Windows.Forms.Button();
@@ -54,7 +55,7 @@
             this.Empate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EquipoVisitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Visitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVisitante)).BeginInit();
@@ -64,6 +65,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.progressBar1);
             this.groupBox1.Controls.Add(this.pictureBoxVisitante);
             this.groupBox1.Controls.Add(this.pictureBoxLocal);
             this.groupBox1.Controls.Add(this.btnCargar);
@@ -86,6 +88,15 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Partidos";
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(299, 194);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(330, 23);
+            this.progressBar1.TabIndex = 46;
+            this.progressBar1.Value = 50;
+            this.progressBar1.Visible = false;
             // 
             // pictureBoxVisitante
             // 
@@ -110,7 +121,7 @@
             this.btnCargar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCargar.Image = global::Prode.Properties.Resources.apoyo;
             this.btnCargar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCargar.Location = new System.Drawing.Point(467, 216);
+            this.btnCargar.Location = new System.Drawing.Point(467, 222);
             this.btnCargar.Name = "btnCargar";
             this.btnCargar.Size = new System.Drawing.Size(80, 51);
             this.btnCargar.TabIndex = 43;
@@ -124,7 +135,7 @@
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.Image = global::Prode.Properties.Resources.error;
             this.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnLimpiar.Location = new System.Drawing.Point(369, 216);
+            this.btnLimpiar.Location = new System.Drawing.Point(369, 222);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(80, 51);
             this.btnLimpiar.TabIndex = 42;
@@ -182,6 +193,7 @@
             // 
             // cmbEstadio
             // 
+            this.cmbEstadio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstadio.FormattingEnabled = true;
             this.cmbEstadio.Location = new System.Drawing.Point(137, 165);
             this.cmbEstadio.Name = "cmbEstadio";
@@ -190,6 +202,7 @@
             // 
             // cmbVisitante
             // 
+            this.cmbVisitante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbVisitante.FormattingEnabled = true;
             this.cmbVisitante.Location = new System.Drawing.Point(579, 105);
             this.cmbVisitante.Name = "cmbVisitante";
@@ -199,6 +212,7 @@
             // 
             // cmbLocal
             // 
+            this.cmbLocal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLocal.FormattingEnabled = true;
             this.cmbLocal.Location = new System.Drawing.Point(137, 105);
             this.cmbLocal.Name = "cmbLocal";
@@ -235,6 +249,7 @@
             // 
             // cmbTorneo
             // 
+            this.cmbTorneo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTorneo.FormattingEnabled = true;
             this.cmbTorneo.Location = new System.Drawing.Point(137, 45);
             this.cmbTorneo.Name = "cmbTorneo";
@@ -245,7 +260,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label18.ForeColor = System.Drawing.Color.SeaGreen;
             this.label18.Location = new System.Drawing.Point(566, 52);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(129, 25);
@@ -311,18 +326,19 @@
             this.Visitante.Name = "Visitante";
             this.Visitante.Width = 50;
             // 
-            // button1
+            // btnGuardar
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = global::Prode.Properties.Resources.apoyo;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(665, 649);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 51);
-            this.button1.TabIndex = 45;
-            this.button1.Text = "Guardar";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Image = global::Prode.Properties.Resources.apoyo;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnGuardar.Location = new System.Drawing.Point(665, 649);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(80, 51);
+            this.btnGuardar.TabIndex = 45;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -336,13 +352,14 @@
             this.button2.Text = "Cancelar";
             this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // FechaWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 743);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label18);
@@ -355,7 +372,7 @@
             this.Controls.SetChildIndex(this.label18, 0);
             this.Controls.SetChildIndex(this.dataGridView1, 0);
             this.Controls.SetChildIndex(this.button2, 0);
-            this.Controls.SetChildIndex(this.button1, 0);
+            this.Controls.SetChildIndex(this.btnGuardar, 0);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVisitante)).EndInit();
@@ -392,9 +409,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Empate;
         private System.Windows.Forms.DataGridViewTextBoxColumn EquipoVisitante;
         private System.Windows.Forms.DataGridViewTextBoxColumn Visitante;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBoxVisitante;
         private System.Windows.Forms.PictureBox pictureBoxLocal;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }

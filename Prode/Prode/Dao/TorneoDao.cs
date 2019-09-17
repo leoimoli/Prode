@@ -69,7 +69,6 @@ namespace Prode.Dao
             connection.Close();
             return Existe;
         }
-
         public static bool ValidarNroFechaExistente(string nroFecha, string torneo, string temporada)
         {
             bool FechaValida = false;
@@ -94,7 +93,7 @@ namespace Prode.Dao
                 {
                     foreach (DataRow item in Tabla.Rows)
                     {
-                        FechaExistente = Convert.ToInt32(item["totalFechas"].ToString());
+                        FechaExistente = Convert.ToInt32(item["NroFecha"].ToString());
                     }
                 }
                 if (FechaExistente > 0)
@@ -135,14 +134,14 @@ namespace Prode.Dao
                 }
                 if (FechasCargadas <= CantidadFechas)
                 {
-                    FechaValida = false;
+                    FechaValida = true;
                 }
-                else { FechaValida = true; }
+                else { FechaValida = false; }
             }
             connection.Close();
             return FechaValida;
         }
-        private static int BuscaIdtorneoPorNombreTemporada(string torneo, string temporada)
+        public static int BuscaIdtorneoPorNombreTemporada(string torneo, string temporada)
         {
             int idTorneo = 0;
             connection.Close();
