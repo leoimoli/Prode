@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Prode.Entidades;
 using MySql.Data.MySqlClient;
 using System.Data;
+using System.Windows.Forms;
 
 namespace Prode.Dao
 {
@@ -39,11 +40,84 @@ namespace Prode.Dao
             connection.Close();
             return Exito;
         }
-
+        public static List<Fecha> BuscarFechaExistente(string torneo, string temporada, string nroFecha)
+        {
+            List<Fecha> lista = new List<Fecha>();
+            int idTorneo = TorneoDao.BuscaIdtorneoPorNombreTemporada(torneo, temporada);
+            int idFecha = ValidarNroFecha(idTorneo, nroFecha);
+            if (idFecha > 0)
+            {
+                connection.Close();
+                connection.Open();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                DataTable Tabla = new DataTable();
+                MySqlParameter[] oParam = {
+                                      new MySqlParameter("idFecha_in", idFecha)};
+                string proceso = "BuscarFecha";
+                MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+                dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+                dt.SelectCommand.Parameters.AddRange(oParam);
+                dt.Fill(Tabla);
+                if (Tabla.Rows.Count > 0)
+                {
+                    foreach (DataRow item in Tabla.Rows)
+                    {
+                        Fecha listaFecha = new Fecha();
+                        listaFecha.idPartido = Convert.ToInt32(item["idPartido"].ToString());
+                        listaFecha.EquipoLocal = item["NombreLocal"].ToString();
+                        listaFecha.EquipoVisitante = item["NombreVisitante"].ToString();
+                        DateTime dia = Convert.ToDateTime(item["FechaPartido"].ToString());
+                        listaFecha.DiaPartido = dia.ToShortDateString();
+                        listaFecha.Estadio = item["Estadio"].ToString();
+                        lista.Add(listaFecha);
+                    }
+                }
+            }
+            else
+            {
+                const string message2 = "La fecha ingresada no existe para el torneo seleccionado.";
+                const string caption2 = "Error";
+                var result2 = MessageBox.Show(message2, caption2,
+                                             MessageBoxButtons.OK,
+                                             MessageBoxIcon.Error);
+                throw new Exception();
+            }
+            connection.Close();
+            return lista;
+        }
+        private static int ValidarNroFecha(int idTorneo, string nroFecha)
+        {
+            connection.Close();
+            int idFecha = 0;
+            connection.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                                      new MySqlParameter("idTorneo_in", idTorneo),
+            new MySqlParameter("nroFecha_in", nroFecha)};
+            string proceso = "ValidarNroFecha";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            DataSet ds = new DataSet();
+            dt.Fill(ds, "Fecha");
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    idFecha = Convert.ToInt32(item["idFecha"].ToString());
+                }
+            }
+            connection.Close();
+            return idFecha;
+        }
         private static bool RegistrarPartidos(List<Fecha> _Fecha, int idFechaCreada)
         {
             bool Exito = false;
-            _Fecha = BuscarIdEquipos(_Fecha);           
+            _Fecha = BuscarIdEquipos(_Fecha);
             foreach (var item in _Fecha)
             {
                 connection.Close();

@@ -15,7 +15,7 @@ namespace Prode.Clases_Maestras
             DataTable dt = new DataTable();
             MySqlConnection conexion = new MySqlConnection(Properties.Settings.Default.db);
             conexion.Open();
-            string consulta = "Select Apellido from Apostadores";
+            string consulta = "Select Apellido, Nombre from Apostadores";
             MySqlCommand cmd = new MySqlCommand(consulta, conexion);
             MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
             adap.Fill(dt);
@@ -29,7 +29,7 @@ namespace Prode.Clases_Maestras
             AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
             foreach (DataRow row in DT.Rows)
             {
-                coleccion.Add(Convert.ToString(row["Apellido"]));
+                coleccion.Add(Convert.ToString(row["Apellido"] + " " + row["Nombre"]));
             }
             return coleccion;
         }

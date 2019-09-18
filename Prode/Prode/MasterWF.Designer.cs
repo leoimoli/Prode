@@ -35,6 +35,8 @@
             this.torneosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cargarTorneoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cargarFechaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.equiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cargarEquiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.periciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cargarPartidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resultadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,8 +46,6 @@
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.equiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cargarEquiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -89,7 +89,7 @@
             this.cargarFechaToolStripMenuItem});
             this.torneosToolStripMenuItem.Image = global::Prode.Properties.Resources.primer_lugar_trofeo;
             this.torneosToolStripMenuItem.Name = "torneosToolStripMenuItem";
-            this.torneosToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.torneosToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
             this.torneosToolStripMenuItem.Text = "Torneos";
             // 
             // cargarTorneoToolStripMenuItem
@@ -108,6 +108,23 @@
             this.cargarFechaToolStripMenuItem.Text = "Cargar Fechas";
             this.cargarFechaToolStripMenuItem.Click += new System.EventHandler(this.cargarFechaToolStripMenuItem_Click);
             // 
+            // equiposToolStripMenuItem
+            // 
+            this.equiposToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cargarEquiposToolStripMenuItem});
+            this.equiposToolStripMenuItem.Image = global::Prode.Properties.Resources.equipo;
+            this.equiposToolStripMenuItem.Name = "equiposToolStripMenuItem";
+            this.equiposToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
+            this.equiposToolStripMenuItem.Text = "Equipos";
+            // 
+            // cargarEquiposToolStripMenuItem
+            // 
+            this.cargarEquiposToolStripMenuItem.Image = global::Prode.Properties.Resources.equipo;
+            this.cargarEquiposToolStripMenuItem.Name = "cargarEquiposToolStripMenuItem";
+            this.cargarEquiposToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
+            this.cargarEquiposToolStripMenuItem.Text = "Cargar Equipos";
+            this.cargarEquiposToolStripMenuItem.Click += new System.EventHandler(this.cargarEquiposToolStripMenuItem_Click);
+            // 
             // periciasToolStripMenuItem
             // 
             this.periciasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -124,6 +141,7 @@
             this.cargarPartidosToolStripMenuItem.Name = "cargarPartidosToolStripMenuItem";
             this.cargarPartidosToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.cargarPartidosToolStripMenuItem.Text = "Cargar Jugadas";
+            this.cargarPartidosToolStripMenuItem.Click += new System.EventHandler(this.cargarPartidosToolStripMenuItem_Click);
             // 
             // resultadosToolStripMenuItem
             // 
@@ -179,23 +197,6 @@
             this.label3.Size = new System.Drawing.Size(135, 17);
             this.label3.TabIndex = 6;
             this.label3.Text = "Prode Versión-1.0.0";
-            // 
-            // equiposToolStripMenuItem
-            // 
-            this.equiposToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cargarEquiposToolStripMenuItem});
-            this.equiposToolStripMenuItem.Image = global::Prode.Properties.Resources.equipo;
-            this.equiposToolStripMenuItem.Name = "equiposToolStripMenuItem";
-            this.equiposToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
-            this.equiposToolStripMenuItem.Text = "Equipos";
-            // 
-            // cargarEquiposToolStripMenuItem
-            // 
-            this.cargarEquiposToolStripMenuItem.Image = global::Prode.Properties.Resources.equipo;
-            this.cargarEquiposToolStripMenuItem.Name = "cargarEquiposToolStripMenuItem";
-            this.cargarEquiposToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
-            this.cargarEquiposToolStripMenuItem.Text = "Cargar Equipos";
-            this.cargarEquiposToolStripMenuItem.Click += new System.EventHandler(this.cargarEquiposToolStripMenuItem_Click);
             // 
             // MasterWF
             // 

@@ -20,5 +20,7 @@ namespace Prode.Entidades
         public int IdEquipoLocal { get; set; }
         public int IdEquipoVisitante { get; set; }
         public int idUsuario { get; set; }
+        public int idPartido { get; set; }
+        public string DiaPartido { get; set; }
     }
 }

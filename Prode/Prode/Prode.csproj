@@ -73,6 +73,7 @@
     <Compile Include="Cargar_PartidosWF.Designer.cs">
       <DependentUpon>Cargar_PartidosWF.cs</DependentUpon>
     </Compile>
+    <Compile Include="Clases_Maestras\AutoCompletePorApostadores.cs" />
     <Compile Include="Clases_Maestras\AutoCompletePorEquipo.cs" />
     <Compile Include="Clases_Maestras\Funciones.cs" />
     <Compile Include="Clases_Maestras\Sesion.cs" />

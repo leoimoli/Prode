@@ -35,6 +35,8 @@
             this.lblDniOApellidoNombre = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
             this.lblDniEdit = new System.Windows.Forms.Label();
             this.lblApellidoNombreEdit = new System.Windows.Forms.Label();
@@ -44,6 +46,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmbTorneo = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Partido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiaPartido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estadio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Local = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,8 +54,6 @@
             this.Empate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EquipoVisitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Visitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -79,6 +80,7 @@
             this.btnBuscar.TabIndex = 32;
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtBuscarApellidoNombre
             // 
@@ -87,6 +89,7 @@
             this.txtBuscarApellidoNombre.Name = "txtBuscarApellidoNombre";
             this.txtBuscarApellidoNombre.Size = new System.Drawing.Size(401, 20);
             this.txtBuscarApellidoNombre.TabIndex = 31;
+            this.txtBuscarApellidoNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscarApellidoNombre_KeyDown);
             // 
             // lblDniOApellidoNombre
             // 
@@ -122,13 +125,40 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.cmbTorneo);
             this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(219, 156);
+            this.groupBox2.Location = new System.Drawing.Point(194, 156);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(873, 543);
+            this.groupBox2.Size = new System.Drawing.Size(906, 543);
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Fecha";
             this.groupBox2.Visible = false;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Image = global::Prode.Properties.Resources.apoyo;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnGuardar.Location = new System.Drawing.Point(453, 481);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(80, 51);
+            this.btnGuardar.TabIndex = 47;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Image = global::Prode.Properties.Resources.error;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button2.Location = new System.Drawing.Point(355, 481);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(80, 51);
+            this.button2.TabIndex = 46;
+            this.button2.Text = "Cancelar";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label26
             // 
@@ -176,6 +206,7 @@
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.Size = new System.Drawing.Size(225, 20);
             this.txtFecha.TabIndex = 37;
+            this.txtFecha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFecha_KeyDown);
             // 
             // label2
             // 
@@ -211,6 +242,7 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Partido,
             this.DiaPartido,
             this.Estadio,
             this.Local,
@@ -220,15 +252,21 @@
             this.Visitante});
             this.dataGridView1.Location = new System.Drawing.Point(10, 128);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(857, 347);
+            this.dataGridView1.Size = new System.Drawing.Size(890, 347);
             this.dataGridView1.TabIndex = 31;
             this.dataGridView1.Visible = false;
+            // 
+            // Partido
+            // 
+            this.Partido.HeaderText = "Nro.Partido";
+            this.Partido.Name = "Partido";
+            this.Partido.Width = 65;
             // 
             // DiaPartido
             // 
             this.DiaPartido.HeaderText = "Día de partido";
             this.DiaPartido.Name = "DiaPartido";
-            this.DiaPartido.Width = 110;
+            this.DiaPartido.Width = 80;
             // 
             // Estadio
             // 
@@ -266,32 +304,6 @@
             this.Visitante.Name = "Visitante";
             this.Visitante.Width = 50;
             // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Image = global::Prode.Properties.Resources.apoyo;
-            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnGuardar.Location = new System.Drawing.Point(453, 481);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(80, 51);
-            this.btnGuardar.TabIndex = 47;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Image = global::Prode.Properties.Resources.error;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(355, 481);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(80, 51);
-            this.button2.TabIndex = 46;
-            this.button2.Text = "Cancelar";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // CargarJugadasWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -327,13 +339,6 @@
         private System.Windows.Forms.Label lblDniOApellidoNombre;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DiaPartido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estadio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Local;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EquipoLocal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Empate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EquipoVisitante;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Visitante;
         private System.Windows.Forms.TextBox txtFecha;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -344,5 +349,13 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Partido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DiaPartido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estadio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Local;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EquipoLocal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Empate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EquipoVisitante;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Visitante;
     }
 }

@@ -48,7 +48,6 @@ namespace Prode.Dao
             connection.Close();
             return exito;
         }
-
         public static List<string> CargarComboEquipo()
         {
             List<string> _listaEquipos = new List<string>();
@@ -74,7 +73,6 @@ namespace Prode.Dao
             connection.Close();
             return _listaEquipos;
         }
-
         public static List<string> CargarComboEstadios()
         {
             List<string> _listaEstadios = new List<string>();
@@ -100,7 +98,6 @@ namespace Prode.Dao
             connection.Close();
             return _listaEstadios;
         }
-
         public static string BuscarEstadioPorEquipoLocalSeleccionado(string equipoLocal)
         {
             string _EstadioLocal = null;

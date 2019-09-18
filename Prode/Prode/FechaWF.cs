@@ -153,7 +153,7 @@ namespace Prode
             progressBar1.Value = Convert.ToInt32(null);
             progressBar1.Visible = false;
             LimpiarCamposDeCarga();
-            dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
+            dataGridView1.DataSource = null;
         }
         private List<Fecha> CargarEntidad()
         {

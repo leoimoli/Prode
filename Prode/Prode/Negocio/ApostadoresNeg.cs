@@ -55,7 +55,7 @@ namespace Prode.Negocio
                                            MessageBoxIcon.Exclamation);
                 throw new Exception();
             }
-            if (_apostador.Sexo != "Seleccione")
+            if (_apostador.Sexo == "Seleccione" || _apostador.Sexo == null)
             {
                 const string message = "El campo Sexo es obligatorio.";
                 const string caption = "Error";
@@ -64,6 +64,19 @@ namespace Prode.Negocio
                                            MessageBoxIcon.Exclamation);
                 throw new Exception();
             }
+        }
+        public static List<Apostadores> BuscarApostadorPorApellidoYNombre(string apellidoNombre)
+        {
+            List<Apostadores> _listaApostadores = new List<Apostadores>();
+            try
+            {
+                _listaApostadores = ApostadoresDao.BuscarApostadorPorApellidoYNombre(apellidoNombre);
+            }
+            catch (Exception ex)
+            {
+               
+            }
+            return _listaApostadores;
         }
     }
 }

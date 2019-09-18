@@ -34,5 +34,12 @@ namespace Prode
             _fecha.Show();
             Hide();
         }
+
+        private void cargarPartidosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CargarJugadasWF _jugadas = new CargarJugadasWF();
+            _jugadas.Show();
+            Hide();
+        }
     }
 }

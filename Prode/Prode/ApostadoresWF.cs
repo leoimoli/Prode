@@ -23,6 +23,22 @@ namespace Prode
             FuncionesHabilitarPantallaDeInicio();
         }
         #region Funciones
+        private void ProgressBar()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Maximum = 100000;
+            progressBar1.Step = 1;
+
+            for (int j = 0; j < 100000; j++)
+            {
+                Caluculate(j);
+                progressBar1.PerformStep();
+            }
+        }
+        private void Caluculate(int i)
+        {
+            double pow = Math.Pow(i, i);
+        }
         private void FuncionesHabilitarPantallaDeInicio()
         {
             txtApellido.Focus();
@@ -50,6 +66,17 @@ namespace Prode
             _apostadores.Email = txtEmail.Text;
             return _apostadores;
         }
+        private void LimpiarCampos()
+        {
+            progressBar1.Value = Convert.ToInt32(null);
+            progressBar1.Visible = false;
+            txtApellido.Clear();
+            txtNombre.Clear();
+            txtDni.Clear();
+            txtTelefono.Clear();
+            txtEmail.Clear();
+            CargarComboSexo();
+        }
         #endregion
         #region Bototnes
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -64,8 +91,8 @@ namespace Prode
         }
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            InicioWF _inicio = new InicioWF();
-            _inicio.Show();
+            CargarJugadasWF _jugadas = new CargarJugadasWF();
+            _jugadas.Show();
             Hide();
         }
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -74,10 +101,20 @@ namespace Prode
             {
                 Entidades.Apostadores _apostador = CargarEntidad();
                 bool Exito = ApostadoresNeg.GuardarApostador(_apostador);
+                if (Exito == true)
+                {
+                    ProgressBar();
+                    const string message2 = "Se registro la fecha exitosamente.";
+                    const string caption2 = "Éxito";
+                    var result2 = MessageBox.Show(message2, caption2,
+                                                 MessageBoxButtons.OK,
+                                                 MessageBoxIcon.Asterisk);
+                    LimpiarCampos();
+                }
             }
             catch (Exception ex)
             { }
-        }
+        }       
         #endregion
     }
 }
