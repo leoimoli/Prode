@@ -251,6 +251,18 @@
   <ItemGroup>
     <None Include="Resources\buscar.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\puntuacion-final.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imprimir-documento.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\simbolo-de-formato-de-archivo-pdf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\simbolo-correcto.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

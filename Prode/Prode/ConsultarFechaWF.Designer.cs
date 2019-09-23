@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsultarFechaWF));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.btnPdf = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
@@ -47,12 +49,14 @@
             this.EquipoVisitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Visitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label18 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnBuscar);
             this.groupBox2.Controls.Add(this.progressBar1);
             this.groupBox2.Controls.Add(this.btnPdf);
             this.groupBox2.Controls.Add(this.btnVolver);
@@ -67,7 +71,18 @@
             this.groupBox2.TabIndex = 32;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Fecha";
-            this.groupBox2.Visible = false;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = global::Prode.Properties.Resources.simbolo_correcto;
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnBuscar.Location = new System.Drawing.Point(838, 25);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(33, 30);
+            this.btnBuscar.TabIndex = 121;
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // progressBar1
             // 
@@ -81,14 +96,15 @@
             // btnPdf
             // 
             this.btnPdf.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPdf.Image = global::Prode.Properties.Resources.apoyo;
+            this.btnPdf.Image = global::Prode.Properties.Resources.simbolo_de_formato_de_archivo_pdf;
             this.btnPdf.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnPdf.Location = new System.Drawing.Point(441, 534);
             this.btnPdf.Name = "btnPdf";
             this.btnPdf.Size = new System.Drawing.Size(80, 51);
             this.btnPdf.TabIndex = 3;
-            this.btnPdf.Text = "PDF";
+            this.btnPdf.Text = "Generar";
             this.btnPdf.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolTip1.SetToolTip(this.btnPdf, "Generar PDF");
             this.btnPdf.UseVisualStyleBackColor = true;
             // 
             // btnVolver
@@ -102,7 +118,9 @@
             this.btnVolver.TabIndex = 4;
             this.btnVolver.Text = "Volver";
             this.btnVolver.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolTip1.SetToolTip(this.btnVolver, "Volver");
             this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // txtFecha
             // 
@@ -110,6 +128,7 @@
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.Size = new System.Drawing.Size(225, 20);
             this.txtFecha.TabIndex = 1;
+            this.txtFecha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFecha_KeyDown);
             // 
             // label2
             // 
@@ -153,7 +172,7 @@
             this.Empate,
             this.EquipoVisitante,
             this.Visitante});
-            this.dataGridView1.Location = new System.Drawing.Point(10, 55);
+            this.dataGridView1.Location = new System.Drawing.Point(10, 69);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(890, 444);
             this.dataGridView1.TabIndex = 2;
@@ -233,7 +252,10 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ConsultarFechaWF";
             this.Text = "Consultar Fecha";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ConsultarFechaWF_Load);
+            this.Controls.SetChildIndex(this.groupBox2, 0);
+            this.Controls.SetChildIndex(this.label18, 0);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -262,5 +284,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EquipoVisitante;
         private System.Windows.Forms.DataGridViewTextBoxColumn Visitante;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

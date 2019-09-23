@@ -203,6 +203,16 @@ namespace Prode.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap imprimir_documento {
+            get {
+                object obj = ResourceManager.GetObject("imprimir-documento", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap jugadores_de_futbol_en_el_campo {
             get {
                 object obj = ResourceManager.GetObject("jugadores-de-futbol-en-el-campo", resourceCulture);
@@ -236,6 +246,36 @@ namespace Prode.Properties {
         internal static System.Drawing.Bitmap programar {
             get {
                 object obj = ResourceManager.GetObject("programar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap puntuacion_final {
+            get {
+                object obj = ResourceManager.GetObject("puntuacion-final", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap simbolo_correcto {
+            get {
+                object obj = ResourceManager.GetObject("simbolo-correcto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap simbolo_de_formato_de_archivo_pdf {
+            get {
+                object obj = ResourceManager.GetObject("simbolo-de-formato-de-archivo-pdf", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
