@@ -41,5 +41,10 @@ namespace Prode
             _jugadas.Show();
             Hide();
         }
+
+        private void imprimirCuponesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

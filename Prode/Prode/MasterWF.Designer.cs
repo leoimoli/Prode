@@ -46,6 +46,8 @@
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.cargarResultadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imprimirCuponesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -86,17 +88,18 @@
             // 
             this.torneosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cargarTorneoToolStripMenuItem,
-            this.cargarFechaToolStripMenuItem});
+            this.cargarFechaToolStripMenuItem,
+            this.cargarResultadosToolStripMenuItem});
             this.torneosToolStripMenuItem.Image = global::Prode.Properties.Resources.primer_lugar_trofeo;
             this.torneosToolStripMenuItem.Name = "torneosToolStripMenuItem";
-            this.torneosToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
+            this.torneosToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.torneosToolStripMenuItem.Text = "Torneos";
             // 
             // cargarTorneoToolStripMenuItem
             // 
             this.cargarTorneoToolStripMenuItem.Image = global::Prode.Properties.Resources.accesorios;
             this.cargarTorneoToolStripMenuItem.Name = "cargarTorneoToolStripMenuItem";
-            this.cargarTorneoToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.cargarTorneoToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.cargarTorneoToolStripMenuItem.Text = "Cargar Torneo";
             this.cargarTorneoToolStripMenuItem.Click += new System.EventHandler(this.cargarTorneoToolStripMenuItem_Click);
             // 
@@ -104,7 +107,7 @@
             // 
             this.cargarFechaToolStripMenuItem.Image = global::Prode.Properties.Resources.calendario;
             this.cargarFechaToolStripMenuItem.Name = "cargarFechaToolStripMenuItem";
-            this.cargarFechaToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.cargarFechaToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.cargarFechaToolStripMenuItem.Text = "Cargar Fechas";
             this.cargarFechaToolStripMenuItem.Click += new System.EventHandler(this.cargarFechaToolStripMenuItem_Click);
             // 
@@ -114,7 +117,7 @@
             this.cargarEquiposToolStripMenuItem});
             this.equiposToolStripMenuItem.Image = global::Prode.Properties.Resources.equipo;
             this.equiposToolStripMenuItem.Name = "equiposToolStripMenuItem";
-            this.equiposToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
+            this.equiposToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.equiposToolStripMenuItem.Text = "Equipos";
             // 
             // cargarEquiposToolStripMenuItem
@@ -129,7 +132,8 @@
             // 
             this.periciasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cargarPartidosToolStripMenuItem,
-            this.resultadosToolStripMenuItem});
+            this.resultadosToolStripMenuItem,
+            this.imprimirCuponesToolStripMenuItem});
             this.periciasToolStripMenuItem.Image = global::Prode.Properties.Resources.betting;
             this.periciasToolStripMenuItem.Name = "periciasToolStripMenuItem";
             this.periciasToolStripMenuItem.Size = new System.Drawing.Size(94, 25);
@@ -139,15 +143,15 @@
             // 
             this.cargarPartidosToolStripMenuItem.Image = global::Prode.Properties.Resources.betting;
             this.cargarPartidosToolStripMenuItem.Name = "cargarPartidosToolStripMenuItem";
-            this.cargarPartidosToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.cargarPartidosToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
             this.cargarPartidosToolStripMenuItem.Text = "Cargar Jugadas";
             this.cargarPartidosToolStripMenuItem.Click += new System.EventHandler(this.cargarPartidosToolStripMenuItem_Click);
             // 
             // resultadosToolStripMenuItem
             // 
             this.resultadosToolStripMenuItem.Name = "resultadosToolStripMenuItem";
-            this.resultadosToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.resultadosToolStripMenuItem.Text = "Resultados Jugadas";
+            this.resultadosToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
+            this.resultadosToolStripMenuItem.Text = "Resultados ";
             // 
             // usuariosToolStripMenuItem
             // 
@@ -198,6 +202,19 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Prode Versión-1.0.0";
             // 
+            // cargarResultadosToolStripMenuItem
+            // 
+            this.cargarResultadosToolStripMenuItem.Name = "cargarResultadosToolStripMenuItem";
+            this.cargarResultadosToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            this.cargarResultadosToolStripMenuItem.Text = "Cargar Resultados";
+            // 
+            // imprimirCuponesToolStripMenuItem
+            // 
+            this.imprimirCuponesToolStripMenuItem.Name = "imprimirCuponesToolStripMenuItem";
+            this.imprimirCuponesToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
+            this.imprimirCuponesToolStripMenuItem.Text = "Imprimir Cupones";
+            this.imprimirCuponesToolStripMenuItem.Click += new System.EventHandler(this.imprimirCuponesToolStripMenuItem_Click);
+            // 
             // MasterWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,5 +253,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolStripMenuItem equiposToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cargarEquiposToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cargarResultadosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem imprimirCuponesToolStripMenuItem;
     }
 }
