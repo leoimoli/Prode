@@ -35,6 +35,8 @@
             this.lblDniOApellidoNombre = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblidApostador = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
@@ -77,7 +79,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(575, 18);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(49, 39);
-            this.btnBuscar.TabIndex = 32;
+            this.btnBuscar.TabIndex = 1;
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -88,7 +90,7 @@
             this.txtBuscarApellidoNombre.Location = new System.Drawing.Point(168, 28);
             this.txtBuscarApellidoNombre.Name = "txtBuscarApellidoNombre";
             this.txtBuscarApellidoNombre.Size = new System.Drawing.Size(401, 20);
-            this.txtBuscarApellidoNombre.TabIndex = 31;
+            this.txtBuscarApellidoNombre.TabIndex = 0;
             this.txtBuscarApellidoNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscarApellidoNombre_KeyDown);
             // 
             // lblDniOApellidoNombre
@@ -114,6 +116,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lblidApostador);
+            this.groupBox2.Controls.Add(this.progressBar1);
             this.groupBox2.Controls.Add(this.btnGuardar);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.label26);
@@ -133,6 +137,26 @@
             this.groupBox2.Text = "Fecha";
             this.groupBox2.Visible = false;
             // 
+            // lblidApostador
+            // 
+            this.lblidApostador.AutoSize = true;
+            this.lblidApostador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblidApostador.Location = new System.Drawing.Point(398, 30);
+            this.lblidApostador.Name = "lblidApostador";
+            this.lblidApostador.Size = new System.Drawing.Size(25, 20);
+            this.lblidApostador.TabIndex = 121;
+            this.lblidApostador.Text = "@";
+            this.lblidApostador.Visible = false;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(277, 434);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(330, 23);
+            this.progressBar1.TabIndex = 120;
+            this.progressBar1.Value = 50;
+            this.progressBar1.Visible = false;
+            // 
             // btnGuardar
             // 
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -141,10 +165,11 @@
             this.btnGuardar.Location = new System.Drawing.Point(453, 481);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(80, 51);
-            this.btnGuardar.TabIndex = 47;
+            this.btnGuardar.TabIndex = 3;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // button2
             // 
@@ -154,7 +179,7 @@
             this.button2.Location = new System.Drawing.Point(355, 481);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(80, 51);
-            this.button2.TabIndex = 46;
+            this.button2.TabIndex = 4;
             this.button2.Text = "Cancelar";
             this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button2.UseVisualStyleBackColor = true;
@@ -205,7 +230,7 @@
             this.txtFecha.Location = new System.Drawing.Point(593, 69);
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.Size = new System.Drawing.Size(225, 20);
-            this.txtFecha.TabIndex = 37;
+            this.txtFecha.TabIndex = 1;
             this.txtFecha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFecha_KeyDown);
             // 
             // label2
@@ -235,7 +260,7 @@
             this.cmbTorneo.Location = new System.Drawing.Point(151, 70);
             this.cmbTorneo.Name = "cmbTorneo";
             this.cmbTorneo.Size = new System.Drawing.Size(200, 21);
-            this.cmbTorneo.TabIndex = 34;
+            this.cmbTorneo.TabIndex = 0;
             // 
             // dataGridView1
             // 
@@ -253,25 +278,28 @@
             this.dataGridView1.Location = new System.Drawing.Point(10, 128);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(890, 347);
-            this.dataGridView1.TabIndex = 31;
+            this.dataGridView1.TabIndex = 2;
             this.dataGridView1.Visible = false;
             // 
             // Partido
             // 
             this.Partido.HeaderText = "Nro.Partido";
             this.Partido.Name = "Partido";
+            this.Partido.ReadOnly = true;
             this.Partido.Width = 65;
             // 
             // DiaPartido
             // 
             this.DiaPartido.HeaderText = "Día de partido";
             this.DiaPartido.Name = "DiaPartido";
+            this.DiaPartido.ReadOnly = true;
             this.DiaPartido.Width = 80;
             // 
             // Estadio
             // 
             this.Estadio.HeaderText = "Estadio";
             this.Estadio.Name = "Estadio";
+            this.Estadio.ReadOnly = true;
             this.Estadio.Width = 150;
             // 
             // Local
@@ -284,6 +312,7 @@
             // 
             this.EquipoLocal.HeaderText = "Equipo Local";
             this.EquipoLocal.Name = "EquipoLocal";
+            this.EquipoLocal.ReadOnly = true;
             this.EquipoLocal.Width = 200;
             // 
             // Empate
@@ -296,6 +325,7 @@
             // 
             this.EquipoVisitante.HeaderText = "Equipo Visitante";
             this.EquipoVisitante.Name = "EquipoVisitante";
+            this.EquipoVisitante.ReadOnly = true;
             this.EquipoVisitante.Width = 200;
             // 
             // Visitante
@@ -357,5 +387,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Empate;
         private System.Windows.Forms.DataGridViewTextBoxColumn EquipoVisitante;
         private System.Windows.Forms.DataGridViewTextBoxColumn Visitante;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label lblidApostador;
     }
 }

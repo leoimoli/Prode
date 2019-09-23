@@ -23,7 +23,35 @@ namespace Prode
             FuncionesBotonHabilitarBuscar();
             CargarCombos();
         }
-        #region Funciones
+        #region Funciones     
+        private List<Jugada> CargarEntidadJugada()
+        {
+            List<Jugada> _lista = new List<Jugada>();
+            for (int fila = 0; fila < dataGridView1.Rows.Count - 1; fila++)
+            {
+                Jugada _jugada = new Jugada();
+                string idPartido = dataGridView1.Rows[fila].Cells[0].Value.ToString();
+                string Local = dataGridView1.Rows[fila].Cells[3].Value.ToString();
+                string Empate = dataGridView1.Rows[fila].Cells[5].Value.ToString();
+                string Visitante = dataGridView1.Rows[fila].Cells[7].Value.ToString();
+                _jugada.idPartido = Convert.ToInt32(idPartido);
+                if (Local == "x")
+                {
+                    _jugada.idResultado = 1;
+                }
+                if (Empate == "x")
+                {
+                    _jugada.idResultado = 3;
+                }
+                if (Visitante == "x")
+                {
+                    _jugada.idResultado = 2;
+                }
+                _jugada.idApostador = Convert.ToInt32(lblidApostador.Text);
+                _lista.Add(_jugada);
+            }
+            return _lista;
+        }
         private void CargarCombos()
         {
             List<string> Torneo = new List<string>();
@@ -55,6 +83,7 @@ namespace Prode
                 var apostador = _apostadores.First();
                 lblApellidoNombreEdit.Text = ApellidoNombre;
                 lblDniEdit.Text = apostador.Dni;
+                lblidApostador.Text = Convert.ToString(apostador.idApostador);
             }
             else
             {
@@ -117,9 +146,48 @@ namespace Prode
             txtBuscarApellidoNombre.Focus();
             lblApellidoNombreEdit.Text = "";
             lblDniEdit.Text = "";
+            progressBar1.Value = Convert.ToInt32(null);
+            progressBar1.Visible = false;
+        }
+        private void ProgressBar()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Maximum = 100000;
+            progressBar1.Step = 1;
+
+            for (int j = 0; j < 100000; j++)
+            {
+                Caluculate(j);
+                progressBar1.PerformStep();
+            }
+        }
+        private void Caluculate(int i)
+        {
+            double pow = Math.Pow(i, i);
         }
         #endregion
         #region Botones
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<Jugada> _listaJugada = new List<Jugada>();
+                _listaJugada = CargarEntidadJugada();
+                bool Exito = JugadaNeg.GuardarJugada(_listaJugada);
+                if (Exito == true)
+                {
+                    ProgressBar();
+                    const string message2 = "Se registro la jugada exitosamente.";
+                    const string caption2 = "Éxito";
+                    var result2 = MessageBox.Show(message2, caption2,
+                                                 MessageBoxButtons.OK,
+                                                 MessageBoxIcon.Asterisk);
+                    LimpiarTodo();
+                }
+            }
+            catch (Exception ex)
+            { }
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             LimpiarTodo();
@@ -134,6 +202,8 @@ namespace Prode
             { }
 
         }
-        #endregion                
+        #endregion
+
+
     }
 }

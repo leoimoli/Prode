@@ -83,11 +83,13 @@
     <Compile Include="Dao\EquipoDao.cs" />
     <Compile Include="Dao\FechaDao.cs" />
     <Compile Include="Dao\InsertDao.cs" />
+    <Compile Include="Dao\JugadaDao.cs" />
     <Compile Include="Dao\TorneoDao.cs" />
     <Compile Include="Dao\UsuarioDao.cs" />
     <Compile Include="Entidades\Apostadores.cs" />
     <Compile Include="Entidades\Equipos.cs" />
     <Compile Include="Entidades\Fecha.cs" />
+    <Compile Include="Entidades\Jugada.cs" />
     <Compile Include="Entidades\Torneo.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="EquiposWF.cs">
@@ -125,6 +127,7 @@
     <Compile Include="Negocio\EquiposNeg.cs" />
     <Compile Include="Negocio\FechaNeg.cs" />
     <Compile Include="Negocio\Insert.cs" />
+    <Compile Include="Negocio\JugadaNeg.cs" />
     <Compile Include="Negocio\TorneoNeg.cs" />
     <Compile Include="Negocio\UsuarioNeg.cs" />
     <Compile Include="Program.cs" />
