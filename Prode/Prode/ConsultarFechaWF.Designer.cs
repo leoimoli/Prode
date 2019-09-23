@@ -106,6 +106,7 @@
             this.btnPdf.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.btnPdf, "Generar PDF");
             this.btnPdf.UseVisualStyleBackColor = true;
+            this.btnPdf.Click += new System.EventHandler(this.btnPdf_Click);
             // 
             // btnVolver
             // 

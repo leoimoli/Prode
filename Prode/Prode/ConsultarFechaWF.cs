@@ -48,6 +48,16 @@ namespace Prode
             catch (Exception ex)
             { }
         }
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            InicioWF _inicio = new InicioWF();
+            _inicio.Show();
+            Hide();
+        }
+        private void btnPdf_Click(object sender, EventArgs e)
+        {
+
+        }
         #endregion
         #region Funciones
         private void CargarCombos()
@@ -93,14 +103,6 @@ namespace Prode
                 { }
             }
         }
-
-        #endregion
-
-        private void btnVolver_Click(object sender, EventArgs e)
-        {
-            InicioWF _inicio = new InicioWF();
-            _inicio.Show();
-            Hide();
-        }
+        #endregion      
     }
 }
