@@ -12,5 +12,5 @@ namespace Prode.Entidades
         public int idApostador { get; set; }
         public int idPartido { get; set; }
         public int idResultado { get; set; }
-    }
+           }
 }
