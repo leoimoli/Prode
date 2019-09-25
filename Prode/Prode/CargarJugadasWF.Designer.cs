@@ -56,6 +56,7 @@
             this.Empate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EquipoVisitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Visitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblMensaje = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -116,6 +117,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lblMensaje);
             this.groupBox2.Controls.Add(this.lblidApostador);
             this.groupBox2.Controls.Add(this.progressBar1);
             this.groupBox2.Controls.Add(this.btnGuardar);
@@ -131,7 +133,7 @@
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Location = new System.Drawing.Point(194, 156);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(906, 543);
+            this.groupBox2.Size = new System.Drawing.Size(906, 557);
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Fecha";
@@ -150,7 +152,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(277, 434);
+            this.progressBar1.Location = new System.Drawing.Point(276, 414);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(330, 23);
             this.progressBar1.TabIndex = 120;
@@ -162,7 +164,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = global::Prode.Properties.Resources.apoyo;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnGuardar.Location = new System.Drawing.Point(453, 481);
+            this.btnGuardar.Location = new System.Drawing.Point(452, 500);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(80, 51);
             this.btnGuardar.TabIndex = 3;
@@ -176,7 +178,7 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Image = global::Prode.Properties.Resources.error;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(355, 481);
+            this.button2.Location = new System.Drawing.Point(354, 500);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(80, 51);
             this.button2.TabIndex = 4;
@@ -275,7 +277,7 @@
             this.Empate,
             this.EquipoVisitante,
             this.Visitante});
-            this.dataGridView1.Location = new System.Drawing.Point(10, 128);
+            this.dataGridView1.Location = new System.Drawing.Point(10, 104);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(890, 347);
             this.dataGridView1.TabIndex = 2;
@@ -334,6 +336,17 @@
             this.Visitante.Name = "Visitante";
             this.Visitante.Width = 50;
             // 
+            // lblMensaje
+            // 
+            this.lblMensaje.AutoSize = true;
+            this.lblMensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensaje.Location = new System.Drawing.Point(7, 454);
+            this.lblMensaje.Name = "lblMensaje";
+            this.lblMensaje.Size = new System.Drawing.Size(416, 20);
+            this.lblMensaje.TabIndex = 122;
+            this.lblMensaje.Text = "Atención solo indique con una \"X\" el resultado del partido.";
+            this.lblMensaje.Visible = false;
+            // 
             // CargarJugadasWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -389,5 +402,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Visitante;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label lblidApostador;
+        private System.Windows.Forms.Label lblMensaje;
     }
 }

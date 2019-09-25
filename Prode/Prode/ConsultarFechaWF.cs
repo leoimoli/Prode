@@ -80,48 +80,47 @@ namespace Prode
         }
         private void btnPdf_Click(object sender, EventArgs e)
         {
-            ProgressBar();
-            List<Fecha> _jugada = new List<Fecha>();
-            _jugada = ObtenerDatosParaPdf();
-            Document documentoPDF = new Document();
-            var prueba =
-            PdfWriter.GetInstance(documentoPDF, new FileStream("C:/'" + cmbTorneo.Text + " Nro.Factura " + txtFecha.Text + "'.pdf", FileMode.Create));
-            documentoPDF.Open();
-            Paragraph p1 = new Paragraph("Día " + "          " + "Estadio " + "          " + "Local" + "                    " + " Equipo" + "                    " + "Empate" + "                    " + "Equipo" + "                    " + "Visitante", FontFactory.GetFont(FontFactory.TIMES, 11, iTextSharp.text.Font.NORMAL));
-            Paragraph p2 = new Paragraph();
-            List<Paragraph> PruebaParagraph = new List<Paragraph>();
-            //int partidosCount = _jugada.Count;
-            for (int i = 0; i < _jugada.Count; i++)
+            PdfPTable pdfTable = new PdfPTable(dataGridView1.ColumnCount);
+            pdfTable.DefaultCell.Padding = 3;
+            pdfTable.WidthPercentage = 70;
+            pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfTable.DefaultCell.BorderWidth = 1;
+            //Adding Header row
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
             {
-                p2.Clear();
-
-                p2 = new Paragraph(_jugada[i].Dia.ToShortDateString() + "     " + _jugada[i].Estadio + "     " + _jugada[i].CondicionLocal + "                    " + _jugada[i].EquipoLocal + "                    " + _jugada[i].CondicionEmpate + "                    " + _jugada[i].EquipoVisitante + "                    " + _jugada[i].CondicionVisitante, FontFactory.GetFont(FontFactory.TIMES, 6, iTextSharp.text.Font.NORMAL));
-                PruebaParagraph.Add(p2);
+                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);
+                pdfTable.AddCell(cell);
             }
-            documentoPDF.Add(p1);
-            if (PruebaParagraph.Count > 0)
+            //Adding DataRow
+            foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                for (int i = 0; i < PruebaParagraph.Count; i++)
+                foreach (DataGridViewCell cell in row.Cells)
                 {
-                    documentoPDF.Add(PruebaParagraph[i]);
+                    if (cell.Value == null)
+                    {
+                    }
+                    else
+                    {
+                        pdfTable.AddCell(cell.Value.ToString());
+                    }
                 }
             }
-            // documentoPDF.Add(new Paragraph(lblNombreEdit.Text +" "+ lblCuitEdit.Text, FontFactory.GetFont(FontFactory.TIMES, 11, iTextSharp.text.Font.NORMAL)));
-            // documentoPDF.AddAuthor(groupBox2.Text);
-            documentoPDF.AddAuthor(cmbTorneo.Text);
-            documentoPDF.AddCreator("AjpdSoft Convertir texto a PDF - www.ajpdsoft.com");
-            documentoPDF.AddKeywords(label1.Text);
-            documentoPDF.AddSubject(cmbTorneo.Text);
-            documentoPDF.AddTitle("Hola");
-            documentoPDF.AddCreationDate();
-            //'Cerramos el objeto documento, guardamos y creamos el PDF
-            documentoPDF.Close();
-            //System.Diagnostics.Process.Start(lblNombreEdit.Text);
-            const string message2 = "Se realizo la exportación exitosamente.";
-            const string caption2 = "Éxito";
-            var result2 = MessageBox.Show(message2, caption2,
-                                         MessageBoxButtons.OK,
-                                         MessageBoxIcon.Asterisk);          
+            //Exporting to PDF
+            string folderPath = "C:\\PDFs\\";
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+            using (FileStream stream = new FileStream(folderPath + cmbTorneo.Text + "Fecha N°" + txtFecha, FileMode.Create))
+            {
+                Document pdfDoc = new Document(PageSize.A2, 10f, 10f, 10f, 0f);
+                PdfWriter.GetInstance(pdfDoc, stream);
+                pdfDoc.Open();
+                pdfDoc.Add(pdfTable);
+                pdfDoc.Close();
+                stream.Close();
+            }
         }
         private List<Fecha> ObtenerDatosParaPdf()
         {

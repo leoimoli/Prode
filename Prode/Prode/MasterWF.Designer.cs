@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MasterWF));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.inicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.torneosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,6 +46,8 @@
             this.crearUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cargarFirmaEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -66,26 +66,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(1370, 29);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.SeaGreen;
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Location = new System.Drawing.Point(0, 719);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1386, 28);
-            this.panel2.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(627, 4);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(135, 17);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Prode Versión-1.0.0";
             // 
             // inicioToolStripMenuItem
             // 
@@ -137,6 +117,7 @@
             this.cargarResultadosToolStripMenuItem.Name = "cargarResultadosToolStripMenuItem";
             this.cargarResultadosToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.cargarResultadosToolStripMenuItem.Text = "Cargar Resultados";
+            this.cargarResultadosToolStripMenuItem.Click += new System.EventHandler(this.cargarResultadosToolStripMenuItem_Click);
             // 
             // equiposToolStripMenuItem
             // 
@@ -170,7 +151,7 @@
             // 
             this.cargarPartidosToolStripMenuItem.Image = global::Prode.Properties.Resources.betting;
             this.cargarPartidosToolStripMenuItem.Name = "cargarPartidosToolStripMenuItem";
-            this.cargarPartidosToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
+            this.cargarPartidosToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
             this.cargarPartidosToolStripMenuItem.Text = "Cargar Jugadas";
             this.cargarPartidosToolStripMenuItem.Click += new System.EventHandler(this.cargarPartidosToolStripMenuItem_Click);
             // 
@@ -178,14 +159,15 @@
             // 
             this.resultadosToolStripMenuItem.Image = global::Prode.Properties.Resources.puntuacion_final;
             this.resultadosToolStripMenuItem.Name = "resultadosToolStripMenuItem";
-            this.resultadosToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
-            this.resultadosToolStripMenuItem.Text = "Resultados ";
+            this.resultadosToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
+            this.resultadosToolStripMenuItem.Text = "Resultados de Jugadas";
+            this.resultadosToolStripMenuItem.Click += new System.EventHandler(this.resultadosToolStripMenuItem_Click);
             // 
             // imprimirCuponesToolStripMenuItem
             // 
             this.imprimirCuponesToolStripMenuItem.Image = global::Prode.Properties.Resources.imprimir_documento;
             this.imprimirCuponesToolStripMenuItem.Name = "imprimirCuponesToolStripMenuItem";
-            this.imprimirCuponesToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
+            this.imprimirCuponesToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
             this.imprimirCuponesToolStripMenuItem.Text = "Imprimir Cupones";
             this.imprimirCuponesToolStripMenuItem.Click += new System.EventHandler(this.imprimirCuponesToolStripMenuItem_Click);
             // 
@@ -217,6 +199,26 @@
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(69, 25);
             this.salirToolStripMenuItem.Text = "Salir";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.SeaGreen;
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Location = new System.Drawing.Point(0, 719);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1386, 28);
+            this.panel2.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(627, 4);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(135, 17);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Prode Versión-1.0.0";
             // 
             // MasterWF
             // 

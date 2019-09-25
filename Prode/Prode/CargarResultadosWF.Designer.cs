@@ -1,6 +1,6 @@
 ﻿namespace Prode
 {
-    partial class ConsultarFechaWF
+    partial class CargarResultadosWF
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsultarFechaWF));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CargarResultadosWF));
+            this.label18 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnExcel = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.btnPdf = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
             this.txtFecha = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,49 +48,54 @@
             this.Estadio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Local = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EquipoLocal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Empate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EquipoVisitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Visitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label18 = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.SeaGreen;
+            this.label18.Location = new System.Drawing.Point(529, 64);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(174, 25);
+            this.label18.TabIndex = 30;
+            this.label18.Text = "Cargar Resultados";
+            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnExcel);
+            this.groupBox2.Controls.Add(this.btnCancelar);
             this.groupBox2.Controls.Add(this.btnBuscar);
             this.groupBox2.Controls.Add(this.progressBar1);
-            this.groupBox2.Controls.Add(this.btnPdf);
+            this.groupBox2.Controls.Add(this.btnGuardar);
             this.groupBox2.Controls.Add(this.btnVolver);
             this.groupBox2.Controls.Add(this.txtFecha);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.cmbTorneo);
             this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(232, 100);
+            this.groupBox2.Location = new System.Drawing.Point(204, 107);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(906, 591);
-            this.groupBox2.TabIndex = 32;
+            this.groupBox2.TabIndex = 33;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Fecha";
             // 
-            // btnExcel
+            // btnCancelar
             // 
-            this.btnExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcel.Image = global::Prode.Properties.Resources.sobresalir;
-            this.btnExcel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnExcel.Location = new System.Drawing.Point(398, 534);
-            this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(80, 51);
-            this.btnExcel.TabIndex = 122;
-            this.btnExcel.Text = "Generar";
-            this.btnExcel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolTip1.SetToolTip(this.btnExcel, "Generar Excel");
-            this.btnExcel.UseVisualStyleBackColor = true;
-            this.btnExcel.Visible = false;
-            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Image = global::Prode.Properties.Resources.error;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCancelar.Location = new System.Drawing.Point(405, 534);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(80, 51);
+            this.btnCancelar.TabIndex = 122;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCancelar.UseVisualStyleBackColor = true;
             // 
             // btnBuscar
             // 
@@ -104,42 +111,39 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(275, 505);
+            this.progressBar1.Location = new System.Drawing.Point(278, 463);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(330, 23);
             this.progressBar1.TabIndex = 120;
             this.progressBar1.Value = 50;
             this.progressBar1.Visible = false;
             // 
-            // btnPdf
+            // btnGuardar
             // 
-            this.btnPdf.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPdf.Image = global::Prode.Properties.Resources.simbolo_de_formato_de_archivo_pdf;
-            this.btnPdf.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnPdf.Location = new System.Drawing.Point(525, 534);
-            this.btnPdf.Name = "btnPdf";
-            this.btnPdf.Size = new System.Drawing.Size(80, 51);
-            this.btnPdf.TabIndex = 3;
-            this.btnPdf.Text = "Generar";
-            this.btnPdf.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolTip1.SetToolTip(this.btnPdf, "Generar PDF");
-            this.btnPdf.UseVisualStyleBackColor = true;
-            this.btnPdf.Click += new System.EventHandler(this.btnPdf_Click);
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Image = global::Prode.Properties.Resources.apoyo;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnGuardar.Location = new System.Drawing.Point(528, 534);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(80, 51);
+            this.btnGuardar.TabIndex = 3;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnVolver
             // 
             this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVolver.Image = global::Prode.Properties.Resources.deshacer;
             this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnVolver.Location = new System.Drawing.Point(275, 534);
+            this.btnVolver.Location = new System.Drawing.Point(278, 534);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(80, 51);
             this.btnVolver.TabIndex = 4;
             this.btnVolver.Text = "Volver";
             this.btnVolver.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolTip1.SetToolTip(this.btnVolver, "Volver");
             this.btnVolver.UseVisualStyleBackColor = true;
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // txtFecha
             // 
@@ -188,7 +192,6 @@
             this.Estadio,
             this.Local,
             this.EquipoLocal,
-            this.Empate,
             this.EquipoVisitante,
             this.Visitante});
             this.dataGridView1.Location = new System.Drawing.Point(10, 69);
@@ -196,6 +199,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(890, 444);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.Visible = false;
+            this.dataGridView1.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView1_EditingControlShowing);
             // 
             // Partido
             // 
@@ -220,6 +224,9 @@
             // 
             // Local
             // 
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Local.DefaultCellStyle = dataGridViewCellStyle1;
             this.Local.HeaderText = "Local";
             this.Local.Name = "Local";
             this.Local.Width = 50;
@@ -229,52 +236,38 @@
             this.EquipoLocal.HeaderText = "Equipo Local";
             this.EquipoLocal.Name = "EquipoLocal";
             this.EquipoLocal.ReadOnly = true;
-            this.EquipoLocal.Width = 200;
-            // 
-            // Empate
-            // 
-            this.Empate.HeaderText = "Empate";
-            this.Empate.Name = "Empate";
-            this.Empate.Width = 50;
+            this.EquipoLocal.Width = 225;
             // 
             // EquipoVisitante
             // 
             this.EquipoVisitante.HeaderText = "Equipo Visitante";
             this.EquipoVisitante.Name = "EquipoVisitante";
             this.EquipoVisitante.ReadOnly = true;
-            this.EquipoVisitante.Width = 200;
+            this.EquipoVisitante.Width = 225;
             // 
             // Visitante
             // 
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Visitante.DefaultCellStyle = dataGridViewCellStyle2;
             this.Visitante.HeaderText = "Visitante";
             this.Visitante.Name = "Visitante";
             this.Visitante.Width = 50;
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label18.Location = new System.Drawing.Point(582, 55);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(156, 25);
-            this.label18.TabIndex = 33;
-            this.label18.Text = "Consultar Fecha";
-            // 
-            // ConsultarFechaWF
+            // CargarResultadosWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 743);
-            this.Controls.Add(this.label18);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.label18);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "ConsultarFechaWF";
-            this.Text = "Consultar Fecha";
+            this.Name = "CargarResultadosWF";
+            this.Text = "Cargar Resultados";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.ConsultarFechaWF_Load);
-            this.Controls.SetChildIndex(this.groupBox2, 0);
+            this.Load += new System.EventHandler(this.CargarResultadosWF_Load);
             this.Controls.SetChildIndex(this.label18, 0);
+            this.Controls.SetChildIndex(this.groupBox2, 0);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -285,9 +278,11 @@
 
         #endregion
 
+        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Button btnPdf;
+        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.TextBox txtFecha;
         private System.Windows.Forms.Label label2;
@@ -299,12 +294,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Estadio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Local;
         private System.Windows.Forms.DataGridViewTextBoxColumn EquipoLocal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Empate;
         private System.Windows.Forms.DataGridViewTextBoxColumn EquipoVisitante;
         private System.Windows.Forms.DataGridViewTextBoxColumn Visitante;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Button btnExcel;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

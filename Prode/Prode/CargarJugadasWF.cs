@@ -79,6 +79,7 @@ namespace Prode
             _apostadores = ApostadoresNeg.BuscarApostadorPorApellidoYNombre(ApellidoNombre);
             if (_apostadores.Count > 0)
             {
+                lblMensaje.Visible = true;
                 groupBox2.Visible = true;
                 var apostador = _apostadores.First();
                 lblApellidoNombreEdit.Text = ApellidoNombre;
@@ -139,6 +140,7 @@ namespace Prode
         }
         private void LimpiarTodo()
         {
+            lblMensaje.Visible = false;
             dataGridView1.DataSource = null;
             txtFecha.Clear();
             CargarCombos();
@@ -203,7 +205,5 @@ namespace Prode
 
         }
         #endregion
-
-
     }
 }
