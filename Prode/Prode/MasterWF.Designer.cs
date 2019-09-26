@@ -99,7 +99,7 @@
             // 
             this.cargarTorneoToolStripMenuItem.Image = global::Prode.Properties.Resources.accesorios;
             this.cargarTorneoToolStripMenuItem.Name = "cargarTorneoToolStripMenuItem";
-            this.cargarTorneoToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            this.cargarTorneoToolStripMenuItem.Size = new System.Drawing.Size(282, 26);
             this.cargarTorneoToolStripMenuItem.Text = "Cargar Torneo";
             this.cargarTorneoToolStripMenuItem.Click += new System.EventHandler(this.cargarTorneoToolStripMenuItem_Click);
             // 
@@ -107,16 +107,16 @@
             // 
             this.cargarFechaToolStripMenuItem.Image = global::Prode.Properties.Resources.calendario;
             this.cargarFechaToolStripMenuItem.Name = "cargarFechaToolStripMenuItem";
-            this.cargarFechaToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
-            this.cargarFechaToolStripMenuItem.Text = "Cargar Fechas";
+            this.cargarFechaToolStripMenuItem.Size = new System.Drawing.Size(282, 26);
+            this.cargarFechaToolStripMenuItem.Text = "Cargar Nueva Fecha";
             this.cargarFechaToolStripMenuItem.Click += new System.EventHandler(this.cargarFechaToolStripMenuItem_Click);
             // 
             // cargarResultadosToolStripMenuItem
             // 
             this.cargarResultadosToolStripMenuItem.Image = global::Prode.Properties.Resources.puntuacion_final;
             this.cargarResultadosToolStripMenuItem.Name = "cargarResultadosToolStripMenuItem";
-            this.cargarResultadosToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
-            this.cargarResultadosToolStripMenuItem.Text = "Cargar Resultados";
+            this.cargarResultadosToolStripMenuItem.Size = new System.Drawing.Size(282, 26);
+            this.cargarResultadosToolStripMenuItem.Text = "Cargar Resultados de partido";
             this.cargarResultadosToolStripMenuItem.Click += new System.EventHandler(this.cargarResultadosToolStripMenuItem_Click);
             // 
             // equiposToolStripMenuItem
