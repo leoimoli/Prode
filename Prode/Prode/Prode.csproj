@@ -97,12 +97,6 @@
     <Compile Include="CargarTorneoWF.Designer.cs">
       <DependentUpon>CargarTorneoWF.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cargar_PartidosWF.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Cargar_PartidosWF.Designer.cs">
-      <DependentUpon>Cargar_PartidosWF.cs</DependentUpon>
-    </Compile>
     <Compile Include="Clases_Maestras\AutoCompletePorApostadores.cs" />
     <Compile Include="Clases_Maestras\AutoCompletePorEquipo.cs" />
     <Compile Include="Clases_Maestras\Funciones.cs" />
@@ -183,9 +177,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CargarTorneoWF.resx">
       <DependentUpon>CargarTorneoWF.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Cargar_PartidosWF.resx">
-      <DependentUpon>Cargar_PartidosWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultarFechaWF.resx">
       <DependentUpon>ConsultarFechaWF.cs</DependentUpon>

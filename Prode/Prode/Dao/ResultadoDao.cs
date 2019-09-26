@@ -46,7 +46,6 @@ namespace Prode.Dao
             connection.Close();
             return Exito;
         }
-
         private static bool ActualizarEstadoFecha(List<Resultados> _listaResultado)
         {
             string Estado = "Jugado";
