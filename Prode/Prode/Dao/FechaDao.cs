@@ -15,6 +15,7 @@ namespace Prode.Dao
         private static MySql.Data.MySqlClient.MySqlConnection connection = new MySqlConnection(Properties.Settings.Default.db);
         public static bool GuardarFecha(List<Fecha> _Fecha)
         {
+            string Estado = "Pendiente";
             var fecha = _Fecha.First();
             int idTorneo = 0;
             int idFechaCreada = 0;
@@ -28,6 +29,7 @@ namespace Prode.Dao
             cmd.Parameters.AddWithValue("Dia_in", fecha.Dia);
             cmd.Parameters.AddWithValue("NroFecha_in", fecha.NroFecha);
             cmd.Parameters.AddWithValue("IdTorneo_in", idTorneo);
+            cmd.Parameters.AddWithValue("Estado_in", Estado);
             MySqlDataReader r = cmd.ExecuteReader();
             while (r.Read())
             {
@@ -76,7 +78,7 @@ namespace Prode.Dao
             }
             else
             {
-                const string message2 = "La fecha ingresada no existe para el torneo seleccionado.";
+                const string message2 = "La fecha ingresada no existe o ya figura como jugada para el torneo seleccionado.";
                 const string caption2 = "Error";
                 var result2 = MessageBox.Show(message2, caption2,
                                              MessageBoxButtons.OK,

@@ -35,6 +35,7 @@
             this.lblDniOApellidoNombre = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblMensaje = new System.Windows.Forms.Label();
             this.lblidApostador = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -56,7 +57,7 @@
             this.Empate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EquipoVisitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Visitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblMensaje = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -117,6 +118,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.lblMensaje);
             this.groupBox2.Controls.Add(this.lblidApostador);
             this.groupBox2.Controls.Add(this.progressBar1);
@@ -138,6 +140,17 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Fecha";
             this.groupBox2.Visible = false;
+            // 
+            // lblMensaje
+            // 
+            this.lblMensaje.AutoSize = true;
+            this.lblMensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensaje.Location = new System.Drawing.Point(7, 454);
+            this.lblMensaje.Name = "lblMensaje";
+            this.lblMensaje.Size = new System.Drawing.Size(416, 20);
+            this.lblMensaje.TabIndex = 122;
+            this.lblMensaje.Text = "Atención solo indique con una \"X\" el resultado del partido.";
+            this.lblMensaje.Visible = false;
             // 
             // lblidApostador
             // 
@@ -336,16 +349,17 @@
             this.Visitante.Name = "Visitante";
             this.Visitante.Width = 50;
             // 
-            // lblMensaje
+            // button1
             // 
-            this.lblMensaje.AutoSize = true;
-            this.lblMensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensaje.Location = new System.Drawing.Point(7, 454);
-            this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(416, 20);
-            this.lblMensaje.TabIndex = 122;
-            this.lblMensaje.Text = "Atención solo indique con una \"X\" el resultado del partido.";
-            this.lblMensaje.Visible = false;
+            this.button1.Image = global::Prode.Properties.Resources.simbolo_correcto;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button1.Location = new System.Drawing.Point(840, 60);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(33, 30);
+            this.button1.TabIndex = 123;
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // CargarJugadasWF
             // 
@@ -403,5 +417,6 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label lblidApostador;
         private System.Windows.Forms.Label lblMensaje;
+        private System.Windows.Forms.Button button1;
     }
 }

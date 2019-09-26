@@ -153,7 +153,10 @@ namespace Prode
             progressBar1.Value = Convert.ToInt32(null);
             progressBar1.Visible = false;
             LimpiarCamposDeCarga();
-            dataGridView1.DataSource = null;
+            //dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+            groupBox1.Enabled = true;
+            dataGridView1.Enabled = true;
         }
         private List<Fecha> CargarEntidad()
         {
@@ -239,6 +242,7 @@ namespace Prode
         {
             try
             {
+                BloquearPantalla();
                 List<Fecha> _Fecha = CargarEntidad();
                 if (_Fecha.Count > 0)
                 {
@@ -267,6 +271,12 @@ namespace Prode
             }
             catch (Exception ex)
             { }
+        }
+
+        private void BloquearPantalla()
+        {
+            groupBox1.Enabled = false;
+            dataGridView1.Enabled = false;
         }
         #endregion
 

@@ -127,11 +127,13 @@ namespace Prode
         }
         private void LimpiarTodo()
         {
+            groupBox2.Enabled = true;
             progressBar1.Value = Convert.ToInt32(null);
             progressBar1.Visible = false;
             CargarCombos();
             txtFecha.Clear();
-            dataGridView1.DataSource = null;
+            //dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
             
         }
         private void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -182,6 +184,7 @@ namespace Prode
         {
             try
             {
+                groupBox2.Enabled = false;
                 List<Resultados> _listaResultado = new List<Resultados>();
                 _listaResultado = CargarEntidadResultado();
                 bool Exito = ResultadoNeg.GaurdarResultados(_listaResultado);

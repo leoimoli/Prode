@@ -25,5 +25,6 @@ namespace Prode.Entidades
         public string CondicionLocal { get; set; }
         public string CondicionVisitante { get; set; }
         public string CondicionEmpate { get; set; }
+        public string Estado { get; set; }
     }
 }

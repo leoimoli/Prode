@@ -141,7 +141,7 @@ namespace Prode
         private void LimpiarTodo()
         {
             lblMensaje.Visible = false;
-            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
             txtFecha.Clear();
             CargarCombos();
             groupBox2.Visible = false;
@@ -150,6 +150,8 @@ namespace Prode
             lblDniEdit.Text = "";
             progressBar1.Value = Convert.ToInt32(null);
             progressBar1.Visible = false;
+            groupBox1.Enabled = true;
+            groupBox2.Enabled = true;
         }
         private void ProgressBar()
         {
@@ -169,10 +171,34 @@ namespace Prode
         }
         #endregion
         #region Botones
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<Fecha> _fecha = new List<Fecha>();
+                var torneo = cmbTorneo.Text;
+                string var = torneo;
+                string Torneo = var.Split('-')[0];
+                string Temporada = var.Split('-')[1];
+                string NroFecha = txtFecha.Text;
+                _fecha = FechaNeg.BuscarFechaExistente(Torneo, Temporada, NroFecha);
+                if (_fecha.Count > 0)
+                {
+                    dataGridView1.Visible = true;
+                    for (int i = 0; i < _fecha.Count; i++)
+                    {
+                        dataGridView1.Rows.Add(_fecha[i].idPartido, _fecha[i].DiaPartido, _fecha[i].Estadio, " ", _fecha[i].EquipoLocal, " ", _fecha[i].EquipoVisitante, " ");
+                    }
+                }
+            }
+            catch (Exception ex)
+            { }
+        }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
             {
+                BloquearPantalla();
                 List<Jugada> _listaJugada = new List<Jugada>();
                 _listaJugada = CargarEntidadJugada();
                 bool Exito = JugadaNeg.GuardarJugada(_listaJugada);
@@ -190,6 +216,11 @@ namespace Prode
             catch (Exception ex)
             { }
         }
+        private void BloquearPantalla()
+        {
+            groupBox1.Enabled = false;
+            groupBox2.Enabled = false;
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             LimpiarTodo();
@@ -204,6 +235,6 @@ namespace Prode
             { }
 
         }
-        #endregion
+        #endregion     
     }
 }

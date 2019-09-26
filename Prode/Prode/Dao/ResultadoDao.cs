@@ -42,12 +42,53 @@ namespace Prode.Dao
                 cmd.Parameters.AddWithValue("idUsuario_in", item.idUsuario);
                 cmd.ExecuteNonQuery();
             }
-
-            Exito = true;
+            Exito = ActualizarEstadoFecha(_listaResultado);
             connection.Close();
             return Exito;
         }
 
+        private static bool ActualizarEstadoFecha(List<Resultados> _listaResultado)
+        {
+            string Estado = "Jugado";
+            bool Exito = false;
+            var Fecha = _listaResultado.First();
+            int idFecha = BuscarIdFechaPorIdPartido(Fecha.idPartido);
+            connection.Close();
+            connection.Open();
+            string proceso = "ActualizarEstadoFecha";
+            MySqlCommand cmd = new MySqlCommand(proceso, connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("Estado_in", Estado);
+            cmd.Parameters.AddWithValue("idFecha_in", idFecha);
+            cmd.ExecuteNonQuery();
+            Exito = true;
+            return Exito;
+        }
+        private static int BuscarIdFechaPorIdPartido(int idPartido)
+        {
+            connection.Close();
+            connection.Open();
+            int idFecha = 0;
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                                      new MySqlParameter("idPartido_in", idPartido)};
+            string proceso = "BuscarIdFechaPorIdPartido";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    idFecha = Convert.ToInt32(item["idFecha"].ToString());
+                }
+            }
+            connection.Close();
+            return idFecha;
+        }
         private static List<Resultados> BuscarIdEquipos(List<Resultados> _listaResultado)
         {
             connection.Close();
