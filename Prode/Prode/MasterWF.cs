@@ -47,12 +47,12 @@ namespace Prode
             _consulta.Show();
             Hide();
         }
-
         private void resultadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            ResultadoJugadasWF _resultado = new ResultadoJugadasWF();
+            _resultado.Show();
+            Hide();
         }
-
         private void cargarResultadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CargarResultadosWF _resultado = new CargarResultadosWF();

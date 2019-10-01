@@ -40,15 +40,17 @@
             this.label18 = new System.Windows.Forms.Label();
             this.grbResultados = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Estadio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Local = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EquipoLocal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EquipoVisitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Local = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Visitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.EquipoVisitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grbApostadores = new System.Windows.Forms.GroupBox();
+            this.dgvResultaApostadores = new System.Windows.Forms.DataGridView();
             this.grbFiltros.SuspendLayout();
             this.grbResultados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.grbApostadores.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResultaApostadores)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBuscar
@@ -61,6 +63,7 @@
             this.btnBuscar.TabIndex = 121;
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtFecha
             // 
@@ -68,6 +71,7 @@
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.Size = new System.Drawing.Size(225, 20);
             this.txtFecha.TabIndex = 1;
+            this.txtFecha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFecha_KeyDown);
             // 
             // label2
             // 
@@ -126,35 +130,35 @@
             // grbResultados
             // 
             this.grbResultados.Controls.Add(this.dataGridView1);
-            this.grbResultados.Location = new System.Drawing.Point(12, 199);
+            this.grbResultados.Location = new System.Drawing.Point(687, 173);
             this.grbResultados.Name = "grbResultados";
-            this.grbResultados.Size = new System.Drawing.Size(758, 473);
+            this.grbResultados.Size = new System.Drawing.Size(606, 356);
             this.grbResultados.TabIndex = 124;
             this.grbResultados.TabStop = false;
             this.grbResultados.Text = "Resultados";
+            this.grbResultados.Visible = false;
             // 
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Estadio,
-            this.Local,
             this.EquipoLocal,
-            this.EquipoVisitante,
-            this.Visitante});
+            this.Local,
+            this.Visitante,
+            this.EquipoVisitante});
             this.dataGridView1.Location = new System.Drawing.Point(6, 19);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(744, 444);
+            this.dataGridView1.Size = new System.Drawing.Size(595, 324);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.Visible = false;
             // 
-            // Estadio
+            // EquipoLocal
             // 
-            this.Estadio.HeaderText = "Estadio";
-            this.Estadio.Name = "Estadio";
-            this.Estadio.ReadOnly = true;
-            this.Estadio.Width = 150;
+            this.EquipoLocal.HeaderText = "Equipo Local";
+            this.EquipoLocal.Name = "EquipoLocal";
+            this.EquipoLocal.ReadOnly = true;
+            this.EquipoLocal.Width = 225;
             // 
             // Local
             // 
@@ -165,12 +169,14 @@
             this.Local.Name = "Local";
             this.Local.Width = 50;
             // 
-            // EquipoLocal
+            // Visitante
             // 
-            this.EquipoLocal.HeaderText = "Equipo Local";
-            this.EquipoLocal.Name = "EquipoLocal";
-            this.EquipoLocal.ReadOnly = true;
-            this.EquipoLocal.Width = 225;
+            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Visitante.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Visitante.HeaderText = "Visitante";
+            this.Visitante.Name = "Visitante";
+            this.Visitante.Width = 50;
             // 
             // EquipoVisitante
             // 
@@ -179,30 +185,31 @@
             this.EquipoVisitante.ReadOnly = true;
             this.EquipoVisitante.Width = 225;
             // 
-            // Visitante
+            // grbApostadores
             // 
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Visitante.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Visitante.HeaderText = "Visitante";
-            this.Visitante.Name = "Visitante";
-            this.Visitante.Width = 50;
+            this.grbApostadores.Controls.Add(this.dgvResultaApostadores);
+            this.grbApostadores.Location = new System.Drawing.Point(44, 182);
+            this.grbApostadores.Name = "grbApostadores";
+            this.grbApostadores.Size = new System.Drawing.Size(372, 214);
+            this.grbApostadores.TabIndex = 125;
+            this.grbApostadores.TabStop = false;
+            this.grbApostadores.Text = "Resultados Apostadores";
+            this.grbApostadores.Visible = false;
             // 
-            // groupBox1
+            // dgvResultaApostadores
             // 
-            this.groupBox1.Location = new System.Drawing.Point(776, 198);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(487, 473);
-            this.groupBox1.TabIndex = 125;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Resultados Apostadores";
+            this.dgvResultaApostadores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvResultaApostadores.Location = new System.Drawing.Point(3, 16);
+            this.dgvResultaApostadores.Name = "dgvResultaApostadores";
+            this.dgvResultaApostadores.Size = new System.Drawing.Size(363, 150);
+            this.dgvResultaApostadores.TabIndex = 0;
             // 
             // ResultadoJugadasWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 743);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grbApostadores);
             this.Controls.Add(this.grbResultados);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.grbFiltros);
@@ -214,11 +221,13 @@
             this.Controls.SetChildIndex(this.grbFiltros, 0);
             this.Controls.SetChildIndex(this.label18, 0);
             this.Controls.SetChildIndex(this.grbResultados, 0);
-            this.Controls.SetChildIndex(this.groupBox1, 0);
+            this.Controls.SetChildIndex(this.grbApostadores, 0);
             this.grbFiltros.ResumeLayout(false);
             this.grbFiltros.PerformLayout();
             this.grbResultados.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.grbApostadores.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResultaApostadores)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,11 +244,11 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.GroupBox grbResultados;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estadio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Local;
+        private System.Windows.Forms.GroupBox grbApostadores;
         private System.Windows.Forms.DataGridViewTextBoxColumn EquipoLocal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EquipoVisitante;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Local;
         private System.Windows.Forms.DataGridViewTextBoxColumn Visitante;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EquipoVisitante;
+        private System.Windows.Forms.DataGridView dgvResultaApostadores;
     }
 }

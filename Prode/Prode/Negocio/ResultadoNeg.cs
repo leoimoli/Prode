@@ -23,5 +23,17 @@ namespace Prode.Negocio
             }
             return exito;
         }
+        public static List<Resultados> BuscarResultados(string torneo, string temporada, string nroFecha)
+        {
+            List<Resultados> _listaReusltados = new List<Resultados>();
+            try
+            {
+                _listaReusltados = ResultadoDao.BuscarResultados(torneo, temporada, nroFecha);
+            }
+            catch (Exception ex)
+            {
+            }
+            return _listaReusltados;
+        }
     }
 }
