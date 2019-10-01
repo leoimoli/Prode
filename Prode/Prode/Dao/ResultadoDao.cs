@@ -112,8 +112,6 @@ namespace Prode.Dao
                     {
                         item.EquipoLocal = itemRow2["Nombre"].ToString();
                     }
-
-
                     MySqlParameter[] oParam3 = { new MySqlParameter("IdEquipo_in", item.IdEquipoVisitante) };
                     string proceso3 = "BuscarNombreEquipo";
                     MySqlDataAdapter dt3 = new MySqlDataAdapter(proceso3, connection);
@@ -130,7 +128,7 @@ namespace Prode.Dao
             return lista;
         }
 
-        private static int BuscarIdFecha(int idTorneo, string nroFecha)
+        public static int BuscarIdFecha(int idTorneo, string nroFecha)
         {
             int NroFecha = Convert.ToInt32(nroFecha);
             connection.Close();
@@ -160,7 +158,7 @@ namespace Prode.Dao
             return idFecha;
         }
 
-        private static List<int> BuscarPartidosPorIdFecha(int idFecha)
+        public static List<int> BuscarPartidosPorIdFecha(int idFecha)
         {
             List<int> ListaIdPartidos = new List<int>();
             connection.Close();

@@ -79,5 +79,42 @@ namespace Prode.Dao
             connection.Close();
             return lista;
         }
+        public static List<ResultadoApuestas> BuscarAciertos(string torneo, string temporada, string nroFecha)
+        {
+            List<ResultadoApuestas> Prueba = new List<ResultadoApuestas>();
+            List<int> ListaTipoResultado = new List<int>();
+            int idTorneo = TorneoDao.BuscaIdtorneoPorNombreTemporada(torneo, temporada);
+            int idFecha = ResultadoDao.BuscarIdFecha(idTorneo, nroFecha);
+            List<int> ListaIdPartidos = ResultadoDao.BuscarPartidosPorIdFecha(idFecha);
+            if (ListaIdPartidos.Count > 0)
+            {
+                List<int> Lista = new List<int>();
+                foreach (var item in ListaIdPartidos)
+                {
+                    connection.Close();
+                    connection.Open();
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = connection;
+                    DataTable Tabla = new DataTable();
+                    MySqlParameter[] oParam = {
+                                      new MySqlParameter("idPartido_in", item)};
+                    string proceso = "BuscarTipoResultados";
+                    MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+                    dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    dt.SelectCommand.Parameters.AddRange(oParam);
+                    dt.Fill(Tabla);
+                    if (Tabla.Rows.Count > 0)
+                    {
+                        foreach (DataRow item2 in Tabla.Rows)
+                        {
+                            int Valor = Convert.ToInt32(item2["idTipoResultado"].ToString());
+                            Lista.Add(Valor);
+                        }
+                        ListaTipoResultado = Lista;
+                    }
+                }
+            }
+            return Prueba;
+        }
     }
 }

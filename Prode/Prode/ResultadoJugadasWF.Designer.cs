@@ -201,7 +201,7 @@
             this.dgvResultaApostadores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResultaApostadores.Location = new System.Drawing.Point(3, 16);
             this.dgvResultaApostadores.Name = "dgvResultaApostadores";
-            this.dgvResultaApostadores.Size = new System.Drawing.Size(363, 150);
+            this.dgvResultaApostadores.Size = new System.Drawing.Size(363, 192);
             this.dgvResultaApostadores.TabIndex = 0;
             // 
             // ResultadoJugadasWF

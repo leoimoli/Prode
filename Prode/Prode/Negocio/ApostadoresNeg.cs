@@ -78,5 +78,19 @@ namespace Prode.Negocio
             }
             return _listaApostadores;
         }
+
+        public static List<ResultadoApuestas> BuscarAciertos(string torneo, string temporada, string nroFecha)
+        {
+            List<ResultadoApuestas> _listaAciertos = new List<ResultadoApuestas>();
+            try
+            {
+                _listaAciertos = ApostadoresDao.BuscarAciertos(torneo, temporada, nroFecha);
+            }
+            catch (Exception ex)
+            {
+              
+            }
+            return _listaAciertos;
+        }
     }
 }

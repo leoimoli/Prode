@@ -70,6 +70,13 @@ namespace Prode
             catch (Exception ex)
             { }
         }
+        public List<Entidades.ResultadoApuestas> ListaResultadosApuestas
+        {
+            set
+            {
+
+            }
+        }
         #endregion
         #region Botones
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -92,10 +99,11 @@ namespace Prode
                         dataGridView1.Rows.Add(_resultados[i].EquipoLocal, _resultados[i].MarcadorLocal, _resultados[i].MarcadorVisitante, _resultados[i].EquipoVisitante);
                     }
                 }
+                ListaResultadosApuestas = ApostadoresNeg.BuscarAciertos(Torneo, Temporada, NroFecha);
             }
             catch (Exception ex)
             { }
-        }       
+        }
         #endregion
     }
 }
