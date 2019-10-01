@@ -81,14 +81,14 @@ namespace Prode.Dao
         }
         public static List<ResultadoApuestas> BuscarAciertos(string torneo, string temporada, string nroFecha)
         {
-            List<ResultadoApuestas> Prueba = new List<ResultadoApuestas>();
-            List<int> ListaTipoResultado = new List<int>();
+            List<ResultadoApuestas> ListaResultadosApuestas = new List<ResultadoApuestas>();
+            List<TipoResultadoPorPartido> ListaTipoResultado = new List<TipoResultadoPorPartido>();
             int idTorneo = TorneoDao.BuscaIdtorneoPorNombreTemporada(torneo, temporada);
             int idFecha = ResultadoDao.BuscarIdFecha(idTorneo, nroFecha);
             List<int> ListaIdPartidos = ResultadoDao.BuscarPartidosPorIdFecha(idFecha);
             if (ListaIdPartidos.Count > 0)
             {
-                List<int> Lista = new List<int>();
+                List<TipoResultadoPorPartido> Lista = new List<TipoResultadoPorPartido>();
                 foreach (var item in ListaIdPartidos)
                 {
                     connection.Close();
@@ -107,14 +107,23 @@ namespace Prode.Dao
                     {
                         foreach (DataRow item2 in Tabla.Rows)
                         {
-                            int Valor = Convert.ToInt32(item2["idTipoResultado"].ToString());
-                            Lista.Add(Valor);
+                            TipoResultadoPorPartido tipo = new TipoResultadoPorPartido();
+                            tipo.idPartido = item;
+                            tipo.idTipoResultado = Convert.ToInt32(item2["idTipoResultado"].ToString());
+                            Lista.Add(tipo);
                         }
                         ListaTipoResultado = Lista;
                     }
                 }
             }
-            return Prueba;
+            ListaResultadosApuestas = BuscarTotalAciertosPorApostadores(ListaTipoResultado);
+            return ListaResultadosApuestas;
+        }
+        private static List<ResultadoApuestas> BuscarTotalAciertosPorApostadores(List<TipoResultadoPorPartido> ListaTipoResultado)
+        {
+            List<ResultadoApuestas> ListaResultadosApuestas = new List<ResultadoApuestas>();
+
+            return ListaResultadosApuestas;
         }
     }
 }

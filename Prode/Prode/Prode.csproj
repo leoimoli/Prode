@@ -121,7 +121,9 @@
     <Compile Include="Entidades\Equipos.cs" />
     <Compile Include="Entidades\Fecha.cs" />
     <Compile Include="Entidades\Jugada.cs" />
+    <Compile Include="Entidades\ResultadoApuestas.cs" />
     <Compile Include="Entidades\Resultados.cs" />
+    <Compile Include="Entidades\TipoResultadoPorPartido.cs" />
     <Compile Include="Entidades\Torneo.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="EquiposWF.cs">
