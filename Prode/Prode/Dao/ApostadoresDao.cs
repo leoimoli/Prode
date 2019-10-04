@@ -7,6 +7,7 @@ using Prode.Entidades;
 using MySql.Data.MySqlClient;
 using System.Data;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Prode.Dao
 {
@@ -79,16 +80,28 @@ namespace Prode.Dao
             connection.Close();
             return lista;
         }
+        public static string Variable;
         public static List<ResultadoApuestas> BuscarAciertos(string torneo, string temporada, string nroFecha)
         {
             List<ResultadoApuestas> ListaResultadosApuestas = new List<ResultadoApuestas>();
-            List<TipoResultadoPorPartido> ListaTipoResultado = new List<TipoResultadoPorPartido>();
+            List<ResultadoApuestas> ListaAciertos = new List<ResultadoApuestas>();
             int idTorneo = TorneoDao.BuscaIdtorneoPorNombreTemporada(torneo, temporada);
             int idFecha = ResultadoDao.BuscarIdFecha(idTorneo, nroFecha);
             List<int> ListaIdPartidos = ResultadoDao.BuscarPartidosPorIdFecha(idFecha);
             if (ListaIdPartidos.Count > 0)
             {
-                List<TipoResultadoPorPartido> Lista = new List<TipoResultadoPorPartido>();
+                int Estado = 1;
+                List<ResultadoApuestas> Lista = new List<ResultadoApuestas>();
+                List<string> ListaIdPar = new List<string>();
+                string ListaPartidos;
+
+                foreach (var item in ListaIdPartidos)
+                {
+                    ListaPartidos = item.ToString() + "," + Variable;
+                    Variable = ListaPartidos;
+                }
+                Variable = Variable.TrimEnd(',');
+                var Variable2 = Variable.Replace('"', ' ');
                 foreach (var item in ListaIdPartidos)
                 {
                     connection.Close();
@@ -97,8 +110,9 @@ namespace Prode.Dao
                     cmd.Connection = connection;
                     DataTable Tabla = new DataTable();
                     MySqlParameter[] oParam = {
-                                      new MySqlParameter("idPartido_in", item)};
-                    string proceso = "BuscarTipoResultados";
+                                      new MySqlParameter("idPartido_in", Variable2),
+                    new MySqlParameter("Estado_in", Estado)};
+                    string proceso = "ContadorDeAciertos";
                     MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
                     dt.SelectCommand.CommandType = CommandType.StoredProcedure;
                     dt.SelectCommand.Parameters.AddRange(oParam);
@@ -107,21 +121,23 @@ namespace Prode.Dao
                     {
                         foreach (DataRow item2 in Tabla.Rows)
                         {
-                            TipoResultadoPorPartido tipo = new TipoResultadoPorPartido();
-                            tipo.idPartido = item;
-                            tipo.idTipoResultado = Convert.ToInt32(item2["idTipoResultado"].ToString());
-                            Lista.Add(tipo);
+                            ResultadoApuestas _contadorAciertos = new ResultadoApuestas();
+                            _contadorAciertos.idApostador = Convert.ToInt32(item2["idApostador"].ToString());
+                            _contadorAciertos.Apellido = item2["Apellido"].ToString();
+                            _contadorAciertos.Nombre = item2["Nombre"].ToString();
+                            _contadorAciertos.Aciertos = Convert.ToInt32(item2["Aciertos"].ToString());
+                            Lista.Add(_contadorAciertos);
                         }
-                        ListaTipoResultado = Lista;
+                        ListaAciertos = Lista;
                     }
                 }
             }
-            ListaResultadosApuestas = BuscarTotalAciertosPorApostadores(ListaTipoResultado);
-            return ListaResultadosApuestas;
+            return ListaAciertos;
         }
-        private static List<ResultadoApuestas> BuscarTotalAciertosPorApostadores(List<TipoResultadoPorPartido> ListaTipoResultado)
+        private static List<ResultadoApuestas> BuscarTotalAciertosPorApostadores(List<TipoResultadoPorPartido> ListaTipoResultado, List<int> ListaIdPartidos)
         {
             List<ResultadoApuestas> ListaResultadosApuestas = new List<ResultadoApuestas>();
+
 
             return ListaResultadosApuestas;
         }

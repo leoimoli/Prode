@@ -50,20 +50,23 @@ namespace Prode
         {
             try
             {
-                BloquearPantalla();
-                List<Resultados> _resultados = new List<Resultados>();
-                var torneo = cmbTorneo.Text;
-                string var = torneo;
-                string Torneo = var.Split('-')[0];
-                string Temporada = var.Split('-')[1];
-                string NroFecha = txtFecha.Text;
-                _resultados = ResultadoNeg.BuscarResultados(Torneo, Temporada, NroFecha);
-                if (_resultados.Count > 0)
+                if (e.KeyCode == Keys.Enter)
                 {
-                    dataGridView1.Visible = true;
-                    for (int i = 0; i < _resultados.Count; i++)
+                    BloquearPantalla();
+                    List<Resultados> _resultados = new List<Resultados>();
+                    var torneo = cmbTorneo.Text;
+                    string var = torneo;
+                    string Torneo = var.Split('-')[0];
+                    string Temporada = var.Split('-')[1];
+                    string NroFecha = txtFecha.Text;
+                    _resultados = ResultadoNeg.BuscarResultados(Torneo, Temporada, NroFecha);
+                    if (_resultados.Count > 0)
                     {
-                        dataGridView1.Rows.Add(_resultados[i].EquipoLocal, _resultados[i].MarcadorLocal, _resultados[i].MarcadorVisitante, _resultados[i].EquipoVisitante);
+                        dataGridView1.Visible = true;
+                        for (int i = 0; i < _resultados.Count; i++)
+                        {
+                            dataGridView1.Rows.Add(_resultados[i].EquipoLocal, _resultados[i].MarcadorLocal, _resultados[i].MarcadorVisitante, _resultados[i].EquipoVisitante);
+                        }
                     }
                 }
             }
