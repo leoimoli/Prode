@@ -62,10 +62,12 @@ namespace Prode
                 _fecha = FechaNeg.BuscarFechaExistente(Torneo, Temporada, NroFecha);
                 if (_fecha.Count > 0)
                 {
+
                     dataGridView1.Visible = true;
                     for (int i = 0; i < _fecha.Count; i++)
                     {
-                        dataGridView1.Rows.Add(_fecha[i].idPartido, _fecha[i].DiaPartido, _fecha[i].Estadio, " ", _fecha[i].EquipoLocal, " ", _fecha[i].EquipoVisitante, " ");
+                        lblValor.Text = Convert.ToString(_fecha[i].ValorJugada);
+                        dataGridView1.Rows.Add(_fecha[i].DiaPartido, _fecha[i].Estadio, " ", _fecha[i].EquipoLocal, " ", _fecha[i].EquipoVisitante, " ");
                     }
                 }
             }
@@ -80,6 +82,9 @@ namespace Prode
         }
         private void btnPdf_Click(object sender, EventArgs e)
         {
+            ProgressBar();
+            BloquearPantalla();
+            //Document documentoPDF = new Document();
             PdfPTable pdfTable = new PdfPTable(dataGridView1.ColumnCount);
             pdfTable.DefaultCell.Padding = 3;
             pdfTable.WidthPercentage = 70;
@@ -112,15 +117,25 @@ namespace Prode
             {
                 Directory.CreateDirectory(folderPath);
             }
-            using (FileStream stream = new FileStream(folderPath + cmbTorneo.Text + "Fecha N°" + txtFecha, FileMode.Create))
+            using (FileStream stream = new FileStream(folderPath + cmbTorneo.Text + "Fecha N°" + txtFecha.Text, FileMode.Create))
             {
                 Document pdfDoc = new Document(PageSize.A2, 10f, 10f, 10f, 0f);
                 PdfWriter.GetInstance(pdfDoc, stream);
                 pdfDoc.Open();
+                Paragraph p1 = new Paragraph("Torneo:" + cmbTorneo.Text + "                                  " + "Fecha N°" + txtFecha.Text + "                                  " + "Valor De la Jugada: $" + lblValor.Text + "                                  ", FontFactory.GetFont(FontFactory.TIMES, 15, iTextSharp.text.Font.NORMAL));
+                Paragraph pEspacio1 = new Paragraph("   ", FontFactory.GetFont(FontFactory.TIMES, 15, iTextSharp.text.Font.NORMAL));
+                pdfDoc.Add(p1);
+                pdfDoc.Add(pEspacio1);
                 pdfDoc.Add(pdfTable);
                 pdfDoc.Close();
                 stream.Close();
             }
+            const string message2 = "El archivo PDF se genero exitosamente.";
+            const string caption2 = "Éxito";
+            var result2 = MessageBox.Show(message2, caption2,
+                                         MessageBoxButtons.OK,
+                                         MessageBoxIcon.Asterisk); LimpiarTodo();
+            LimpiarTodo();
         }
         private List<Fecha> ObtenerDatosParaPdf()
         {
@@ -150,7 +165,21 @@ namespace Prode
             return _lista;
         }
         #endregion
-        #region Funciones
+        #region Funciones    
+        private void LimpiarTodo()
+        {
+            progressBar1.Value = Convert.ToInt32(null);
+            progressBar1.Visible = false;
+            dataGridView1.Rows.Clear();
+            groupBox2.Enabled = true;
+            txtFecha.Clear();
+            CargarCombos();
+            dataGridView1.Visible = false;
+        }
+        private void BloquearPantalla()
+        {
+            groupBox2.Enabled = false;
+        }
         private void ProgressBar()
         {
             progressBar1.Visible = true;
@@ -199,10 +228,12 @@ namespace Prode
                     _fecha = FechaNeg.BuscarFechaExistente(Torneo, Temporada, NroFecha);
                     if (_fecha.Count > 0)
                     {
+
                         dataGridView1.Visible = true;
                         for (int i = 0; i < _fecha.Count; i++)
                         {
-                            dataGridView1.Rows.Add(_fecha[i].idPartido, _fecha[i].DiaPartido, _fecha[i].Estadio, " ", _fecha[i].EquipoLocal, " ", _fecha[i].EquipoVisitante, " ");
+                            lblValor.Text = Convert.ToString(_fecha[i].ValorJugada);
+                            dataGridView1.Rows.Add(_fecha[i].DiaPartido, _fecha[i].Estadio, " ", _fecha[i].EquipoLocal, " ", _fecha[i].EquipoVisitante, " ");
                         }
                     }
                 }

@@ -30,6 +30,7 @@ namespace Prode.Dao
             cmd.Parameters.AddWithValue("NroFecha_in", fecha.NroFecha);
             cmd.Parameters.AddWithValue("IdTorneo_in", idTorneo);
             cmd.Parameters.AddWithValue("Estado_in", Estado);
+            cmd.Parameters.AddWithValue("ValorJugada_in", fecha.ValorJugada);
             MySqlDataReader r = cmd.ExecuteReader();
             while (r.Read())
             {
@@ -49,6 +50,7 @@ namespace Prode.Dao
             int idFecha = ValidarNroFecha(idTorneo, nroFecha);
             if (idFecha > 0)
             {
+                decimal ValorDeJugada = BuscarValorJugada(idFecha);
                 connection.Close();
                 connection.Open();
                 MySqlCommand cmd = new MySqlCommand();
@@ -72,6 +74,7 @@ namespace Prode.Dao
                         DateTime dia = Convert.ToDateTime(item["FechaPartido"].ToString());
                         listaFecha.DiaPartido = dia.ToShortDateString();
                         listaFecha.Estadio = item["Estadio"].ToString();
+                        listaFecha.ValorJugada = ValorDeJugada;
                         lista.Add(listaFecha);
                     }
                 }
@@ -88,6 +91,35 @@ namespace Prode.Dao
             connection.Close();
             return lista;
         }
+
+        private static decimal BuscarValorJugada(int idFecha)
+        {
+            connection.Close();
+            decimal Valor = 0;
+            connection.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                                        new MySqlParameter("idFecha_in", idFecha)};
+            string proceso = "BuscarValorJugada";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            DataSet ds = new DataSet();
+            dt.Fill(ds, "Fecha");
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    Valor = Convert.ToDecimal(item["ValorJugada"].ToString());
+                }
+            }
+            connection.Close();
+            return Valor;
+        }
+
         private static int ValidarNroFecha(int idTorneo, string nroFecha)
         {
             connection.Close();

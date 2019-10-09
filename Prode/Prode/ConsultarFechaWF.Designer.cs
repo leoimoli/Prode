@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsultarFechaWF));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblValor = new System.Windows.Forms.Label();
             this.btnExcel = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
@@ -41,7 +42,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmbTorneo = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Partido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label18 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.DiaPartido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estadio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Local = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,14 +51,13 @@
             this.Empate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EquipoVisitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Visitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label18 = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lblValor);
             this.groupBox2.Controls.Add(this.btnExcel);
             this.groupBox2.Controls.Add(this.btnBuscar);
             this.groupBox2.Controls.Add(this.progressBar1);
@@ -73,6 +74,17 @@
             this.groupBox2.TabIndex = 32;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Fecha";
+            // 
+            // lblValor
+            // 
+            this.lblValor.AutoSize = true;
+            this.lblValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValor.Location = new System.Drawing.Point(404, 26);
+            this.lblValor.Name = "lblValor";
+            this.lblValor.Size = new System.Drawing.Size(46, 20);
+            this.lblValor.TabIndex = 123;
+            this.lblValor.Text = "Valor";
+            this.lblValor.Visible = false;
             // 
             // btnExcel
             // 
@@ -104,7 +116,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(275, 505);
+            this.progressBar1.Location = new System.Drawing.Point(288, 435);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(330, 23);
             this.progressBar1.TabIndex = 120;
@@ -183,7 +195,6 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Partido,
             this.DiaPartido,
             this.Estadio,
             this.Local,
@@ -191,18 +202,22 @@
             this.Empate,
             this.EquipoVisitante,
             this.Visitante});
-            this.dataGridView1.Location = new System.Drawing.Point(10, 69);
+            this.dataGridView1.Location = new System.Drawing.Point(57, 65);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(890, 444);
+            this.dataGridView1.Size = new System.Drawing.Size(826, 444);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.Visible = false;
             // 
-            // Partido
+            // label18
             // 
-            this.Partido.HeaderText = "Nro.Partido";
-            this.Partido.Name = "Partido";
-            this.Partido.ReadOnly = true;
-            this.Partido.Width = 65;
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.SeaGreen;
+            this.label18.Location = new System.Drawing.Point(582, 55);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(156, 25);
+            this.label18.TabIndex = 33;
+            this.label18.Text = "Consultar Fecha";
             // 
             // DiaPartido
             // 
@@ -250,17 +265,6 @@
             this.Visitante.Name = "Visitante";
             this.Visitante.Width = 50;
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label18.Location = new System.Drawing.Point(582, 55);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(156, 25);
-            this.label18.TabIndex = 33;
-            this.label18.Text = "Consultar Fecha";
-            // 
             // ConsultarFechaWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -294,7 +298,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbTorneo;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Partido;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnExcel;
+        private System.Windows.Forms.Label lblValor;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaPartido;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estadio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Local;
@@ -302,9 +310,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Empate;
         private System.Windows.Forms.DataGridViewTextBoxColumn EquipoVisitante;
         private System.Windows.Forms.DataGridViewTextBoxColumn Visitante;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Button btnExcel;
     }
 }

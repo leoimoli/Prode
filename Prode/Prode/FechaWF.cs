@@ -131,6 +131,7 @@ namespace Prode
             dtFecha.Value = DateTime.Now;
             pictureBoxLocal.Image = null;
             pictureBoxVisitante.Image = null;
+            txtValor.Clear();
         }
         private void ProgressBar()
         {
@@ -186,6 +187,7 @@ namespace Prode
                 listaFecha.Torneo = campeonato;
                 listaFecha.Temporada = temporada;
                 listaFecha.NroFecha = nroFecha;
+                listaFecha.ValorJugada = Convert.ToDecimal(txtValor.Text);
                 listaFechaEstatica.Add(listaFecha);
             }
 
@@ -272,15 +274,11 @@ namespace Prode
             catch (Exception ex)
             { }
         }
-
         private void BloquearPantalla()
         {
             groupBox1.Enabled = false;
             dataGridView1.Enabled = false;
         }
         #endregion
-
-
-
     }
 }

@@ -26,5 +26,6 @@ namespace Prode.Entidades
         public string CondicionVisitante { get; set; }
         public string CondicionEmpate { get; set; }
         public string Estado { get; set; }
+        public decimal  ValorJugada { get; set; }
     }
 }
