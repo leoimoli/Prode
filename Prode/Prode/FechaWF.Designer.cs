@@ -29,7 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cmbLiga = new System.Windows.Forms.ComboBox();
+            this.txtValor = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.pictureBoxVisitante = new System.Windows.Forms.PictureBox();
             this.pictureBoxLocal = new System.Windows.Forms.PictureBox();
             this.btnCargar = new System.Windows.Forms.Button();
@@ -46,6 +49,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbTorneo = new System.Windows.Forms.ComboBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label18 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.DiaPartido = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,8 +61,6 @@
             this.Visitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.txtValor = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVisitante)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLocal)).BeginInit();
@@ -67,6 +69,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.cmbLiga);
             this.groupBox1.Controls.Add(this.txtValor);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.pictureBoxVisitante);
@@ -92,18 +96,47 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Partidos";
             // 
-            // progressBar1
+            // label9
             // 
-            this.progressBar1.Location = new System.Drawing.Point(508, 507);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(330, 23);
-            this.progressBar1.TabIndex = 46;
-            this.progressBar1.Value = 50;
-            this.progressBar1.Visible = false;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(72, 17);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(59, 20);
+            this.label9.TabIndex = 131;
+            this.label9.Text = "Liga(*):";
+            // 
+            // cmbLiga
+            // 
+            this.cmbLiga.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbLiga.Enabled = false;
+            this.cmbLiga.FormattingEnabled = true;
+            this.cmbLiga.Location = new System.Drawing.Point(137, 19);
+            this.cmbLiga.Name = "cmbLiga";
+            this.cmbLiga.Size = new System.Drawing.Size(200, 21);
+            this.cmbLiga.TabIndex = 0;
+            this.cmbLiga.SelectedIndexChanged += new System.EventHandler(this.cmbLiga_SelectedIndexChanged);
+            // 
+            // txtValor
+            // 
+            this.txtValor.Location = new System.Drawing.Point(579, 65);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(225, 20);
+            this.txtValor.TabIndex = 3;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(417, 63);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(156, 20);
+            this.label8.TabIndex = 46;
+            this.label8.Text = "Valor de la jugada(*):";
             // 
             // pictureBoxVisitante
             // 
-            this.pictureBoxVisitante.Location = new System.Drawing.Point(816, 67);
+            this.pictureBoxVisitante.Location = new System.Drawing.Point(816, 106);
             this.pictureBoxVisitante.Name = "pictureBoxVisitante";
             this.pictureBoxVisitante.Size = new System.Drawing.Size(61, 48);
             this.pictureBoxVisitante.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -112,7 +145,7 @@
             // 
             // pictureBoxLocal
             // 
-            this.pictureBoxLocal.Location = new System.Drawing.Point(353, 67);
+            this.pictureBoxLocal.Location = new System.Drawing.Point(353, 106);
             this.pictureBoxLocal.Name = "pictureBoxLocal";
             this.pictureBoxLocal.Size = new System.Drawing.Size(61, 48);
             this.pictureBoxLocal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -124,10 +157,10 @@
             this.btnCargar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCargar.Image = global::Prode.Properties.Resources.apoyo;
             this.btnCargar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCargar.Location = new System.Drawing.Point(467, 237);
+            this.btnCargar.Location = new System.Drawing.Point(444, 240);
             this.btnCargar.Name = "btnCargar";
             this.btnCargar.Size = new System.Drawing.Size(80, 51);
-            this.btnCargar.TabIndex = 43;
+            this.btnCargar.TabIndex = 8;
             this.btnCargar.Text = "Cargar";
             this.btnCargar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCargar.UseVisualStyleBackColor = true;
@@ -138,10 +171,10 @@
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.Image = global::Prode.Properties.Resources.error;
             this.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnLimpiar.Location = new System.Drawing.Point(369, 237);
+            this.btnLimpiar.Location = new System.Drawing.Point(346, 240);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(80, 51);
-            this.btnLimpiar.TabIndex = 42;
+            this.btnLimpiar.TabIndex = 9;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnLimpiar.UseVisualStyleBackColor = true;
@@ -151,7 +184,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(421, 141);
+            this.label7.Location = new System.Drawing.Point(421, 180);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(152, 20);
             this.label7.TabIndex = 41;
@@ -159,16 +192,16 @@
             // 
             // dtFecha
             // 
-            this.dtFecha.Location = new System.Drawing.Point(579, 141);
+            this.dtFecha.Location = new System.Drawing.Point(579, 180);
             this.dtFecha.Name = "dtFecha";
             this.dtFecha.Size = new System.Drawing.Size(225, 20);
-            this.dtFecha.TabIndex = 40;
+            this.dtFecha.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(48, 138);
+            this.label4.Location = new System.Drawing.Point(48, 177);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(83, 20);
             this.label4.TabIndex = 39;
@@ -178,7 +211,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(482, 77);
+            this.label5.Location = new System.Drawing.Point(482, 116);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(91, 20);
             this.label5.TabIndex = 38;
@@ -188,7 +221,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(64, 78);
+            this.label6.Location = new System.Drawing.Point(64, 117);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(67, 20);
             this.label6.TabIndex = 37;
@@ -198,43 +231,43 @@
             // 
             this.cmbEstadio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstadio.FormattingEnabled = true;
-            this.cmbEstadio.Location = new System.Drawing.Point(137, 140);
+            this.cmbEstadio.Location = new System.Drawing.Point(137, 179);
             this.cmbEstadio.Name = "cmbEstadio";
             this.cmbEstadio.Size = new System.Drawing.Size(200, 21);
-            this.cmbEstadio.TabIndex = 36;
+            this.cmbEstadio.TabIndex = 6;
             // 
             // cmbVisitante
             // 
             this.cmbVisitante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbVisitante.FormattingEnabled = true;
-            this.cmbVisitante.Location = new System.Drawing.Point(579, 80);
+            this.cmbVisitante.Location = new System.Drawing.Point(579, 119);
             this.cmbVisitante.Name = "cmbVisitante";
             this.cmbVisitante.Size = new System.Drawing.Size(225, 21);
-            this.cmbVisitante.TabIndex = 35;
+            this.cmbVisitante.TabIndex = 5;
             this.cmbVisitante.SelectedIndexChanged += new System.EventHandler(this.cmbVisitante_SelectedIndexChanged);
             // 
             // cmbLocal
             // 
             this.cmbLocal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLocal.FormattingEnabled = true;
-            this.cmbLocal.Location = new System.Drawing.Point(137, 80);
+            this.cmbLocal.Location = new System.Drawing.Point(137, 119);
             this.cmbLocal.Name = "cmbLocal";
             this.cmbLocal.Size = new System.Drawing.Size(200, 21);
-            this.cmbLocal.TabIndex = 34;
+            this.cmbLocal.TabIndex = 4;
             this.cmbLocal.SelectedIndexChanged += new System.EventHandler(this.cmbLocal_SelectedIndexChanged);
             // 
             // txtFecha
             // 
-            this.txtFecha.Location = new System.Drawing.Point(579, 19);
+            this.txtFecha.Location = new System.Drawing.Point(137, 65);
             this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(225, 20);
-            this.txtFecha.TabIndex = 33;
+            this.txtFecha.Size = new System.Drawing.Size(200, 20);
+            this.txtFecha.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(499, 17);
+            this.label2.Location = new System.Drawing.Point(57, 63);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 20);
             this.label2.TabIndex = 32;
@@ -244,7 +277,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(52, 18);
+            this.label1.Location = new System.Drawing.Point(494, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 20);
             this.label1.TabIndex = 31;
@@ -253,11 +286,21 @@
             // cmbTorneo
             // 
             this.cmbTorneo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTorneo.Enabled = false;
             this.cmbTorneo.FormattingEnabled = true;
-            this.cmbTorneo.Location = new System.Drawing.Point(137, 20);
+            this.cmbTorneo.Location = new System.Drawing.Point(579, 19);
             this.cmbTorneo.Name = "cmbTorneo";
-            this.cmbTorneo.Size = new System.Drawing.Size(200, 21);
-            this.cmbTorneo.TabIndex = 30;
+            this.cmbTorneo.Size = new System.Drawing.Size(225, 21);
+            this.cmbTorneo.TabIndex = 1;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(508, 507);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(330, 23);
+            this.progressBar1.TabIndex = 46;
+            this.progressBar1.Value = 50;
+            this.progressBar1.Visible = false;
             // 
             // label18
             // 
@@ -282,7 +325,7 @@
             this.Empate,
             this.EquipoVisitante,
             this.Visitante});
-            this.dataGridView1.Location = new System.Drawing.Point(227, 389);
+            this.dataGridView1.Location = new System.Drawing.Point(227, 393);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(857, 270);
             this.dataGridView1.TabIndex = 30;
@@ -337,7 +380,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(665, 665);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(80, 51);
-            this.btnGuardar.TabIndex = 45;
+            this.btnGuardar.TabIndex = 0;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -351,28 +394,11 @@
             this.button2.Location = new System.Drawing.Point(567, 665);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(80, 51);
-            this.button2.TabIndex = 44;
+            this.button2.TabIndex = 1;
             this.button2.Text = "Cancelar";
             this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // txtValor
-            // 
-            this.txtValor.Location = new System.Drawing.Point(376, 200);
-            this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(225, 20);
-            this.txtValor.TabIndex = 47;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(214, 198);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(156, 20);
-            this.label8.TabIndex = 46;
-            this.label8.Text = "Valor de la jugada(*):";
             // 
             // FechaWF
             // 
@@ -438,5 +464,7 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cmbLiga;
     }
 }

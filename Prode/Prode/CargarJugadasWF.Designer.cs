@@ -35,6 +35,9 @@
             this.lblDniOApellidoNombre = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmbLiga = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.lblMensaje = new System.Windows.Forms.Label();
             this.lblidApostador = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
@@ -57,7 +60,6 @@
             this.Empate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EquipoVisitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Visitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -118,6 +120,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.cmbLiga);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.lblMensaje);
             this.groupBox2.Controls.Add(this.lblidApostador);
@@ -133,19 +137,51 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.cmbTorneo);
             this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(194, 156);
+            this.groupBox2.Location = new System.Drawing.Point(141, 163);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(906, 557);
+            this.groupBox2.Size = new System.Drawing.Size(1048, 557);
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Fecha";
             this.groupBox2.Visible = false;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(30, 74);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 20);
+            this.label4.TabIndex = 127;
+            this.label4.Text = "Liga(*):";
+            // 
+            // cmbLiga
+            // 
+            this.cmbLiga.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbLiga.FormattingEnabled = true;
+            this.cmbLiga.Location = new System.Drawing.Point(95, 76);
+            this.cmbLiga.Name = "cmbLiga";
+            this.cmbLiga.Size = new System.Drawing.Size(200, 21);
+            this.cmbLiga.TabIndex = 0;
+            this.cmbLiga.SelectedIndexChanged += new System.EventHandler(this.cmbLiga_SelectedIndexChanged);
+            // 
+            // button1
+            // 
+            this.button1.Image = global::Prode.Properties.Resources.simbolo_correcto;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button1.Location = new System.Drawing.Point(940, 66);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(33, 30);
+            this.button1.TabIndex = 3;
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // lblMensaje
             // 
             this.lblMensaje.AutoSize = true;
             this.lblMensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensaje.Location = new System.Drawing.Point(7, 454);
+            this.lblMensaje.Location = new System.Drawing.Point(69, 454);
             this.lblMensaje.Name = "lblMensaje";
             this.lblMensaje.Size = new System.Drawing.Size(416, 20);
             this.lblMensaje.TabIndex = 122;
@@ -156,7 +192,7 @@
             // 
             this.lblidApostador.AutoSize = true;
             this.lblidApostador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblidApostador.Location = new System.Drawing.Point(398, 30);
+            this.lblidApostador.Location = new System.Drawing.Point(508, 29);
             this.lblidApostador.Name = "lblidApostador";
             this.lblidApostador.Size = new System.Drawing.Size(25, 20);
             this.lblidApostador.TabIndex = 121;
@@ -165,7 +201,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(276, 414);
+            this.progressBar1.Location = new System.Drawing.Point(371, 355);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(330, 23);
             this.progressBar1.TabIndex = 120;
@@ -177,10 +213,10 @@
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = global::Prode.Properties.Resources.apoyo;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnGuardar.Location = new System.Drawing.Point(452, 500);
+            this.btnGuardar.Location = new System.Drawing.Point(554, 499);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(80, 51);
-            this.btnGuardar.TabIndex = 3;
+            this.btnGuardar.TabIndex = 4;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -191,10 +227,10 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Image = global::Prode.Properties.Resources.error;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(354, 500);
+            this.button2.Location = new System.Drawing.Point(456, 499);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(80, 51);
-            this.button2.TabIndex = 4;
+            this.button2.TabIndex = 5;
             this.button2.Text = "Cancelar";
             this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button2.UseVisualStyleBackColor = true;
@@ -204,7 +240,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(65, 30);
+            this.label26.Location = new System.Drawing.Point(175, 29);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(140, 20);
             this.label26.TabIndex = 41;
@@ -214,7 +250,7 @@
             // 
             this.lblDniEdit.AutoSize = true;
             this.lblDniEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDniEdit.Location = new System.Drawing.Point(637, 30);
+            this.lblDniEdit.Location = new System.Drawing.Point(747, 29);
             this.lblDniEdit.Name = "lblDniEdit";
             this.lblDniEdit.Size = new System.Drawing.Size(25, 20);
             this.lblDniEdit.TabIndex = 40;
@@ -224,7 +260,7 @@
             // 
             this.lblApellidoNombreEdit.AutoSize = true;
             this.lblApellidoNombreEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApellidoNombreEdit.Location = new System.Drawing.Point(211, 30);
+            this.lblApellidoNombreEdit.Location = new System.Drawing.Point(321, 29);
             this.lblApellidoNombreEdit.Name = "lblApellidoNombreEdit";
             this.lblApellidoNombreEdit.Size = new System.Drawing.Size(25, 20);
             this.lblApellidoNombreEdit.TabIndex = 39;
@@ -234,7 +270,7 @@
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(590, 30);
+            this.label27.Location = new System.Drawing.Point(700, 29);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(37, 20);
             this.label27.TabIndex = 38;
@@ -242,17 +278,17 @@
             // 
             // txtFecha
             // 
-            this.txtFecha.Location = new System.Drawing.Point(593, 69);
+            this.txtFecha.Location = new System.Drawing.Point(691, 76);
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.Size = new System.Drawing.Size(225, 20);
-            this.txtFecha.TabIndex = 1;
+            this.txtFecha.TabIndex = 2;
             this.txtFecha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFecha_KeyDown);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(513, 67);
+            this.label2.Location = new System.Drawing.Point(611, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 20);
             this.label2.TabIndex = 36;
@@ -262,7 +298,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(66, 68);
+            this.label1.Location = new System.Drawing.Point(321, 74);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 20);
             this.label1.TabIndex = 35;
@@ -271,11 +307,12 @@
             // cmbTorneo
             // 
             this.cmbTorneo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTorneo.Enabled = false;
             this.cmbTorneo.FormattingEnabled = true;
-            this.cmbTorneo.Location = new System.Drawing.Point(151, 70);
+            this.cmbTorneo.Location = new System.Drawing.Point(406, 76);
             this.cmbTorneo.Name = "cmbTorneo";
             this.cmbTorneo.Size = new System.Drawing.Size(200, 21);
-            this.cmbTorneo.TabIndex = 0;
+            this.cmbTorneo.TabIndex = 1;
             // 
             // dataGridView1
             // 
@@ -290,7 +327,7 @@
             this.Empate,
             this.EquipoVisitante,
             this.Visitante});
-            this.dataGridView1.Location = new System.Drawing.Point(10, 104);
+            this.dataGridView1.Location = new System.Drawing.Point(73, 104);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(890, 347);
             this.dataGridView1.TabIndex = 2;
@@ -349,18 +386,6 @@
             this.Visitante.Name = "Visitante";
             this.Visitante.Width = 50;
             // 
-            // button1
-            // 
-            this.button1.Image = global::Prode.Properties.Resources.simbolo_correcto;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(840, 60);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(33, 30);
-            this.button1.TabIndex = 123;
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // CargarJugadasWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -418,5 +443,7 @@
         private System.Windows.Forms.Label lblidApostador;
         private System.Windows.Forms.Label lblMensaje;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cmbLiga;
     }
 }

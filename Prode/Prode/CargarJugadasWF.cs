@@ -24,6 +24,32 @@ namespace Prode
             CargarCombos();
         }
         #region Funciones     
+        private void cmbLiga_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string Liga = cmbTorneo.Text;
+            if (Liga != "Seleccione")
+            {
+                CargarComboTorneo(Liga);
+            }
+            else
+            {
+                cmbTorneo.Enabled = false;
+            }
+        }
+        private void CargarComboTorneo(string Liga)
+        {
+            List<string> Torneo = new List<string>();
+            Torneo = TorneoNeg.CargarComboTorneos(Liga);
+            cmbTorneo.Items.Clear();
+            cmbTorneo.Text = "Seleccione";
+            cmbTorneo.Items.Add("Seleccione");
+            foreach (string item in Torneo)
+            {
+                cmbTorneo.Text = "Seleccione";
+                cmbTorneo.Items.Add(item);
+            }
+            cmbTorneo.Enabled = true;
+        }
         private List<Jugada> CargarEntidadJugada()
         {
             List<Jugada> _lista = new List<Jugada>();
@@ -54,15 +80,15 @@ namespace Prode
         }
         private void CargarCombos()
         {
-            List<string> Torneo = new List<string>();
-            Torneo = TorneoNeg.CargarComboTorneos();
-            cmbTorneo.Items.Clear();
-            cmbTorneo.Text = "Seleccione";
-            cmbTorneo.Items.Add("Seleccione");
-            foreach (string item in Torneo)
+            List<string> Liga = new List<string>();
+            Liga = TorneoNeg.CargarComboLiga();
+            cmbLiga.Items.Clear();
+            cmbLiga.Text = "Seleccione";
+            cmbLiga.Items.Add("Seleccione");
+            foreach (string item in Liga)
             {
-                cmbTorneo.Text = "Seleccione";
-                cmbTorneo.Items.Add(item);
+                cmbLiga.Text = "Seleccione";
+                cmbLiga.Items.Add(item);
             }
         }
         private void FuncionesBotonHabilitarBuscar()

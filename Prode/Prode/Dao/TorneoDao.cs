@@ -27,6 +27,7 @@ namespace Prode.Dao
                 cmd.Parameters.AddWithValue("Temporada_in", _torneo.Temporada);
                 cmd.Parameters.AddWithValue("NombreTorneo_in", _torneo.NombreTorneo);
                 cmd.Parameters.AddWithValue("CantidadFechas_in", _torneo.CantidadFechas);
+                cmd.Parameters.AddWithValue("Liga_in", _torneo.Liga);
                 cmd.ExecuteNonQuery();
                 exito = true;
                 connection.Close();
@@ -105,6 +106,32 @@ namespace Prode.Dao
             connection.Close();
             return FechaValida;
         }
+        public static List<string> CargarComboLiga()
+        {
+            List<string> _listaTorneo = new List<string>();
+            connection.Close();
+            connection.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { };
+            string proceso = "CargarComboLiga";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    _listaTorneo.Add(item["Liga"].ToString());
+                }
+            }
+
+            connection.Close();
+            return _listaTorneo;
+        }
+
         public static bool ValidarFecha(string fecha, string torneo, string temporada)
         {
             bool FechaValida = false;
@@ -167,7 +194,7 @@ namespace Prode.Dao
             connection.Close();
             return idTorneo;
         }
-        public static List<string> CargarComboTorneos()
+        public static List<string> CargarComboTorneos(string Liga)
         {
             List<string> _listaTorneo = new List<string>();
             connection.Close();
@@ -175,7 +202,7 @@ namespace Prode.Dao
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = connection;
             DataTable Tabla = new DataTable();
-            MySqlParameter[] oParam = { };
+            MySqlParameter[] oParam = { new MySqlParameter("Liga_in", Liga) };
             string proceso = "CargarComboTorneos";
             MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
             dt.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -188,7 +215,6 @@ namespace Prode.Dao
                     _listaTorneo.Add(item["NombreTorneo"].ToString() + "-" + item["Temporada"].ToString());
                 }
             }
-
             connection.Close();
             return _listaTorneo;
         }

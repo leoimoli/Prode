@@ -37,6 +37,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmbTorneo = new System.Windows.Forms.ComboBox();
             this.grbFiltros = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmbLiga = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.grbResultados = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -58,27 +60,27 @@
             // 
             this.btnBuscar.Image = global::Prode.Properties.Resources.simbolo_correcto;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnBuscar.Location = new System.Drawing.Point(838, 25);
+            this.btnBuscar.Location = new System.Drawing.Point(934, 28);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(33, 30);
-            this.btnBuscar.TabIndex = 121;
+            this.btnBuscar.TabIndex = 3;
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtFecha
             // 
-            this.txtFecha.Location = new System.Drawing.Point(593, 27);
+            this.txtFecha.Location = new System.Drawing.Point(689, 30);
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.Size = new System.Drawing.Size(225, 20);
-            this.txtFecha.TabIndex = 1;
+            this.txtFecha.TabIndex = 2;
             this.txtFecha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFecha_KeyDown);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(513, 25);
+            this.label2.Location = new System.Drawing.Point(609, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 20);
             this.label2.TabIndex = 36;
@@ -88,7 +90,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(66, 26);
+            this.label1.Location = new System.Drawing.Point(318, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 20);
             this.label1.TabIndex = 35;
@@ -98,24 +100,47 @@
             // 
             this.cmbTorneo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTorneo.FormattingEnabled = true;
-            this.cmbTorneo.Location = new System.Drawing.Point(151, 28);
+            this.cmbTorneo.Location = new System.Drawing.Point(403, 30);
             this.cmbTorneo.Name = "cmbTorneo";
             this.cmbTorneo.Size = new System.Drawing.Size(200, 21);
-            this.cmbTorneo.TabIndex = 0;
+            this.cmbTorneo.TabIndex = 1;
             // 
             // grbFiltros
             // 
+            this.grbFiltros.Controls.Add(this.label4);
             this.grbFiltros.Controls.Add(this.btnBuscar);
+            this.grbFiltros.Controls.Add(this.cmbLiga);
             this.grbFiltros.Controls.Add(this.txtFecha);
             this.grbFiltros.Controls.Add(this.label2);
             this.grbFiltros.Controls.Add(this.label1);
             this.grbFiltros.Controls.Add(this.cmbTorneo);
             this.grbFiltros.Location = new System.Drawing.Point(232, 76);
             this.grbFiltros.Name = "grbFiltros";
-            this.grbFiltros.Size = new System.Drawing.Size(906, 75);
+            this.grbFiltros.Size = new System.Drawing.Size(1021, 75);
             this.grbFiltros.TabIndex = 34;
             this.grbFiltros.TabStop = false;
             this.grbFiltros.Text = "Filtros";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(36, 28);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 20);
+            this.label4.TabIndex = 129;
+            this.label4.Text = "Liga(*):";
+            // 
+            // cmbLiga
+            // 
+            this.cmbLiga.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbLiga.Enabled = false;
+            this.cmbLiga.FormattingEnabled = true;
+            this.cmbLiga.Location = new System.Drawing.Point(101, 30);
+            this.cmbLiga.Name = "cmbLiga";
+            this.cmbLiga.Size = new System.Drawing.Size(200, 21);
+            this.cmbLiga.TabIndex = 0;
+            this.cmbLiga.SelectedIndexChanged += new System.EventHandler(this.cmbLiga_SelectedIndexChanged);
             // 
             // label18
             // 
@@ -266,5 +291,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EquipoVisitante;
         private System.Windows.Forms.DataGridView dgvResultaApostadores;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cmbLiga;
     }
 }

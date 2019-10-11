@@ -25,14 +25,22 @@ namespace Prode
         }
 
         #region Funciones
-        private void BloquearPantalla()
+        private void cmbLiga_SelectedIndexChanged(object sender, EventArgs e)
         {
-            grbFiltros.Enabled = false;
+            string Liga = cmbLiga.Text;
+            if (Liga != "Seleccione")
+            {
+                CargarComboTorneo(Liga);
+            }
+            else
+            {
+                cmbTorneo.Enabled = false;
+            }
         }
-        private void CargarCombos()
+        private void CargarComboTorneo(string Liga)
         {
             List<string> Torneo = new List<string>();
-            Torneo = TorneoNeg.CargarComboTorneos();
+            Torneo = TorneoNeg.CargarComboTorneos(Liga);
             cmbTorneo.Items.Clear();
             cmbTorneo.Text = "Seleccione";
             cmbTorneo.Items.Add("Seleccione");
@@ -40,6 +48,24 @@ namespace Prode
             {
                 cmbTorneo.Text = "Seleccione";
                 cmbTorneo.Items.Add(item);
+            }
+            cmbTorneo.Enabled = true;
+        }
+        private void BloquearPantalla()
+        {
+            grbFiltros.Enabled = false;
+        }
+        private void CargarCombos()
+        {
+            List<string> Liga = new List<string>();
+            Liga = TorneoNeg.CargarComboLiga();
+            cmbLiga.Items.Clear();
+            cmbLiga.Text = "Seleccione";
+            cmbLiga.Items.Add("Seleccione");
+            foreach (string item in Liga)
+            {
+                cmbLiga.Text = "Seleccione";
+                cmbLiga.Items.Add(item);
             }
         }
         private void FuncionesBotonHabilitarBuscar()

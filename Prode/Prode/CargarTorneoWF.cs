@@ -63,6 +63,7 @@ namespace Prode
             _torneo.Temporada = cmbTemporada.Text;
             _torneo.NombreTorneo = txtNombreTorneo.Text;
             _torneo.CantidadFechas = Convert.ToInt32(txtFechas.Text);
+            _torneo.Liga = txtLiga.Text;
             return _torneo;
         }
         private void ProgressBar()

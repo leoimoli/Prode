@@ -33,6 +33,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CargarResultadosWF));
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmbLiga = new System.Windows.Forms.ComboBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
@@ -67,6 +69,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.cmbLiga);
             this.groupBox2.Controls.Add(this.btnCancelar);
             this.groupBox2.Controls.Add(this.btnBuscar);
             this.groupBox2.Controls.Add(this.progressBar1);
@@ -79,20 +83,41 @@
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Location = new System.Drawing.Point(204, 107);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(906, 591);
+            this.groupBox2.Size = new System.Drawing.Size(1024, 591);
             this.groupBox2.TabIndex = 33;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Fecha";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(61, 25);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 20);
+            this.label4.TabIndex = 127;
+            this.label4.Text = "Liga(*):";
+            // 
+            // cmbLiga
+            // 
+            this.cmbLiga.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbLiga.Enabled = false;
+            this.cmbLiga.FormattingEnabled = true;
+            this.cmbLiga.Location = new System.Drawing.Point(126, 27);
+            this.cmbLiga.Name = "cmbLiga";
+            this.cmbLiga.Size = new System.Drawing.Size(200, 21);
+            this.cmbLiga.TabIndex = 0;
+            this.cmbLiga.SelectedIndexChanged += new System.EventHandler(this.cmbLiga_SelectedIndexChanged);
             // 
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::Prode.Properties.Resources.error;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCancelar.Location = new System.Drawing.Point(405, 534);
+            this.btnCancelar.Location = new System.Drawing.Point(462, 534);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(80, 51);
-            this.btnCancelar.TabIndex = 122;
+            this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -101,17 +126,17 @@
             // 
             this.btnBuscar.Image = global::Prode.Properties.Resources.simbolo_correcto;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnBuscar.Location = new System.Drawing.Point(838, 25);
+            this.btnBuscar.Location = new System.Drawing.Point(956, 25);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(33, 30);
-            this.btnBuscar.TabIndex = 121;
+            this.btnBuscar.TabIndex = 3;
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(278, 463);
+            this.progressBar1.Location = new System.Drawing.Point(336, 458);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(330, 23);
             this.progressBar1.TabIndex = 120;
@@ -123,10 +148,10 @@
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = global::Prode.Properties.Resources.apoyo;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnGuardar.Location = new System.Drawing.Point(528, 534);
+            this.btnGuardar.Location = new System.Drawing.Point(585, 534);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(80, 51);
-            this.btnGuardar.TabIndex = 3;
+            this.btnGuardar.TabIndex = 4;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -137,27 +162,27 @@
             this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVolver.Image = global::Prode.Properties.Resources.deshacer;
             this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnVolver.Location = new System.Drawing.Point(278, 534);
+            this.btnVolver.Location = new System.Drawing.Point(335, 534);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(80, 51);
-            this.btnVolver.TabIndex = 4;
+            this.btnVolver.TabIndex = 6;
             this.btnVolver.Text = "Volver";
             this.btnVolver.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnVolver.UseVisualStyleBackColor = true;
             // 
             // txtFecha
             // 
-            this.txtFecha.Location = new System.Drawing.Point(593, 27);
+            this.txtFecha.Location = new System.Drawing.Point(711, 27);
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.Size = new System.Drawing.Size(225, 20);
-            this.txtFecha.TabIndex = 1;
+            this.txtFecha.TabIndex = 2;
             this.txtFecha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFecha_KeyDown);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(513, 25);
+            this.label2.Location = new System.Drawing.Point(631, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 20);
             this.label2.TabIndex = 36;
@@ -167,7 +192,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(66, 26);
+            this.label1.Location = new System.Drawing.Point(332, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 20);
             this.label1.TabIndex = 35;
@@ -177,10 +202,10 @@
             // 
             this.cmbTorneo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTorneo.FormattingEnabled = true;
-            this.cmbTorneo.Location = new System.Drawing.Point(151, 28);
+            this.cmbTorneo.Location = new System.Drawing.Point(417, 27);
             this.cmbTorneo.Name = "cmbTorneo";
             this.cmbTorneo.Size = new System.Drawing.Size(200, 21);
-            this.cmbTorneo.TabIndex = 0;
+            this.cmbTorneo.TabIndex = 1;
             // 
             // dataGridView1
             // 
@@ -194,7 +219,7 @@
             this.EquipoLocal,
             this.EquipoVisitante,
             this.Visitante});
-            this.dataGridView1.Location = new System.Drawing.Point(10, 69);
+            this.dataGridView1.Location = new System.Drawing.Point(65, 61);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(890, 444);
             this.dataGridView1.TabIndex = 2;
@@ -297,5 +322,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EquipoVisitante;
         private System.Windows.Forms.DataGridViewTextBoxColumn Visitante;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cmbLiga;
     }
 }

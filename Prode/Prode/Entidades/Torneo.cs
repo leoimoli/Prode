@@ -12,5 +12,6 @@ namespace Prode.Entidades
         public string NombreTorneo { get; set; }
         public int CantidadFechas { get; set; }
         public string Temporada { get; set; }
+        public string Liga { get; set; }
     }
 }

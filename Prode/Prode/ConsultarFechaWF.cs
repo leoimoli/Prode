@@ -122,11 +122,32 @@ namespace Prode
                 Document pdfDoc = new Document(PageSize.A2, 10f, 10f, 10f, 0f);
                 PdfWriter.GetInstance(pdfDoc, stream);
                 pdfDoc.Open();
-                Paragraph p1 = new Paragraph("Torneo:" + cmbTorneo.Text + "                                  " + "Fecha N°" + txtFecha.Text + "                                  " + "Valor De la Jugada: $" + lblValor.Text + "                                  ", FontFactory.GetFont(FontFactory.TIMES, 15, iTextSharp.text.Font.NORMAL));
+                Paragraph p1 = new Paragraph("Competencia:" + cmbLiga.Text + "                  " + "Torneo:" + cmbTorneo.Text + "                                  " + "Fecha N°" + txtFecha.Text + "                                  " + "Valor De la Jugada: $" + lblValor.Text, FontFactory.GetFont(FontFactory.TIMES, 15, iTextSharp.text.Font.NORMAL));
                 Paragraph pEspacio1 = new Paragraph("   ", FontFactory.GetFont(FontFactory.TIMES, 15, iTextSharp.text.Font.NORMAL));
+                Paragraph pNotaDePie = new Paragraph("Por favor marcar con una x el resultado del partido. Solo se acepta un resultado por partido.", FontFactory.GetFont(FontFactory.TIMES, 10, iTextSharp.text.Font.NORMAL));
+                Paragraph pDatosPersonales = new Paragraph("Dni:__________" + "Apellido:__________" + "Nombre:__________" + "Teléfono:____________________" + "Email:____________________", FontFactory.GetFont(FontFactory.TIMES, 15, iTextSharp.text.Font.NORMAL));
+                Paragraph pTextoParaApostador = new Paragraph("Usted debe quedarse con este comprobante.", FontFactory.GetFont(FontFactory.TIMES, 10, iTextSharp.text.Font.NORMAL));
+                ///// Primer recuadro
                 pdfDoc.Add(p1);
                 pdfDoc.Add(pEspacio1);
+                pdfDoc.Add(pDatosPersonales);
+                pdfDoc.Add(pEspacio1);
                 pdfDoc.Add(pdfTable);
+                pdfDoc.Add(pNotaDePie);
+
+                pdfDoc.Add(pEspacio1);
+                pdfDoc.Add(pEspacio1);
+                pdfDoc.Add(pEspacio1);
+                pdfDoc.Add(pEspacio1);
+                pdfDoc.Add(pEspacio1);
+
+                ///// Segundo recuadro
+                pdfDoc.Add(p1);
+                pdfDoc.Add(pEspacio1);
+                pdfDoc.Add(pDatosPersonales);
+                pdfDoc.Add(pEspacio1);
+                pdfDoc.Add(pdfTable);
+                pdfDoc.Add(pTextoParaApostador);
                 pdfDoc.Close();
                 stream.Close();
             }
@@ -175,6 +196,7 @@ namespace Prode
             txtFecha.Clear();
             CargarCombos();
             dataGridView1.Visible = false;
+            cmbTorneo.Text = "Seleccione";
         }
         private void BloquearPantalla()
         {
@@ -198,15 +220,15 @@ namespace Prode
         }
         private void CargarCombos()
         {
-            List<string> Torneo = new List<string>();
-            Torneo = TorneoNeg.CargarComboTorneos();
-            cmbTorneo.Items.Clear();
-            cmbTorneo.Text = "Seleccione";
-            cmbTorneo.Items.Add("Seleccione");
-            foreach (string item in Torneo)
+            List<string> Liga = new List<string>();
+            Liga = TorneoNeg.CargarComboLiga();
+            cmbLiga.Items.Clear();
+            cmbLiga.Text = "Seleccione";
+            cmbLiga.Items.Add("Seleccione");
+            foreach (string item in Liga)
             {
-                cmbTorneo.Text = "Seleccione";
-                cmbTorneo.Items.Add(item);
+                cmbLiga.Text = "Seleccione";
+                cmbLiga.Items.Add(item);
             }
         }
         private void FuncionesBotonHabilitarBuscar()
@@ -241,8 +263,33 @@ namespace Prode
                 { }
             }
         }
+        private void CargarComboTorneo(string Liga)
+        {
+            List<string> Torneo = new List<string>();
+            Torneo = TorneoNeg.CargarComboTorneos(Liga);
+            cmbTorneo.Items.Clear();
+            cmbTorneo.Text = "Seleccione";
+            cmbTorneo.Items.Add("Seleccione");
+            foreach (string item in Torneo)
+            {
+                cmbTorneo.Text = "Seleccione";
+                cmbTorneo.Items.Add(item);
+            }
+            cmbTorneo.Enabled = true;
+        }
+        private void cmbLiga_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string Liga = cmbLiga.Text;
+            if (Liga != "Seleccione")
+            {
+                CargarComboTorneo(Liga);
+            }
+            else
+            {
+                cmbTorneo.Enabled = false;
+            }
+        }
         #endregion
-
 
     }
 }

@@ -55,12 +55,21 @@ namespace Prode.Negocio
                                            MessageBoxIcon.Exclamation);
                 throw new Exception();
             }
-        }
 
-        public static List<string> CargarComboTorneos()
+            if (String.IsNullOrEmpty(_torneo.Liga))
+            {
+                const string message = "El campo Liga es obligatorio.";
+                const string caption = "Error";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                throw new Exception();
+            }
+        }
+        public static List<string> CargarComboTorneos(string Liga)
         {
             List<string> lista = new List<string>();
-            lista = TorneoDao.CargarComboTorneos();
+            lista = TorneoDao.CargarComboTorneos(Liga);
             return lista;
         }
         public static bool ValidarFecha(string fecha, string torneo, string temporada)
@@ -73,6 +82,12 @@ namespace Prode.Negocio
         {
             bool NroFechaValido = TorneoDao.ValidarNroFechaExistente(NroFecha, torneo, temporada);
             return NroFechaValido;
+        }
+        public static List<string> CargarComboLiga()
+        {
+            List<string> lista = new List<string>();
+            lista = TorneoDao.CargarComboLiga();
+            return lista;
         }
     }
 }
