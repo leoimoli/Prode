@@ -53,8 +53,6 @@
             this.cmbTorneo = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Partido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiaPartido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estadio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Local = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EquipoLocal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Empate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -320,8 +318,6 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Partido,
-            this.DiaPartido,
-            this.Estadio,
             this.Local,
             this.EquipoLocal,
             this.Empate,
@@ -340,20 +336,6 @@
             this.Partido.ReadOnly = true;
             this.Partido.Width = 65;
             // 
-            // DiaPartido
-            // 
-            this.DiaPartido.HeaderText = "Día de partido";
-            this.DiaPartido.Name = "DiaPartido";
-            this.DiaPartido.ReadOnly = true;
-            this.DiaPartido.Width = 80;
-            // 
-            // Estadio
-            // 
-            this.Estadio.HeaderText = "Estadio";
-            this.Estadio.Name = "Estadio";
-            this.Estadio.ReadOnly = true;
-            this.Estadio.Width = 150;
-            // 
             // Local
             // 
             this.Local.HeaderText = "Local";
@@ -365,7 +347,7 @@
             this.EquipoLocal.HeaderText = "Equipo Local";
             this.EquipoLocal.Name = "EquipoLocal";
             this.EquipoLocal.ReadOnly = true;
-            this.EquipoLocal.Width = 200;
+            this.EquipoLocal.Width = 300;
             // 
             // Empate
             // 
@@ -378,7 +360,7 @@
             this.EquipoVisitante.HeaderText = "Equipo Visitante";
             this.EquipoVisitante.Name = "EquipoVisitante";
             this.EquipoVisitante.ReadOnly = true;
-            this.EquipoVisitante.Width = 200;
+            this.EquipoVisitante.Width = 300;
             // 
             // Visitante
             // 
@@ -431,19 +413,17 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Partido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DiaPartido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estadio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Local;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EquipoLocal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Empate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EquipoVisitante;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Visitante;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label lblidApostador;
         private System.Windows.Forms.Label lblMensaje;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbLiga;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Partido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Local;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EquipoLocal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Empate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EquipoVisitante;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Visitante;
     }
 }

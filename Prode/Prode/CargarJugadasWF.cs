@@ -26,7 +26,7 @@ namespace Prode
         #region Funciones     
         private void cmbLiga_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string Liga = cmbTorneo.Text;
+            string Liga = cmbLiga.Text;
             if (Liga != "Seleccione")
             {
                 CargarComboTorneo(Liga);
@@ -57,9 +57,9 @@ namespace Prode
             {
                 Jugada _jugada = new Jugada();
                 string idPartido = dataGridView1.Rows[fila].Cells[0].Value.ToString();
-                string Local = dataGridView1.Rows[fila].Cells[3].Value.ToString();
-                string Empate = dataGridView1.Rows[fila].Cells[5].Value.ToString();
-                string Visitante = dataGridView1.Rows[fila].Cells[7].Value.ToString();
+                string Local = dataGridView1.Rows[fila].Cells[1].Value.ToString();
+                string Empate = dataGridView1.Rows[fila].Cells[3].Value.ToString();
+                string Visitante = dataGridView1.Rows[fila].Cells[5].Value.ToString();
                 _jugada.idPartido = Convert.ToInt32(idPartido);
                 if (Local == "x")
                 {
@@ -149,7 +149,7 @@ namespace Prode
                         dataGridView1.Visible = true;
                         for (int i = 0; i < _fecha.Count; i++)
                         {
-                            dataGridView1.Rows.Add(_fecha[i].idPartido, _fecha[i].DiaPartido, _fecha[i].Estadio, " ", _fecha[i].EquipoLocal, " ", _fecha[i].EquipoVisitante, " ");
+                            dataGridView1.Rows.Add(_fecha[i].idPartido, " ", _fecha[i].EquipoLocal, " ", _fecha[i].EquipoVisitante, " ");
                         }
                     }
                 }
@@ -213,7 +213,7 @@ namespace Prode
                     dataGridView1.Visible = true;
                     for (int i = 0; i < _fecha.Count; i++)
                     {
-                        dataGridView1.Rows.Add(_fecha[i].idPartido, _fecha[i].DiaPartido, _fecha[i].Estadio, " ", _fecha[i].EquipoLocal, " ", _fecha[i].EquipoVisitante, " ");
+                        dataGridView1.Rows.Add(_fecha[i].idPartido, " ", _fecha[i].EquipoLocal, " ", _fecha[i].EquipoVisitante, " ");
                     }
                 }
             }

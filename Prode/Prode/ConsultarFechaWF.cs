@@ -67,7 +67,7 @@ namespace Prode
                     for (int i = 0; i < _fecha.Count; i++)
                     {
                         lblValor.Text = Convert.ToString(_fecha[i].ValorJugada);
-                        dataGridView1.Rows.Add(_fecha[i].DiaPartido, _fecha[i].Estadio, " ", _fecha[i].EquipoLocal, " ", _fecha[i].EquipoVisitante, " ");
+                        dataGridView1.Rows.Add(" ", _fecha[i].EquipoLocal, " ", _fecha[i].EquipoVisitante, " ");
                     }
                 }
             }
@@ -122,7 +122,7 @@ namespace Prode
                 Document pdfDoc = new Document(PageSize.A2, 10f, 10f, 10f, 0f);
                 PdfWriter.GetInstance(pdfDoc, stream);
                 pdfDoc.Open();
-                Paragraph p1 = new Paragraph("Competencia:" + cmbLiga.Text + "                  " + "Torneo:" + cmbTorneo.Text + "                                  " + "Fecha N°" + txtFecha.Text + "                                  " + "Valor De la Jugada: $" + lblValor.Text, FontFactory.GetFont(FontFactory.TIMES, 15, iTextSharp.text.Font.NORMAL));
+                Paragraph p1 = new Paragraph("Competencia:" + cmbLiga.Text + "                  " + "Torneo:" + cmbTorneo.Text + "                                  " + "Fecha N°" + txtFecha.Text + "                                  " + "Valor De la Jugada: $" + lblValor.Text, FontFactory.GetFont(FontFactory.TIMES, 12, iTextSharp.text.Font.NORMAL));
                 Paragraph pEspacio1 = new Paragraph("   ", FontFactory.GetFont(FontFactory.TIMES, 15, iTextSharp.text.Font.NORMAL));
                 Paragraph pNotaDePie = new Paragraph("Por favor marcar con una x el resultado del partido. Solo se acepta un resultado por partido.", FontFactory.GetFont(FontFactory.TIMES, 10, iTextSharp.text.Font.NORMAL));
                 Paragraph pDatosPersonales = new Paragraph("Dni:__________" + "Apellido:__________" + "Nombre:__________" + "Teléfono:____________________" + "Email:____________________", FontFactory.GetFont(FontFactory.TIMES, 15, iTextSharp.text.Font.NORMAL));
@@ -255,7 +255,7 @@ namespace Prode
                         for (int i = 0; i < _fecha.Count; i++)
                         {
                             lblValor.Text = Convert.ToString(_fecha[i].ValorJugada);
-                            dataGridView1.Rows.Add(_fecha[i].DiaPartido, _fecha[i].Estadio, " ", _fecha[i].EquipoLocal, " ", _fecha[i].EquipoVisitante, " ");
+                            dataGridView1.Rows.Add(" ", _fecha[i].EquipoLocal, " ", _fecha[i].EquipoVisitante, " ");
                         }
                     }
                 }

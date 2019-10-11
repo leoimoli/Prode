@@ -48,12 +48,19 @@
             this.EquipoVisitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grbApostadores = new System.Windows.Forms.GroupBox();
             this.dgvResultaApostadores = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grbEstadisticaRecaudacion = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblCantidadJugadas = new System.Windows.Forms.Label();
+            this.lblJugadoresParticipantes = new System.Windows.Forms.Label();
+            this.lblMontoRecaudado = new System.Windows.Forms.Label();
             this.grbFiltros.SuspendLayout();
             this.grbResultados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.grbApostadores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultaApostadores)).BeginInit();
+            this.grbEstadisticaRecaudacion.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnBuscar
@@ -134,7 +141,6 @@
             // cmbLiga
             // 
             this.cmbLiga.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbLiga.Enabled = false;
             this.cmbLiga.FormattingEnabled = true;
             this.cmbLiga.Location = new System.Drawing.Point(101, 30);
             this.cmbLiga.Name = "cmbLiga";
@@ -175,6 +181,7 @@
             this.EquipoVisitante});
             this.dataGridView1.Location = new System.Drawing.Point(6, 19);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(595, 324);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.Visible = false;
@@ -193,6 +200,7 @@
             this.Local.DefaultCellStyle = dataGridViewCellStyle1;
             this.Local.HeaderText = "Local";
             this.Local.Name = "Local";
+            this.Local.ReadOnly = true;
             this.Local.Width = 50;
             // 
             // Visitante
@@ -202,6 +210,7 @@
             this.Visitante.DefaultCellStyle = dataGridViewCellStyle2;
             this.Visitante.HeaderText = "Visitante";
             this.Visitante.Name = "Visitante";
+            this.Visitante.ReadOnly = true;
             this.Visitante.Width = 50;
             // 
             // EquipoVisitante
@@ -232,22 +241,88 @@
             this.dgvResultaApostadores.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClickBoton);
             this.dgvResultaApostadores.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvResultaApostadores_CellPainting);
             // 
-            // groupBox1
+            // grbEstadisticaRecaudacion
             // 
-            this.groupBox1.Location = new System.Drawing.Point(44, 481);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(372, 219);
-            this.groupBox1.TabIndex = 126;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Resultados Aciertos";
-            this.groupBox1.Visible = false;
+            this.grbEstadisticaRecaudacion.Controls.Add(this.lblMontoRecaudado);
+            this.grbEstadisticaRecaudacion.Controls.Add(this.lblJugadoresParticipantes);
+            this.grbEstadisticaRecaudacion.Controls.Add(this.lblCantidadJugadas);
+            this.grbEstadisticaRecaudacion.Controls.Add(this.label7);
+            this.grbEstadisticaRecaudacion.Controls.Add(this.label6);
+            this.grbEstadisticaRecaudacion.Controls.Add(this.label5);
+            this.grbEstadisticaRecaudacion.Location = new System.Drawing.Point(44, 481);
+            this.grbEstadisticaRecaudacion.Name = "grbEstadisticaRecaudacion";
+            this.grbEstadisticaRecaudacion.Size = new System.Drawing.Size(372, 219);
+            this.grbEstadisticaRecaudacion.TabIndex = 126;
+            this.grbEstadisticaRecaudacion.TabStop = false;
+            this.grbEstadisticaRecaudacion.Text = "Estadísticas";
+            this.grbEstadisticaRecaudacion.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(23, 35);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(146, 17);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Cantidad de Jugadas:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(4, 81);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(165, 17);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Jugadores Participantes:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(41, 126);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(128, 17);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Monto Recaudado:";
+            // 
+            // lblCantidadJugadas
+            // 
+            this.lblCantidadJugadas.AutoSize = true;
+            this.lblCantidadJugadas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidadJugadas.Location = new System.Drawing.Point(175, 35);
+            this.lblCantidadJugadas.Name = "lblCantidadJugadas";
+            this.lblCantidadJugadas.Size = new System.Drawing.Size(22, 17);
+            this.lblCantidadJugadas.TabIndex = 3;
+            this.lblCantidadJugadas.Text = "@";
+            // 
+            // lblJugadoresParticipantes
+            // 
+            this.lblJugadoresParticipantes.AutoSize = true;
+            this.lblJugadoresParticipantes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJugadoresParticipantes.Location = new System.Drawing.Point(175, 81);
+            this.lblJugadoresParticipantes.Name = "lblJugadoresParticipantes";
+            this.lblJugadoresParticipantes.Size = new System.Drawing.Size(22, 17);
+            this.lblJugadoresParticipantes.TabIndex = 4;
+            this.lblJugadoresParticipantes.Text = "@";
+            // 
+            // lblMontoRecaudado
+            // 
+            this.lblMontoRecaudado.AutoSize = true;
+            this.lblMontoRecaudado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMontoRecaudado.Location = new System.Drawing.Point(175, 126);
+            this.lblMontoRecaudado.Name = "lblMontoRecaudado";
+            this.lblMontoRecaudado.Size = new System.Drawing.Size(22, 17);
+            this.lblMontoRecaudado.TabIndex = 5;
+            this.lblMontoRecaudado.Text = "@";
             // 
             // ResultadoJugadasWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 743);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grbEstadisticaRecaudacion);
             this.Controls.Add(this.grbApostadores);
             this.Controls.Add(this.grbResultados);
             this.Controls.Add(this.label18);
@@ -261,13 +336,15 @@
             this.Controls.SetChildIndex(this.label18, 0);
             this.Controls.SetChildIndex(this.grbResultados, 0);
             this.Controls.SetChildIndex(this.grbApostadores, 0);
-            this.Controls.SetChildIndex(this.groupBox1, 0);
+            this.Controls.SetChildIndex(this.grbEstadisticaRecaudacion, 0);
             this.grbFiltros.ResumeLayout(false);
             this.grbFiltros.PerformLayout();
             this.grbResultados.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.grbApostadores.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultaApostadores)).EndInit();
+            this.grbEstadisticaRecaudacion.ResumeLayout(false);
+            this.grbEstadisticaRecaudacion.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -290,8 +367,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Visitante;
         private System.Windows.Forms.DataGridViewTextBoxColumn EquipoVisitante;
         private System.Windows.Forms.DataGridView dgvResultaApostadores;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grbEstadisticaRecaudacion;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbLiga;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblCantidadJugadas;
+        private System.Windows.Forms.Label lblMontoRecaudado;
+        private System.Windows.Forms.Label lblJugadoresParticipantes;
     }
 }

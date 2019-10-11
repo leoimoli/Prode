@@ -109,7 +109,6 @@
             // cmbLiga
             // 
             this.cmbLiga.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbLiga.Enabled = false;
             this.cmbLiga.FormattingEnabled = true;
             this.cmbLiga.Location = new System.Drawing.Point(137, 19);
             this.cmbLiga.Name = "cmbLiga";

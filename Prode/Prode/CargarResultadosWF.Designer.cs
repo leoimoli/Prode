@@ -101,7 +101,6 @@
             // cmbLiga
             // 
             this.cmbLiga.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbLiga.Enabled = false;
             this.cmbLiga.FormattingEnabled = true;
             this.cmbLiga.Location = new System.Drawing.Point(126, 27);
             this.cmbLiga.Name = "cmbLiga";
@@ -238,6 +237,7 @@
             this.DiaPartido.HeaderText = "Día de partido";
             this.DiaPartido.Name = "DiaPartido";
             this.DiaPartido.ReadOnly = true;
+            this.DiaPartido.Visible = false;
             this.DiaPartido.Width = 80;
             // 
             // Estadio
@@ -245,6 +245,7 @@
             this.Estadio.HeaderText = "Estadio";
             this.Estadio.Name = "Estadio";
             this.Estadio.ReadOnly = true;
+            this.Estadio.Visible = false;
             this.Estadio.Width = 150;
             // 
             // Local
@@ -261,14 +262,14 @@
             this.EquipoLocal.HeaderText = "Equipo Local";
             this.EquipoLocal.Name = "EquipoLocal";
             this.EquipoLocal.ReadOnly = true;
-            this.EquipoLocal.Width = 225;
+            this.EquipoLocal.Width = 300;
             // 
             // EquipoVisitante
             // 
             this.EquipoVisitante.HeaderText = "Equipo Visitante";
             this.EquipoVisitante.Name = "EquipoVisitante";
             this.EquipoVisitante.ReadOnly = true;
-            this.EquipoVisitante.Width = 225;
+            this.EquipoVisitante.Width = 300;
             // 
             // Visitante
             // 
@@ -314,6 +315,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbTorneo;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cmbLiga;
         private System.Windows.Forms.DataGridViewTextBoxColumn Partido;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaPartido;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estadio;
@@ -321,8 +325,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EquipoLocal;
         private System.Windows.Forms.DataGridViewTextBoxColumn EquipoVisitante;
         private System.Windows.Forms.DataGridViewTextBoxColumn Visitante;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cmbLiga;
     }
 }

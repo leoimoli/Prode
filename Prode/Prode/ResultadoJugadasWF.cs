@@ -191,13 +191,15 @@ namespace Prode
                 _resultados = ResultadoNeg.BuscarResultados(Torneo, Temporada, NroFecha);
                 if (_resultados.Count > 0)
                 {
+                    grbResultados.Visible = true;
                     dataGridView1.Visible = true;
                     for (int i = 0; i < _resultados.Count; i++)
                     {
                         dataGridView1.Rows.Add(_resultados[i].EquipoLocal, _resultados[i].MarcadorLocal, _resultados[i].MarcadorVisitante, _resultados[i].EquipoVisitante);
                     }
                 }
-                ListaResultadosApuestas = ApostadoresNeg.BuscarAciertos(Torneo, Temporada, NroFecha);
+                //ListaResultadosApuestas = ApostadoresNeg.BuscarAciertos(Torneo, Temporada, NroFecha);
+
             }
             catch (Exception ex)
             { }

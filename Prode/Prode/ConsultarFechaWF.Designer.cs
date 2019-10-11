@@ -44,15 +44,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmbTorneo = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.DiaPartido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estadio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label18 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.Local = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EquipoLocal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Empate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EquipoVisitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Visitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label18 = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -140,7 +138,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(467, 322);
+            this.progressBar1.Location = new System.Drawing.Point(457, 365);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(330, 23);
             this.progressBar1.TabIndex = 120;
@@ -220,32 +218,27 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DiaPartido,
-            this.Estadio,
             this.Local,
             this.EquipoLocal,
             this.Empate,
             this.EquipoVisitante,
             this.Visitante});
-            this.dataGridView1.Location = new System.Drawing.Point(205, 70);
+            this.dataGridView1.Location = new System.Drawing.Point(181, 69);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(826, 444);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.Visible = false;
             // 
-            // DiaPartido
+            // label18
             // 
-            this.DiaPartido.HeaderText = "Día de partido";
-            this.DiaPartido.Name = "DiaPartido";
-            this.DiaPartido.ReadOnly = true;
-            this.DiaPartido.Width = 80;
-            // 
-            // Estadio
-            // 
-            this.Estadio.HeaderText = "Estadio";
-            this.Estadio.Name = "Estadio";
-            this.Estadio.ReadOnly = true;
-            this.Estadio.Width = 150;
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.SeaGreen;
+            this.label18.Location = new System.Drawing.Point(582, 55);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(156, 25);
+            this.label18.TabIndex = 33;
+            this.label18.Text = "Consultar Fecha";
             // 
             // Local
             // 
@@ -258,7 +251,7 @@
             this.EquipoLocal.HeaderText = "Equipo Local";
             this.EquipoLocal.Name = "EquipoLocal";
             this.EquipoLocal.ReadOnly = true;
-            this.EquipoLocal.Width = 200;
+            this.EquipoLocal.Width = 300;
             // 
             // Empate
             // 
@@ -271,24 +264,13 @@
             this.EquipoVisitante.HeaderText = "Equipo Visitante";
             this.EquipoVisitante.Name = "EquipoVisitante";
             this.EquipoVisitante.ReadOnly = true;
-            this.EquipoVisitante.Width = 200;
+            this.EquipoVisitante.Width = 300;
             // 
             // Visitante
             // 
             this.Visitante.HeaderText = "Visitante";
             this.Visitante.Name = "Visitante";
             this.Visitante.Width = 50;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label18.Location = new System.Drawing.Point(582, 55);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(156, 25);
-            this.label18.TabIndex = 33;
-            this.label18.Text = "Consultar Fecha";
             // 
             // ConsultarFechaWF
             // 
@@ -328,14 +310,12 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnExcel;
         private System.Windows.Forms.Label lblValor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DiaPartido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estadio;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cmbLiga;
         private System.Windows.Forms.DataGridViewTextBoxColumn Local;
         private System.Windows.Forms.DataGridViewTextBoxColumn EquipoLocal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Empate;
         private System.Windows.Forms.DataGridViewTextBoxColumn EquipoVisitante;
         private System.Windows.Forms.DataGridViewTextBoxColumn Visitante;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cmbLiga;
     }
 }
