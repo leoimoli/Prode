@@ -134,6 +134,42 @@ namespace Prode.Dao
             }
             return ListaAciertos;
         }
+
+        public static List<EstadisticasApuestas> BuscarEstadisticaGral(string torneo, string temporada, string nroFecha)
+        {
+            List<EstadisticasApuestas> ListaEstadistica = new List<EstadisticasApuestas>();
+            int idTorneo = TorneoDao.BuscaIdtorneoPorNombreTemporada(torneo, temporada);
+            int idFecha = ResultadoDao.BuscarIdFecha(idTorneo, nroFecha);
+            List<int> ListaIdPartidos = ResultadoDao.BuscarPartidosPorIdFecha(idFecha);
+            if (ListaIdPartidos.Count > 0)
+            {
+                connection.Close();
+                connection.Open();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                DataTable Tabla = new DataTable();
+                MySqlParameter[] oParam = {
+                                      new MySqlParameter("IdFecha_in", idFecha)};
+                string proceso = "BuscarEstadisticaGral";
+                MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+                dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+                dt.SelectCommand.Parameters.AddRange(oParam);
+                dt.Fill(Tabla);
+                if (Tabla.Rows.Count > 0)
+                {
+                    foreach (DataRow item in Tabla.Rows)
+                    {
+                        EstadisticasApuestas EstadisticaGral = new EstadisticasApuestas();
+                        EstadisticaGral.CantidadApuestas = Convert.ToInt32(item["CantidadApuestas"].ToString());
+                        EstadisticaGral.CantidadJugadores = Convert.ToInt32(item["CantidadJugadores"].ToString());
+                        ListaEstadistica.Add(EstadisticaGral);
+                    }
+                }
+                connection.Close();
+                return ListaEstadistica;
+            }
+        }
+
         private static List<ResultadoApuestas> BuscarTotalAciertosPorApostadores(List<TipoResultadoPorPartido> ListaTipoResultado, List<int> ListaIdPartidos)
         {
             List<ResultadoApuestas> ListaResultadosApuestas = new List<ResultadoApuestas>();

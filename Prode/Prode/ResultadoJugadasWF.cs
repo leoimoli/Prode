@@ -199,7 +199,8 @@ namespace Prode
                     }
                 }
                 //ListaResultadosApuestas = ApostadoresNeg.BuscarAciertos(Torneo, Temporada, NroFecha);
-
+                List<EstadisticasApuestas> _listaEstadistica = new List<EstadisticasApuestas>();
+                _listaEstadistica = ApostadoresNeg.BuscarEstadisticaGral(Torneo, Temporada, NroFecha);
             }
             catch (Exception ex)
             { }

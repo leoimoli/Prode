@@ -92,5 +92,19 @@ namespace Prode.Negocio
             }
             return _listaAciertos;
         }
+
+        public static List<EstadisticasApuestas> BuscarEstadisticaGral(string torneo, string temporada, string nroFecha)
+        {
+            List<EstadisticasApuestas> _lista = new List<EstadisticasApuestas>();
+            try
+            {
+                _lista = ApostadoresDao.BuscarEstadisticaGral(torneo, temporada, nroFecha);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return _lista;
+        }
     }
 }
