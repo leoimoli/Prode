@@ -251,7 +251,7 @@
             this.grbEstadisticaRecaudacion.Controls.Add(this.label5);
             this.grbEstadisticaRecaudacion.Location = new System.Drawing.Point(44, 481);
             this.grbEstadisticaRecaudacion.Name = "grbEstadisticaRecaudacion";
-            this.grbEstadisticaRecaudacion.Size = new System.Drawing.Size(440, 219);
+            this.grbEstadisticaRecaudacion.Size = new System.Drawing.Size(440, 180);
             this.grbEstadisticaRecaudacion.TabIndex = 126;
             this.grbEstadisticaRecaudacion.TabStop = false;
             this.grbEstadisticaRecaudacion.Text = "Estadísticas";

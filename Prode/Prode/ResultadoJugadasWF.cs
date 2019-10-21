@@ -97,8 +97,18 @@ namespace Prode
                         }
                     }
                     ListaResultadosApuestas = ApostadoresNeg.BuscarAciertos(Torneo, Temporada, NroFecha, Liga);
-                    //List<EstadisticasApuestas> _listaEstadistica = new List<EstadisticasApuestas>();
-                    //_listaEstadistica = ApostadoresNeg.BuscarEstadisticaGral(Torneo, Temporada, NroFecha);
+                    List<EstadisticasApuestas> _listaEstadistica = new List<EstadisticasApuestas>();
+                    _listaEstadistica = ApostadoresNeg.BuscarEstadisticaGral(Torneo, Temporada, NroFecha, Liga);
+                    if (_listaEstadistica.Count > 0)
+                    {
+                        grbEstadisticaRecaudacion.Visible = true;
+                        var lista = _listaEstadistica.First();
+                        lblCantidadJugadas.Text = Convert.ToString(lista.CantidadJugadores);
+                        lblJugadoresParticipantes.Text = Convert.ToString(lista.CantidadJugadores);
+                        lblMontoRecaudado.Text = "$" + lista.MontoRecaudado;
+
+                        DesbloquearPantalla();
+                    }
                 }
             }
             catch (Exception ex)
@@ -180,9 +190,14 @@ namespace Prode
         }
         private void ClickBoton(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvResultaApostadores.CurrentCell.ColumnIndex == 28)
+            if (dgvResultaApostadores.CurrentCell.ColumnIndex == 4)
             {
-                var idsubCliente = Convert.ToString(this.dgvResultaApostadores.CurrentRow.Cells[0].Value);
+                var apellido = Convert.ToString(this.dgvResultaApostadores.CurrentRow.Cells[1].Value);
+                var Nombre = Convert.ToString(this.dgvResultaApostadores.CurrentRow.Cells[2].Value);
+                var Aciertos = Convert.ToString(this.dgvResultaApostadores.CurrentRow.Cells[3].Value);
+                var ApellidoNombre = apellido + Nombre;
+                ResultadoJugadaPorApostadorWF _resultado = new ResultadoJugadaPorApostadorWF(Aciertos, ApellidoNombre);
+                _resultado.Show();
                 //_vista.Show();
                 Hide();
             }
@@ -227,8 +242,6 @@ namespace Prode
             catch (Exception ex)
             { }
         }
-
-       
         #endregion
     }
 }
