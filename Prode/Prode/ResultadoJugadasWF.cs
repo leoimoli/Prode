@@ -104,6 +104,10 @@ namespace Prode
             catch (Exception ex)
             { }
         }
+        private void DesbloquearPantalla()
+        {
+            grbFiltros.Enabled = true;
+        }
         public static List<ResultadoApuestas> Lista;
         public List<Entidades.ResultadoApuestas> ListaResultadosApuestas
         {
@@ -208,10 +212,23 @@ namespace Prode
                 ListaResultadosApuestas = ApostadoresNeg.BuscarAciertos(Torneo, Temporada, NroFecha, Liga);
                 List<EstadisticasApuestas> _listaEstadistica = new List<EstadisticasApuestas>();
                 _listaEstadistica = ApostadoresNeg.BuscarEstadisticaGral(Torneo, Temporada, NroFecha, Liga);
+                if (_listaEstadistica.Count > 0)
+                {
+                    grbEstadisticaRecaudacion.Visible = true;
+                    var lista = _listaEstadistica.First();
+                    lblCantidadJugadas.Text = Convert.ToString(lista.CantidadJugadores);
+                    lblJugadoresParticipantes.Text = Convert.ToString(lista.CantidadJugadores);
+                    lblMontoRecaudado.Text = "$" + lista.MontoRecaudado;
+
+                    DesbloquearPantalla();
+                }
+
             }
             catch (Exception ex)
             { }
         }
+
+       
         #endregion
     }
 }

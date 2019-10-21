@@ -91,8 +91,7 @@ namespace Prode.Dao
             connection.Close();
             return lista;
         }
-
-        private static decimal BuscarValorJugada(int idFecha)
+        public static decimal BuscarValorJugada(int idFecha)
         {
             connection.Close();
             decimal Valor = 0;
@@ -119,8 +118,7 @@ namespace Prode.Dao
             connection.Close();
             return Valor;
         }
-
-        private static int ValidarNroFecha(int idTorneo, string nroFecha)
+        public static int ValidarNroFecha(int idTorneo, string nroFecha)
         {
             connection.Close();
             int idFecha = 0;
@@ -203,6 +201,6 @@ namespace Prode.Dao
             }
             connection.Close();
             return _Fecha;
-        }
+        }       
     }
 }

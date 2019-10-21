@@ -105,7 +105,7 @@ namespace Prode.Dao
                 connection.Close();
                 connection.Open();
                 DataTable Tabla = new DataTable();
-                string consulta = "select count(*) as Aciertos, J.idApostador, J.NroJugada, A.Apellido, A.Nombre from Jugadas as J inner join Apostadores as A on(J.idApostador = A.idJugador) where replace(J.idPartido, '''', '' IN('10,9,8,7'))  and J.Estado = '1' group by J.NroJugada, J.idApostador order by Aciertos desc; ";
+                string consulta = "select count(*) as Aciertos, J.idApostador, J.NroJugada, A.Apellido, A.Nombre from Jugadas as J inner join Apostadores as A on(J.idApostador = A.idJugador) where replace(J.idPartido, '''', '' IN('" + Variable2 + "'))  and J.Estado = '" + Estado + "' group by J.NroJugada, J.idApostador order by Aciertos desc; ";
                 MySqlCommand cmd = new MySqlCommand(consulta, connection);
                 cmd.Connection = connection;
                 MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
@@ -129,7 +129,49 @@ namespace Prode.Dao
 
         public static List<EstadisticasApuestas> BuscarEstadisticaGral(string torneo, string temporada, string nroFecha, string Liga)
         {
-           
+            //List<EstadisticasApuestas> ListaResultadosApuestas = new List<EstadisticasApuestas>();
+            List<EstadisticasApuestas> Lista = new List<EstadisticasApuestas>();
+            //List<EstadisticasApuestas> ListaAciertos = new List<EstadisticasApuestas>();
+            int idTorneo = TorneoDao.BuscaIdtorneoPorNombreTemporada(torneo, temporada, Liga);
+            int idFecha = ResultadoDao.BuscarIdFecha(idTorneo, nroFecha);
+            List<int> ListaIdPartidos = ResultadoDao.BuscarPartidosPorIdFecha(idFecha);
+            if (ListaIdPartidos.Count > 0)
+            {
+                List<EstadisticasApuestas> ListaApuestas = new List<EstadisticasApuestas>();
+                List<string> ListaIdPar = new List<string>();
+                string ListaPartidos;
+
+                foreach (var item in ListaIdPartidos)
+                {
+                    ListaPartidos = item.ToString() + "," + Variable;
+                    Variable = ListaPartidos;
+                }
+                Variable = Variable.TrimEnd(',');
+                var Variable2 = Variable.Replace('"', ' ');
+                connection.Close();
+                connection.Open();
+                DataTable Tabla = new DataTable();
+                string consulta = "select count( distinct NroJugada) as CantJugadas, count(DISTINCT idApostador) as CantApostadores from Jugadas where idPartido IN('" + Variable2 + "')";
+                MySqlCommand cmd = new MySqlCommand(consulta, connection);
+                cmd.Connection = connection;
+                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                adap.Fill(Tabla);
+                if (Tabla.Rows.Count > 0)
+                {
+                    decimal ValorFecha = FechaDao.BuscarValorJugada(idFecha);
+                    foreach (DataRow item2 in Tabla.Rows)
+                    {
+                        EstadisticasApuestas _estadisticasApuestas = new EstadisticasApuestas();
+                        _estadisticasApuestas.CantidadApuestas = Convert.ToInt32(item2["CantJugadas"].ToString());
+                        _estadisticasApuestas.CantidadJugadores = Convert.ToInt32(item2["CantApostadores"].ToString());
+                        decimal ValorRecaudado = ValorFecha * _estadisticasApuestas.CantidadApuestas;
+                        _estadisticasApuestas.MontoRecaudado = ValorRecaudado;
+                        ListaApuestas.Add(_estadisticasApuestas);
+                    }
+                    Lista = ListaApuestas;
+                }
+            }
+            return Lista;
         }
 
         //public static List<EstadisticasApuestas> BuscarEstadisticaGral(string torneo, string temporada, string nroFecha)
