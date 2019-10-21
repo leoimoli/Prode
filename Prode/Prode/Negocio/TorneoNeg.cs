@@ -72,15 +72,15 @@ namespace Prode.Negocio
             lista = TorneoDao.CargarComboTorneos(Liga);
             return lista;
         }
-        public static bool ValidarFecha(string fecha, string torneo, string temporada)
+        public static bool ValidarFecha(string fecha, string torneo, string temporada, string Liga)
         {
-            bool fechaValida = TorneoDao.ValidarFecha(fecha, torneo, temporada);
+            bool fechaValida = TorneoDao.ValidarFecha(fecha, torneo, temporada, Liga);
             return fechaValida;
         }
 
-        public static bool ValidarNroFechaExistente(string NroFecha, string torneo, string temporada)
+        public static bool ValidarNroFechaExistente(string NroFecha, string torneo, string temporada, string Liga)
         {
-            bool NroFechaValido = TorneoDao.ValidarNroFechaExistente(NroFecha, torneo, temporada);
+            bool NroFechaValido = TorneoDao.ValidarNroFechaExistente(NroFecha, torneo, temporada, Liga);
             return NroFechaValido;
         }
         public static List<string> CargarComboLiga()

@@ -49,12 +49,12 @@
             this.grbApostadores = new System.Windows.Forms.GroupBox();
             this.dgvResultaApostadores = new System.Windows.Forms.DataGridView();
             this.grbEstadisticaRecaudacion = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblCantidadJugadas = new System.Windows.Forms.Label();
-            this.lblJugadoresParticipantes = new System.Windows.Forms.Label();
             this.lblMontoRecaudado = new System.Windows.Forms.Label();
+            this.lblJugadoresParticipantes = new System.Windows.Forms.Label();
+            this.lblCantidadJugadas = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.grbFiltros.SuspendLayout();
             this.grbResultados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -225,7 +225,7 @@
             this.grbApostadores.Controls.Add(this.dgvResultaApostadores);
             this.grbApostadores.Location = new System.Drawing.Point(44, 173);
             this.grbApostadores.Name = "grbApostadores";
-            this.grbApostadores.Size = new System.Drawing.Size(372, 302);
+            this.grbApostadores.Size = new System.Drawing.Size(440, 302);
             this.grbApostadores.TabIndex = 125;
             this.grbApostadores.TabStop = false;
             this.grbApostadores.Text = "Resultados Aciertos";
@@ -236,7 +236,7 @@
             this.dgvResultaApostadores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResultaApostadores.Location = new System.Drawing.Point(3, 16);
             this.dgvResultaApostadores.Name = "dgvResultaApostadores";
-            this.dgvResultaApostadores.Size = new System.Drawing.Size(363, 280);
+            this.dgvResultaApostadores.Size = new System.Drawing.Size(426, 280);
             this.dgvResultaApostadores.TabIndex = 0;
             this.dgvResultaApostadores.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClickBoton);
             this.dgvResultaApostadores.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvResultaApostadores_CellPainting);
@@ -251,51 +251,21 @@
             this.grbEstadisticaRecaudacion.Controls.Add(this.label5);
             this.grbEstadisticaRecaudacion.Location = new System.Drawing.Point(44, 481);
             this.grbEstadisticaRecaudacion.Name = "grbEstadisticaRecaudacion";
-            this.grbEstadisticaRecaudacion.Size = new System.Drawing.Size(372, 219);
+            this.grbEstadisticaRecaudacion.Size = new System.Drawing.Size(440, 219);
             this.grbEstadisticaRecaudacion.TabIndex = 126;
             this.grbEstadisticaRecaudacion.TabStop = false;
             this.grbEstadisticaRecaudacion.Text = "Estadísticas";
             this.grbEstadisticaRecaudacion.Visible = false;
             // 
-            // label5
+            // lblMontoRecaudado
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(23, 35);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(146, 17);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Cantidad de Jugadas:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(4, 81);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(165, 17);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Jugadores Participantes:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(41, 126);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(128, 17);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Monto Recaudado:";
-            // 
-            // lblCantidadJugadas
-            // 
-            this.lblCantidadJugadas.AutoSize = true;
-            this.lblCantidadJugadas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidadJugadas.Location = new System.Drawing.Point(175, 35);
-            this.lblCantidadJugadas.Name = "lblCantidadJugadas";
-            this.lblCantidadJugadas.Size = new System.Drawing.Size(22, 17);
-            this.lblCantidadJugadas.TabIndex = 3;
-            this.lblCantidadJugadas.Text = "@";
+            this.lblMontoRecaudado.AutoSize = true;
+            this.lblMontoRecaudado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMontoRecaudado.Location = new System.Drawing.Point(175, 126);
+            this.lblMontoRecaudado.Name = "lblMontoRecaudado";
+            this.lblMontoRecaudado.Size = new System.Drawing.Size(22, 17);
+            this.lblMontoRecaudado.TabIndex = 5;
+            this.lblMontoRecaudado.Text = "@";
             // 
             // lblJugadoresParticipantes
             // 
@@ -307,15 +277,45 @@
             this.lblJugadoresParticipantes.TabIndex = 4;
             this.lblJugadoresParticipantes.Text = "@";
             // 
-            // lblMontoRecaudado
+            // lblCantidadJugadas
             // 
-            this.lblMontoRecaudado.AutoSize = true;
-            this.lblMontoRecaudado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMontoRecaudado.Location = new System.Drawing.Point(175, 126);
-            this.lblMontoRecaudado.Name = "lblMontoRecaudado";
-            this.lblMontoRecaudado.Size = new System.Drawing.Size(22, 17);
-            this.lblMontoRecaudado.TabIndex = 5;
-            this.lblMontoRecaudado.Text = "@";
+            this.lblCantidadJugadas.AutoSize = true;
+            this.lblCantidadJugadas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidadJugadas.Location = new System.Drawing.Point(175, 35);
+            this.lblCantidadJugadas.Name = "lblCantidadJugadas";
+            this.lblCantidadJugadas.Size = new System.Drawing.Size(22, 17);
+            this.lblCantidadJugadas.TabIndex = 3;
+            this.lblCantidadJugadas.Text = "@";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(41, 126);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(128, 17);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Monto Recaudado:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(4, 81);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(165, 17);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Jugadores Participantes:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(23, 35);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(146, 17);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Cantidad de Jugadas:";
             // 
             // ResultadoJugadasWF
             // 

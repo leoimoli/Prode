@@ -27,5 +27,6 @@ namespace Prode.Entidades
         public string CondicionEmpate { get; set; }
         public string Estado { get; set; }
         public decimal  ValorJugada { get; set; }
+        public string Liga { get; set; }
     }
 }

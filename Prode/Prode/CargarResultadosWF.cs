@@ -96,7 +96,8 @@ namespace Prode
                     string Torneo = var.Split('-')[0];
                     string Temporada = var.Split('-')[1];
                     string NroFecha = txtFecha.Text;
-                    _fecha = FechaNeg.BuscarFechaExistente(Torneo, Temporada, NroFecha);
+                    string Liga = cmbLiga.Text;
+                    _fecha = FechaNeg.BuscarFechaExistente(Torneo, Temporada, NroFecha, Liga);
                     if (_fecha.Count > 0)
                     {
                         dataGridView1.Visible = true;
@@ -193,7 +194,8 @@ namespace Prode
                 string Torneo = var.Split('-')[0];
                 string Temporada = var.Split('-')[1];
                 string NroFecha = txtFecha.Text;
-                _fecha = FechaNeg.BuscarFechaExistente(Torneo, Temporada, NroFecha);
+                string Liga = cmbLiga.Text;
+                _fecha = FechaNeg.BuscarFechaExistente(Torneo, Temporada, NroFecha, Liga);
                 if (_fecha.Count > 0)
                 {
                     dataGridView1.Visible = true;

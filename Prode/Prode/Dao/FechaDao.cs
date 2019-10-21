@@ -20,7 +20,7 @@ namespace Prode.Dao
             int idTorneo = 0;
             int idFechaCreada = 0;
             bool Exito = false;
-            idTorneo = TorneoDao.BuscaIdtorneoPorNombreTemporada(fecha.Torneo, fecha.Temporada);
+            idTorneo = TorneoDao.BuscaIdtorneoPorNombreTemporada(fecha.Torneo, fecha.Temporada, fecha.Liga);
             connection.Close();
             connection.Open();
             string proceso = "GuardarFecha";
@@ -43,10 +43,10 @@ namespace Prode.Dao
             connection.Close();
             return Exito;
         }
-        public static List<Fecha> BuscarFechaExistente(string torneo, string temporada, string nroFecha)
+        public static List<Fecha> BuscarFechaExistente(string torneo, string temporada, string nroFecha, string Liga)
         {
             List<Fecha> lista = new List<Fecha>();
-            int idTorneo = TorneoDao.BuscaIdtorneoPorNombreTemporada(torneo, temporada);
+            int idTorneo = TorneoDao.BuscaIdtorneoPorNombreTemporada(torneo, temporada, Liga);
             int idFecha = ValidarNroFecha(idTorneo, nroFecha);
             if (idFecha > 0)
             {

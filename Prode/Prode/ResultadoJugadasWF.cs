@@ -85,15 +85,20 @@ namespace Prode
                     string Torneo = var.Split('-')[0];
                     string Temporada = var.Split('-')[1];
                     string NroFecha = txtFecha.Text;
-                    _resultados = ResultadoNeg.BuscarResultados(Torneo, Temporada, NroFecha);
+                    string Liga = cmbLiga.Text;
+                    _resultados = ResultadoNeg.BuscarResultados(Torneo, Temporada, NroFecha, Liga);
                     if (_resultados.Count > 0)
                     {
+                        grbResultados.Visible = true;
                         dataGridView1.Visible = true;
                         for (int i = 0; i < _resultados.Count; i++)
                         {
                             dataGridView1.Rows.Add(_resultados[i].EquipoLocal, _resultados[i].MarcadorLocal, _resultados[i].MarcadorVisitante, _resultados[i].EquipoVisitante);
                         }
                     }
+                    ListaResultadosApuestas = ApostadoresNeg.BuscarAciertos(Torneo, Temporada, NroFecha, Liga);
+                    //List<EstadisticasApuestas> _listaEstadistica = new List<EstadisticasApuestas>();
+                    //_listaEstadistica = ApostadoresNeg.BuscarEstadisticaGral(Torneo, Temporada, NroFecha);
                 }
             }
             catch (Exception ex)
@@ -112,6 +117,7 @@ namespace Prode
                         dgvResultaApostadores.Columns.Clear();
                         dgvResultaApostadores.Refresh();
                     }
+                    grbApostadores.Visible = true;
                     dgvResultaApostadores.Visible = true;
                     dgvResultaApostadores.ReadOnly = true;
                     dgvResultaApostadores.RowHeadersVisible = false;
@@ -146,10 +152,10 @@ namespace Prode
                     BotonVer.Name = "Ver";
                     BotonVer.HeaderText = "Ver";
                     this.dgvResultaApostadores.Columns.Add(BotonVer);
-                    dgvResultaApostadores.Columns[28].Width = 80;
-                    dgvResultaApostadores.Columns[28].HeaderCell.Style.BackColor = Color.DarkBlue;
-                    dgvResultaApostadores.Columns[28].HeaderCell.Style.Font = new Font("Tahoma", 10, FontStyle.Bold);
-                    dgvResultaApostadores.Columns[28].HeaderCell.Style.ForeColor = Color.White;
+                    dgvResultaApostadores.Columns[4].Width = 80;
+                    dgvResultaApostadores.Columns[4].HeaderCell.Style.BackColor = Color.DarkBlue;
+                    dgvResultaApostadores.Columns[4].HeaderCell.Style.Font = new Font("Tahoma", 10, FontStyle.Bold);
+                    dgvResultaApostadores.Columns[4].HeaderCell.Style.ForeColor = Color.White;
                 }
             }
         }
@@ -188,7 +194,8 @@ namespace Prode
                 string Torneo = var.Split('-')[0];
                 string Temporada = var.Split('-')[1];
                 string NroFecha = txtFecha.Text;
-                _resultados = ResultadoNeg.BuscarResultados(Torneo, Temporada, NroFecha);
+                string Liga = cmbLiga.Text;
+                _resultados = ResultadoNeg.BuscarResultados(Torneo, Temporada, NroFecha, Liga);
                 if (_resultados.Count > 0)
                 {
                     grbResultados.Visible = true;
@@ -198,9 +205,9 @@ namespace Prode
                         dataGridView1.Rows.Add(_resultados[i].EquipoLocal, _resultados[i].MarcadorLocal, _resultados[i].MarcadorVisitante, _resultados[i].EquipoVisitante);
                     }
                 }
-                //ListaResultadosApuestas = ApostadoresNeg.BuscarAciertos(Torneo, Temporada, NroFecha);
+                ListaResultadosApuestas = ApostadoresNeg.BuscarAciertos(Torneo, Temporada, NroFecha, Liga);
                 List<EstadisticasApuestas> _listaEstadistica = new List<EstadisticasApuestas>();
-                _listaEstadistica = ApostadoresNeg.BuscarEstadisticaGral(Torneo, Temporada, NroFecha);
+                _listaEstadistica = ApostadoresNeg.BuscarEstadisticaGral(Torneo, Temporada, NroFecha, Liga);
             }
             catch (Exception ex)
             { }

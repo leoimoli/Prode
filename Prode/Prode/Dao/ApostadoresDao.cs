@@ -81,11 +81,11 @@ namespace Prode.Dao
             return lista;
         }
         public static string Variable;
-        public static List<ResultadoApuestas> BuscarAciertos(string torneo, string temporada, string nroFecha)
+        public static List<ResultadoApuestas> BuscarAciertos(string torneo, string temporada, string nroFecha, string Liga)
         {
             List<ResultadoApuestas> ListaResultadosApuestas = new List<ResultadoApuestas>();
             List<ResultadoApuestas> ListaAciertos = new List<ResultadoApuestas>();
-            int idTorneo = TorneoDao.BuscaIdtorneoPorNombreTemporada(torneo, temporada);
+            int idTorneo = TorneoDao.BuscaIdtorneoPorNombreTemporada(torneo, temporada, Liga);
             int idFecha = ResultadoDao.BuscarIdFecha(idTorneo, nroFecha);
             List<int> ListaIdPartidos = ResultadoDao.BuscarPartidosPorIdFecha(idFecha);
             if (ListaIdPartidos.Count > 0)
@@ -102,73 +102,70 @@ namespace Prode.Dao
                 }
                 Variable = Variable.TrimEnd(',');
                 var Variable2 = Variable.Replace('"', ' ');
-                foreach (var item in ListaIdPartidos)
+                connection.Close();
+                connection.Open();
+                DataTable Tabla = new DataTable();
+                string consulta = "select count(*) as Aciertos, J.idApostador, J.NroJugada, A.Apellido, A.Nombre from Jugadas as J inner join Apostadores as A on(J.idApostador = A.idJugador) where replace(J.idPartido, '''', '' IN('10,9,8,7'))  and J.Estado = '1' group by J.NroJugada, J.idApostador order by Aciertos desc; ";
+                MySqlCommand cmd = new MySqlCommand(consulta, connection);
+                cmd.Connection = connection;
+                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                adap.Fill(Tabla);
+                if (Tabla.Rows.Count > 0)
                 {
-                    connection.Close();
-                    connection.Open();
-                    MySqlCommand cmd = new MySqlCommand();
-                    cmd.Connection = connection;
-                    DataTable Tabla = new DataTable();
-                    MySqlParameter[] oParam = {
-                                      new MySqlParameter("idPartido_in", Variable2),
-                    new MySqlParameter("Estado_in", Estado)};
-                    string proceso = "ContadorDeAciertos";
-                    MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
-                    dt.SelectCommand.CommandType = CommandType.StoredProcedure;
-                    dt.SelectCommand.Parameters.AddRange(oParam);
-                    dt.Fill(Tabla);
-                    if (Tabla.Rows.Count > 0)
+                    foreach (DataRow item2 in Tabla.Rows)
                     {
-                        foreach (DataRow item2 in Tabla.Rows)
-                        {
-                            ResultadoApuestas _contadorAciertos = new ResultadoApuestas();
-                            _contadorAciertos.idApostador = Convert.ToInt32(item2["idApostador"].ToString());
-                            _contadorAciertos.Apellido = item2["Apellido"].ToString();
-                            _contadorAciertos.Nombre = item2["Nombre"].ToString();
-                            _contadorAciertos.Aciertos = Convert.ToInt32(item2["Aciertos"].ToString());
-                            Lista.Add(_contadorAciertos);
-                        }
-                        ListaAciertos = Lista;
+                        ResultadoApuestas _contadorAciertos = new ResultadoApuestas();
+                        _contadorAciertos.idApostador = Convert.ToInt32(item2["idApostador"].ToString());
+                        _contadorAciertos.Apellido = item2["Apellido"].ToString();
+                        _contadorAciertos.Nombre = item2["Nombre"].ToString();
+                        _contadorAciertos.Aciertos = Convert.ToInt32(item2["Aciertos"].ToString());
+                        Lista.Add(_contadorAciertos);
                     }
+                    ListaAciertos = Lista;
                 }
             }
             return ListaAciertos;
         }
 
-        public static List<EstadisticasApuestas> BuscarEstadisticaGral(string torneo, string temporada, string nroFecha)
+        public static List<EstadisticasApuestas> BuscarEstadisticaGral(string torneo, string temporada, string nroFecha, string Liga)
         {
-            List<EstadisticasApuestas> ListaEstadistica = new List<EstadisticasApuestas>();
-            int idTorneo = TorneoDao.BuscaIdtorneoPorNombreTemporada(torneo, temporada);
-            int idFecha = ResultadoDao.BuscarIdFecha(idTorneo, nroFecha);
-            List<int> ListaIdPartidos = ResultadoDao.BuscarPartidosPorIdFecha(idFecha);
-            if (ListaIdPartidos.Count > 0)
-            {
-                connection.Close();
-                connection.Open();
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.Connection = connection;
-                DataTable Tabla = new DataTable();
-                MySqlParameter[] oParam = {
-                                      new MySqlParameter("IdFecha_in", idFecha)};
-                string proceso = "BuscarEstadisticaGral";
-                MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
-                dt.SelectCommand.CommandType = CommandType.StoredProcedure;
-                dt.SelectCommand.Parameters.AddRange(oParam);
-                dt.Fill(Tabla);
-                if (Tabla.Rows.Count > 0)
-                {
-                    foreach (DataRow item in Tabla.Rows)
-                    {
-                        EstadisticasApuestas EstadisticaGral = new EstadisticasApuestas();
-                        EstadisticaGral.CantidadApuestas = Convert.ToInt32(item["CantidadApuestas"].ToString());
-                        EstadisticaGral.CantidadJugadores = Convert.ToInt32(item["CantidadJugadores"].ToString());
-                        ListaEstadistica.Add(EstadisticaGral);
-                    }
-                }
-                connection.Close();
-                return ListaEstadistica;
-            }
+           
         }
+
+        //public static List<EstadisticasApuestas> BuscarEstadisticaGral(string torneo, string temporada, string nroFecha)
+        //{
+        //    List<EstadisticasApuestas> ListaEstadistica = new List<EstadisticasApuestas>();
+        //    int idTorneo = TorneoDao.BuscaIdtorneoPorNombreTemporada(torneo, temporada);
+        //    int idFecha = ResultadoDao.BuscarIdFecha(idTorneo, nroFecha);
+        //    List<int> ListaIdPartidos = ResultadoDao.BuscarPartidosPorIdFecha(idFecha);
+        //    if (ListaIdPartidos.Count > 0)
+        //    {
+        //        connection.Close();
+        //        connection.Open();
+        //        MySqlCommand cmd = new MySqlCommand();
+        //        cmd.Connection = connection;
+        //        DataTable Tabla = new DataTable();
+        //        MySqlParameter[] oParam = {
+        //                              new MySqlParameter("IdFecha_in", idFecha)};
+        //        string proceso = "BuscarEstadisticaGral";
+        //        MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+        //        dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+        //        dt.SelectCommand.Parameters.AddRange(oParam);
+        //        dt.Fill(Tabla);
+        //        if (Tabla.Rows.Count > 0)
+        //        {
+        //            foreach (DataRow item in Tabla.Rows)
+        //            {
+        //                EstadisticasApuestas EstadisticaGral = new EstadisticasApuestas();
+        //                EstadisticaGral.CantidadApuestas = Convert.ToInt32(item["CantidadApuestas"].ToString());
+        //                EstadisticaGral.CantidadJugadores = Convert.ToInt32(item["CantidadJugadores"].ToString());
+        //                ListaEstadistica.Add(EstadisticaGral);
+        //            }
+        //        }
+        //        connection.Close();
+        //        return ListaEstadistica;
+        //    }
+        //}
 
         private static List<ResultadoApuestas> BuscarTotalAciertosPorApostadores(List<TipoResultadoPorPartido> ListaTipoResultado, List<int> ListaIdPartidos)
         {

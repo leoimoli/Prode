@@ -70,10 +70,10 @@ namespace Prode.Dao
             connection.Close();
             return Existe;
         }
-        public static bool ValidarNroFechaExistente(string nroFecha, string torneo, string temporada)
+        public static bool ValidarNroFechaExistente(string nroFecha, string torneo, string temporada, string Liga)
         {
             bool FechaValida = false;
-            int idTorneo = BuscaIdtorneoPorNombreTemporada(torneo, temporada);
+            int idTorneo = BuscaIdtorneoPorNombreTemporada(torneo, temporada, Liga);
             if (idTorneo > 0)
             {
 
@@ -132,10 +132,10 @@ namespace Prode.Dao
             return _listaTorneo;
         }
 
-        public static bool ValidarFecha(string fecha, string torneo, string temporada)
+        public static bool ValidarFecha(string fecha, string torneo, string temporada, string Liga)
         {
             bool FechaValida = false;
-            int idTorneo = BuscaIdtorneoPorNombreTemporada(torneo, temporada);
+            int idTorneo = BuscaIdtorneoPorNombreTemporada(torneo, temporada, Liga);
             if (idTorneo > 0)
             {
                 int CantidadFechas = 0;
@@ -168,7 +168,7 @@ namespace Prode.Dao
             connection.Close();
             return FechaValida;
         }
-        public static int BuscaIdtorneoPorNombreTemporada(string torneo, string temporada)
+        public static int BuscaIdtorneoPorNombreTemporada(string torneo, string temporada, string Liga)
         {
             int idTorneo = 0;
             connection.Close();
@@ -177,7 +177,8 @@ namespace Prode.Dao
             cmd.Connection = connection;
             DataTable Tabla = new DataTable();
             MySqlParameter[] oParam = { new MySqlParameter("Nombre_in", torneo),
-             new MySqlParameter("Temporada_in", temporada)};
+             new MySqlParameter("Temporada_in", temporada),
+            new MySqlParameter("Liga_in", Liga)};
             string proceso = "BuscaIdtorneoPorNombreTemporada";
             MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
             dt.SelectCommand.CommandType = CommandType.StoredProcedure;

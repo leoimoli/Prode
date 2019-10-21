@@ -79,12 +79,12 @@ namespace Prode.Negocio
             return _listaApostadores;
         }
 
-        public static List<ResultadoApuestas> BuscarAciertos(string torneo, string temporada, string nroFecha)
+        public static List<ResultadoApuestas> BuscarAciertos(string torneo, string temporada, string nroFecha,string Liga)
         {
             List<ResultadoApuestas> _listaAciertos = new List<ResultadoApuestas>();
             try
             {
-                _listaAciertos = ApostadoresDao.BuscarAciertos(torneo, temporada, nroFecha);
+                _listaAciertos = ApostadoresDao.BuscarAciertos(torneo, temporada, nroFecha, Liga);
             }
             catch (Exception ex)
             {
@@ -93,12 +93,12 @@ namespace Prode.Negocio
             return _listaAciertos;
         }
 
-        public static List<EstadisticasApuestas> BuscarEstadisticaGral(string torneo, string temporada, string nroFecha)
+        public static List<EstadisticasApuestas> BuscarEstadisticaGral(string torneo, string temporada, string nroFecha, string Liga)
         {
             List<EstadisticasApuestas> _lista = new List<EstadisticasApuestas>();
             try
             {
-                _lista = ApostadoresDao.BuscarEstadisticaGral(torneo, temporada, nroFecha);
+                _lista = ApostadoresDao.BuscarEstadisticaGral(torneo, temporada, nroFecha, Liga);
             }
             catch (Exception ex)
             {

@@ -29,12 +29,12 @@ namespace Prode.Negocio
             throw new NotImplementedException();
         }
 
-        public static List<Fecha> BuscarFechaExistente(string torneo, string temporada, string nroFecha)
+        public static List<Fecha> BuscarFechaExistente(string torneo, string temporada, string nroFecha, string Liga)
         {
             List<Fecha> _listaFecha = new List<Fecha>();
             try
             {
-                _listaFecha = FechaDao.BuscarFechaExistente(torneo, temporada, nroFecha);
+                _listaFecha = FechaDao.BuscarFechaExistente(torneo, temporada, nroFecha, Liga);
             }
             catch (Exception ex)
             {

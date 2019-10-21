@@ -119,6 +119,7 @@
     <Compile Include="Dao\UsuarioDao.cs" />
     <Compile Include="Entidades\Apostadores.cs" />
     <Compile Include="Entidades\Equipos.cs" />
+    <Compile Include="Entidades\EstadisticasApuestas.cs" />
     <Compile Include="Entidades\Fecha.cs" />
     <Compile Include="Entidades\Jugada.cs" />
     <Compile Include="Entidades\ResultadoApuestas.cs" />

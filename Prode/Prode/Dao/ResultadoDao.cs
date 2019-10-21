@@ -47,10 +47,10 @@ namespace Prode.Dao
             return Exito;
         }
 
-        public static List<Resultados> BuscarResultados(string torneo, string temporada, string nroFecha)
+        public static List<Resultados> BuscarResultados(string torneo, string temporada, string nroFecha, string Liga)
         {
             List<Resultados> lista = new List<Resultados>();
-            int idTorneo = TorneoDao.BuscaIdtorneoPorNombreTemporada(torneo, temporada);
+            int idTorneo = TorneoDao.BuscaIdtorneoPorNombreTemporada(torneo, temporada, Liga);
             int idFecha = BuscarIdFecha(idTorneo, nroFecha);
             List<int> ListaIdPartidos = BuscarPartidosPorIdFecha(idFecha);
             if (ListaIdPartidos.Count > 0)

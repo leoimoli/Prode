@@ -213,6 +213,7 @@ namespace Prode
                 listaFecha.Temporada = temporada;
                 listaFecha.NroFecha = nroFecha;
                 listaFecha.ValorJugada = Convert.ToDecimal(txtValor.Text);
+                listaFecha.Liga = cmbLiga.Text;
                 listaFechaEstatica.Add(listaFecha);
             }
 
@@ -228,8 +229,9 @@ namespace Prode
                 string var = torneo;
                 string Torneo = var.Split('-')[0];
                 string Temporada = var.Split('-')[1];
-                bool FechaValida = TorneoNeg.ValidarFecha(txtFecha.Text, Torneo, Temporada);
-                bool NroFechaValido = TorneoNeg.ValidarNroFechaExistente(txtFecha.Text, Torneo, Temporada);
+                string Liga = cmbLiga.Text;
+                bool FechaValida = TorneoNeg.ValidarFecha(txtFecha.Text, Torneo, Temporada, Liga);
+                bool NroFechaValido = TorneoNeg.ValidarNroFechaExistente(txtFecha.Text, Torneo, Temporada, Liga);
                 if (FechaValida == false)
                 {
                     const string message2 = "Ya se alcanzo el máximo de fechas predispuesta para el torneo seleccionado.";
