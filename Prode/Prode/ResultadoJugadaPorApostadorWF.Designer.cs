@@ -28,70 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResultadoJugadaPorApostadorWF));
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.EquipoLocal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Local = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Visitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EquipoVisitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnVolver = new System.Windows.Forms.Button();
             this.lblApellidoNombre = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblAciertos = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.EquipoLocal,
-            this.Local,
-            this.Visitante,
-            this.EquipoVisitante});
-            this.dataGridView1.Location = new System.Drawing.Point(9, 43);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(595, 324);
-            this.dataGridView1.TabIndex = 3;
-            this.dataGridView1.Visible = false;
-            // 
-            // EquipoLocal
-            // 
-            this.EquipoLocal.HeaderText = "Equipo Local";
-            this.EquipoLocal.Name = "EquipoLocal";
-            this.EquipoLocal.ReadOnly = true;
-            this.EquipoLocal.Width = 225;
-            // 
-            // Local
-            // 
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = null;
-            this.Local.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Local.HeaderText = "Local";
-            this.Local.Name = "Local";
-            this.Local.ReadOnly = true;
-            this.Local.Width = 50;
-            // 
-            // Visitante
-            // 
-            dataGridViewCellStyle2.Format = "N0";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Visitante.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Visitante.HeaderText = "Visitante";
-            this.Visitante.Name = "Visitante";
-            this.Visitante.ReadOnly = true;
-            this.Visitante.Width = 50;
-            // 
-            // EquipoVisitante
-            // 
-            this.EquipoVisitante.HeaderText = "Equipo Visitante";
-            this.EquipoVisitante.Name = "EquipoVisitante";
-            this.EquipoVisitante.ReadOnly = true;
-            this.EquipoVisitante.Width = 225;
             // 
             // btnVolver
             // 
@@ -139,16 +83,24 @@
             this.lblAciertos.TabIndex = 32;
             this.lblAciertos.Text = "@";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(9, 44);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(595, 324);
+            this.dataGridView1.TabIndex = 33;
+            // 
             // ResultadoJugadaPorApostadorWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(611, 465);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lblAciertos);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblApellidoNombre);
             this.Controls.Add(this.btnVolver);
-            this.Controls.Add(this.dataGridView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ResultadoJugadaPorApostadorWF";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -161,15 +113,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EquipoLocal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Local;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Visitante;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EquipoVisitante;
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Label lblApellidoNombre;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblAciertos;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

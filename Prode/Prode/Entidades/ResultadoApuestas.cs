@@ -12,5 +12,6 @@ namespace Prode.Entidades
         public string Apellido { get; set; }
         public string Nombre { get; set; }
         public int Aciertos { get; set; }
+        public int NroJugada { get; set; }
     }
 }

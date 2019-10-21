@@ -116,6 +116,7 @@ namespace Prode.Dao
                     {
                         ResultadoApuestas _contadorAciertos = new ResultadoApuestas();
                         _contadorAciertos.idApostador = Convert.ToInt32(item2["idApostador"].ToString());
+                        _contadorAciertos.NroJugada = Convert.ToInt32(item2["NroJugada"].ToString());
                         _contadorAciertos.Apellido = item2["Apellido"].ToString();
                         _contadorAciertos.Nombre = item2["Nombre"].ToString();
                         _contadorAciertos.Aciertos = Convert.ToInt32(item2["Aciertos"].ToString());

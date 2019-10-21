@@ -35,5 +35,17 @@ namespace Prode.Negocio
             }
             return _listaReusltados;
         }
+        public static List<Resultados> BuscarDetalleApuestaPorPartido(List<Resultados> listaEstatica, string NroJugada)
+        {
+            List<Resultados> _listaReusltados = new List<Resultados>();
+            try
+            {
+                _listaReusltados = ResultadoDao.BuscarDetalleApuestaPorPartido(listaEstatica, NroJugada);
+            }
+            catch (Exception ex)
+            {
+            }
+            return _listaReusltados;
+        }
     }
 }

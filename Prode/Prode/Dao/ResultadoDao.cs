@@ -46,7 +46,15 @@ namespace Prode.Dao
             connection.Close();
             return Exito;
         }
-
+        public static List<Resultados> BuscarDetalleApuestaPorPartido(List<Resultados> listaEstatica, string NroJugada)
+        {
+            List<Resultados> Lista = new List<Resultados>();
+            foreach (var item in listaEstatica)
+            {
+               
+            }
+            return Lista;
+        }
         public static List<Resultados> BuscarResultados(string torneo, string temporada, string nroFecha, string Liga)
         {
             List<Resultados> lista = new List<Resultados>();

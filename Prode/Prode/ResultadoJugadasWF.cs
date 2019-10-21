@@ -162,14 +162,21 @@ namespace Prode
                     dgvResultaApostadores.Columns[3].HeaderCell.Style.Font = new System.Drawing.Font("Tahoma", 10, FontStyle.Bold);
                     dgvResultaApostadores.Columns[3].HeaderCell.Style.ForeColor = Color.White;
 
-                    DataGridViewButtonColumn BotonVer = new DataGridViewButtonColumn();
-                    BotonVer.Name = "Ver";
-                    BotonVer.HeaderText = "Ver";
-                    this.dgvResultaApostadores.Columns.Add(BotonVer);
+                    dgvResultaApostadores.Columns[4].HeaderText = "Nrojugada";
                     dgvResultaApostadores.Columns[4].Width = 80;
                     dgvResultaApostadores.Columns[4].HeaderCell.Style.BackColor = Color.DarkBlue;
                     dgvResultaApostadores.Columns[4].HeaderCell.Style.Font = new Font("Tahoma", 10, FontStyle.Bold);
                     dgvResultaApostadores.Columns[4].HeaderCell.Style.ForeColor = Color.White;
+                    dgvResultaApostadores.Columns[4].Visible = false;
+
+                    DataGridViewButtonColumn BotonVer = new DataGridViewButtonColumn();
+                    BotonVer.Name = "Ver";
+                    BotonVer.HeaderText = "Ver";
+                    this.dgvResultaApostadores.Columns.Add(BotonVer);
+                    dgvResultaApostadores.Columns[5].Width = 80;
+                    dgvResultaApostadores.Columns[5].HeaderCell.Style.BackColor = Color.DarkBlue;
+                    dgvResultaApostadores.Columns[5].HeaderCell.Style.Font = new Font("Tahoma", 10, FontStyle.Bold);
+                    dgvResultaApostadores.Columns[5].HeaderCell.Style.ForeColor = Color.White;
                 }
             }
         }
@@ -190,18 +197,20 @@ namespace Prode
         }
         private void ClickBoton(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvResultaApostadores.CurrentCell.ColumnIndex == 4)
+            if (dgvResultaApostadores.CurrentCell.ColumnIndex == 5)
             {
                 var apellido = Convert.ToString(this.dgvResultaApostadores.CurrentRow.Cells[1].Value);
                 var Nombre = Convert.ToString(this.dgvResultaApostadores.CurrentRow.Cells[2].Value);
                 var Aciertos = Convert.ToString(this.dgvResultaApostadores.CurrentRow.Cells[3].Value);
+                var NroJugada = Convert.ToString(this.dgvResultaApostadores.CurrentRow.Cells[4].Value);
                 var ApellidoNombre = apellido + Nombre;
-                ResultadoJugadaPorApostadorWF _resultado = new ResultadoJugadaPorApostadorWF(Aciertos, ApellidoNombre);
+                ResultadoJugadaPorApostadorWF _resultado = new ResultadoJugadaPorApostadorWF(Aciertos, ApellidoNombre, NroJugada, ListaEstatica);
                 _resultado.Show();
                 //_vista.Show();
                 Hide();
             }
         }
+        public static List<Resultados> ListaEstatica;
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             try
@@ -215,6 +224,7 @@ namespace Prode
                 string NroFecha = txtFecha.Text;
                 string Liga = cmbLiga.Text;
                 _resultados = ResultadoNeg.BuscarResultados(Torneo, Temporada, NroFecha, Liga);
+                ListaEstatica = _resultados;
                 if (_resultados.Count > 0)
                 {
                     grbResultados.Visible = true;
