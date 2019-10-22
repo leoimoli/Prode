@@ -203,7 +203,7 @@ namespace Prode
                 var Nombre = Convert.ToString(this.dgvResultaApostadores.CurrentRow.Cells[2].Value);
                 var Aciertos = Convert.ToString(this.dgvResultaApostadores.CurrentRow.Cells[3].Value);
                 var NroJugada = Convert.ToString(this.dgvResultaApostadores.CurrentRow.Cells[4].Value);
-                var ApellidoNombre = apellido + Nombre;
+                var ApellidoNombre = apellido + " " + Nombre;
                 ResultadoJugadaPorApostadorWF _resultado = new ResultadoJugadaPorApostadorWF(Aciertos, ApellidoNombre, NroJugada, ListaEstatica);
                 _resultado.Show();
                 //_vista.Show();

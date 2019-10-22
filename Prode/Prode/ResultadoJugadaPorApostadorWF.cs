@@ -32,51 +32,108 @@ namespace Prode
         {
             lblAciertos.Text = aciertos;
             lblApellidoNombre.Text = apellidoNombre;
-            ListaResultados = ResultadoNeg.BuscarDetalleApuestaPorPartido(listaEstatica, nroJugada);
-
+            List<int> ListaIdPartidos = new List<int>();
+            foreach (var item in listaEstatica)
+            {
+                int id = item.idPartido;
+                ListaIdPartidos.Add(id);
+            }
+            ListaResultados = ResultadoNeg.BuscarDetalleApuestaPorPartido(nroJugada, ListaIdPartidos);
+            
         }
-        public List<Entidades.Resultados> ListaResultados
+        public static List<EstadoResultado> ListaEstadosJugados;
+        public List<Entidades.EstadoResultado> ListaResultados
         {
             set
             {
+                ListaEstadosJugados = value;
                 if (value.Count > 0)
                 {
-                    if (value != dataGridView1.DataSource && dataGridView1.DataSource != null)
-                    {
-                        dataGridView1.Columns.Clear();
-                        dataGridView1.Refresh();
-                    }
+                    //if (value != dataGridView1.DataSource && dataGridView1.DataSource != null)
+                    //{
+                    //    dataGridView1.Columns.Clear();
+                    //    dataGridView1.Refresh();
+                    //}
                     dataGridView1.Visible = true;
                     dataGridView1.ReadOnly = true;
                     dataGridView1.RowHeadersVisible = false;
-                    dataGridView1.DataSource = value;
+                    dataGridView1.DataSource = listaEstatica;
 
-                    dataGridView1.Columns[0].HeaderText = "Nro.Identificador";
+                    dataGridView1.Columns[0].HeaderText = "idPartido";
                     dataGridView1.Columns[0].Width = 130;
                     dataGridView1.Columns[0].HeaderCell.Style.BackColor = Color.DarkBlue;
                     dataGridView1.Columns[0].HeaderCell.Style.Font = new System.Drawing.Font("Tahoma", 10, FontStyle.Bold);
-                    dataGridView1.Columns[0].HeaderCell.Style.ForeColor = Color.White;
+                    dataGridView1.Columns[0].Visible = false;
 
-                    dataGridView1.Columns[1].HeaderText = "Apellido";
+                    dataGridView1.Columns[1].HeaderText = "idEquipoLocal";
                     dataGridView1.Columns[1].Width = 150;
                     dataGridView1.Columns[1].HeaderCell.Style.BackColor = Color.DarkBlue;
                     dataGridView1.Columns[1].HeaderCell.Style.Font = new System.Drawing.Font("Tahoma", 10, FontStyle.Bold);
                     dataGridView1.Columns[1].HeaderCell.Style.ForeColor = Color.White;
+                    dataGridView1.Columns[1].Visible = false;
 
-                    dataGridView1.Columns[2].HeaderText = "Nombre";
+                    dataGridView1.Columns[2].HeaderText = "idVisitante";
                     dataGridView1.Columns[2].Width = 150;
                     dataGridView1.Columns[2].HeaderCell.Style.BackColor = Color.DarkBlue;
                     dataGridView1.Columns[2].HeaderCell.Style.Font = new System.Drawing.Font("Tahoma", 10, FontStyle.Bold);
                     dataGridView1.Columns[2].HeaderCell.Style.ForeColor = Color.White;
+                    dataGridView1.Columns[2].Visible = false;
 
-                    dataGridView1.Columns[3].HeaderText = "Aciertos";
-                    dataGridView1.Columns[3].Width = 80;
+                    dataGridView1.Columns[3].HeaderText = "Equipo Local";
+                    dataGridView1.Columns[3].Width = 180;
                     dataGridView1.Columns[3].HeaderCell.Style.BackColor = Color.DarkBlue;
                     dataGridView1.Columns[3].HeaderCell.Style.Font = new System.Drawing.Font("Tahoma", 10, FontStyle.Bold);
                     dataGridView1.Columns[3].HeaderCell.Style.ForeColor = Color.White;
 
+                    dataGridView1.Columns[4].HeaderText = "Marcado Local";
+                    dataGridView1.Columns[4].Width = 100;
+                    dataGridView1.Columns[4].HeaderCell.Style.BackColor = Color.DarkBlue;
+                    dataGridView1.Columns[4].HeaderCell.Style.Font = new System.Drawing.Font("Tahoma", 10, FontStyle.Bold);
+                    dataGridView1.Columns[4].HeaderCell.Style.ForeColor = Color.White;
+
+                    dataGridView1.Columns[5].HeaderText = "Marcador Visitante";
+                    dataGridView1.Columns[5].Width = 100;
+                    dataGridView1.Columns[5].HeaderCell.Style.BackColor = Color.DarkBlue;
+                    dataGridView1.Columns[5].HeaderCell.Style.Font = new System.Drawing.Font("Tahoma", 10, FontStyle.Bold);
+                    dataGridView1.Columns[5].HeaderCell.Style.ForeColor = Color.White;
+
+                    dataGridView1.Columns[6].HeaderText = "Equipo Visitante";
+                    dataGridView1.Columns[6].Width = 180;
+                    dataGridView1.Columns[6].HeaderCell.Style.BackColor = Color.DarkBlue;
+                    dataGridView1.Columns[6].HeaderCell.Style.Font = new System.Drawing.Font("Tahoma", 10, FontStyle.Bold);
+                    dataGridView1.Columns[6].HeaderCell.Style.ForeColor = Color.White;
+
+                    dataGridView1.Columns[7].HeaderText = "idTipoResultado";
+                    dataGridView1.Columns[7].Width = 80;
+                    dataGridView1.Columns[7].Visible = false;
+
+                    dataGridView1.Columns[8].HeaderText = "Usuario";
+                    dataGridView1.Columns[8].Width = 80;
+                    dataGridView1.Columns[8].Visible = false;
                 }
             }
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            foreach (var item in ListaEstadosJugados)
+            {
+                if (item.Estado == 1)
+                {
+                    e.CellStyle.BackColor = Color.Green;
+                }
+                else
+                {
+                    e.CellStyle.BackColor = Color.Red;
+                }
+            }
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            ResultadoJugadasWF _resultado = new ResultadoJugadasWF();
+            _resultado.Show();
+            Hide();
         }
     }
 }

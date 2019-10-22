@@ -49,6 +49,7 @@
             this.btnVolver.Text = "Volver";
             this.btnVolver.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // lblApellidoNombre
             // 
@@ -90,6 +91,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(595, 324);
             this.dataGridView1.TabIndex = 33;
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
             // ResultadoJugadaPorApostadorWF
             // 
@@ -103,7 +105,7 @@
             this.Controls.Add(this.btnVolver);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ResultadoJugadaPorApostadorWF";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Resultado de la jugada";
             this.Load += new System.EventHandler(this.ResultadoJugadaPorApostadorWF_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

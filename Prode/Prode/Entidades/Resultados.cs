@@ -12,9 +12,9 @@ namespace Prode.Entidades
         public int IdEquipoLocal { get; set; }
         public int IdEquipoVisitante { get; set; }
         public string EquipoLocal { get; set; }
-        public string EquipoVisitante { get; set; }
         public int MarcadorLocal { get; set; }
         public int MarcadorVisitante { get; set; }
+        public string EquipoVisitante { get; set; }
         public int idTipoResultado { get; set; }
         public int idUsuario { get; set; }
 

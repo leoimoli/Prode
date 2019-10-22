@@ -46,15 +46,41 @@ namespace Prode.Dao
             connection.Close();
             return Exito;
         }
-        public static List<Resultados> BuscarDetalleApuestaPorPartido(List<Resultados> listaEstatica, string NroJugada)
+
+        public static List<EstadoResultado> BuscarDetalleApuestaPorPartido(string nroJugada, List<int> listaIdPartidos)
         {
-            List<Resultados> Lista = new List<Resultados>();
-            foreach (var item in listaEstatica)
+            List<EstadoResultado> lista = new List<EstadoResultado>();
+            foreach (var item in listaIdPartidos)
             {
-               
+                int NroJugada = Convert.ToInt32(nroJugada);
+                int idPartido = Convert.ToInt32(item);
+                connection.Close();
+                connection.Open();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                DataTable Tabla = new DataTable();
+                MySqlParameter[] oParam = {
+                                      new MySqlParameter("NroJugada_in", NroJugada),
+                 new MySqlParameter("idPartido_in", idPartido)};
+                string proceso = "BuscarEstadoPartido";
+                MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+                dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+                dt.SelectCommand.Parameters.AddRange(oParam);
+                dt.Fill(Tabla);
+                if (Tabla.Rows.Count > 0)
+                {
+                    foreach (DataRow item2 in Tabla.Rows)
+                    {
+                        EstadoResultado listaResultados = new EstadoResultado();
+                        listaResultados.idPartido = idPartido;
+                        listaResultados.Estado = Convert.ToInt32(item2["Estado"].ToString());
+                        lista.Add(listaResultados);
+                    }
+                }
             }
-            return Lista;
+            return lista;
         }
+
         public static List<Resultados> BuscarResultados(string torneo, string temporada, string nroFecha, string Liga)
         {
             List<Resultados> lista = new List<Resultados>();
@@ -82,6 +108,7 @@ namespace Prode.Dao
                         foreach (DataRow item2 in Tabla.Rows)
                         {
                             Resultados listaResultados = new Resultados();
+                            listaResultados.idPartido = item;
                             listaResultados.IdEquipoLocal = Convert.ToInt32(item2["idEquipoLocal"].ToString());
                             listaResultados.MarcadorLocal = Convert.ToInt32(item2["MarcadorLocal"].ToString());
                             listaResultados.MarcadorVisitante = Convert.ToInt32(item2["MarcadorVisitante"].ToString());

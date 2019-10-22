@@ -34,13 +34,14 @@ namespace Prode.Negocio
             {
             }
             return _listaReusltados;
-        }
-        public static List<Resultados> BuscarDetalleApuestaPorPartido(List<Resultados> listaEstatica, string NroJugada)
+        }     
+
+        public static List<EstadoResultado> BuscarDetalleApuestaPorPartido(string nroJugada, List<int> listaIdPartidos)
         {
-            List<Resultados> _listaReusltados = new List<Resultados>();
+            List<EstadoResultado> _listaReusltados = new List<EstadoResultado>();
             try
             {
-                _listaReusltados = ResultadoDao.BuscarDetalleApuestaPorPartido(listaEstatica, NroJugada);
+                _listaReusltados = ResultadoDao.BuscarDetalleApuestaPorPartido(nroJugada, listaIdPartidos);
             }
             catch (Exception ex)
             {
