@@ -39,7 +39,7 @@ namespace Prode
                 ListaIdPartidos.Add(id);
             }
             ListaResultados = ResultadoNeg.BuscarDetalleApuestaPorPartido(nroJugada, ListaIdPartidos);
-            
+
         }
         public static List<EstadoResultado> ListaEstadosJugados;
         public List<Entidades.EstadoResultado> ListaResultados
@@ -58,6 +58,7 @@ namespace Prode
                     dataGridView1.ReadOnly = true;
                     dataGridView1.RowHeadersVisible = false;
                     dataGridView1.DataSource = listaEstatica;
+
 
                     dataGridView1.Columns[0].HeaderText = "idPartido";
                     dataGridView1.Columns[0].Width = 130;
@@ -110,29 +111,44 @@ namespace Prode
                     dataGridView1.Columns[8].HeaderText = "Usuario";
                     dataGridView1.Columns[8].Width = 80;
                     dataGridView1.Columns[8].Visible = false;
+
+                    for (int i = 0; i < value.Count; i++)
+                    {
+                        if (value[i].Estado == 1)
+                        {
+                            dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.Green;
+                        }
+                        else
+                        {
+                            dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+                        }
+                    }
                 }
             }
         }
 
-        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            foreach (var item in ListaEstadosJugados)
-            {
-                if (item.Estado == 1)
-                {
-                    e.CellStyle.BackColor = Color.Green;
-                }
-                else
-                {
-                    e.CellStyle.BackColor = Color.Red;
-                }
-            }
-        }
+        //private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        //{
+        //    //if (dataGridView1.Columns[e.ColumnIndex].Name == "FollowedUp" && e.Value != null && e.Value.ToString() == "No")
+        //    //{
+        //    //    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;
+        //    //}
+
+        //    foreach (var item in ListaEstadosJugados)
+        //    {
+        //        if (item.Estado == 1 && dataGridView1.Columns[e.ColumnIndex].Name == "idPartido" && e.Value != null && e.Value.ToString() == Convert.ToString(item.idPartido))
+        //        {
+        //            dataGridView1.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Green;
+        //        }
+        //        else
+        //        {
+        //            dataGridView1.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;
+        //        }
+        //    }
+        //}
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            ResultadoJugadasWF _resultado = new ResultadoJugadasWF();
-            _resultado.Show();
             Hide();
         }
     }

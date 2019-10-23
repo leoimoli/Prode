@@ -93,23 +93,23 @@ namespace Prode.Dao
                 int Estado = 1;
                 List<ResultadoApuestas> Lista = new List<ResultadoApuestas>();
                 List<string> ListaIdPar = new List<string>();
-                string ListaPartidos;
-
+                string ListaPartidos = string.Empty;
                 foreach (var item in ListaIdPartidos)
                 {
                     ListaPartidos = item.ToString() + "," + Variable;
                     Variable = ListaPartidos;
                 }
                 Variable = Variable.TrimEnd(',');
-                var Variable2 = Variable.Replace('"', ' ');
                 connection.Close();
                 connection.Open();
                 DataTable Tabla = new DataTable();
-                string consulta = "select count(*) as Aciertos, J.idApostador, J.NroJugada, A.Apellido, A.Nombre from Jugadas as J inner join Apostadores as A on(J.idApostador = A.idJugador) where replace(J.idPartido, '''', '' IN('" + Variable2 + "'))  and J.Estado = '" + Estado + "' group by J.NroJugada, J.idApostador order by Aciertos desc; ";
-                MySqlCommand cmd = new MySqlCommand(consulta, connection);
-                cmd.Connection = connection;
-                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
-                adap.Fill(Tabla);
+                MySqlParameter[] oParam = {
+                                           new MySqlParameter("p_idpartidos", Variable)};
+                string proceso = "BuscarJugadasXPartido";
+                MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+                dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+                dt.SelectCommand.Parameters.AddRange(oParam);
+                dt.Fill(Tabla);
                 if (Tabla.Rows.Count > 0)
                 {
                     foreach (DataRow item2 in Tabla.Rows)

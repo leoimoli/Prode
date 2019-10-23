@@ -206,8 +206,6 @@ namespace Prode
                 var ApellidoNombre = apellido + " " + Nombre;
                 ResultadoJugadaPorApostadorWF _resultado = new ResultadoJugadaPorApostadorWF(Aciertos, ApellidoNombre, NroJugada, ListaEstatica);
                 _resultado.Show();
-                //_vista.Show();
-                Hide();
             }
         }
         public static List<Resultados> ListaEstatica;
