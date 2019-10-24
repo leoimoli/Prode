@@ -81,7 +81,7 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.cmbTorneo);
             this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(204, 107);
+            this.groupBox2.Location = new System.Drawing.Point(124, 102);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1024, 591);
             this.groupBox2.TabIndex = 33;
@@ -168,6 +168,7 @@
             this.btnVolver.Text = "Volver";
             this.btnVolver.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // txtFecha
             // 
@@ -284,13 +285,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 743);
+            this.ClientSize = new System.Drawing.Size(1210, 743);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label18);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CargarResultadosWF";
             this.Text = "Cargar Resultados";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CargarResultadosWF_Load);
             this.Controls.SetChildIndex(this.label18, 0);
             this.Controls.SetChildIndex(this.groupBox2, 0);

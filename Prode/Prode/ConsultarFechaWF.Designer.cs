@@ -44,13 +44,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmbTorneo = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label18 = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.Local = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EquipoLocal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Empate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EquipoVisitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Visitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label18 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -70,7 +70,7 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.cmbTorneo);
             this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(146, 93);
+            this.groupBox2.Location = new System.Drawing.Point(80, 93);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1110, 591);
             this.groupBox2.TabIndex = 32;
@@ -229,17 +229,6 @@
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.Visible = false;
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label18.Location = new System.Drawing.Point(582, 55);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(156, 25);
-            this.label18.TabIndex = 33;
-            this.label18.Text = "Consultar Fecha";
-            // 
             // Local
             // 
             this.Local.HeaderText = "Local";
@@ -272,17 +261,28 @@
             this.Visitante.Name = "Visitante";
             this.Visitante.Width = 50;
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.SeaGreen;
+            this.label18.Location = new System.Drawing.Point(517, 65);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(156, 25);
+            this.label18.TabIndex = 33;
+            this.label18.Text = "Consultar Fecha";
+            // 
             // ConsultarFechaWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 743);
+            this.ClientSize = new System.Drawing.Size(1210, 743);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.groupBox2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ConsultarFechaWF";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Consultar Fecha";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ConsultarFechaWF_Load);
             this.Controls.SetChildIndex(this.groupBox2, 0);
             this.Controls.SetChildIndex(this.label18, 0);

@@ -95,9 +95,7 @@
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InicioWF";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "InicioWF";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.InicioWF_Load);
             this.Controls.SetChildIndex(this.groupBox1, 0);
             this.groupBox1.ResumeLayout(false);

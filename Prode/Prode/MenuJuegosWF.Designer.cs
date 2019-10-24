@@ -163,7 +163,7 @@
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MenuJuegosWF";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Juegos";
             this.Load += new System.EventHandler(this.MenuJuegosWF_Load);
             this.Controls.SetChildIndex(this.groupBox1, 0);

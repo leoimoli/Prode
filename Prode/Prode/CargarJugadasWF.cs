@@ -263,6 +263,13 @@ namespace Prode
             { }
 
         }
-        #endregion     
+        #endregion
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            MenuJuegosWF _juego = new MenuJuegosWF();
+            _juego.Show();
+            Hide();
+        }
     }
 }

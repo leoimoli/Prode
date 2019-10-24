@@ -61,6 +61,7 @@
             this.Visitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVisitante)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLocal)).BeginInit();
@@ -376,7 +377,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = global::Prode.Properties.Resources.apoyo;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnGuardar.Location = new System.Drawing.Point(665, 665);
+            this.btnGuardar.Location = new System.Drawing.Point(685, 665);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(80, 51);
             this.btnGuardar.TabIndex = 0;
@@ -390,7 +391,7 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Image = global::Prode.Properties.Resources.error;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(567, 665);
+            this.button2.Location = new System.Drawing.Point(587, 665);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(80, 51);
             this.button2.TabIndex = 1;
@@ -399,11 +400,26 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // btnVolver
+            // 
+            this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.Image = global::Prode.Properties.Resources.deshacer;
+            this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnVolver.Location = new System.Drawing.Point(486, 665);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(80, 51);
+            this.btnVolver.TabIndex = 47;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
             // FechaWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 743);
+            this.ClientSize = new System.Drawing.Size(1210, 743);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.button2);
@@ -412,7 +428,6 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "FechaWF";
             this.Text = "Fecha";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FechaWF_Load);
             this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.label18, 0);
@@ -420,6 +435,7 @@
             this.Controls.SetChildIndex(this.button2, 0);
             this.Controls.SetChildIndex(this.btnGuardar, 0);
             this.Controls.SetChildIndex(this.progressBar1, 0);
+            this.Controls.SetChildIndex(this.btnVolver, 0);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVisitante)).EndInit();
@@ -465,5 +481,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cmbLiga;
+        private System.Windows.Forms.Button btnVolver;
     }
 }

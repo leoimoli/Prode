@@ -55,6 +55,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.grbFiltros.SuspendLayout();
             this.grbResultados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -121,7 +122,7 @@
             this.grbFiltros.Controls.Add(this.label2);
             this.grbFiltros.Controls.Add(this.label1);
             this.grbFiltros.Controls.Add(this.cmbTorneo);
-            this.grbFiltros.Location = new System.Drawing.Point(232, 76);
+            this.grbFiltros.Location = new System.Drawing.Point(140, 76);
             this.grbFiltros.Name = "grbFiltros";
             this.grbFiltros.Size = new System.Drawing.Size(1021, 75);
             this.grbFiltros.TabIndex = 34;
@@ -153,7 +154,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label18.Location = new System.Drawing.Point(579, 36);
+            this.label18.Location = new System.Drawing.Point(487, 36);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(224, 25);
             this.label18.TabIndex = 123;
@@ -162,7 +163,7 @@
             // grbResultados
             // 
             this.grbResultados.Controls.Add(this.dataGridView1);
-            this.grbResultados.Location = new System.Drawing.Point(652, 173);
+            this.grbResultados.Location = new System.Drawing.Point(576, 173);
             this.grbResultados.Name = "grbResultados";
             this.grbResultados.Size = new System.Drawing.Size(606, 356);
             this.grbResultados.TabIndex = 124;
@@ -261,7 +262,7 @@
             // 
             this.lblMontoRecaudado.AutoSize = true;
             this.lblMontoRecaudado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMontoRecaudado.Location = new System.Drawing.Point(175, 126);
+            this.lblMontoRecaudado.Location = new System.Drawing.Point(236, 126);
             this.lblMontoRecaudado.Name = "lblMontoRecaudado";
             this.lblMontoRecaudado.Size = new System.Drawing.Size(22, 17);
             this.lblMontoRecaudado.TabIndex = 5;
@@ -271,7 +272,7 @@
             // 
             this.lblJugadoresParticipantes.AutoSize = true;
             this.lblJugadoresParticipantes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJugadoresParticipantes.Location = new System.Drawing.Point(175, 81);
+            this.lblJugadoresParticipantes.Location = new System.Drawing.Point(236, 81);
             this.lblJugadoresParticipantes.Name = "lblJugadoresParticipantes";
             this.lblJugadoresParticipantes.Size = new System.Drawing.Size(22, 17);
             this.lblJugadoresParticipantes.TabIndex = 4;
@@ -281,7 +282,7 @@
             // 
             this.lblCantidadJugadas.AutoSize = true;
             this.lblCantidadJugadas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidadJugadas.Location = new System.Drawing.Point(175, 35);
+            this.lblCantidadJugadas.Location = new System.Drawing.Point(236, 35);
             this.lblCantidadJugadas.Name = "lblCantidadJugadas";
             this.lblCantidadJugadas.Size = new System.Drawing.Size(22, 17);
             this.lblCantidadJugadas.TabIndex = 3;
@@ -291,7 +292,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(41, 126);
+            this.label7.Location = new System.Drawing.Point(102, 126);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(128, 17);
             this.label7.TabIndex = 2;
@@ -301,7 +302,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(4, 81);
+            this.label6.Location = new System.Drawing.Point(65, 81);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(165, 17);
             this.label6.TabIndex = 1;
@@ -311,17 +312,32 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(23, 35);
+            this.label5.Location = new System.Drawing.Point(84, 35);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(146, 17);
             this.label5.TabIndex = 0;
             this.label5.Text = "Cantidad de Jugadas:";
             // 
+            // btnVolver
+            // 
+            this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.Image = global::Prode.Properties.Resources.deshacer;
+            this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnVolver.Location = new System.Drawing.Point(576, 662);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(80, 51);
+            this.btnVolver.TabIndex = 127;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
             // ResultadoJugadasWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 743);
+            this.ClientSize = new System.Drawing.Size(1210, 743);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.grbEstadisticaRecaudacion);
             this.Controls.Add(this.grbApostadores);
             this.Controls.Add(this.grbResultados);
@@ -330,13 +346,13 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ResultadoJugadasWF";
             this.Text = "Resultado Jugadas";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ResultadoJugadasWF_Load);
             this.Controls.SetChildIndex(this.grbFiltros, 0);
             this.Controls.SetChildIndex(this.label18, 0);
             this.Controls.SetChildIndex(this.grbResultados, 0);
             this.Controls.SetChildIndex(this.grbApostadores, 0);
             this.Controls.SetChildIndex(this.grbEstadisticaRecaudacion, 0);
+            this.Controls.SetChildIndex(this.btnVolver, 0);
             this.grbFiltros.ResumeLayout(false);
             this.grbFiltros.PerformLayout();
             this.grbResultados.ResumeLayout(false);
@@ -376,5 +392,6 @@
         private System.Windows.Forms.Label lblCantidadJugadas;
         private System.Windows.Forms.Label lblMontoRecaudado;
         private System.Windows.Forms.Label lblJugadoresParticipantes;
+        private System.Windows.Forms.Button btnVolver;
     }
 }

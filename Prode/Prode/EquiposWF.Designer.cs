@@ -52,6 +52,7 @@
             this.txtNombreEquipo = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -183,6 +184,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnVolver);
             this.groupBox1.Controls.Add(this.txtImagen);
             this.groupBox1.Controls.Add(this.btnCargarImagen);
             this.groupBox1.Controls.Add(this.pictureBox1);
@@ -310,7 +312,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = global::Prode.Properties.Resources.apoyo;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnGuardar.Location = new System.Drawing.Point(482, 322);
+            this.btnGuardar.Location = new System.Drawing.Point(538, 322);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(80, 51);
             this.btnGuardar.TabIndex = 11;
@@ -324,7 +326,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::Prode.Properties.Resources.error;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCancelar.Location = new System.Drawing.Point(384, 322);
+            this.btnCancelar.Location = new System.Drawing.Point(412, 322);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(80, 51);
             this.btnCancelar.TabIndex = 10;
@@ -333,17 +335,30 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // btnVolver
+            // 
+            this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.Image = global::Prode.Properties.Resources.deshacer;
+            this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnVolver.Location = new System.Drawing.Point(288, 322);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(80, 51);
+            this.btnVolver.TabIndex = 129;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
             // EquiposWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 743);
+            this.ClientSize = new System.Drawing.Size(1210, 743);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Name = "EquiposWF";
             this.Text = "Equipos";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.EquiposWF_Load);
             this.Controls.SetChildIndex(this.groupBox2, 0);
             this.Controls.SetChildIndex(this.groupBox3, 0);
@@ -385,5 +400,6 @@
         private System.Windows.Forms.TextBox txtImagen;
         private System.Windows.Forms.Button btnCargarImagen;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnVolver;
     }
 }

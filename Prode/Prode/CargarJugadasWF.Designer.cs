@@ -35,6 +35,7 @@
             this.lblDniOApellidoNombre = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbLiga = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -68,7 +69,7 @@
             this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Controls.Add(this.txtBuscarApellidoNombre);
             this.groupBox1.Controls.Add(this.lblDniOApellidoNombre);
-            this.groupBox1.Location = new System.Drawing.Point(313, 82);
+            this.groupBox1.Location = new System.Drawing.Point(280, 66);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(688, 69);
             this.groupBox1.TabIndex = 4;
@@ -110,7 +111,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label18.Location = new System.Drawing.Point(573, 47);
+            this.label18.Location = new System.Drawing.Point(522, 38);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(153, 25);
             this.label18.TabIndex = 30;
@@ -135,19 +136,33 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.cmbTorneo);
             this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(141, 163);
+            this.groupBox2.Location = new System.Drawing.Point(121, 133);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1048, 557);
+            this.groupBox2.Size = new System.Drawing.Size(1048, 528);
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Fecha";
             this.groupBox2.Visible = false;
             // 
+            // btnVolver
+            // 
+            this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.Image = global::Prode.Properties.Resources.deshacer;
+            this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnVolver.Location = new System.Drawing.Point(609, 667);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(80, 51);
+            this.btnVolver.TabIndex = 128;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(30, 74);
+            this.label4.Location = new System.Drawing.Point(30, 55);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 20);
             this.label4.TabIndex = 127;
@@ -157,7 +172,7 @@
             // 
             this.cmbLiga.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLiga.FormattingEnabled = true;
-            this.cmbLiga.Location = new System.Drawing.Point(95, 76);
+            this.cmbLiga.Location = new System.Drawing.Point(95, 57);
             this.cmbLiga.Name = "cmbLiga";
             this.cmbLiga.Size = new System.Drawing.Size(200, 21);
             this.cmbLiga.TabIndex = 0;
@@ -167,7 +182,7 @@
             // 
             this.button1.Image = global::Prode.Properties.Resources.simbolo_correcto;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(940, 66);
+            this.button1.Location = new System.Drawing.Point(940, 47);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(33, 30);
             this.button1.TabIndex = 3;
@@ -179,7 +194,7 @@
             // 
             this.lblMensaje.AutoSize = true;
             this.lblMensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensaje.Location = new System.Drawing.Point(69, 454);
+            this.lblMensaje.Location = new System.Drawing.Point(69, 435);
             this.lblMensaje.Name = "lblMensaje";
             this.lblMensaje.Size = new System.Drawing.Size(416, 20);
             this.lblMensaje.TabIndex = 122;
@@ -199,7 +214,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(371, 355);
+            this.progressBar1.Location = new System.Drawing.Point(368, 331);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(330, 23);
             this.progressBar1.TabIndex = 120;
@@ -211,7 +226,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = global::Prode.Properties.Resources.apoyo;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnGuardar.Location = new System.Drawing.Point(554, 499);
+            this.btnGuardar.Location = new System.Drawing.Point(536, 458);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(80, 51);
             this.btnGuardar.TabIndex = 4;
@@ -225,7 +240,7 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Image = global::Prode.Properties.Resources.error;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(456, 499);
+            this.button2.Location = new System.Drawing.Point(427, 458);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(80, 51);
             this.button2.TabIndex = 5;
@@ -276,7 +291,7 @@
             // 
             // txtFecha
             // 
-            this.txtFecha.Location = new System.Drawing.Point(691, 76);
+            this.txtFecha.Location = new System.Drawing.Point(691, 57);
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.Size = new System.Drawing.Size(225, 20);
             this.txtFecha.TabIndex = 2;
@@ -286,7 +301,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(611, 74);
+            this.label2.Location = new System.Drawing.Point(611, 55);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 20);
             this.label2.TabIndex = 36;
@@ -296,7 +311,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(321, 74);
+            this.label1.Location = new System.Drawing.Point(321, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 20);
             this.label1.TabIndex = 35;
@@ -307,7 +322,7 @@
             this.cmbTorneo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTorneo.Enabled = false;
             this.cmbTorneo.FormattingEnabled = true;
-            this.cmbTorneo.Location = new System.Drawing.Point(406, 76);
+            this.cmbTorneo.Location = new System.Drawing.Point(406, 57);
             this.cmbTorneo.Name = "cmbTorneo";
             this.cmbTorneo.Size = new System.Drawing.Size(200, 21);
             this.cmbTorneo.TabIndex = 1;
@@ -323,7 +338,7 @@
             this.Empate,
             this.EquipoVisitante,
             this.Visitante});
-            this.dataGridView1.Location = new System.Drawing.Point(73, 104);
+            this.dataGridView1.Location = new System.Drawing.Point(73, 85);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(890, 347);
             this.dataGridView1.TabIndex = 2;
@@ -372,18 +387,19 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 743);
+            this.ClientSize = new System.Drawing.Size(1210, 743);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CargarJugadasWF";
             this.Text = "Cargar Jugadas";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CargarJugadasWF_Load);
             this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.label18, 0);
             this.Controls.SetChildIndex(this.groupBox2, 0);
+            this.Controls.SetChildIndex(this.btnVolver, 0);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -425,5 +441,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Empate;
         private System.Windows.Forms.DataGridViewTextBoxColumn EquipoVisitante;
         private System.Windows.Forms.DataGridViewTextBoxColumn Visitante;
+        private System.Windows.Forms.Button btnVolver;
     }
 }

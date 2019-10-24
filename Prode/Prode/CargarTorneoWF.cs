@@ -51,8 +51,8 @@ namespace Prode
         }
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            InicioWF _inicio = new InicioWF();
-            _inicio.Show();
+            MenuJuegosWF _juego = new MenuJuegosWF();
+            _juego.Show();
             Hide();
         }
         #endregion

@@ -44,5 +44,12 @@ namespace Prode
         {
          
         }
+
+        private void inicioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InicioWF _inicio = new InicioWF();
+            _inicio.Show();
+            Hide();
+        }
     }
 }

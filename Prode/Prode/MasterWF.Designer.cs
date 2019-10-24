@@ -30,14 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MasterWF));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.inicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crearUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cargarFirmaEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -55,6 +54,43 @@
             this.menuStrip1.Size = new System.Drawing.Size(1210, 29);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // inicioToolStripMenuItem
+            // 
+            this.inicioToolStripMenuItem.Image = global::Prode.Properties.Resources.icono_de_inicio_silueta;
+            this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
+            this.inicioToolStripMenuItem.Size = new System.Drawing.Size(75, 25);
+            this.inicioToolStripMenuItem.Text = "Inicio";
+            this.inicioToolStripMenuItem.Click += new System.EventHandler(this.inicioToolStripMenuItem_Click);
+            // 
+            // clientesToolStripMenuItem
+            // 
+            this.clientesToolStripMenuItem.Image = global::Prode.Properties.Resources.configuraciones;
+            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(151, 25);
+            this.clientesToolStripMenuItem.Text = "Configuraciones";
+            // 
+            // usuariosToolStripMenuItem
+            // 
+            this.usuariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.crearUsuarioToolStripMenuItem});
+            this.usuariosToolStripMenuItem.Image = global::Prode.Properties.Resources.usuario_hombre_1_;
+            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(99, 25);
+            this.usuariosToolStripMenuItem.Text = "Usuarios";
+            // 
+            // crearUsuarioToolStripMenuItem
+            // 
+            this.crearUsuarioToolStripMenuItem.Name = "crearUsuarioToolStripMenuItem";
+            this.crearUsuarioToolStripMenuItem.Size = new System.Drawing.Size(176, 26);
+            this.crearUsuarioToolStripMenuItem.Text = "Crear Usuario";
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Image = global::Prode.Properties.Resources.desconectarte;
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(69, 25);
+            this.salirToolStripMenuItem.Text = "Salir";
             // 
             // panel2
             // 
@@ -76,49 +112,6 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Prode Versión-1.0.0";
             // 
-            // inicioToolStripMenuItem
-            // 
-            this.inicioToolStripMenuItem.Image = global::Prode.Properties.Resources.icono_de_inicio_silueta;
-            this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
-            this.inicioToolStripMenuItem.Size = new System.Drawing.Size(75, 25);
-            this.inicioToolStripMenuItem.Text = "Inicio";
-            // 
-            // clientesToolStripMenuItem
-            // 
-            this.clientesToolStripMenuItem.Image = global::Prode.Properties.Resources.configuraciones;
-            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(151, 25);
-            this.clientesToolStripMenuItem.Text = "Configuraciones";
-            // 
-            // usuariosToolStripMenuItem
-            // 
-            this.usuariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.crearUsuarioToolStripMenuItem,
-            this.cargarFirmaEmailToolStripMenuItem});
-            this.usuariosToolStripMenuItem.Image = global::Prode.Properties.Resources.usuario_hombre_1_;
-            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(99, 25);
-            this.usuariosToolStripMenuItem.Text = "Usuarios";
-            // 
-            // crearUsuarioToolStripMenuItem
-            // 
-            this.crearUsuarioToolStripMenuItem.Name = "crearUsuarioToolStripMenuItem";
-            this.crearUsuarioToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
-            this.crearUsuarioToolStripMenuItem.Text = "Crear Usuario";
-            // 
-            // cargarFirmaEmailToolStripMenuItem
-            // 
-            this.cargarFirmaEmailToolStripMenuItem.Name = "cargarFirmaEmailToolStripMenuItem";
-            this.cargarFirmaEmailToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
-            this.cargarFirmaEmailToolStripMenuItem.Text = "Cargar Datos Email";
-            // 
-            // salirToolStripMenuItem
-            // 
-            this.salirToolStripMenuItem.Image = global::Prode.Properties.Resources.desconectarte;
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(69, 25);
-            this.salirToolStripMenuItem.Text = "Salir";
-            // 
             // MasterWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,6 +121,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MasterWF";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MasterWF";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -145,7 +139,6 @@
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem crearUsuarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cargarFirmaEmailToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label3;
