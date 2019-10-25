@@ -164,6 +164,12 @@
     <Compile Include="MenuJuegosWF.Designer.cs">
       <DependentUpon>MenuJuegosWF.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuSociosWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuSociosWF.Designer.cs">
+      <DependentUpon>MenuSociosWF.cs</DependentUpon>
+    </Compile>
     <Compile Include="Negocio\ApostadoresNeg.cs" />
     <Compile Include="Negocio\Consultar.cs" />
     <Compile Include="Negocio\EquiposNeg.cs" />
@@ -220,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MenuJuegosWF.resx">
       <DependentUpon>MenuJuegosWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuSociosWF.resx">
+      <DependentUpon>MenuSociosWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -335,6 +344,11 @@
     <None Include="Resources\betting2.png" />
     <None Include="Resources\puntuacion-final1.png" />
     <None Include="Resources\imprimir-documento1.png" />
+    <None Include="Resources\pagar.png" />
+    <None Include="Resources\online-payment.png" />
+    <None Include="Resources\online-payment1.png" />
+    <None Include="Resources\usuario%281%29.png" />
+    <None Include="Resources\usuario%281%291.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

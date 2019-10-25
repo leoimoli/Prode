@@ -127,6 +127,9 @@
   <data name="sobresalir" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sobresalir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="online-payment" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\online-payment.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="betting1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\betting1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -151,11 +154,14 @@
   <data name="desconectarte" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\desconectarte.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="betting2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\betting2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="error" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\error.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imprimir-documento1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imprimir-documento1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="usuario(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\usuario(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="buscar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\buscar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,6 +178,9 @@
   <data name="imprimir-documento" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\imprimir-documento.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="carnet-de-identidad" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\carnet-de-identidad.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="puntuacion-final" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\puntuacion-final.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -187,11 +196,14 @@
   <data name="configuraciones" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\configuraciones.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="carnet-de-identidad" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\carnet-de-identidad.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="betting2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\betting2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icono-de-inicio-silueta" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icono-de-inicio-silueta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pelota-de-futbol" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pelota-de-futbol.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="usuario-hombre(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\usuario-hombre(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -202,11 +214,14 @@
   <data name="editar(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\editar(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pelota-de-futbol" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pelota-de-futbol.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="online-payment1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\online-payment1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="subir" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\subir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pagar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pagar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="primer-lugar-trofeo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\primer-lugar-trofeo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -214,7 +229,7 @@
   <data name="apoyo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\apoyo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="imprimir-documento1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\imprimir-documento1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="usuario(1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\usuario(1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

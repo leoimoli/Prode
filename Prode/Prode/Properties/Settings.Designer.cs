@@ -25,8 +25,8 @@ namespace Prode.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=104.197.114.149;Port=3306;User Id=root;password=j3V*LbyE;database=prode_de" +
-            "sarrollo;Persist Security Info=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=104.197.114.149;Port=3306;User Id=root;password=j3V*LbyE;database=prode_te" +
+            "sting;Persist Security Info=True")]
         public string db {
             get {
                 return ((string)(this["db"]));
