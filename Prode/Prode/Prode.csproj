@@ -158,6 +158,12 @@
     <Compile Include="MasterWF.Designer.cs">
       <DependentUpon>MasterWF.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuFutbolWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuFutbolWF.Designer.cs">
+      <DependentUpon>MenuFutbolWF.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuJuegosWF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -223,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MasterWF.resx">
       <DependentUpon>MasterWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuFutbolWF.resx">
+      <DependentUpon>MenuFutbolWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuJuegosWF.resx">
       <DependentUpon>MenuJuegosWF.cs</DependentUpon>
