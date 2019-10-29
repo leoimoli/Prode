@@ -21,5 +21,12 @@ namespace Prode
         {
 
         }
+
+        private void btnTorneo_Click(object sender, EventArgs e)
+        {
+            CargarTorneoWF _torneo = new CargarTorneoWF();
+            _torneo.Show();
+            Hide();
+        }
     }
 }

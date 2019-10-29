@@ -123,6 +123,16 @@ namespace Prode.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap boton_eliminar1 {
+            get {
+                object obj = ResourceManager.GetObject("boton-eliminar1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap buscar {
             get {
                 object obj = ResourceManager.GetObject("buscar", resourceCulture);
@@ -203,6 +213,16 @@ namespace Prode.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap equipo1 {
+            get {
+                object obj = ResourceManager.GetObject("equipo1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap error {
             get {
                 object obj = ResourceManager.GetObject("error", resourceCulture);
@@ -216,6 +236,16 @@ namespace Prode.Properties {
         internal static System.Drawing.Bitmap futbol {
             get {
                 object obj = ResourceManager.GetObject("futbol", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap herramienta_de_senalizacion_de_cono_de_trafico_para_trafico {
+            get {
+                object obj = ResourceManager.GetObject("herramienta-de-senalizacion-de-cono-de-trafico-para-trafico", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -253,9 +283,29 @@ namespace Prode.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap jugador_de_futbol_de_pie_con_el_balon_debajo_de_un_pie {
+            get {
+                object obj = ResourceManager.GetObject("jugador-de-futbol-de-pie-con-el-balon-debajo-de-un-pie", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap jugadores_de_futbol_en_el_campo {
             get {
                 object obj = ResourceManager.GetObject("jugadores-de-futbol-en-el-campo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap jugadores_de_futbol_en_el_campo1 {
+            get {
+                object obj = ResourceManager.GetObject("jugadores-de-futbol-en-el-campo1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -276,6 +326,16 @@ namespace Prode.Properties {
         internal static System.Drawing.Bitmap marcador1 {
             get {
                 object obj = ResourceManager.GetObject("marcador1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap marcador2 {
+            get {
+                object obj = ResourceManager.GetObject("marcador2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

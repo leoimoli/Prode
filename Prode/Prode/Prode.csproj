@@ -146,6 +146,12 @@
     <Compile Include="InicioWF.Designer.cs">
       <DependentUpon>InicioWF.cs</DependentUpon>
     </Compile>
+    <Compile Include="JugadoresWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JugadoresWF.Designer.cs">
+      <DependentUpon>JugadoresWF.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginWF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -223,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InicioWF.resx">
       <DependentUpon>InicioWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JugadoresWF.resx">
+      <DependentUpon>JugadoresWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginWF.resx">
       <DependentUpon>LoginWF.cs</DependentUpon>
@@ -358,6 +367,12 @@
     <None Include="Resources\online-payment1.png" />
     <None Include="Resources\usuario%281%29.png" />
     <None Include="Resources\usuario%281%291.png" />
+    <None Include="Resources\equipo1.png" />
+    <None Include="Resources\marcador2.png" />
+    <None Include="Resources\jugadores-de-futbol-en-el-campo1.png" />
+    <None Include="Resources\jugador-de-futbol-de-pie-con-el-balon-debajo-de-un-pie.png" />
+    <None Include="Resources\herramienta-de-senalizacion-de-cono-de-trafico-para-trafico.png" />
+    <None Include="Resources\boton-eliminar1.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

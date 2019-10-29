@@ -30,21 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuFutbolWF));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnTorneo = new System.Windows.Forms.Button();
+            this.btnEquipos = new System.Windows.Forms.Button();
+            this.btnPracticas = new System.Windows.Forms.Button();
+            this.btnJugadores = new System.Windows.Forms.Button();
+            this.btnPartido = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button5);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnTorneo);
+            this.groupBox1.Controls.Add(this.btnEquipos);
+            this.groupBox1.Controls.Add(this.btnPracticas);
+            this.groupBox1.Controls.Add(this.btnJugadores);
+            this.groupBox1.Controls.Add(this.btnPartido);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(2, 82);
             this.groupBox1.Name = "groupBox1";
@@ -53,71 +53,72 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Menú";
             // 
-            // button4
+            // btnTorneo
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Image = global::Prode.Properties.Resources.pagar;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.Location = new System.Drawing.Point(9, 315);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(133, 55);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Prácticas";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnTorneo.Image = global::Prode.Properties.Resources.primer_lugar_trofeo;
+            this.btnTorneo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTorneo.Location = new System.Drawing.Point(9, 96);
+            this.btnTorneo.Name = "btnTorneo";
+            this.btnTorneo.Size = new System.Drawing.Size(133, 55);
+            this.btnTorneo.TabIndex = 8;
+            this.btnTorneo.Text = "Torneo";
+            this.btnTorneo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTorneo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnTorneo.UseVisualStyleBackColor = true;
+            this.btnTorneo.Click += new System.EventHandler(this.btnTorneo_Click);
             // 
-            // button3
+            // btnEquipos
             // 
-            this.button3.Image = global::Prode.Properties.Resources.online_payment1;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.Location = new System.Drawing.Point(9, 168);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(133, 55);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Jugadores";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnEquipos.Image = global::Prode.Properties.Resources.equipo1;
+            this.btnEquipos.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEquipos.Location = new System.Drawing.Point(9, 25);
+            this.btnEquipos.Name = "btnEquipos";
+            this.btnEquipos.Size = new System.Drawing.Size(133, 55);
+            this.btnEquipos.TabIndex = 7;
+            this.btnEquipos.Text = "Equipos";
+            this.btnEquipos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEquipos.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnEquipos.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnPracticas
             // 
-            this.button1.Image = global::Prode.Properties.Resources.usuario_1_1;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(9, 242);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 55);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Partidos";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnPracticas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPracticas.Image = global::Prode.Properties.Resources.herramienta_de_senalizacion_de_cono_de_trafico_para_trafico;
+            this.btnPracticas.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPracticas.Location = new System.Drawing.Point(9, 315);
+            this.btnPracticas.Name = "btnPracticas";
+            this.btnPracticas.Size = new System.Drawing.Size(133, 55);
+            this.btnPracticas.TabIndex = 6;
+            this.btnPracticas.Text = "Prácticas";
+            this.btnPracticas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPracticas.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnPracticas.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnJugadores
             // 
-            this.button2.Image = global::Prode.Properties.Resources.online_payment1;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.Location = new System.Drawing.Point(9, 25);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(133, 55);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Equipos";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnJugadores.Image = global::Prode.Properties.Resources.jugador_de_futbol_de_pie_con_el_balon_debajo_de_un_pie;
+            this.btnJugadores.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnJugadores.Location = new System.Drawing.Point(9, 168);
+            this.btnJugadores.Name = "btnJugadores";
+            this.btnJugadores.Size = new System.Drawing.Size(133, 55);
+            this.btnJugadores.TabIndex = 1;
+            this.btnJugadores.Text = "Jugadores";
+            this.btnJugadores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnJugadores.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnJugadores.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnPartido
             // 
-            this.button5.Image = global::Prode.Properties.Resources.primer_lugar_trofeo;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.Location = new System.Drawing.Point(9, 96);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(133, 55);
-            this.button5.TabIndex = 8;
-            this.button5.Text = "Torneo";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnPartido.Image = global::Prode.Properties.Resources.marcador2;
+            this.btnPartido.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPartido.Location = new System.Drawing.Point(9, 242);
+            this.btnPartido.Name = "btnPartido";
+            this.btnPartido.Size = new System.Drawing.Size(133, 55);
+            this.btnPartido.TabIndex = 0;
+            this.btnPartido.Text = "Partidos";
+            this.btnPartido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPartido.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnPartido.UseVisualStyleBackColor = true;
             // 
             // MenuFutbolWF
             // 
@@ -139,10 +140,10 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnPracticas;
+        private System.Windows.Forms.Button btnJugadores;
+        private System.Windows.Forms.Button btnPartido;
+        private System.Windows.Forms.Button btnEquipos;
+        private System.Windows.Forms.Button btnTorneo;
     }
 }
