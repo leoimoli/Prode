@@ -37,7 +37,7 @@ namespace Prode.Dao
                 connection.Close();
                 return Exito;
             }
-            else 
+            else
             {
                 int NuevoNumeroDeJugada = 1;
                 foreach (var item in _listaJugada)
@@ -77,7 +77,14 @@ namespace Prode.Dao
             {
                 foreach (DataRow item in Tabla.Rows)
                 {
-                    NroJugada = Convert.ToInt32(item["MAX(NroJugada)"].ToString());
+                    if (item.ItemArray[0].ToString() != "")
+                    {
+                        NroJugada = Convert.ToInt32(item["MAX(NroJugada)"].ToString());
+                    }
+                    else
+                    {
+                        NroJugada = 0;
+                    }
                 }
             }
             connection.Close();

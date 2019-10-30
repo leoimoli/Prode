@@ -26,5 +26,11 @@ namespace Prode
             _juegos.Show();
             Hide();
         }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MenuFutbolWF _futbol = new MenuFutbolWF();
+            _futbol.Show();
+            Hide();
+        }
     }
 }

@@ -302,7 +302,6 @@ namespace Prode
             pictureBox1 = null;
         }
         #endregion
-
         private void btnVolver_Click(object sender, EventArgs e)
         {
             MenuJuegosWF _juego = new MenuJuegosWF();

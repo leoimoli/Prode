@@ -28,5 +28,12 @@ namespace Prode
             _torneo.Show();
             Hide();
         }
+
+        private void btnJugadores_Click(object sender, EventArgs e)
+        {
+            JugadoresWF _jugadores = new JugadoresWF();
+            _jugadores.Show();
+            Hide();
+        }
     }
 }

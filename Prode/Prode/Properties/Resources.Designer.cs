@@ -133,6 +133,26 @@ namespace Prode.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap boton_eliminar2 {
+            get {
+                object obj = ResourceManager.GetObject("boton-eliminar2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap boton_eliminar3 {
+            get {
+                object obj = ResourceManager.GetObject("boton-eliminar3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap buscar {
             get {
                 object obj = ResourceManager.GetObject("buscar", resourceCulture);
@@ -166,6 +186,16 @@ namespace Prode.Properties {
         internal static System.Drawing.Bitmap configuraciones {
             get {
                 object obj = ResourceManager.GetObject("configuraciones", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dato {
+            get {
+                object obj = ResourceManager.GetObject("dato", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -233,6 +263,16 @@ namespace Prode.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ficha_policial {
+            get {
+                object obj = ResourceManager.GetObject("ficha-policial", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap futbol {
             get {
                 object obj = ResourceManager.GetObject("futbol", resourceCulture);
@@ -246,6 +286,16 @@ namespace Prode.Properties {
         internal static System.Drawing.Bitmap herramienta_de_senalizacion_de_cono_de_trafico_para_trafico {
             get {
                 object obj = ResourceManager.GetObject("herramienta-de-senalizacion-de-cono-de-trafico-para-trafico", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hombre {
+            get {
+                object obj = ResourceManager.GetObject("hombre", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -286,6 +336,16 @@ namespace Prode.Properties {
         internal static System.Drawing.Bitmap jugador_de_futbol_de_pie_con_el_balon_debajo_de_un_pie {
             get {
                 object obj = ResourceManager.GetObject("jugador-de-futbol-de-pie-con-el-balon-debajo-de-un-pie", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap jugador_de_futbol_de_pie_con_el_balon_debajo_de_un_pie1 {
+            get {
+                object obj = ResourceManager.GetObject("jugador-de-futbol-de-pie-con-el-balon-debajo-de-un-pie1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -366,6 +426,16 @@ namespace Prode.Properties {
         internal static System.Drawing.Bitmap pagar {
             get {
                 object obj = ResourceManager.GetObject("pagar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pasar {
+            get {
+                object obj = ResourceManager.GetObject("pasar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -29,9 +29,8 @@ namespace Prode.Clase_Maestra
         {
             get
             {
-                return new string[] { "Masculino", "Femenino"};
+                return new string[] { "Masculino", "Femenino" };
             }
         }
-
     }
 }

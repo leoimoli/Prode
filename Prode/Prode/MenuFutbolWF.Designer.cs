@@ -106,6 +106,7 @@
             this.btnJugadores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnJugadores.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnJugadores.UseVisualStyleBackColor = true;
+            this.btnJugadores.Click += new System.EventHandler(this.btnJugadores_Click);
             // 
             // btnPartido
             // 

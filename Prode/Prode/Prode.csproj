@@ -114,6 +114,7 @@
     <Compile Include="Dao\FechaDao.cs" />
     <Compile Include="Dao\InsertDao.cs" />
     <Compile Include="Dao\JugadaDao.cs" />
+    <Compile Include="Dao\JugadoresDao.cs" />
     <Compile Include="Dao\ResultadoDao.cs" />
     <Compile Include="Dao\TorneoDao.cs" />
     <Compile Include="Dao\UsuarioDao.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="Entidades\EstadoResultado.cs" />
     <Compile Include="Entidades\Fecha.cs" />
     <Compile Include="Entidades\Jugada.cs" />
+    <Compile Include="Entidades\Jugadores.cs" />
     <Compile Include="Entidades\ResultadoApuestas.cs" />
     <Compile Include="Entidades\Resultados.cs" />
     <Compile Include="Entidades\TipoResultadoPorPartido.cs" />
@@ -188,6 +190,7 @@
     <Compile Include="Negocio\FechaNeg.cs" />
     <Compile Include="Negocio\Insert.cs" />
     <Compile Include="Negocio\JugadaNeg.cs" />
+    <Compile Include="Negocio\JugadoresNeg.cs" />
     <Compile Include="Negocio\ResultadoNeg.cs" />
     <Compile Include="Negocio\TorneoNeg.cs" />
     <Compile Include="Negocio\UsuarioNeg.cs" />
@@ -373,6 +376,13 @@
     <None Include="Resources\jugador-de-futbol-de-pie-con-el-balon-debajo-de-un-pie.png" />
     <None Include="Resources\herramienta-de-senalizacion-de-cono-de-trafico-para-trafico.png" />
     <None Include="Resources\boton-eliminar1.png" />
+    <None Include="Resources\hombre.png" />
+    <None Include="Resources\jugador-de-futbol-de-pie-con-el-balon-debajo-de-un-pie1.png" />
+    <None Include="Resources\boton-eliminar2.png" />
+    <None Include="Resources\dato.png" />
+    <None Include="Resources\pasar.png" />
+    <None Include="Resources\boton-eliminar3.png" />
+    <None Include="Resources\ficha-policial.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
