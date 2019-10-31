@@ -103,7 +103,7 @@
             // 
             this.btnAsignar.Image = global::Prode.Properties.Resources.pasar;
             this.btnAsignar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAsignar.Location = new System.Drawing.Point(9, 382);
+            this.btnAsignar.Location = new System.Drawing.Point(9, 383);
             this.btnAsignar.Name = "btnAsignar";
             this.btnAsignar.Size = new System.Drawing.Size(133, 55);
             this.btnAsignar.TabIndex = 9;

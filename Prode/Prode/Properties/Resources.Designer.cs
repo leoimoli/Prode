@@ -303,6 +303,26 @@ namespace Prode.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap hombre_maraton {
+            get {
+                object obj = ResourceManager.GetObject("hombre-maraton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hombre_maraton1 {
+            get {
+                object obj = ResourceManager.GetObject("hombre-maraton1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icono_de_inicio_silueta {
             get {
                 object obj = ResourceManager.GetObject("icono-de-inicio-silueta", resourceCulture);
@@ -366,6 +386,16 @@ namespace Prode.Properties {
         internal static System.Drawing.Bitmap jugadores_de_futbol_en_el_campo1 {
             get {
                 object obj = ResourceManager.GetObject("jugadores-de-futbol-en-el-campo1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap jugadores_de_futbol_en_el_campo2 {
+            get {
+                object obj = ResourceManager.GetObject("jugadores-de-futbol-en-el-campo2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -446,6 +476,26 @@ namespace Prode.Properties {
         internal static System.Drawing.Bitmap pelota_de_futbol {
             get {
                 object obj = ResourceManager.GetObject("pelota-de-futbol", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pelota_de_futbol1 {
+            get {
+                object obj = ResourceManager.GetObject("pelota-de-futbol1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pelota_de_futbol2 {
+            get {
+                object obj = ResourceManager.GetObject("pelota-de-futbol2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

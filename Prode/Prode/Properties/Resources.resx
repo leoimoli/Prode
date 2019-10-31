@@ -118,20 +118,26 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="jugadores-de-futbol-en-el-campo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\jugadores-de-futbol-en-el-campo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="simbolo-correcto" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\simbolo-correcto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="usuario(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\usuario(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="deshacer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\deshacer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sobresalir" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sobresalir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="betting1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\betting1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="online-payment" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\online-payment.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="betting1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\betting1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ficha-policial" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ficha-policial.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="simbolo-de-formato-de-archivo-pdf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\simbolo-de-formato-de-archivo-pdf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,11 +148,17 @@
   <data name="accesorios" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\accesorios.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="imprimir-documento1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\imprimir-documento1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="configuraciones" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\configuraciones.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="marcador" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\marcador.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="calendario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calendario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sobresalir" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sobresalir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="usuario(1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\usuario(1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,14 +169,8 @@
   <data name="desconectarte" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\desconectarte.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="betting2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\betting2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="error" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\error.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="buscar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\buscar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="boton-eliminar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\boton-eliminar1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,20 +178,20 @@
   <data name="jugador-de-futbol-de-pie-con-el-balon-debajo-de-un-pie" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\jugador-de-futbol-de-pie-con-el-balon-debajo-de-un-pie.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="boton-eliminar2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\boton-eliminar2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="equipo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\equipo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="hombre" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hombre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="pelota-de-futbol1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pelota-de-futbol1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="jugador-de-futbol-de-pie-con-el-balon-debajo-de-un-pie1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\jugador-de-futbol-de-pie-con-el-balon-debajo-de-un-pie1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="online-payment1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\online-payment1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="puntuacion-final1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\puntuacion-final1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="boton-eliminar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\boton-eliminar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -196,8 +202,11 @@
   <data name="equipo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\equipo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="programar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\programar1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="hombre-maraton1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hombre-maraton1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="herramienta-de-senalizacion-de-cono-de-trafico-para-trafico" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\herramienta-de-senalizacion-de-cono-de-trafico-para-trafico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="marcador1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\marcador1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,35 +214,41 @@
   <data name="betting" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\betting.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icono-de-inicio-silueta" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icono-de-inicio-silueta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="apoyo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\apoyo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="imprimir-documento" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\imprimir-documento.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="carnet-de-identidad" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\carnet-de-identidad.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="puntuacion-final" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\puntuacion-final.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="jugadores-de-futbol-en-el-campo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\jugadores-de-futbol-en-el-campo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="buscar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buscar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="herramienta-de-senalizacion-de-cono-de-trafico-para-trafico" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\herramienta-de-senalizacion-de-cono-de-trafico-para-trafico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="programar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\programar1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="marcador" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\marcador.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="boton-eliminar2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\boton-eliminar2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pelota-de-futbol" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pelota-de-futbol.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="jugadores-de-futbol-en-el-campo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\jugadores-de-futbol-en-el-campo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="configuraciones" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\configuraciones.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="hombre-maraton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hombre-maraton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="carnet-de-identidad" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\carnet-de-identidad.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="betting2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\betting2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="puntuacion-final1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\puntuacion-final1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icono-de-inicio-silueta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icono-de-inicio-silueta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="marcador2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\marcador2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -244,20 +259,17 @@
   <data name="usuario-hombre(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\usuario-hombre(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="usuario(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\usuario(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="imprimir-documento1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imprimir-documento1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="editar(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\editar(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pelota-de-futbol" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pelota-de-futbol.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="online-payment1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\online-payment1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="subir" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\subir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="boton-eliminar3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\boton-eliminar3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pagar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pagar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -265,10 +277,13 @@
   <data name="primer-lugar-trofeo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\primer-lugar-trofeo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="apoyo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\apoyo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="boton-eliminar3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\boton-eliminar3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ficha-policial" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ficha-policial.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pelota-de-futbol2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pelota-de-futbol2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="jugadores-de-futbol-en-el-campo2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\jugadores-de-futbol-en-el-campo2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -16,7 +16,7 @@ namespace Prode
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginWF());
+            Application.Run(new FichaTecnicaWF());
         }
     }
 }
