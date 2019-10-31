@@ -58,5 +58,47 @@ namespace Prode.Negocio
                 throw new Exception();
             }
         }
+
+        public static bool EditarJugador(Jugadores _jugadores, int idJugador)
+        {
+            bool Exito = false;
+            try
+            {
+                ValidarDatos(_jugadores);
+                Exito = JugadoresDao.EditarJugador(_jugadores, idJugador);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return Exito;
+        }
+
+        public static bool EliminarJugador(int idjugador)
+        {
+            bool Exito = false;
+            try
+            {
+                Exito = JugadoresDao.EliminarJugador(idjugador);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return Exito;
+        }
+        public static List<Jugadores> BuscarJugadoresPorApellidoYNombre(string apellidoNombre)
+        {
+            List<Jugadores> _listaJugadores = new List<Jugadores>();
+            try
+            {
+                _listaJugadores = JugadoresDao.BuscarJugadoresPorApellidoYNombre(apellidoNombre);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return _listaJugadores;
+        }
     }
 }

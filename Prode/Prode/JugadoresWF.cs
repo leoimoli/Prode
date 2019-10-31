@@ -43,6 +43,8 @@ namespace Prode
         }
         private void FuncionesBotonNuevoJugador()
         {
+            IdBoton = 0;
+            IdBoton = 1;
             ///// Visible False          
             lblDniOApellidoNombre.Visible = false;
             txtBuscarApellidoNombre.Visible = false;
@@ -79,6 +81,11 @@ namespace Prode
         }
         private void FuncionesBotonEditar()
         {
+            txtBuscarApellidoNombre.AutoCompleteCustomSource = Clases_Maestras.AutoCompletePorJugadores.Autocomplete();
+            txtBuscarApellidoNombre.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtBuscarApellidoNombre.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            IdBoton = 0;
+            IdBoton = 2;
             ///// Visible True
             groupBox2.Visible = true;
             lblDniOApellidoNombre.Visible = true;
@@ -114,13 +121,19 @@ namespace Prode
         }
         private void FuncionesBotonEliminarJugadorMenu()
         {
+            txtBuscarApellidoNombre.AutoCompleteCustomSource = Clases_Maestras.AutoCompletePorJugadores.Autocomplete();
+            txtBuscarApellidoNombre.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtBuscarApellidoNombre.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            IdBoton = 0;
+            IdBoton = 3;
             ///// Visible True
             groupBox2.Visible = true;
             lblDniOApellidoNombre.Visible = true;
             txtBuscarApellidoNombre.Visible = true;
             btnBuscar.Visible = true;
-            btnCancelar.Visible = true;
             ///// Visible False
+            btnGuardar.Visible = false;
+            btnCancelar.Visible = false;
             lblTexto.Visible = false;
             lblApellido.Visible = false;
             lblNombre.Visible = false;
@@ -132,8 +145,6 @@ namespace Prode
             lblFechaNacimiento.Visible = false;
             lblApodo.Visible = false;
             btnCargarImagen.Visible = false;
-            btnGuardar.Visible = false;
-            btnCancelar.Visible = false;
             txtApellido.Visible = false;
             txtNombre.Visible = false;
             txtDni.Visible = false;
@@ -150,6 +161,8 @@ namespace Prode
         }
         private void LimpiarCamposBotonCancelar()
         {
+            progressBar1.Value = Convert.ToInt32(null);
+            progressBar1.Visible = false;
             txtBuscarApellidoNombre.Clear();
             txtApellido.Clear();
             txtNombre.Clear();
@@ -221,6 +234,7 @@ namespace Prode
                 pictureBox1.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
                 Imagen = ms.ToArray();
             }
+            _jugadores.Imagen = Imagen;
             int idusuarioLogueado = Sesion.UsuarioLogueado.IdUsuario;
             _jugadores.idUsuario = idusuarioLogueado;
             return _jugadores;
@@ -240,6 +254,124 @@ namespace Prode
         private void Caluculate(int i)
         {
             double pow = Math.Pow(i, i);
+        }
+        private void FuncionBuscarJugador()
+        {
+            if (IdBoton == 2)
+            {
+                btnEliminar.Visible = false;
+                List<Jugadores> _jugadores = new List<Jugadores>();
+                string ApellidoNombre = txtBuscarApellidoNombre.Text;
+                _jugadores = JugadoresNeg.BuscarJugadoresPorApellidoYNombre(ApellidoNombre);
+                if (_jugadores.Count > 0)
+                {
+                    var jugador = _jugadores.First();
+                    txtApellido.Text = jugador.Apellido;
+                    txtNombre.Text = jugador.Nombre;
+                    cmbSexo.Text = jugador.Sexo;
+                    txtDni.Text = jugador.Dni;
+                    txtApodo.Text = jugador.Apodo;
+                    dtFechaNacimiento.Value = jugador.FechaNacimiento;
+                    txtAltura.Text = jugador.Altura;
+                    txtPeso.Text = jugador.Peso;
+                    if (jugador.Imagen != null)
+                    {
+                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(jugador.Imagen);
+                        pictureBox1.Image = foto1;
+                    }
+                    lblIdJugador.Text = Convert.ToString(jugador.idJugador);
+                    HabilitarCamposEditables();
+                }
+            }
+            if (IdBoton == 3)
+            {
+                btnEliminar.Visible = false;
+                List<Jugadores> _jugadores = new List<Jugadores>();
+                string ApellidoNombre = txtBuscarApellidoNombre.Text;
+                _jugadores = JugadoresNeg.BuscarJugadoresPorApellidoYNombre(ApellidoNombre);
+                if (_jugadores.Count > 0)
+                {
+                    btnEliminar.Visible = true;
+                    var jugador = _jugadores.First();
+                    txtApellido.Text = jugador.Apellido;
+                    txtNombre.Text = jugador.Nombre;
+                    cmbSexo.Text = jugador.Sexo;
+                    txtDni.Text = jugador.Dni;
+                    txtApodo.Text = jugador.Apodo;
+                    dtFechaNacimiento.Value = jugador.FechaNacimiento;
+                    txtAltura.Text = jugador.Altura;
+                    txtPeso.Text = jugador.Peso;
+                    if (jugador.Imagen != null)
+                    {
+                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(jugador.Imagen);
+                        pictureBox1.Image = foto1;
+                    }
+                    lblIdJugador.Text = Convert.ToString(jugador.idJugador);
+                    HabilitarCamposEliminar();
+                }
+            }
+        }
+        private void HabilitarCamposEliminar()
+        {
+            lblApellido.Visible = true;
+            lblNombre.Visible = true;
+            lblDni.Visible = true;
+            lblSexo.Visible = true;
+            lblPeso.Visible = true;
+            lblAltura.Visible = true;
+            lblImagen.Visible = true;
+            lblFechaNacimiento.Visible = true;
+            lblApodo.Visible = true;
+            btnCargarImagen.Visible = true;
+            txtApellido.Visible = true;
+            txtNombre.Visible = true;
+            txtDni.Visible = true;
+            cmbSexo.Visible = true;
+            txtApodo.Visible = true;
+            dtFechaNacimiento.Visible = true;
+            txtAltura.Visible = true;
+            txtPeso.Visible = true;
+            pictureBox1.Visible = true;
+
+            ///// Campos NO editables
+            txtApellido.Enabled = false;
+            txtNombre.Enabled = false;
+            cmbSexo.Enabled = false;
+            txtDni.Enabled = false;
+            txtApodo.Enabled = false;
+            dtFechaNacimiento.Enabled = false;
+            txtAltura.Enabled = false;
+            txtPeso.Enabled = false;
+            pictureBox1.Enabled = false;
+        }
+        private void HabilitarCamposEditables()
+        {
+            lblApellido.Visible = true;
+            lblNombre.Visible = true;
+            lblDni.Visible = true;
+            lblSexo.Visible = true;
+            lblPeso.Visible = true;
+            lblAltura.Visible = true;
+            lblImagen.Visible = true;
+            lblFechaNacimiento.Visible = true;
+            lblApodo.Visible = true;
+            btnCargarImagen.Visible = true;
+            btnGuardar.Visible = true;
+            btnCancelar.Visible = true;
+            txtApellido.Visible = true;
+            txtNombre.Visible = true;
+            txtDni.Visible = true;
+            cmbSexo.Visible = true;
+            txtApodo.Visible = true;
+            dtFechaNacimiento.Visible = true;
+            txtAltura.Visible = true;
+            txtPeso.Visible = true;
+            pictureBox1.Visible = true;
+
+            ///// Campos NO editables
+            txtApellido.Enabled = false;
+            txtNombre.Enabled = false;
+            cmbSexo.Enabled = false;
         }
         #endregion
         #region Botones
@@ -325,16 +457,23 @@ namespace Prode
 
             }
         }
-        #endregion
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FuncionBuscarJugador();
+            }
+            catch (Exception ex)
+            { }
+        }
+        public static int IdBoton;
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
             {
-                bool Guardar = true;
-                bool Editar = false;
-                bool Eliminar = false;
+
                 Entidades.Jugadores _jugadores = CargarEntidad();
-                if (Guardar == true)
+                if (IdBoton == 1)
                 {
                     int idJugador = JugadoresNeg.GuardarJugador(_jugadores);
                     if (idJugador > 0)
@@ -346,20 +485,65 @@ namespace Prode
                                                      MessageBoxButtons.OK,
                                                      MessageBoxIcon.Asterisk);
                         LimpiarCamposBotonCancelar();
+                        FuncionesBotonNuevoJugador();
                     }
                     else
                     {
                     }
                 }
-                if (Editar == true)
+                if (IdBoton == 2)
                 {
-                }
-                if (Eliminar == true)
-                {
+                    int idjugador = Convert.ToInt32(lblIdJugador.Text);
+                    bool Exito = JugadoresNeg.EditarJugador(_jugadores, idjugador);
+                    if (Exito == true)
+                    {
+                        ProgressBar();
+                        const string message2 = "Se edito el jugador exitosamente.";
+                        const string caption2 = "Éxito";
+                        var result2 = MessageBox.Show(message2, caption2,
+                                                     MessageBoxButtons.OK,
+                                                     MessageBoxIcon.Asterisk);
+                        LimpiarCamposBotonCancelar();
+                        FuncionesBotonEditar();
+                    }
+                    else
+                    {
+                    }
                 }
             }
             catch (Exception ex)
             { }
-        }      
+        }
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            int idjugador = Convert.ToInt32(lblIdJugador.Text);
+            const string message = "Desea eliminar el jugador seleccionado?";
+            const string caption = "Eliminar Jugador";
+            var result = MessageBox.Show(message, caption,
+                                         MessageBoxButtons.YesNo,
+                                         MessageBoxIcon.Question);
+            {
+                if (result == DialogResult.Yes)
+                {
+                    bool Exito = JugadoresNeg.EliminarJugador(idjugador);
+                    if (Exito == true)
+                    {
+                        ProgressBar();
+                        const string message2 = "Se eliminó el jugador exitosamente.";
+                        const string caption2 = "Éxito";
+                        var result2 = MessageBox.Show(message2, caption2,
+                                                     MessageBoxButtons.OK,
+                                                     MessageBoxIcon.Asterisk);
+                        LimpiarCamposBotonCancelar();
+                        FuncionesBotonEliminarJugadorMenu();
+                        btnEliminar.Visible = false;
+                    }
+                }
+
+                else
+                { }
+            }
+        }
+        #endregion          
     }
 }

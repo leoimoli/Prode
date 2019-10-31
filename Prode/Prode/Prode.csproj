@@ -99,6 +99,7 @@
     </Compile>
     <Compile Include="Clases_Maestras\AutoCompletePorApostadores.cs" />
     <Compile Include="Clases_Maestras\AutoCompletePorEquipo.cs" />
+    <Compile Include="Clases_Maestras\AutoCompletePorJugadores.cs" />
     <Compile Include="Clases_Maestras\Funciones.cs" />
     <Compile Include="Clases_Maestras\Sesion.cs" />
     <Compile Include="Clases_Maestras\ValoresConstantes.cs" />

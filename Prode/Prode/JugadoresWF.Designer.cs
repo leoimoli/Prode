@@ -37,6 +37,8 @@
             this.btnEliminarJugadorMenu = new System.Windows.Forms.Button();
             this.btnEstadistica = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblIdJugador = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.txtPeso = new System.Windows.Forms.TextBox();
             this.txtAltura = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -63,7 +65,6 @@
             this.txtBuscarApellidoNombre = new System.Windows.Forms.TextBox();
             this.lblDniOApellidoNombre = new System.Windows.Forms.Label();
             this.lblTexto = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -89,7 +90,7 @@
             // 
             this.btnFicha.Image = global::Prode.Properties.Resources.ficha_policial;
             this.btnFicha.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnFicha.Location = new System.Drawing.Point(8, 480);
+            this.btnFicha.Location = new System.Drawing.Point(9, 295);
             this.btnFicha.Name = "btnFicha";
             this.btnFicha.Size = new System.Drawing.Size(133, 55);
             this.btnFicha.TabIndex = 10;
@@ -102,7 +103,7 @@
             // 
             this.btnAsignar.Image = global::Prode.Properties.Resources.pasar;
             this.btnAsignar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAsignar.Location = new System.Drawing.Point(9, 391);
+            this.btnAsignar.Location = new System.Drawing.Point(9, 382);
             this.btnAsignar.Name = "btnAsignar";
             this.btnAsignar.Size = new System.Drawing.Size(133, 55);
             this.btnAsignar.TabIndex = 9;
@@ -157,7 +158,7 @@
             // 
             this.btnEstadistica.Image = global::Prode.Properties.Resources.dato;
             this.btnEstadistica.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEstadistica.Location = new System.Drawing.Point(9, 295);
+            this.btnEstadistica.Location = new System.Drawing.Point(10, 467);
             this.btnEstadistica.Name = "btnEstadistica";
             this.btnEstadistica.Size = new System.Drawing.Size(133, 55);
             this.btnEstadistica.TabIndex = 0;
@@ -168,6 +169,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lblIdJugador);
             this.groupBox2.Controls.Add(this.progressBar1);
             this.groupBox2.Controls.Add(this.txtPeso);
             this.groupBox2.Controls.Add(this.txtAltura);
@@ -203,6 +205,26 @@
             this.groupBox2.Text = "groupBox2";
             this.groupBox2.Visible = false;
             // 
+            // lblIdJugador
+            // 
+            this.lblIdJugador.AutoSize = true;
+            this.lblIdJugador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdJugador.Location = new System.Drawing.Point(393, 90);
+            this.lblIdJugador.Name = "lblIdJugador";
+            this.lblIdJugador.Size = new System.Drawing.Size(25, 20);
+            this.lblIdJugador.TabIndex = 65;
+            this.lblIdJugador.Text = "@";
+            this.lblIdJugador.Visible = false;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(305, 354);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(330, 23);
+            this.progressBar1.TabIndex = 64;
+            this.progressBar1.Value = 50;
+            this.progressBar1.Visible = false;
+            // 
             // txtPeso
             // 
             this.txtPeso.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -228,7 +250,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::Prode.Properties.Resources.error;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCancelar.Location = new System.Drawing.Point(425, 481);
+            this.btnCancelar.Location = new System.Drawing.Point(439, 481);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(80, 51);
             this.btnCancelar.TabIndex = 61;
@@ -254,7 +276,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = global::Prode.Properties.Resources.apoyo;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnGuardar.Location = new System.Drawing.Point(523, 481);
+            this.btnGuardar.Location = new System.Drawing.Point(526, 481);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(80, 51);
             this.btnGuardar.TabIndex = 58;
@@ -269,7 +291,7 @@
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.Image = global::Prode.Properties.Resources.boton_eliminar1;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnEliminar.Location = new System.Drawing.Point(327, 481);
+            this.btnEliminar.Location = new System.Drawing.Point(353, 481);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(80, 51);
             this.btnEliminar.TabIndex = 59;
@@ -277,6 +299,7 @@
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Visible = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnCargarImagen
             // 
@@ -454,6 +477,7 @@
             this.btnBuscar.TabIndex = 35;
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtBuscarApellidoNombre
             // 
@@ -482,15 +506,6 @@
             this.lblTexto.Size = new System.Drawing.Size(298, 25);
             this.lblTexto.TabIndex = 37;
             this.lblTexto.Text = "Seleccione una función del Menú";
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(305, 354);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(330, 23);
-            this.progressBar1.TabIndex = 64;
-            this.progressBar1.Value = 50;
-            this.progressBar1.Visible = false;
             // 
             // JugadoresWF
             // 
@@ -553,5 +568,6 @@
         private System.Windows.Forms.TextBox txtPeso;
         private System.Windows.Forms.TextBox txtAltura;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label lblIdJugador;
     }
 }
