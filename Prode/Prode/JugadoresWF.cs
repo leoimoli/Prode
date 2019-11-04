@@ -471,7 +471,6 @@ namespace Prode
         {
             try
             {
-
                 Entidades.Jugadores _jugadores = CargarEntidad();
                 if (IdBoton == 1)
                 {

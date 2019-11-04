@@ -59,6 +59,11 @@ namespace Prode.Negocio
             }
         }
 
+        internal static bool GuardarFichaTecnicaJugador(FichaTecnica _fichaJugadores)
+        {
+            throw new NotImplementedException();
+        }
+
         public static bool EditarJugador(Jugadores _jugadores, int idJugador)
         {
             bool Exito = false;
@@ -72,6 +77,11 @@ namespace Prode.Negocio
 
             }
             return Exito;
+        }
+
+        internal static List<Jugadores> BuscarFichaTecnica(int idJugador)
+        {
+            throw new NotImplementedException();
         }
 
         public static bool EliminarJugador(int idjugador)
@@ -99,6 +109,19 @@ namespace Prode.Negocio
 
             }
             return _listaJugadores;
+        }
+
+        public static List<string> CargarComboPuestos()
+        {
+            List<string> lista = new List<string>();
+            lista = JugadoresDao.CargarComboPuestos();
+            return lista;
+        }
+        public static List<string> BuscarPosicionesPorPuestoSeleccionado(string puesto)
+        {
+            List<string> lista = new List<string>();
+            lista = JugadoresDao.CargarComboPosiciones(puesto);
+            return lista;
         }
     }
 }

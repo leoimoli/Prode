@@ -70,7 +70,6 @@ namespace Prode.Dao
             connection.Close();
             return exito;
         }
-
         public static bool EliminarJugador(int idjugador)
         {
             int Estado = 0;
@@ -86,6 +85,54 @@ namespace Prode.Dao
             exito = true;
             connection.Close();
             return exito;
+        }
+        public static List<string> CargarComboPuestos()
+        {
+            List<string> _listaPuestos = new List<string>();
+            connection.Close();
+            connection.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            string proceso = "CargarComboPuestos";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    _listaPuestos.Add(item["Puesto"].ToString());
+                }
+            }
+
+            connection.Close();
+            return _listaPuestos;
+        }
+        public static List<string> CargarComboPosiciones(string puesto)
+        {
+            List<string> _listaPosiciones = new List<string>();
+            connection.Close();
+            connection.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { new MySqlParameter("Puesto_in", puesto) };
+            string proceso = "CargarComboPosiciones";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    _listaPosiciones.Add(item["Posicion"].ToString());
+                }
+            }
+
+            connection.Close();
+            return _listaPosiciones;
         }
         public static List<Jugadores> BuscarJugadoresPorApellidoYNombre(string apellidoNombre)
         {

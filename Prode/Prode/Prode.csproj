@@ -124,6 +124,7 @@
     <Compile Include="Entidades\EstadisticasApuestas.cs" />
     <Compile Include="Entidades\EstadoResultado.cs" />
     <Compile Include="Entidades\Fecha.cs" />
+    <Compile Include="Entidades\FichaTecnica.cs" />
     <Compile Include="Entidades\Jugada.cs" />
     <Compile Include="Entidades\Jugadores.cs" />
     <Compile Include="Entidades\ResultadoApuestas.cs" />

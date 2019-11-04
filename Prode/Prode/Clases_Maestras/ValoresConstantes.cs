@@ -32,5 +32,19 @@ namespace Prode.Clase_Maestra
                 return new string[] { "Masculino", "Femenino" };
             }
         }
+        public static string[] PiernaHabil
+        {
+            get
+            {
+                return new string[] { "Derecha", "Izquierda" };
+            }
+        }
+        public static string[] Habilidades
+        {
+            get
+            {
+                return new string[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9","10" };
+            }
+        }
     }
 }
