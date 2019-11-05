@@ -98,6 +98,7 @@
             this.btnFicha.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFicha.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnFicha.UseVisualStyleBackColor = true;
+            this.btnFicha.Click += new System.EventHandler(this.btnFicha_Click);
             // 
             // btnAsignar
             // 

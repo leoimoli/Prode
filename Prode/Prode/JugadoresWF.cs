@@ -485,6 +485,22 @@ namespace Prode
                                                      MessageBoxIcon.Asterisk);
                         LimpiarCamposBotonCancelar();
                         FuncionesBotonNuevoJugador();
+
+                        const string message = "Desea cargar la ficha técnica del jugador ingresado ?";
+                        const string caption = "Ficha Técnica";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.YesNo,
+                                                     MessageBoxIcon.Question);
+                        {
+                            if (result == DialogResult.Yes)
+                            {
+                                FichaTecnicaWF _ficha = new FichaTecnicaWF(idJugador);
+                                _ficha.Show();
+                                Hide();
+                            }
+                            else
+                            { }
+                        }
                     }
                     else
                     {
@@ -543,6 +559,13 @@ namespace Prode
                 { }
             }
         }
-        #endregion          
+        #endregion
+
+        private void btnFicha_Click(object sender, EventArgs e)
+        {
+            FichaTecnicaWF _ficha = new FichaTecnicaWF();
+            _ficha.Show();
+            Hide();
+        }
     }
 }

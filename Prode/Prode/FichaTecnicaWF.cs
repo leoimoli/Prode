@@ -18,16 +18,61 @@ namespace Prode
         {
             InitializeComponent();
         }
+        public static int idJugadorStatic;
+        public FichaTecnicaWF(int idJugador)
+        {
+            InitializeComponent();
+            this.idJugador = idJugador;
+            idJugadorStatic = idJugador;
+        }
 
         private void FichaTecnicaWF_Load(object sender, EventArgs e)
         {
             try
             {
                 Funcion = 0;
-                txtBuscarApellidoNombre.AutoCompleteCustomSource = Clases_Maestras.AutoCompletePorJugadores.Autocomplete();
-                txtBuscarApellidoNombre.AutoCompleteMode = AutoCompleteMode.Suggest;
-                txtBuscarApellidoNombre.AutoCompleteSource = AutoCompleteSource.CustomSource;
-                txtBuscarApellidoNombre.Focus();
+                if (idJugadorStatic > 0)
+                {
+                    Funcion = 1;
+                    groupBox1.Visible = false;
+                    List<Jugadores> _jugadores = new List<Jugadores>();
+                    _jugadores = JugadoresNeg.BuscarJugadoresPorId(idJugadorStatic);
+                    if (_jugadores.Count > 0)
+                    {
+                        groupBox1.Visible = false;
+                        lblJugador.Visible = true;
+                        lblJugadorEdit.Visible = true;
+                        var jugador = _jugadores.First();
+                        lblJugadorEdit.Text = jugador.Apellido + "," + " " + jugador.Nombre;
+                        lblId.Text = Convert.ToString(jugador.idJugador);
+                        if (jugador.Imagen != null)
+                        {
+                            Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(jugador.Imagen);
+                            pictureBox1.Image = foto1;
+                            pictureBox1.Visible = true;
+                        }
+                        List<FichaTecnica> _fichaTecnica = new List<FichaTecnica>();
+                        int idJugador = Convert.ToInt32(lblId.Text);
+                        _fichaTecnica = JugadoresNeg.BuscarFichaTecnica(idJugador);
+                        if (_fichaTecnica.Count > 0)
+                        {
+                            Funcion = 2;
+                            HabilitarCamposConDatos(_fichaTecnica);
+                        }
+                        else
+                        {
+                            Funcion = 1;
+                            HabilitarCampos();
+                        }
+                    }
+                }
+                else
+                {
+                    txtBuscarApellidoNombre.AutoCompleteCustomSource = Clases_Maestras.AutoCompletePorJugadores.Autocomplete();
+                    txtBuscarApellidoNombre.AutoCompleteMode = AutoCompleteMode.Suggest;
+                    txtBuscarApellidoNombre.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                    txtBuscarApellidoNombre.Focus();
+                }
             }
             catch (Exception ex)
             { }
@@ -97,12 +142,13 @@ namespace Prode
         }
         #endregion
         #region Funciones
-        /// <summary>
-        /// /// 0 = Nada;
-        /// /// 1 = Guardar;
-        /// /// 2 = Editar;
-        /// </summary>
+
+        /// 0 = Nada;
+        /// 1 = Guardar;
+        /// 2 = Editar;
+
         public static int Funcion;
+        private int idJugador;
         private void LimpiarCampos()
         {
             CargarCombos();
@@ -208,7 +254,7 @@ namespace Prode
                     HabilitarCampos();
                 }
             }
-            #endregion
+
         }
         private void HabilitarCamposConDatos(List<FichaTecnica> _fichaTecnica)
         {
@@ -960,4 +1006,5 @@ namespace Prode
         }
 
     }
+    #endregion
 }

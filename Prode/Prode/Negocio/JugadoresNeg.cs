@@ -57,6 +57,21 @@ namespace Prode.Negocio
                 throw new Exception();
             }
         }
+
+        public static List<Jugadores> BuscarJugadoresPorId(int idJugadorStatic)
+        {
+            List<Jugadores> _listaJugadores = new List<Jugadores>();
+            try
+            {
+                _listaJugadores = JugadoresDao.BuscarJugadoresPorId(idJugadorStatic);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return _listaJugadores;
+        }
+
         public static bool GuardarFichaTecnicaJugador(FichaTecnica _fichaJugadores)
         {
             bool Exito = false;
