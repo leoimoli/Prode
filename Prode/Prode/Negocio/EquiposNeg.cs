@@ -102,7 +102,7 @@ namespace Prode.Negocio
 
         public static string BuscarEstadioPorEquipoLocalSeleccionado(string equipoLocal)
         {
-           string EstadioLocal = EquipoDao.BuscarEstadioPorEquipoLocalSeleccionado(equipoLocal);
+            string EstadioLocal = EquipoDao.BuscarEstadioPorEquipoLocalSeleccionado(equipoLocal);
             return EstadioLocal;
         }
 
@@ -123,6 +123,20 @@ namespace Prode.Negocio
                 throw new Exception();
             }
             return _equipos;
+        }
+
+        public static bool EliminarEquipo(int idEquipo)
+        {
+            bool exito = false;
+            try
+            {
+                exito = EquipoDao.EliminarEquipo(idEquipo);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return exito;
         }
     }
 }

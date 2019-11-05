@@ -123,6 +123,24 @@ namespace Prode.Dao
             connection.Close();
             return _EstadioLocal;
         }
+
+        public static bool EliminarEquipo(int idEquipo)
+        {
+            bool exito = false;
+            connection.Close();
+            connection.Open();
+            string proceso = "EliminarEquipo";
+            int Estado = 0;
+            MySqlCommand cmd = new MySqlCommand(proceso, connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("idEquipo_in", idEquipo);
+            cmd.Parameters.AddWithValue("Estado_in", Estado);
+            cmd.ExecuteNonQuery();
+            exito = true;
+            connection.Close();
+            return exito;
+        }
+
         public static byte[] BuscarImagenEquipoLocal(string nombreEquipoLocal)
         {
             byte[] _escudoLocal = null;
@@ -196,6 +214,7 @@ namespace Prode.Dao
                 foreach (DataRow item in Tabla.Rows)
                 {
                     Equipos equipos = new Equipos();
+                    equipos.idEquipo = Convert.ToInt32(item["idEquipo"].ToString());
                     equipos.NombreEquipo = item["Nombre"].ToString();
                     if (item[2].ToString() != string.Empty)
                     {

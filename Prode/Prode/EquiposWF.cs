@@ -180,6 +180,7 @@ namespace Prode
                 if (_equipo.Count > 0)
                 {
                     var equipo = _equipo.First();
+                    lblIdEquipo.Text = Convert.ToString(equipo.idEquipo);
                     txtNombreEquipo.Text = equipo.NombreEquipo;
                     txtNombreEstadio.Text = equipo.NombreEstadio;
                     txtDireccion.Text = equipo.Direccion;
@@ -195,7 +196,7 @@ namespace Prode
                 else
                 {
                     txtBuscar.Focus();
-                    const string message = "No existe ningun cliente con el nombre o razón social ingresado.";
+                    const string message = "No existe ningun Equipo con el nombre ingresado.";
                     const string caption = "Atención";
                     var result = MessageBox.Show(message, caption,
                                                  MessageBoxButtons.OK,
@@ -210,7 +211,45 @@ namespace Prode
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (txtNombreEquipo.Text != "")
+                {
+                    const string message = "Desea eliminar el equipo seleccionado?";
+                    const string caption = "Eliminar Equipo";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.YesNo,
+                                                 MessageBoxIcon.Question);
+                    {
+                        if (result == DialogResult.Yes)
+                        {
+                            int idEquipo =Convert.ToInt32(lblIdEquipo.Text);
+                            bool Exito = false;
+                            Exito = EquiposNeg.EliminarEquipo(idEquipo);
+                            if (Exito == true)
+                            {
+                                ProgressBar();
+                                const string message2 = "Se elimino el equipo exitosamente.";
+                                const string caption2 = "Éxito";
+                                var result2 = MessageBox.Show(message2, caption2,
+                                                             MessageBoxButtons.OK,
+                                                             MessageBoxIcon.Asterisk);
+                                LimpiarCampos();
+                            }
+                        }
+                        else
+                        { }
+                    }                  
+                }
+            }
+            catch (Exception ex)
+            { }
+        }
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            MenuJuegosWF _juego = new MenuJuegosWF();
+            _juego.Show();
+            Hide();
         }
         #endregion
         #region Funciones
@@ -299,15 +338,10 @@ namespace Prode
             txtNombreEstadio.Clear();
             txtNombreEquipo.Clear();
             txtDireccion.Clear();
-            pictureBox1 = null;
+            pictureBox1.Image = null;
         }
         #endregion
-        private void btnVolver_Click(object sender, EventArgs e)
-        {
-            MenuJuegosWF _juego = new MenuJuegosWF();
-            _juego.Show();
-            Hide();
-        }
+
     }
 }
 
