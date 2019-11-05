@@ -23,7 +23,7 @@ namespace Prode
         {
             try
             {
-                EsEditar = 0;
+                Funcion = 0;
                 txtBuscarApellidoNombre.AutoCompleteCustomSource = Clases_Maestras.AutoCompletePorJugadores.Autocomplete();
                 txtBuscarApellidoNombre.AutoCompleteMode = AutoCompleteMode.Suggest;
                 txtBuscarApellidoNombre.AutoCompleteSource = AutoCompleteSource.CustomSource;
@@ -54,10 +54,11 @@ namespace Prode
             {
                 try
                 {
-                    if (EsEditar == 1)
+                    Entidades.FichaTecnica _fichaJugadores = CargarEntidad();
+                    bool Exito = false;
+                    if (Funcion == 1)
                     {
-                        Entidades.FichaTecnica _fichaJugadores = CargarEntidad();
-                        bool Exito = JugadoresNeg.GuardarFichaTecnicaJugador(_fichaJugadores);
+                        Exito = JugadoresNeg.GuardarFichaTecnicaJugador(_fichaJugadores);
                         if (Exito == true)
                         {
                             ProgressBar();
@@ -66,11 +67,25 @@ namespace Prode
                             var result2 = MessageBox.Show(message2, caption2,
                                                          MessageBoxButtons.OK,
                                                          MessageBoxIcon.Asterisk);
-                            //LimpiarCamposBotonCancelar();
-                            //FuncionesBotonNuevoJugador();
+                            LimpiarCampos();
                         }
-                        else
+
+                    }
+                    else
+                    {
+                        if (Funcion == 2)
                         {
+                            Exito = JugadoresNeg.EditarFichaTecnicaJugador(_fichaJugadores);
+                            if (Exito == true)
+                            {
+                                ProgressBar();
+                                const string message2 = "Se edito la ficha del jugador exitosamente.";
+                                const string caption2 = "Éxito";
+                                var result2 = MessageBox.Show(message2, caption2,
+                                                             MessageBoxButtons.OK,
+                                                             MessageBoxIcon.Asterisk);
+                                LimpiarCampos();
+                            }
                         }
                     }
                 }
@@ -79,10 +94,48 @@ namespace Prode
             }
             catch (Exception ex)
             { }
-        }    
+        }
         #endregion
         #region Funciones
-        public static int EsEditar;
+        /// <summary>
+        /// /// 0 = Nada;
+        /// /// 1 = Guardar;
+        /// /// 2 = Editar;
+        /// </summary>
+        public static int Funcion;
+        private void LimpiarCampos()
+        {
+            CargarCombos();
+            pictureBox1.Visible = false;
+            lblJugadorEdit.Visible = false;
+            lblJugador.Visible = false;
+            groupBox1.Visible = true;
+            txtBuscarApellidoNombre.Focus();
+            groupBox2.Visible = false;
+            progressBar1.Value = Convert.ToInt32(null);
+            progressBar1.Visible = false;
+            cmbPosicion.Enabled = false;
+            cmbPosicion.Text = "Seleccione";
+
+            txtVelocidad.BackColor = Color.White;
+            txtResistencia.BackColor = Color.White;
+            txtSalto.BackColor = Color.White;
+            txtFuerza.BackColor = Color.White;
+
+            txtControles.BackColor = Color.White;
+            txtRegates.BackColor = Color.White;
+            txtPaseCorto.BackColor = Color.White;
+            txtPaseLargo.BackColor = Color.White;
+            txtDefinicion.BackColor = Color.White;
+            txtRemates.BackColor = Color.White;
+            txtPelotaParada.BackColor = Color.White;
+            txtMarca.BackColor = Color.White;
+
+            txtDisciplinaTactica.BackColor = Color.White;
+            txtNivelOfensivo.BackColor = Color.White;
+            txtNivelDefensivo.BackColor = Color.White;
+
+        }
         private void ProgressBar()
         {
             progressBar1.Visible = true;
@@ -141,25 +194,260 @@ namespace Prode
                     pictureBox1.Image = foto1;
                     pictureBox1.Visible = true;
                 }
-                List<Jugadores> _fichaTecnica = new List<Jugadores>();
+                List<FichaTecnica> _fichaTecnica = new List<FichaTecnica>();
                 int idJugador = Convert.ToInt32(lblId.Text);
                 _fichaTecnica = JugadoresNeg.BuscarFichaTecnica(idJugador);
                 if (_fichaTecnica.Count > 0)
                 {
-                    EsEditar = 2;
-                    HabilitarCamposConDatos();
+                    Funcion = 2;
+                    HabilitarCamposConDatos(_fichaTecnica);
                 }
                 else
                 {
-                    EsEditar = 1;
+                    Funcion = 1;
                     HabilitarCampos();
                 }
             }
             #endregion
         }
-        private void HabilitarCamposConDatos()
+        private void HabilitarCamposConDatos(List<FichaTecnica> _fichaTecnica)
         {
+            groupBox2.Visible = true;
+            var ficha = _fichaTecnica.First();
+            CargarCombos();
+            cmbPierna.Text = ficha.PiernaHabil;
+            string posicion = ficha.PosicionDeCampo;
+            cmbPosicion.Text = ficha.PosicionDeCampo;
 
+            if (posicion == "ARQ")
+            { cmbPuesto.Text = "Arquero"; }
+            if (posicion == "DFC" || posicion == "LIB" || posicion == "LD" || posicion == "LI")
+            { cmbPuesto.Text = "Defensor"; }
+            if (posicion == "VC" || posicion == "VI" || posicion == "VD" || posicion == "MP")
+            { cmbPuesto.Text = "Mediocampista"; }
+            if (posicion == "ED" || posicion == "EI" || posicion == "CD")
+            { cmbPuesto.Text = "Delantero"; }
+
+
+            cmbVelocidad.Text = ficha.Velocidad;
+            int ValorCombo = Convert.ToInt32(cmbVelocidad.Text);
+            if (ValorCombo == 0 || ValorCombo <= 2)
+            {
+                txtVelocidad.BackColor = Color.Red;
+            }
+            if (ValorCombo == 3 || ValorCombo >= 3 && ValorCombo <= 6)
+            {
+                txtVelocidad.BackColor = Color.Orange;
+            }
+            if (ValorCombo == 7 || ValorCombo >= 7 && ValorCombo <= 10)
+            {
+                txtVelocidad.BackColor = Color.Green;
+            }
+
+            cmbResistencia.Text = ficha.Resistencia;
+            int ValorComboResistencia = Convert.ToInt32(cmbResistencia.Text);
+            if (ValorComboResistencia == 0 || ValorComboResistencia <= 2)
+            {
+                txtResistencia.BackColor = Color.Red;
+            }
+            if (ValorComboResistencia == 3 || ValorComboResistencia >= 3 && ValorComboResistencia <= 6)
+            {
+                txtResistencia.BackColor = Color.Orange;
+            }
+            if (ValorComboResistencia == 7 || ValorComboResistencia >= 7 && ValorComboResistencia <= 10)
+            {
+                txtResistencia.BackColor = Color.Green;
+            }
+
+            cmbSalto.Text = ficha.Salto;
+            int ValorComboSalto = Convert.ToInt32(cmbSalto.Text);
+            if (ValorComboSalto == 0 || ValorComboSalto <= 2)
+            {
+                txtSalto.BackColor = Color.Red;
+            }
+            if (ValorComboSalto == 3 || ValorComboSalto >= 3 && ValorComboSalto <= 6)
+            {
+                txtSalto.BackColor = Color.Orange;
+            }
+            if (ValorComboSalto == 7 || ValorComboSalto >= 7 && ValorComboSalto <= 10)
+            {
+                txtSalto.BackColor = Color.Green;
+            }
+
+
+            cmbFuerza.Text = ficha.Fuerza;
+            int ValorComboFuerza = Convert.ToInt32(cmbFuerza.Text);
+            if (ValorComboFuerza == 0 || ValorComboFuerza <= 2)
+            {
+                txtFuerza.BackColor = Color.Red;
+            }
+            if (ValorComboFuerza == 3 || ValorComboFuerza >= 3 && ValorComboFuerza <= 6)
+            {
+                txtFuerza.BackColor = Color.Orange;
+            }
+            if (ValorComboFuerza == 7 || ValorComboFuerza >= 7 && ValorComboFuerza <= 10)
+            {
+                txtFuerza.BackColor = Color.Green;
+            }
+
+            cmbControles.Text = ficha.ControlDeBalon;
+            int ValorComboControles = Convert.ToInt32(cmbControles.Text);
+            if (ValorComboControles == 0 || ValorComboControles <= 2)
+            {
+                txtControles.BackColor = Color.Red;
+            }
+            if (ValorComboControles == 3 || ValorComboControles >= 3 && ValorComboControles <= 6)
+            {
+                txtControles.BackColor = Color.Orange;
+            }
+            if (ValorComboControles == 7 || ValorComboControles >= 7 && ValorComboControles <= 10)
+            {
+                txtControles.BackColor = Color.Green;
+            }
+
+            cmbRegates.Text = ficha.Regates;
+            int ValorComboRegates = Convert.ToInt32(cmbRegates.Text);
+            if (ValorComboRegates == 0 || ValorComboRegates <= 2)
+            {
+                txtRegates.BackColor = Color.Red;
+            }
+            if (ValorComboRegates == 3 || ValorComboRegates >= 3 && ValorComboRegates <= 6)
+            {
+                txtRegates.BackColor = Color.Orange;
+            }
+            if (ValorComboRegates == 7 || ValorComboRegates >= 7 && ValorComboRegates <= 10)
+            {
+                txtRegates.BackColor = Color.Green;
+            }
+            cmbPaseCorto.Text = ficha.PaseCorto;
+            int ValorComboPaseCorto = Convert.ToInt32(cmbPaseCorto.Text);
+            if (ValorComboPaseCorto == 0 || ValorComboPaseCorto <= 2)
+            {
+                txtPaseCorto.BackColor = Color.Red;
+            }
+            if (ValorComboPaseCorto == 3 || ValorComboPaseCorto >= 3 && ValorComboPaseCorto <= 6)
+            {
+                txtPaseCorto.BackColor = Color.Orange;
+            }
+            if (ValorComboPaseCorto == 7 || ValorComboPaseCorto >= 7 && ValorComboPaseCorto <= 10)
+            {
+                txtPaseCorto.BackColor = Color.Green;
+            }
+
+            cmbPaseLargo.Text = ficha.PaseLargo;
+            int ValorComboPaseLargo = Convert.ToInt32(cmbPaseLargo.Text);
+            if (ValorComboPaseLargo == 0 || ValorComboPaseLargo <= 2)
+            {
+                txtPaseLargo.BackColor = Color.Red;
+            }
+            if (ValorComboPaseLargo == 3 || ValorComboPaseLargo >= 3 && ValorComboPaseLargo <= 6)
+            {
+                txtPaseLargo.BackColor = Color.Orange;
+            }
+            if (ValorComboPaseLargo == 7 || ValorComboPaseLargo >= 7 && ValorComboPaseLargo <= 10)
+            {
+                txtPaseLargo.BackColor = Color.Green;
+            }
+
+            cmbDefinicion.Text = ficha.Definicion;
+            int ValorComboDefinicion = Convert.ToInt32(cmbDefinicion.Text);
+            if (ValorComboDefinicion == 0 || ValorComboDefinicion <= 2)
+            {
+                txtDefinicion.BackColor = Color.Red;
+            }
+            if (ValorComboDefinicion == 3 || ValorComboDefinicion >= 3 && ValorComboDefinicion <= 6)
+            {
+                txtDefinicion.BackColor = Color.Orange;
+            }
+            if (ValorComboDefinicion == 7 || ValorComboDefinicion >= 7 && ValorComboDefinicion <= 10)
+            {
+                txtDefinicion.BackColor = Color.Green;
+            }
+
+            cmbRemates.Text = ficha.Remate;
+            int ValorComboRemates = Convert.ToInt32(cmbRemates.Text);
+            if (ValorComboRemates == 0 || ValorComboRemates <= 2)
+            {
+                txtRemates.BackColor = Color.Red;
+            }
+            if (ValorComboRemates == 3 || ValorComboRemates >= 3 && ValorComboRemates <= 6)
+            {
+                txtRemates.BackColor = Color.Orange;
+            }
+            if (ValorComboRemates == 7 || ValorComboRemates >= 7 && ValorComboRemates <= 10)
+            {
+                txtRemates.BackColor = Color.Green;
+            }
+            cmbPelotaParada.Text = ficha.TiroLibre;
+            int ValorComboPelotaParada = Convert.ToInt32(cmbPelotaParada.Text);
+            if (ValorComboPelotaParada == 0 || ValorComboPelotaParada <= 2)
+            {
+                txtPelotaParada.BackColor = Color.Red;
+            }
+            if (ValorComboPelotaParada == 3 || ValorComboPelotaParada >= 3 && ValorComboPelotaParada <= 6)
+            {
+                txtPelotaParada.BackColor = Color.Orange;
+            }
+            if (ValorComboPelotaParada == 7 || ValorComboPelotaParada >= 7 && ValorComboPelotaParada <= 10)
+            {
+                txtPelotaParada.BackColor = Color.Green;
+            }
+            cmbMarca.Text = ficha.Marcaje;
+            int ValorComboMarca = Convert.ToInt32(cmbMarca.Text);
+            if (ValorComboMarca == 0 || ValorComboMarca <= 2)
+            {
+                txtMarca.BackColor = Color.Red;
+            }
+            if (ValorComboMarca == 3 || ValorComboMarca >= 3 && ValorComboMarca <= 6)
+            {
+                txtMarca.BackColor = Color.Orange;
+            }
+            if (ValorComboMarca == 7 || ValorComboMarca >= 7 && ValorComboMarca <= 10)
+            {
+                txtMarca.BackColor = Color.Green;
+            }
+            cmbDisciplinaTactica.Text = ficha.DisciplinaTactica;
+            int ValorComboDisciplinaTactica = Convert.ToInt32(cmbDisciplinaTactica.Text);
+            if (ValorComboDisciplinaTactica == 0 || ValorComboDisciplinaTactica <= 2)
+            {
+                txtDisciplinaTactica.BackColor = Color.Red;
+            }
+            if (ValorComboDisciplinaTactica == 3 || ValorComboDisciplinaTactica >= 3 && ValorComboDisciplinaTactica <= 6)
+            {
+                txtDisciplinaTactica.BackColor = Color.Orange;
+            }
+            if (ValorComboDisciplinaTactica == 7 || ValorComboDisciplinaTactica >= 7 && ValorComboDisciplinaTactica <= 10)
+            {
+                txtDisciplinaTactica.BackColor = Color.Green;
+            }
+            cmbNivelDefensivo.Text = ficha.NivelDefensivo;
+            int ValorComboNivelDefensivo = Convert.ToInt32(cmbNivelDefensivo.Text);
+            if (ValorComboNivelDefensivo == 0 || ValorComboNivelDefensivo <= 2)
+            {
+                txtNivelDefensivo.BackColor = Color.Red;
+            }
+            if (ValorComboNivelDefensivo == 3 || ValorComboNivelDefensivo >= 3 && ValorComboNivelDefensivo <= 6)
+            {
+                txtNivelDefensivo.BackColor = Color.Orange;
+            }
+            if (ValorComboNivelDefensivo == 7 || ValorComboNivelDefensivo >= 7 && ValorComboNivelDefensivo <= 10)
+            {
+                txtNivelDefensivo.BackColor = Color.Green;
+            }
+            cmbNivelOfensivo.Text = ficha.NivelOfensivo;
+            int ValorComboNivelOfensivo = Convert.ToInt32(cmbNivelOfensivo.Text);
+            if (ValorComboNivelOfensivo == 0 || ValorComboNivelOfensivo <= 2)
+            {
+                txtNivelOfensivo.BackColor = Color.Red;
+            }
+            if (ValorComboNivelOfensivo == 3 || ValorComboNivelOfensivo >= 3 && ValorComboNivelOfensivo <= 6)
+            {
+                txtNivelOfensivo.BackColor = Color.Orange;
+            }
+            if (ValorComboNivelOfensivo == 7 || ValorComboNivelOfensivo >= 7 && ValorComboNivelOfensivo <= 10)
+            {
+                txtNivelOfensivo.BackColor = Color.Green;
+            }
         }
         private void HabilitarCampos()
         {
@@ -312,6 +600,7 @@ namespace Prode
         }
         private void cmbPuesto_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cmbPuesto.DropDownStyle = ComboBoxStyle.DropDownList;
             string Puesto = cmbPuesto.Text;
             if (Puesto != "Seleccione")
             {
@@ -335,6 +624,7 @@ namespace Prode
         {
             try
             {
+                cmbVelocidad.DropDownStyle = ComboBoxStyle.DropDownList;
                 int ValorCombo = Convert.ToInt32(cmbVelocidad.Text);
                 if (ValorCombo == 0 || ValorCombo <= 2)
                 {
@@ -356,6 +646,7 @@ namespace Prode
         {
             try
             {
+                cmbResistencia.DropDownStyle = ComboBoxStyle.DropDownList;
                 int ValorCombo = Convert.ToInt32(cmbResistencia.Text);
                 if (ValorCombo == 0 || ValorCombo <= 2)
                 {
@@ -377,6 +668,7 @@ namespace Prode
         {
             try
             {
+                cmbSalto.DropDownStyle = ComboBoxStyle.DropDownList;
                 int ValorCombo = Convert.ToInt32(cmbSalto.Text);
                 if (ValorCombo == 0 || ValorCombo <= 2)
                 {
@@ -398,6 +690,7 @@ namespace Prode
         {
             try
             {
+                cmbFuerza.DropDownStyle = ComboBoxStyle.DropDownList;
                 int ValorCombo = Convert.ToInt32(cmbFuerza.Text);
                 if (ValorCombo == 0 || ValorCombo <= 2)
                 {
@@ -419,6 +712,7 @@ namespace Prode
         {
             try
             {
+                cmbControles.DropDownStyle = ComboBoxStyle.DropDownList;
                 int ValorCombo = Convert.ToInt32(cmbControles.Text);
                 if (ValorCombo == 0 || ValorCombo <= 2)
                 {
@@ -440,6 +734,7 @@ namespace Prode
         {
             try
             {
+                cmbRegates.DropDownStyle = ComboBoxStyle.DropDownList;
                 int ValorCombo = Convert.ToInt32(cmbRegates.Text);
                 if (ValorCombo == 0 || ValorCombo <= 2)
                 {
@@ -461,6 +756,7 @@ namespace Prode
         {
             try
             {
+                cmbPaseCorto.DropDownStyle = ComboBoxStyle.DropDownList;
                 int ValorCombo = Convert.ToInt32(cmbPaseCorto.Text);
                 if (ValorCombo == 0 || ValorCombo <= 2)
                 {
@@ -482,6 +778,7 @@ namespace Prode
         {
             try
             {
+                cmbPaseLargo.DropDownStyle = ComboBoxStyle.DropDownList;
                 int ValorCombo = Convert.ToInt32(cmbPaseLargo.Text);
                 if (ValorCombo == 0 || ValorCombo <= 2)
                 {
@@ -503,6 +800,7 @@ namespace Prode
         {
             try
             {
+                cmbDefinicion.DropDownStyle = ComboBoxStyle.DropDownList;
                 int ValorCombo = Convert.ToInt32(cmbDefinicion.Text);
                 if (ValorCombo == 0 || ValorCombo <= 2)
                 {
@@ -524,6 +822,7 @@ namespace Prode
         {
             try
             {
+                cmbRemates.DropDownStyle = ComboBoxStyle.DropDownList;
                 int ValorCombo = Convert.ToInt32(cmbRemates.Text);
                 if (ValorCombo == 0 || ValorCombo <= 2)
                 {
@@ -545,6 +844,7 @@ namespace Prode
         {
             try
             {
+                cmbPelotaParada.DropDownStyle = ComboBoxStyle.DropDownList;
                 int ValorCombo = Convert.ToInt32(cmbPelotaParada.Text);
                 if (ValorCombo == 0 || ValorCombo <= 2)
                 {
@@ -566,6 +866,7 @@ namespace Prode
         {
             try
             {
+                cmbMarca.DropDownStyle = ComboBoxStyle.DropDownList;
                 int ValorCombo = Convert.ToInt32(cmbMarca.Text);
                 if (ValorCombo == 0 || ValorCombo <= 2)
                 {
@@ -587,6 +888,7 @@ namespace Prode
         {
             try
             {
+                cmbDisciplinaTactica.DropDownStyle = ComboBoxStyle.DropDownList;
                 int ValorCombo = Convert.ToInt32(cmbDisciplinaTactica.Text);
                 if (ValorCombo == 0 || ValorCombo <= 2)
                 {
@@ -608,6 +910,7 @@ namespace Prode
         {
             try
             {
+                cmbNivelDefensivo.DropDownStyle = ComboBoxStyle.DropDownList;
                 int ValorCombo = Convert.ToInt32(cmbNivelDefensivo.Text);
                 if (ValorCombo == 0 || ValorCombo <= 2)
                 {
@@ -629,6 +932,7 @@ namespace Prode
         {
             try
             {
+                cmbNivelOfensivo.DropDownStyle = ComboBoxStyle.DropDownList;
                 int ValorCombo = Convert.ToInt32(cmbNivelOfensivo.Text);
                 if (ValorCombo == 0 || ValorCombo <= 2)
                 {
@@ -646,5 +950,14 @@ namespace Prode
             catch (Exception ex)
             { }
         }
+        private void cmbPosicion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbPosicion.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+        private void cmbPierna_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbPierna.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
     }
 }

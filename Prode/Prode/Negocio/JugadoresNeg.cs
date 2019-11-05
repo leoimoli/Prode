@@ -26,7 +26,6 @@ namespace Prode.Negocio
             }
             return idJugador;
         }
-
         private static void ValidarDatos(Jugadores _jugadores)
         {
             if (String.IsNullOrEmpty(_jugadores.Apellido))
@@ -58,10 +57,45 @@ namespace Prode.Negocio
                 throw new Exception();
             }
         }
-
-        internal static bool GuardarFichaTecnicaJugador(FichaTecnica _fichaJugadores)
+        public static bool GuardarFichaTecnicaJugador(FichaTecnica _fichaJugadores)
         {
-            throw new NotImplementedException();
+            bool Exito = false;
+            try
+            {
+                ValidarFichaTecnica(_fichaJugadores);
+                Exito = JugadoresDao.AltaFichaTecnica(_fichaJugadores);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return Exito;
+        }
+        private static void ValidarFichaTecnica(FichaTecnica _fichaJugadores)
+        {
+            if (_fichaJugadores.IdJugador <= 0)
+            {
+                const string message = "Atención, operación invalida falta el identificador del jugador..";
+                const string caption = "Error";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                throw new Exception();
+            }
+        }
+
+        public static bool EditarFichaTecnicaJugador(FichaTecnica _fichaJugadores)
+        {
+            bool Exito = false;
+            try
+            {
+                Exito = JugadoresDao.EditarFichaTecnicaJugador(_fichaJugadores);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return Exito;
         }
 
         public static bool EditarJugador(Jugadores _jugadores, int idJugador)
@@ -78,12 +112,19 @@ namespace Prode.Negocio
             }
             return Exito;
         }
-
-        internal static List<Jugadores> BuscarFichaTecnica(int idJugador)
+        public static List<FichaTecnica> BuscarFichaTecnica(int idJugador)
         {
-            throw new NotImplementedException();
-        }
+            List<FichaTecnica> _listaJugadores = new List<FichaTecnica>();
+            try
+            {
+                _listaJugadores = JugadoresDao.BuscarFichaTecnicaPorIdJugador(idJugador);
+            }
+            catch (Exception ex)
+            {
 
+            }
+            return _listaJugadores;
+        }
         public static bool EliminarJugador(int idjugador)
         {
             bool Exito = false;

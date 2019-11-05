@@ -36,6 +36,7 @@
             this.txtBuscarApellidoNombre = new System.Windows.Forms.TextBox();
             this.lblDniOApellidoNombre = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -97,7 +98,6 @@
             this.cmbPuesto = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblId = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -243,6 +243,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ficha Técnica";
             this.groupBox2.Visible = false;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(193, 514);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(330, 23);
+            this.progressBar1.TabIndex = 109;
+            this.progressBar1.Value = 50;
+            this.progressBar1.Visible = false;
             // 
             // pictureBox4
             // 
@@ -783,6 +792,7 @@
             this.cmbPierna.Name = "cmbPierna";
             this.cmbPierna.Size = new System.Drawing.Size(205, 24);
             this.cmbPierna.TabIndex = 54;
+            this.cmbPierna.SelectedIndexChanged += new System.EventHandler(this.cmbPierna_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -802,6 +812,7 @@
             this.cmbPosicion.Name = "cmbPosicion";
             this.cmbPosicion.Size = new System.Drawing.Size(205, 24);
             this.cmbPosicion.TabIndex = 52;
+            this.cmbPosicion.SelectedIndexChanged += new System.EventHandler(this.cmbPosicion_SelectedIndexChanged);
             // 
             // lblSexo
             // 
@@ -843,15 +854,6 @@
             this.lblId.TabIndex = 58;
             this.lblId.Text = "@";
             this.lblId.Visible = false;
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(193, 514);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(330, 23);
-            this.progressBar1.TabIndex = 109;
-            this.progressBar1.Value = 50;
-            this.progressBar1.Visible = false;
             // 
             // FichaTecnicaWF
             // 

@@ -70,6 +70,120 @@ namespace Prode.Dao
             connection.Close();
             return exito;
         }
+
+        public static bool AltaFichaTecnica(FichaTecnica _fichaJugadores)
+        {
+            bool Exito = false;
+            connection.Close();
+            connection.Open();
+            string proceso = "AltaFichaTecnica";
+            MySqlCommand cmd = new MySqlCommand(proceso, connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("PosicionDeCampo_in", _fichaJugadores.PosicionDeCampo);
+            cmd.Parameters.AddWithValue("PiernaHabil_in", _fichaJugadores.PiernaHabil);
+            ///// Cualidades Fisicas
+            cmd.Parameters.AddWithValue("Salto_in", _fichaJugadores.Salto);
+            cmd.Parameters.AddWithValue("Velocidad_in", _fichaJugadores.Velocidad);
+            cmd.Parameters.AddWithValue("Resistencia_in", _fichaJugadores.Resistencia);
+            cmd.Parameters.AddWithValue("Fuerza_in", _fichaJugadores.Fuerza);
+            ///// Cualidades Tecnicas
+            cmd.Parameters.AddWithValue("ControlDeBalon_in", _fichaJugadores.ControlDeBalon);
+            cmd.Parameters.AddWithValue("Regates_in", _fichaJugadores.Regates);
+            cmd.Parameters.AddWithValue("Definicion_in", _fichaJugadores.Definicion);
+            cmd.Parameters.AddWithValue("Marcaje_in", _fichaJugadores.Marcaje);
+            cmd.Parameters.AddWithValue("PaseCorto_in", _fichaJugadores.PaseCorto);
+            cmd.Parameters.AddWithValue("PaseLargo_in", _fichaJugadores.PaseLargo);
+            cmd.Parameters.AddWithValue("Remate_in", _fichaJugadores.Remate);
+            cmd.Parameters.AddWithValue("TiroLibre_in", _fichaJugadores.TiroLibre);
+            ///// Cualidades tacticas
+            cmd.Parameters.AddWithValue("DisciplinaTactica_in", _fichaJugadores.DisciplinaTactica);
+            cmd.Parameters.AddWithValue("NivelDefensivo_in", _fichaJugadores.NivelDefensivo);
+            cmd.Parameters.AddWithValue("NivelOfensivo_in", _fichaJugadores.NivelOfensivo);
+
+            cmd.Parameters.AddWithValue("IdJugador_in", _fichaJugadores.IdJugador);
+            cmd.ExecuteNonQuery();
+            connection.Close();
+            Exito = true;
+            return Exito;
+        }
+        public static bool EditarFichaTecnicaJugador(FichaTecnica _fichaJugadores)
+        {
+            bool Exito = false;
+            connection.Close();
+            connection.Open();
+            string proceso = "EditarFichaTecnicaJugador";
+            MySqlCommand cmd = new MySqlCommand(proceso, connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("PosicionDeCampo_in", _fichaJugadores.PosicionDeCampo);
+            cmd.Parameters.AddWithValue("PiernaHabil_in", _fichaJugadores.PiernaHabil);
+            ///// Cualidades Fisicas
+            cmd.Parameters.AddWithValue("Salto_in", _fichaJugadores.Salto);
+            cmd.Parameters.AddWithValue("Velocidad_in", _fichaJugadores.Velocidad);
+            cmd.Parameters.AddWithValue("Resistencia_in", _fichaJugadores.Resistencia);
+            cmd.Parameters.AddWithValue("Fuerza_in", _fichaJugadores.Fuerza);
+            ///// Cualidades Tecnicas
+            cmd.Parameters.AddWithValue("ControlDeBalon_in", _fichaJugadores.ControlDeBalon);
+            cmd.Parameters.AddWithValue("Regates_in", _fichaJugadores.Regates);
+            cmd.Parameters.AddWithValue("Definicion_in", _fichaJugadores.Definicion);
+            cmd.Parameters.AddWithValue("Marcaje_in", _fichaJugadores.Marcaje);
+            cmd.Parameters.AddWithValue("PaseCorto_in", _fichaJugadores.PaseCorto);
+            cmd.Parameters.AddWithValue("PaseLargo_in", _fichaJugadores.PaseLargo);
+            cmd.Parameters.AddWithValue("Remate_in", _fichaJugadores.Remate);
+            cmd.Parameters.AddWithValue("TiroLibre_in", _fichaJugadores.TiroLibre);
+            ///// Cualidades tacticas
+            cmd.Parameters.AddWithValue("DisciplinaTactica_in", _fichaJugadores.DisciplinaTactica);
+            cmd.Parameters.AddWithValue("NivelDefensivo_in", _fichaJugadores.NivelDefensivo);
+            cmd.Parameters.AddWithValue("NivelOfensivo_in", _fichaJugadores.NivelOfensivo);
+
+            cmd.Parameters.AddWithValue("IdJugador_in", _fichaJugadores.IdJugador);
+            cmd.ExecuteNonQuery();
+            connection.Close();
+            Exito = true;
+            return Exito;
+        }
+        public static List<FichaTecnica> BuscarFichaTecnicaPorIdJugador(int idJugador)
+        {
+            connection.Close();
+            connection.Open();
+            List<Entidades.FichaTecnica> lista = new List<Entidades.FichaTecnica>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                                       new MySqlParameter("idJugador_in", idJugador)};
+            string proceso = "BuscarFichaTecnicaPorIdJugador";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    FichaTecnica FichaTecnica = new FichaTecnica();
+                    FichaTecnica.PosicionDeCampo = item["PosicionDeCampo"].ToString();
+                    FichaTecnica.PiernaHabil = item["PiernaHabil"].ToString();
+                    FichaTecnica.Velocidad = item["Velocidad"].ToString();
+                    FichaTecnica.Resistencia = item["Resistencia"].ToString();
+                    FichaTecnica.Salto = item["Salto"].ToString();
+                    FichaTecnica.Fuerza = item["Fuerza"].ToString();
+                    FichaTecnica.ControlDeBalon = item["ControlDeBalon"].ToString();
+                    FichaTecnica.Regates = item["Regates"].ToString();
+                    FichaTecnica.PaseCorto = item["PaseCorto"].ToString();
+                    FichaTecnica.PaseLargo = item["PaseLargo"].ToString();
+                    FichaTecnica.Definicion = item["Definicon"].ToString();
+                    FichaTecnica.Remate = item["Remate"].ToString();
+                    FichaTecnica.TiroLibre = item["TiroLibre"].ToString();
+                    FichaTecnica.Marcaje = item["Marcaje"].ToString();
+                    FichaTecnica.DisciplinaTactica = item["DisciplinaTactica"].ToString();
+                    FichaTecnica.NivelDefensivo = item["NivelDefensivo"].ToString();
+                    FichaTecnica.NivelOfensivo = item["NivelOfensivo"].ToString();
+                    lista.Add(FichaTecnica);
+                }
+            }
+            connection.Close();
+            return lista;
+        }
         public static bool EliminarJugador(int idjugador)
         {
             int Estado = 0;
