@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Prode.Entidades;
 using MySql.Data.MySqlClient;
 using System.Data;
+using System.Drawing;
 
 namespace Prode.Dao
 {
@@ -98,6 +99,46 @@ namespace Prode.Dao
             connection.Close();
             return _listaEstadios;
         }
+
+        public static string urla;
+        public static List<PlantelActual> BuscarPlantelActual(int idEquipo)
+        {
+            connection.Close();
+            connection.Open();
+            List<PlantelActual> lista = new List<PlantelActual>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                                      new MySqlParameter("idEquipo_in", idEquipo)};
+            string proceso = "BuscarPlantelActual";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    PlantelActual plantel = new PlantelActual();
+                    plantel.idJugador = Convert.ToInt32(item["idJugador"].ToString());
+                    plantel.Apellido = item["Apellido"].ToString();
+                    plantel.Nombre = item["Nombre"].ToString();
+                    plantel.PosicionDeCampo = item["PosicionDeCampo"].ToString();
+                    if (item[4].ToString() != string.Empty)
+                    {
+                        plantel.Imagen = (byte[])item["ImagenJugador"];
+                    }
+                    else
+                    {
+
+                    }
+                    lista.Add(plantel);
+                }
+            }
+            connection.Close();
+            return lista;
+        }
         public static string BuscarEstadioPorEquipoLocalSeleccionado(string equipoLocal)
         {
             string _EstadioLocal = null;
@@ -123,7 +164,6 @@ namespace Prode.Dao
             connection.Close();
             return _EstadioLocal;
         }
-
         public static bool EliminarEquipo(int idEquipo)
         {
             bool exito = false;
@@ -140,7 +180,6 @@ namespace Prode.Dao
             connection.Close();
             return exito;
         }
-
         public static byte[] BuscarImagenEquipoLocal(string nombreEquipoLocal)
         {
             byte[] _escudoLocal = null;

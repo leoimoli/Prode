@@ -79,6 +79,12 @@
     <Compile Include="ApostadoresWF.Designer.cs">
       <DependentUpon>ApostadoresWF.cs</DependentUpon>
     </Compile>
+    <Compile Include="AsignarJugadorEquipoWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsignarJugadorEquipoWF.Designer.cs">
+      <DependentUpon>AsignarJugadorEquipoWF.cs</DependentUpon>
+    </Compile>
     <Compile Include="CargarJugadasWF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,7 @@
     <Compile Include="Entidades\FichaTecnica.cs" />
     <Compile Include="Entidades\Jugada.cs" />
     <Compile Include="Entidades\Jugadores.cs" />
+    <Compile Include="Entidades\PlantelActual.cs" />
     <Compile Include="Entidades\ResultadoApuestas.cs" />
     <Compile Include="Entidades\Resultados.cs" />
     <Compile Include="Entidades\TipoResultadoPorPartido.cs" />
@@ -219,6 +226,9 @@
     <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="ApostadoresWF.resx">
       <DependentUpon>ApostadoresWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AsignarJugadorEquipoWF.resx">
+      <DependentUpon>AsignarJugadorEquipoWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CargarJugadasWF.resx">
       <DependentUpon>CargarJugadasWF.cs</DependentUpon>
@@ -399,6 +409,7 @@
     <None Include="Resources\hombre-maraton1.png" />
     <None Include="Resources\pelota-de-futbol2.png" />
     <None Include="Resources\jugadores-de-futbol-en-el-campo2.png" />
+    <None Include="Resources\pasar1.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

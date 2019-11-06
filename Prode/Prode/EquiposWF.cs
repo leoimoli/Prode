@@ -38,11 +38,7 @@ namespace Prode
                 {
 
                     pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-                    var imagen = Image.FromFile(path);
-                    //if (imagen.Size.Height > 1024 || imagen.Size.Width > 1024)
-                    //{
-                    //    throw new Exception("EL TAMAÑO DE LA IMAGEN SUPERA EL PERMITIDO(1024x1024)");
-                    //}
+                    var imagen = Image.FromFile(path);                   
                     pictureBox1.Image = Image.FromFile(path);
                 }
                 if (result == DialogResult.OK)

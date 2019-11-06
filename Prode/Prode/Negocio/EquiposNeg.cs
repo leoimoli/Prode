@@ -52,21 +52,18 @@ namespace Prode.Negocio
             }
             return exito;
         }
-
         public static List<string> CargarComboEquipo()
         {
             List<string> lista = new List<string>();
             lista = EquipoDao.CargarComboEquipo();
             return lista;
         }
-
         public static List<string> CargarComboEstadios()
         {
             List<string> lista = new List<string>();
             lista = EquipoDao.CargarComboEstadios();
             return lista;
         }
-
         private static bool ValidarEquipoExistente(string nombreEquipo)
         {
             bool existe = EquipoDao.ValidarEquipoExistente(nombreEquipo);
@@ -93,19 +90,34 @@ namespace Prode.Negocio
                 throw new Exception();
             }
         }
-
+        public static List <PlantelActual> BuscarPlantelActual(int idEquipo)
+        {
+            List<PlantelActual> _plantel = new List<PlantelActual>();
+            try
+            {
+                _plantel = EquipoDao.BuscarPlantelActual(idEquipo);
+            }
+            catch (Exception ex)
+            {
+                const string message = "Error en el sistema. Intente nuevamente o comuniquese con el administrador.";
+                const string caption = "Atención";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Warning);
+                throw new Exception();
+            }
+            return _plantel;
+        }
         public static byte[] BuscarImagenEquipoLocal(string equipoLocal)
         {
             byte[] EscudoLocal = EquipoDao.BuscarImagenEquipoLocal(equipoLocal);
             return EscudoLocal;
         }
-
         public static string BuscarEstadioPorEquipoLocalSeleccionado(string equipoLocal)
         {
             string EstadioLocal = EquipoDao.BuscarEstadioPorEquipoLocalSeleccionado(equipoLocal);
             return EstadioLocal;
         }
-
         public static List<Equipos> BuscarEquipoPorNombre(string Nombre)
         {
             List<Equipos> _equipos = new List<Equipos>();
@@ -124,7 +136,6 @@ namespace Prode.Negocio
             }
             return _equipos;
         }
-
         public static bool EliminarEquipo(int idEquipo)
         {
             bool exito = false;

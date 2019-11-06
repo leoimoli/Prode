@@ -39,6 +39,7 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblIdEquipo = new System.Windows.Forms.Label();
             this.btnVolver = new System.Windows.Forms.Button();
             this.txtImagen = new System.Windows.Forms.TextBox();
             this.btnCargarImagen = new System.Windows.Forms.Button();
@@ -53,7 +54,6 @@
             this.txtNombreEquipo = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.lblIdEquipo = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -207,6 +207,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Equipo";
             // 
+            // lblIdEquipo
+            // 
+            this.lblIdEquipo.AutoSize = true;
+            this.lblIdEquipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdEquipo.Location = new System.Drawing.Point(203, 32);
+            this.lblIdEquipo.Name = "lblIdEquipo";
+            this.lblIdEquipo.Size = new System.Drawing.Size(25, 20);
+            this.lblIdEquipo.TabIndex = 130;
+            this.lblIdEquipo.Text = "@";
+            this.lblIdEquipo.Visible = false;
+            // 
             // btnVolver
             // 
             this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -350,17 +361,6 @@
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // lblIdEquipo
-            // 
-            this.lblIdEquipo.AutoSize = true;
-            this.lblIdEquipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdEquipo.Location = new System.Drawing.Point(203, 32);
-            this.lblIdEquipo.Name = "lblIdEquipo";
-            this.lblIdEquipo.Size = new System.Drawing.Size(25, 20);
-            this.lblIdEquipo.TabIndex = 130;
-            this.lblIdEquipo.Text = "@";
-            this.lblIdEquipo.Visible = false;
             // 
             // EquiposWF
             // 
