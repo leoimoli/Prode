@@ -136,6 +136,27 @@ namespace Prode.Negocio
             }
             return _equipos;
         }
+        public static bool AsignarJugarNuevoEquipo(int idJugador, int idEquipoSeleccionado)
+        {
+            bool Exito = false;
+            bool JugadorYaAsignado = false;
+            JugadorYaAsignado = EquipoDao.ValidarJugadorYaAsignadoAlEquipo(idJugador, idEquipoSeleccionado);
+            if (JugadorYaAsignado == true)
+            {
+                const string message = "El jugador ya se encuentra asignado al equipo seleccionado.";
+                const string caption = "Error";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                throw new Exception();
+            }
+            else
+            {
+                Exito = EquipoDao.AsignarJugadorEquipo(idJugador, idEquipoSeleccionado);
+            }
+
+            return Exito;
+        }
         public static bool EliminarEquipo(int idEquipo)
         {
             bool exito = false;

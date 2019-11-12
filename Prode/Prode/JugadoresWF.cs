@@ -560,11 +560,16 @@ namespace Prode
             }
         }
         #endregion
-
         private void btnFicha_Click(object sender, EventArgs e)
         {
             FichaTecnicaWF _ficha = new FichaTecnicaWF();
             _ficha.Show();
+            Hide();
+        }
+        private void btnAsignar_Click(object sender, EventArgs e)
+        {
+            AsignarJugadorEquipoWF _asignar = new AsignarJugadorEquipoWF();
+            _asignar.Show();
             Hide();
         }
     }

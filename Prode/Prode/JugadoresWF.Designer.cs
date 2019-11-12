@@ -112,6 +112,7 @@
             this.btnAsignar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAsignar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnAsignar.UseVisualStyleBackColor = true;
+            this.btnAsignar.Click += new System.EventHandler(this.btnAsignar_Click);
             // 
             // btnEditar
             // 

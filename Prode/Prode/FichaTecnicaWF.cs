@@ -203,21 +203,130 @@ namespace Prode
             FichaTecnica _fichaJugadores = new FichaTecnica();
             _fichaJugadores.PosicionDeCampo = cmbPosicion.Text;
             _fichaJugadores.PiernaHabil = cmbPierna.Text;
-            _fichaJugadores.Velocidad = cmbVelocidad.Text;
-            _fichaJugadores.Resistencia = cmbResistencia.Text;
-            _fichaJugadores.Salto = cmbSalto.Text;
-            _fichaJugadores.Fuerza = cmbFuerza.Text;
-            _fichaJugadores.ControlDeBalon = cmbControles.Text;
-            _fichaJugadores.Regates = cmbRegates.Text;
-            _fichaJugadores.PaseCorto = cmbPaseCorto.Text;
-            _fichaJugadores.PaseLargo = cmbPaseLargo.Text;
-            _fichaJugadores.Definicion = cmbDefinicion.Text;
-            _fichaJugadores.Remate = cmbRemates.Text;
-            _fichaJugadores.TiroLibre = cmbPelotaParada.Text;
-            _fichaJugadores.Marcaje = cmbMarca.Text;
-            _fichaJugadores.DisciplinaTactica = cmbDisciplinaTactica.Text;
-            _fichaJugadores.NivelDefensivo = cmbNivelDefensivo.Text;
-            _fichaJugadores.NivelOfensivo = cmbNivelOfensivo.Text;
+            if (cmbVelocidad.Text == "Seleccione")
+            {
+                _fichaJugadores.Velocidad = "0";
+            }
+            else
+            {
+                _fichaJugadores.Velocidad = cmbVelocidad.Text;
+            }
+            if (cmbResistencia.Text == "Seleccione")
+            {
+                _fichaJugadores.Resistencia = "0";
+            }
+            else
+            {
+                _fichaJugadores.Resistencia = cmbResistencia.Text;
+            }
+
+            if (cmbSalto.Text == "Seleccione")
+            {
+                _fichaJugadores.Salto = "0";
+            }
+            else
+            {
+                _fichaJugadores.Salto = cmbSalto.Text;
+            }
+
+            if (cmbFuerza.Text == "Seleccione")
+            {
+                _fichaJugadores.Fuerza = "0";
+            }
+            else
+            {
+                _fichaJugadores.Fuerza = cmbFuerza.Text;
+            }
+
+            if (cmbControles.Text == "Seleccione")
+            {
+                _fichaJugadores.ControlDeBalon = "0";
+            }
+            else
+            {
+                _fichaJugadores.ControlDeBalon = cmbControles.Text;
+            }
+
+            if (cmbRegates.Text == "Seleccione")
+            {
+                _fichaJugadores.Regates = "0";
+            }
+            else
+            {
+                _fichaJugadores.Regates = cmbRegates.Text;
+            }
+            if (cmbPaseCorto.Text == "Seleccione")
+            {
+                _fichaJugadores.PaseCorto = "0";
+            }
+            else
+            {
+                _fichaJugadores.PaseCorto = cmbPaseCorto.Text;
+            }
+            if (cmbPaseLargo.Text == "Seleccione")
+            {
+                _fichaJugadores.PaseLargo = "0";
+            }
+            else
+            {
+                _fichaJugadores.PaseLargo = cmbPaseLargo.Text;
+            }
+            if (cmbDefinicion.Text == "Seleccione")
+            {
+                _fichaJugadores.Definicion = "0";
+            }
+            else
+            {
+                _fichaJugadores.Definicion = cmbDefinicion.Text;
+            }
+            if (cmbRemates.Text == "Seleccione")
+            {
+                _fichaJugadores.Remate = "0";
+            }
+            else
+            {
+                _fichaJugadores.Remate = cmbRemates.Text;
+            }
+            if (cmbPelotaParada.Text == "Seleccione")
+            {
+                _fichaJugadores.TiroLibre = "0";
+            }
+            else
+            {
+                _fichaJugadores.TiroLibre = cmbPelotaParada.Text;
+            }
+            if (cmbMarca.Text == "Seleccione")
+            {
+                _fichaJugadores.Marcaje = "0";
+            }
+            else
+            {
+                _fichaJugadores.Marcaje = cmbMarca.Text;
+            }
+            if (cmbDisciplinaTactica.Text == "Seleccione")
+            {
+                _fichaJugadores.DisciplinaTactica = "0";
+            }
+            else
+            {
+                _fichaJugadores.DisciplinaTactica = cmbDisciplinaTactica.Text;
+            }
+            if (cmbNivelDefensivo.Text == "Seleccione")
+            {
+                _fichaJugadores.NivelDefensivo = "0";
+            }
+            else
+            {
+                _fichaJugadores.NivelDefensivo = cmbNivelDefensivo.Text;
+            }
+            if (cmbNivelOfensivo.Text == "Seleccione")
+            {
+                _fichaJugadores.NivelOfensivo = "0";
+            }
+            else
+            {
+                _fichaJugadores.NivelOfensivo = cmbNivelOfensivo.Text;
+            }
             _fichaJugadores.IdJugador = Convert.ToInt32(lblId.Text);
             return _fichaJugadores;
         }

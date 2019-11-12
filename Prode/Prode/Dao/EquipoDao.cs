@@ -99,7 +99,6 @@ namespace Prode.Dao
             connection.Close();
             return _listaEstadios;
         }
-
         public static string urla;
         public static List<PlantelActual> BuscarPlantelActual(int idEquipo)
         {
@@ -125,19 +124,54 @@ namespace Prode.Dao
                     plantel.Apellido = item["Apellido"].ToString();
                     plantel.Nombre = item["Nombre"].ToString();
                     plantel.PosicionDeCampo = item["PosicionDeCampo"].ToString();
-                    if (item[4].ToString() != string.Empty)
-                    {
-                        plantel.Imagen = (byte[])item["ImagenJugador"];
-                    }
-                    else
-                    {
-
-                    }
                     lista.Add(plantel);
                 }
             }
             connection.Close();
             return lista;
+        }
+        public static bool ValidarJugadorYaAsignadoAlEquipo(int idJugador, int idEquipoSeleccionado)
+        {
+            connection.Close();
+            bool Existe = false;
+            connection.Open();
+            List<Equipos> lista = new List<Equipos>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                                      new MySqlParameter("idJugador_in", idJugador),
+            new MySqlParameter("idEquipoSeleccionado_in", idEquipoSeleccionado)};
+            string proceso = "ValidarJugadorYaAsignadoAlEquipo";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            DataSet ds = new DataSet();
+            dt.Fill(ds, "FutbolAsignacionJugadorPorEquipo");
+            if (Tabla.Rows.Count > 0)
+            {
+                Existe = true;
+            }
+            connection.Close();
+            return Existe;
+        }
+        public static bool AsignarJugadorEquipo(int idJugador, int idEquipoSeleccionado)
+        {
+            bool exito = false;
+            connection.Close();
+            connection.Open();
+            DateTime FechaAsignacion = DateTime.Now;
+            string proceso = "AsignarJugadorEquipo";
+            MySqlCommand cmd = new MySqlCommand(proceso, connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("idJugador_in", idJugador);
+            cmd.Parameters.AddWithValue("idEquipoSeleccionado_in", idEquipoSeleccionado);
+            cmd.Parameters.AddWithValue("FechaAsignacion_in", FechaAsignacion);
+            cmd.ExecuteNonQuery();
+            exito = true;
+            connection.Close();
+            return exito;
         }
         public static string BuscarEstadioPorEquipoLocalSeleccionado(string equipoLocal)
         {
