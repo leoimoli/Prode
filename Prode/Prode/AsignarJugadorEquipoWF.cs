@@ -196,6 +196,11 @@ namespace Prode
                     pictureBox1.Image = foto1;
                     pictureBox1.Visible = true;
                 }
+                else
+                {
+                    pictureBox1.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
+                    pictureBox1.Visible = true;
+                }
                 groupBox2.Visible = true;
                 txtBuscar.Focus();
                 txtBuscar.AutoCompleteCustomSource = Clases_Maestras.AutoCompletePorEquipo.Autocomplete();
@@ -208,13 +213,6 @@ namespace Prode
         {
             set
             {
-                //foreach (var item in value)
-                //{
-                //    if (item.PosicionDeCampo == "")
-                //    {
-                //        item.PosicionDeCampo = "-";
-                //    }
-                //}                         
                 if (value.Count > 0)
                 {
                     if (value != dgvPlantel.DataSource && dgvPlantel.DataSource != null)

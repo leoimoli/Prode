@@ -223,6 +223,16 @@ namespace Prode.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap deshacer1 {
+            get {
+                object obj = ResourceManager.GetObject("deshacer1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap editar_1_ {
             get {
                 object obj = ResourceManager.GetObject("editar(1)", resourceCulture);
@@ -256,6 +266,16 @@ namespace Prode.Properties {
         internal static System.Drawing.Bitmap error {
             get {
                 object obj = ResourceManager.GetObject("error", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap error1 {
+            get {
+                object obj = ResourceManager.GetObject("error1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -316,6 +336,16 @@ namespace Prode.Properties {
         internal static System.Drawing.Bitmap hombre_maraton1 {
             get {
                 object obj = ResourceManager.GetObject("hombre-maraton1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hombre1 {
+            get {
+                object obj = ResourceManager.GetObject("hombre1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -396,6 +426,16 @@ namespace Prode.Properties {
         internal static System.Drawing.Bitmap jugadores_de_futbol_en_el_campo2 {
             get {
                 object obj = ResourceManager.GetObject("jugadores-de-futbol-en-el-campo2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap jugadores_de_futbol_en_el_campo3 {
+            get {
+                object obj = ResourceManager.GetObject("jugadores-de-futbol-en-el-campo3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -556,6 +596,16 @@ namespace Prode.Properties {
         internal static System.Drawing.Bitmap puntuacion_final1 {
             get {
                 object obj = ResourceManager.GetObject("puntuacion-final1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap puntuacion_final2 {
+            get {
+                object obj = ResourceManager.GetObject("puntuacion-final2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

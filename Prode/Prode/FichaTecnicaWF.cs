@@ -349,6 +349,11 @@ namespace Prode
                     pictureBox1.Image = foto1;
                     pictureBox1.Visible = true;
                 }
+                else
+                {
+                    pictureBox1.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
+                    pictureBox1.Visible = true;
+                }
                 List<FichaTecnica> _fichaTecnica = new List<FichaTecnica>();
                 int idJugador = Convert.ToInt32(lblId.Text);
                 _fichaTecnica = JugadoresNeg.BuscarFichaTecnica(idJugador);
