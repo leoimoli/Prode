@@ -258,18 +258,42 @@ namespace Prode
 
             return _partido;
         }
+        private void ProgressBar()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Maximum = 100000;
+            progressBar1.Step = 1;
+
+            for (int j = 0; j < 100000; j++)
+            {
+                Caluculate(j);
+                progressBar1.PerformStep();
+            }
+        }
+        private void Caluculate(int i)
+        {
+            double pow = Math.Pow(i, i);
+        }
         #endregion
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
             {
                 Entidades.PartidoEstadistica _partido = CargarEntidad();
-                bool Exito = FutbolPartidoEstadisticaNeg.GuardarPartido(_partido);
+                int idPartido  = FutbolPartidoEstadisticaNeg.GuardarPartido(_partido);
+                if (idPartido > 0)
+                {
+
+                    ProgressBar();
+                    const string message2 = "Se registro el partido exitosamente.";
+                    const string caption2 = "Éxito";
+                    var result2 = MessageBox.Show(message2, caption2,
+                                                 MessageBoxButtons.OK,
+                                                 MessageBoxIcon.Asterisk);
+                }
             }
             catch (Exception ex)
             { }
         }
-
-
     }
 }

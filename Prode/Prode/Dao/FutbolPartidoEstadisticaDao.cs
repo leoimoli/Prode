@@ -13,7 +13,7 @@ namespace Prode.Dao
     public class FutbolPartidoEstadisticaDao
     {
         private static MySql.Data.MySqlClient.MySqlConnection connection = new MySqlConnection(Properties.Settings.Default.db);
-        public static bool GuardarPartido(PartidoEstadistica _partido)
+        public static int GuardarPartido(PartidoEstadistica _partido)
         {
             int idTorneo = 0;
             int idPartido = 0;
@@ -43,15 +43,14 @@ namespace Prode.Dao
                 Exito = RegistrarDatellePartido(_partido, idPartido);
             }
             connection.Close();
-            return Exito;
+            return idPartido;
         }
-
         private static bool RegistrarDatellePartido(PartidoEstadistica _partido, int idPartido)
         {
             bool Exito = false;
             connection.Close();
             connection.Open();
-            string proceso = "FutbolGuardarPartido";
+            string proceso = "FutbolGuardarDatellePartido";
             MySqlCommand cmd = new MySqlCommand(proceso, connection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("CornersLocal_in", _partido.CornersLocal);
@@ -70,6 +69,8 @@ namespace Prode.Dao
             cmd.Parameters.AddWithValue("PasesCorrectosVisitante_in", _partido.PasesCorrectosVisitante);
             cmd.Parameters.AddWithValue("PosesionLocal_in", _partido.PosesionLocal);
             cmd.Parameters.AddWithValue("PosesionVisitante_in", _partido.PosesionVisitante);
+            cmd.Parameters.AddWithValue("idPartido_in", idPartido);
+            cmd.ExecuteNonQuery();
             Exito = true;
             connection.Close();
             return Exito;

@@ -79,6 +79,7 @@
             this.lblIdVistante = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.dtFecha = new System.Windows.Forms.DateTimePicker();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -205,6 +206,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.progressBar1);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtTirosAlArcoVisitante);
             this.groupBox1.Controls.Add(this.txtTirosAlArcoLocal);
@@ -606,6 +608,15 @@
             this.dtFecha.Size = new System.Drawing.Size(218, 26);
             this.dtFecha.TabIndex = 138;
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(47, 267);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(330, 23);
+            this.progressBar1.TabIndex = 139;
+            this.progressBar1.Value = 50;
+            this.progressBar1.Visible = false;
+            // 
             // NuevoPartidoWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -703,5 +714,6 @@
         private System.Windows.Forms.Label lblIdVistante;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DateTimePicker dtFecha;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }

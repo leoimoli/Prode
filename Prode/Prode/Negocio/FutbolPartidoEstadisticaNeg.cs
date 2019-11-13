@@ -10,19 +10,19 @@ namespace Prode.Negocio
 {
     public class FutbolPartidoEstadisticaNeg
     {
-        public static bool GuardarPartido(PartidoEstadistica _partido)
+        public static int GuardarPartido(PartidoEstadistica _partido)
         {
-            bool exito = false;
+            int idPartido = 0;
             try
             {
                 ValidarDatos(_partido);
-                exito = FutbolPartidoEstadisticaDao.GuardarPartido(_partido);
+                idPartido = FutbolPartidoEstadisticaDao.GuardarPartido(_partido);
             }
             catch (Exception ex)
             {
 
             }
-            return exito;
+            return idPartido;
         }
 
         private static void ValidarDatos(PartidoEstadistica _partido)
