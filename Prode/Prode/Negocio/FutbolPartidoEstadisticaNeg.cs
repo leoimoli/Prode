@@ -15,7 +15,6 @@ namespace Prode.Negocio
             int idPartido = 0;
             try
             {
-                ValidarDatos(_partido);
                 idPartido = FutbolPartidoEstadisticaDao.GuardarPartido(_partido);
             }
             catch (Exception ex)
@@ -23,11 +22,19 @@ namespace Prode.Negocio
 
             }
             return idPartido;
-        }
+        }       
 
-        private static void ValidarDatos(PartidoEstadistica _partido)
+        public static List<DetallePartido> BuscarPartidoPorNombre(string partido)
         {
-            throw new NotImplementedException();
+            List<DetallePartido> _detallePartido = new List<DetallePartido>();
+            try
+            {
+                _detallePartido = FechaDao.BuscarPartidoPorNombre(partido);
+            }
+            catch (Exception ex)
+            {
+            }
+            return _detallePartido;
         }
     }
 }

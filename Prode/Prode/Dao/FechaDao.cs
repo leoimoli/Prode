@@ -43,6 +43,45 @@ namespace Prode.Dao
             connection.Close();
             return Exito;
         }
+        public static List<DetallePartido> BuscarPartidoPorNombre(string partido)
+        {
+            List<DetallePartido> lista = new List<DetallePartido>();
+            connection.Close();
+            connection.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                                      new MySqlParameter("partido_in", partido)};
+            string proceso = "BuscarPartidoPorNombre";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    DetallePartido listaPartido = new DetallePartido();
+                    listaPartido.idPartido = Convert.ToInt32(item["idPartido"].ToString());
+                    listaPartido.idEquipoLocal = Convert.ToInt32(item["EquipoLocal"].ToString());
+                    listaPartido.idEquipoVisitante = Convert.ToInt32(item["EquipoVisitante"].ToString());
+                    listaPartido.Marcador = item["Marcador"].ToString();
+                    listaPartido.Estadio = item["Estadio"].ToString();
+                    if (item[10].ToString() != string.Empty)
+                    {
+                        listaPartido.EscudoLocal = (byte[])item["EscudoLocal"];
+                    }
+                    if (item[11].ToString() != string.Empty)
+                    {
+                        listaPartido.EscudoVisitante = (byte[])item["EscudoVisitante"];
+                    }
+                    lista.Add(listaPartido);
+                }
+            }
+            connection.Close();
+            return lista;
+        }
         public static List<Fecha> BuscarFechaExistente(string torneo, string temporada, string nroFecha, string Liga)
         {
             List<Fecha> lista = new List<Fecha>();
@@ -201,6 +240,6 @@ namespace Prode.Dao
             }
             connection.Close();
             return _Fecha;
-        }       
+        }
     }
 }

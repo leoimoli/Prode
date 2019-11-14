@@ -21,5 +21,12 @@ namespace Prode
         {
 
         }
+
+        private void btnNuevoPartido_Click(object sender, EventArgs e)
+        {
+            PartidosWF _NuevoPartido = new PartidosWF();
+            _NuevoPartido.Show();
+            Hide();
+        }
     }
 }

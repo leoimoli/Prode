@@ -62,7 +62,7 @@ namespace Prode
                         {
                             pictureBox1.Image = Image.FromFile("C:\\ProFuSo\\Silueta Equipo.jpg");
                             pictureBox1.Visible = true;
-                        }                        
+                        }
                         string EstadioLocal = EquiposNeg.BuscarEstadioPorEquipoLocalSeleccionado(equipoLocal);
                         if (EstadioLocal != null)
                         {
@@ -72,11 +72,19 @@ namespace Prode
                         var NombreEquipo = txtEquipoLocal.Text;
                         _equipo = EquiposNeg.BuscarEquipoPorNombre(NombreEquipo);
                         var equipo = _equipo.First();
-                        lblIdLocal.Text =Convert.ToString(equipo.idEquipo);
+                        lblIdLocal.Text = Convert.ToString(equipo.idEquipo);
                         lblVS.Visible = true;
                         lblEstadio.Visible = true;
                         lblEstadioEdit.Visible = true;
                     }
+                }
+                else
+                {
+                    const string message2 = "Debe seleccionar un equipo.";
+                    const string caption2 = "Atención";
+                    var result2 = MessageBox.Show(message2, caption2,
+                                                 MessageBoxButtons.OK,
+                                                 MessageBoxIcon.Exclamation);
                 }
             }
         }
@@ -123,6 +131,14 @@ namespace Prode
                         btnGuardar.Visible = true;
                     }
                 }
+                else
+                {
+                    const string message2 = "Debe seleccionar un equipo.";
+                    const string caption2 = "Atención";
+                    var result2 = MessageBox.Show(message2, caption2,
+                                                 MessageBoxButtons.OK,
+                                                 MessageBoxIcon.Exclamation);
+                }
             }
         }
         private void cmbLiga_SelectedIndexChanged(object sender, EventArgs e)
@@ -156,27 +172,77 @@ namespace Prode
             catch (Exception ex)
             { }
         }
-        private void txtFecha_KeyDown(object sender, KeyEventArgs e)
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
             {
-                List<Fecha> _fecha = new List<Fecha>();
-                var torneo = cmbTorneo.Text;
-                string var = torneo;
-                string Torneo = var.Split('-')[0];
-                string Temporada = var.Split('-')[1];
-                string NroFecha = txtFecha.Text;
-                string Liga = cmbLiga.Text;
-                _fecha = FechaNeg.BuscarFechaExistente(Torneo, Temporada, NroFecha, Liga);
-                if (_fecha.Count > 0)
+                Entidades.PartidoEstadistica _partido = CargarEntidad();
+                int idPartido = FutbolPartidoEstadisticaNeg.GuardarPartido(_partido);
+                if (idPartido > 0)
                 {
+
+                    ProgressBar();
+                    const string message2 = "Se registro el partido exitosamente.";
+                    const string caption2 = "Éxito";
+                    var result2 = MessageBox.Show(message2, caption2,
+                                                 MessageBoxButtons.OK,
+                                                 MessageBoxIcon.Asterisk);
+                    LimpiarCampos();
                 }
             }
             catch (Exception ex)
             { }
         }
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+        }
         #endregion
         #region Funciones
+        private void txtPosesionLocal_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    int ValorTotal = 100;
+                    int ValorCargado = Convert.ToInt32(txtPosesionLocal.Text);
+                    int Diferencia = ValorTotal - ValorCargado;
+                    txtPosesionVisitante.Text = Convert.ToString(Diferencia);
+                }
+            }
+            catch (Exception ex)
+            { }
+        }
+        private void txtPosesionLocal_TextChanged(object sender, EventArgs e)
+        {
+            int ValorTotal = 100;
+            int ValorCargado = Convert.ToInt32(txtPosesionLocal.Text);
+            int Diferencia = ValorTotal - ValorCargado;
+            txtPosesionVisitante.Text = Convert.ToString(Diferencia);
+        }
+        private void txtPosesionVisitante_TextChanged(object sender, EventArgs e)
+        {
+            int ValorTotal = 100;
+            int ValorCargado = Convert.ToInt32(txtPosesionVisitante.Text);
+            int Diferencia = ValorTotal - ValorCargado;
+            txtPosesionLocal.Text = Convert.ToString(Diferencia);
+        }
+        private void txtPosesionVisitante_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    int ValorTotal = 100;
+                    int ValorCargado = Convert.ToInt32(txtPosesionVisitante.Text);
+                    int Diferencia = ValorTotal - ValorCargado;
+                    txtPosesionLocal.Text = Convert.ToString(Diferencia);
+                }
+            }
+            catch (Exception ex)
+            { }
+        }
         private void CargarCombos()
         {
             List<string> Liga = new List<string>();
@@ -209,6 +275,33 @@ namespace Prode
             PartidoEstadistica _partido = new PartidoEstadistica();
             _partido.Fecha = dtFecha.Value;
             _partido.idEquipoLocal = Convert.ToInt32(lblIdLocal.Text);
+            if (String.IsNullOrEmpty(txtMarcadorLocal.Text) || String.IsNullOrEmpty(txtMarcadorVisitante.Text))
+            {
+                const string message = "Los campos del marcador son obligatorios.";
+                const string caption = "Error";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                throw new Exception();
+            }
+            if (cmbLiga.Text == "Seleccione")
+            {
+                const string message = "El campo Liga es obligatorio.";
+                const string caption = "Error";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                throw new Exception();
+            }
+            if (cmbTorneo.Text == "Seleccione")
+            {
+                const string message = "El campo Torneo es obligatorio.";
+                const string caption = "Error";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                throw new Exception();
+            }
             string Marcador1 = txtMarcadorLocal.Text;
             string Marcador2 = txtMarcadorVisitante.Text;
             _partido.Marcador = Marcador1 + " - " + Marcador2;
@@ -255,7 +348,6 @@ namespace Prode
             _partido.PasesCorrectosVisitante = Convert.ToInt32(txtPaseCorrectosVisitante.Text);
             _partido.PosesionLocal = Convert.ToInt32(txtPosesionLocal.Text);
             _partido.PosesionVisitante = Convert.ToInt32(txtPosesionVisitante.Text);
-
             return _partido;
         }
         private void ProgressBar()
@@ -274,26 +366,51 @@ namespace Prode
         {
             double pow = Math.Pow(i, i);
         }
-        #endregion
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void LimpiarCampos()
         {
-            try
-            {
-                Entidades.PartidoEstadistica _partido = CargarEntidad();
-                int idPartido  = FutbolPartidoEstadisticaNeg.GuardarPartido(_partido);
-                if (idPartido > 0)
-                {
+            txtMarcadorLocal.Clear();
+            txtMarcadorVisitante.Clear();
+            txtCornersLocal.Text = "0";
+            txtCornersVisitante.Text = "0";
+            txtFaltasLocal.Text = "0";
+            txtFaltasVisitante.Text = "0";
+            txtPenalesLocal.Text = "0";
+            txtPenalesVisitante.Text = "0";
+            txtOffsideLocal.Text = "0";
+            txtOffsideVisitante.Text = "0";
+            txtPasesCorrectosLocal.Text = "0";
+            txtPaseCorrectosVisitante.Text = "0";
+            txtRematesLocal.Text = "0";
+            txtRematesVisitante.Text = "0";
+            txtTirosAlArcoLocal.Text = "0";
+            txtTirosAlArcoVisitante.Text = "0";
+            txtPosesionLocal.Text = "50";
+            txtPosesionVisitante.Text = "50";
+            txtEquipoLocal.Clear();
+            txtEquipoVisitante.Clear();
+            pictureBox1.Visible = false;
+            pictureBox2.Visible = false;
+            lblEstadio.Visible = false;
+            lblEstadioEdit.Visible = false;
+            groupBox1.Visible = false;
+            progressBar1.Value = Convert.ToInt32(null);
+            progressBar1.Visible = false;
+            CargarCombos();
+            dtFecha.Value = DateTime.Now;
+            btnGuardar.Visible = false;
+            btnCancelar.Visible = false;
+            txtMarcadorLocal.Visible = false;
+            txtMarcadorVisitante.Visible = false;
+            lblVS.Visible = false;
+            txtFecha.Clear();
+        }
+        #endregion
 
-                    ProgressBar();
-                    const string message2 = "Se registro el partido exitosamente.";
-                    const string caption2 = "Éxito";
-                    var result2 = MessageBox.Show(message2, caption2,
-                                                 MessageBoxButtons.OK,
-                                                 MessageBoxIcon.Asterisk);
-                }
-            }
-            catch (Exception ex)
-            { }
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            PartidosWF _partidos = new PartidosWF();
+            _partidos.Show();
+            Hide();
         }
     }
 }

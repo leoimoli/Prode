@@ -73,6 +73,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlineacionEquipoWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlineacionEquipoWF.Designer.cs">
+      <DependentUpon>AlineacionEquipoWF.cs</DependentUpon>
+    </Compile>
     <Compile Include="ApostadoresWF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,7 @@
     <Compile Include="Clases_Maestras\AutoCompletePorApostadores.cs" />
     <Compile Include="Clases_Maestras\AutoCompletePorEquipo.cs" />
     <Compile Include="Clases_Maestras\AutoCompletePorJugadores.cs" />
+    <Compile Include="Clases_Maestras\AutoCompletePorPartido.cs" />
     <Compile Include="Clases_Maestras\Funciones.cs" />
     <Compile Include="Clases_Maestras\Sesion.cs" />
     <Compile Include="Clases_Maestras\ValoresConstantes.cs" />
@@ -127,6 +134,7 @@
     <Compile Include="Dao\TorneoDao.cs" />
     <Compile Include="Dao\UsuarioDao.cs" />
     <Compile Include="Entidades\Apostadores.cs" />
+    <Compile Include="Entidades\DetallePartido.cs" />
     <Compile Include="Entidades\Equipos.cs" />
     <Compile Include="Entidades\EstadisticasApuestas.cs" />
     <Compile Include="Entidades\EstadoResultado.cs" />
@@ -239,6 +247,9 @@
       <DependentUpon>ResultadoJugadasWF.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="AlineacionEquipoWF.resx">
+      <DependentUpon>AlineacionEquipoWF.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ApostadoresWF.resx">
       <DependentUpon>ApostadoresWF.cs</DependentUpon>
     </EmbeddedResource>

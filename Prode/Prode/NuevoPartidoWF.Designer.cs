@@ -42,15 +42,8 @@
             this.txtCornersVisitante = new System.Windows.Forms.TextBox();
             this.txtCornersLocal = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtOffsideVisitante = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtOffsideLocal = new System.Windows.Forms.TextBox();
-            this.txtPenalesVisitante = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtPenalesLocal = new System.Windows.Forms.TextBox();
-            this.txtFaltasVisitante = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtFaltasLocal = new System.Windows.Forms.TextBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.label6 = new System.Windows.Forms.Label();
             this.txtTirosAlArcoVisitante = new System.Windows.Forms.TextBox();
             this.txtTirosAlArcoLocal = new System.Windows.Forms.TextBox();
             this.txtPaseCorrectosVisitante = new System.Windows.Forms.TextBox();
@@ -62,7 +55,15 @@
             this.txtRematesVisitante = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtRematesLocal = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.txtFaltasVisitante = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtFaltasLocal = new System.Windows.Forms.TextBox();
+            this.txtPenalesVisitante = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtPenalesLocal = new System.Windows.Forms.TextBox();
+            this.txtOffsideVisitante = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtOffsideLocal = new System.Windows.Forms.TextBox();
             this.lblMarcador = new System.Windows.Forms.Label();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -79,7 +80,6 @@
             this.lblIdVistante = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.dtFecha = new System.Windows.Forms.DateTimePicker();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -239,89 +239,24 @@
             this.groupBox1.Text = "Estadistica Partido";
             this.groupBox1.Visible = false;
             // 
-            // txtOffsideVisitante
+            // progressBar1
             // 
-            this.txtOffsideVisitante.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtOffsideVisitante.Location = new System.Drawing.Point(306, 194);
-            this.txtOffsideVisitante.Name = "txtOffsideVisitante";
-            this.txtOffsideVisitante.Size = new System.Drawing.Size(52, 20);
-            this.txtOffsideVisitante.TabIndex = 7;
-            this.txtOffsideVisitante.Text = "0";
+            this.progressBar1.Location = new System.Drawing.Point(47, 267);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(330, 23);
+            this.progressBar1.TabIndex = 139;
+            this.progressBar1.Value = 50;
+            this.progressBar1.Visible = false;
             // 
-            // label3
+            // label6
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(189, 194);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 21);
-            this.label3.TabIndex = 66;
-            this.label3.Text = "Offside";
-            // 
-            // txtOffsideLocal
-            // 
-            this.txtOffsideLocal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtOffsideLocal.Location = new System.Drawing.Point(92, 194);
-            this.txtOffsideLocal.Name = "txtOffsideLocal";
-            this.txtOffsideLocal.Size = new System.Drawing.Size(52, 20);
-            this.txtOffsideLocal.TabIndex = 6;
-            this.txtOffsideLocal.Text = "0";
-            // 
-            // txtPenalesVisitante
-            // 
-            this.txtPenalesVisitante.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPenalesVisitante.Location = new System.Drawing.Point(306, 139);
-            this.txtPenalesVisitante.Name = "txtPenalesVisitante";
-            this.txtPenalesVisitante.Size = new System.Drawing.Size(52, 20);
-            this.txtPenalesVisitante.TabIndex = 5;
-            this.txtPenalesVisitante.Text = "0";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(189, 139);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 21);
-            this.label4.TabIndex = 69;
-            this.label4.Text = "Penales";
-            // 
-            // txtPenalesLocal
-            // 
-            this.txtPenalesLocal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPenalesLocal.Location = new System.Drawing.Point(92, 139);
-            this.txtPenalesLocal.Name = "txtPenalesLocal";
-            this.txtPenalesLocal.Size = new System.Drawing.Size(52, 20);
-            this.txtPenalesLocal.TabIndex = 4;
-            this.txtPenalesLocal.Text = "0";
-            // 
-            // txtFaltasVisitante
-            // 
-            this.txtFaltasVisitante.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtFaltasVisitante.Location = new System.Drawing.Point(306, 83);
-            this.txtFaltasVisitante.Name = "txtFaltasVisitante";
-            this.txtFaltasVisitante.Size = new System.Drawing.Size(52, 20);
-            this.txtFaltasVisitante.TabIndex = 3;
-            this.txtFaltasVisitante.Text = "0";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(189, 83);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 21);
-            this.label5.TabIndex = 72;
-            this.label5.Text = "Faltas";
-            // 
-            // txtFaltasLocal
-            // 
-            this.txtFaltasLocal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtFaltasLocal.Location = new System.Drawing.Point(92, 83);
-            this.txtFaltasLocal.Name = "txtFaltasLocal";
-            this.txtFaltasLocal.Size = new System.Drawing.Size(52, 20);
-            this.txtFaltasLocal.TabIndex = 2;
-            this.txtFaltasLocal.Text = "0";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(174, 295);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(94, 21);
+            this.label6.TabIndex = 87;
+            this.label6.Text = "Tiros al arco";
             // 
             // txtTirosAlArcoVisitante
             // 
@@ -377,6 +312,8 @@
             this.txtPosesionVisitante.Size = new System.Drawing.Size(52, 20);
             this.txtPosesionVisitante.TabIndex = 15;
             this.txtPosesionVisitante.Text = "50";
+            this.txtPosesionVisitante.TextChanged += new System.EventHandler(this.txtPosesionVisitante_TextChanged);
+            this.txtPosesionVisitante.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPosesionVisitante_KeyDown);
             // 
             // label8
             // 
@@ -396,6 +333,8 @@
             this.txtPosesionLocal.Size = new System.Drawing.Size(52, 20);
             this.txtPosesionLocal.TabIndex = 14;
             this.txtPosesionLocal.Text = "50";
+            this.txtPosesionLocal.TextChanged += new System.EventHandler(this.txtPosesionLocal_TextChanged);
+            this.txtPosesionLocal.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPosesionLocal_KeyDown);
             // 
             // txtRematesVisitante
             // 
@@ -425,15 +364,89 @@
             this.txtRematesLocal.TabIndex = 8;
             this.txtRematesLocal.Text = "0";
             // 
-            // label6
+            // txtFaltasVisitante
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(174, 295);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(94, 21);
-            this.label6.TabIndex = 87;
-            this.label6.Text = "Tiros al arco";
+            this.txtFaltasVisitante.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtFaltasVisitante.Location = new System.Drawing.Point(306, 83);
+            this.txtFaltasVisitante.Name = "txtFaltasVisitante";
+            this.txtFaltasVisitante.Size = new System.Drawing.Size(52, 20);
+            this.txtFaltasVisitante.TabIndex = 3;
+            this.txtFaltasVisitante.Text = "0";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(189, 83);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(50, 21);
+            this.label5.TabIndex = 72;
+            this.label5.Text = "Faltas";
+            // 
+            // txtFaltasLocal
+            // 
+            this.txtFaltasLocal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtFaltasLocal.Location = new System.Drawing.Point(92, 83);
+            this.txtFaltasLocal.Name = "txtFaltasLocal";
+            this.txtFaltasLocal.Size = new System.Drawing.Size(52, 20);
+            this.txtFaltasLocal.TabIndex = 2;
+            this.txtFaltasLocal.Text = "0";
+            // 
+            // txtPenalesVisitante
+            // 
+            this.txtPenalesVisitante.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtPenalesVisitante.Location = new System.Drawing.Point(306, 139);
+            this.txtPenalesVisitante.Name = "txtPenalesVisitante";
+            this.txtPenalesVisitante.Size = new System.Drawing.Size(52, 20);
+            this.txtPenalesVisitante.TabIndex = 5;
+            this.txtPenalesVisitante.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(189, 139);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(63, 21);
+            this.label4.TabIndex = 69;
+            this.label4.Text = "Penales";
+            // 
+            // txtPenalesLocal
+            // 
+            this.txtPenalesLocal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtPenalesLocal.Location = new System.Drawing.Point(92, 139);
+            this.txtPenalesLocal.Name = "txtPenalesLocal";
+            this.txtPenalesLocal.Size = new System.Drawing.Size(52, 20);
+            this.txtPenalesLocal.TabIndex = 4;
+            this.txtPenalesLocal.Text = "0";
+            // 
+            // txtOffsideVisitante
+            // 
+            this.txtOffsideVisitante.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtOffsideVisitante.Location = new System.Drawing.Point(306, 194);
+            this.txtOffsideVisitante.Name = "txtOffsideVisitante";
+            this.txtOffsideVisitante.Size = new System.Drawing.Size(52, 20);
+            this.txtOffsideVisitante.TabIndex = 7;
+            this.txtOffsideVisitante.Text = "0";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(189, 194);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 21);
+            this.label3.TabIndex = 66;
+            this.label3.Text = "Offside";
+            // 
+            // txtOffsideLocal
+            // 
+            this.txtOffsideLocal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtOffsideLocal.Location = new System.Drawing.Point(92, 194);
+            this.txtOffsideLocal.Name = "txtOffsideLocal";
+            this.txtOffsideLocal.Size = new System.Drawing.Size(52, 20);
+            this.txtOffsideLocal.TabIndex = 6;
+            this.txtOffsideLocal.Text = "0";
             // 
             // lblMarcador
             // 
@@ -458,6 +471,7 @@
             this.btnVolver.Text = "Volver";
             this.btnVolver.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // btnGuardar
             // 
@@ -487,6 +501,7 @@
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Visible = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // pictureBox2
             // 
@@ -536,7 +551,6 @@
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.Size = new System.Drawing.Size(85, 20);
             this.txtFecha.TabIndex = 2;
-            this.txtFecha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFecha_KeyDown);
             // 
             // label11
             // 
@@ -607,15 +621,6 @@
             this.dtFecha.Name = "dtFecha";
             this.dtFecha.Size = new System.Drawing.Size(218, 26);
             this.dtFecha.TabIndex = 138;
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(47, 267);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(330, 23);
-            this.progressBar1.TabIndex = 139;
-            this.progressBar1.Value = 50;
-            this.progressBar1.Visible = false;
             // 
             // NuevoPartidoWF
             // 
