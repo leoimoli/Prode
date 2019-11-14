@@ -16,6 +16,7 @@ namespace Prode.Entidades
         public string Marcador { get; set; }
         public int Resultado { get; set; }
         public string Estadio { get; set; }
+        public DateTime FechaPartido { get; set; }
 
     }
 }

@@ -109,6 +109,7 @@
     <Compile Include="CargarTorneoWF.Designer.cs">
       <DependentUpon>CargarTorneoWF.cs</DependentUpon>
     </Compile>
+    <Compile Include="Clases_Maestras\AutoCompleteJugadores.cs" />
     <Compile Include="Clases_Maestras\AutoCompletePorApostadores.cs" />
     <Compile Include="Clases_Maestras\AutoCompletePorEquipo.cs" />
     <Compile Include="Clases_Maestras\AutoCompletePorJugadores.cs" />

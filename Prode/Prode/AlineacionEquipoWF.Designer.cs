@@ -39,13 +39,17 @@
             this.lblResultadoLocal = new System.Windows.Forms.Label();
             this.lblResultadoVisitante = new System.Windows.Forms.Label();
             this.grbDatosPartido = new System.Windows.Forms.GroupBox();
+            this.lblDiaEdit = new System.Windows.Forms.Label();
+            this.lblDia = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.grbLocal = new System.Windows.Forms.GroupBox();
-            this.listLocal = new System.Windows.Forms.ListBox();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnQuitar = new System.Windows.Forms.Button();
-            this.btnConfirmar = new System.Windows.Forms.Button();
-            this.txtJugadoresLocal = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtJugadoresLocal = new System.Windows.Forms.TextBox();
+            this.btnConfirmar = new System.Windows.Forms.Button();
+            this.btnQuitar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.listLocal = new System.Windows.Forms.ListBox();
             this.grbVisitante = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtJugadoresVisitantes = new System.Windows.Forms.TextBox();
@@ -53,17 +57,15 @@
             this.btnQuitarVisitante = new System.Windows.Forms.Button();
             this.btnAgregarVisitante = new System.Windows.Forms.Button();
             this.listVisitante = new System.Windows.Forms.ListBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscarNombrePartido = new System.Windows.Forms.TextBox();
             this.lblDniOApellidoNombre = new System.Windows.Forms.Label();
             this.grbDatosPartido.SuspendLayout();
-            this.grbLocal.SuspendLayout();
-            this.grbVisitante.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.grbLocal.SuspendLayout();
+            this.grbVisitante.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,34 +95,31 @@
             // 
             this.lblEstadioEdit.AutoSize = true;
             this.lblEstadioEdit.Font = new System.Drawing.Font("Microsoft Tai Le", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstadioEdit.Location = new System.Drawing.Point(296, 85);
+            this.lblEstadioEdit.Location = new System.Drawing.Point(278, 95);
             this.lblEstadioEdit.Name = "lblEstadioEdit";
             this.lblEstadioEdit.Size = new System.Drawing.Size(68, 23);
             this.lblEstadioEdit.TabIndex = 143;
             this.lblEstadioEdit.Text = "Estadio";
-            this.lblEstadioEdit.Visible = false;
             // 
             // lblEstadio
             // 
             this.lblEstadio.AutoSize = true;
             this.lblEstadio.Font = new System.Drawing.Font("Microsoft Tai Le", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstadio.Location = new System.Drawing.Point(222, 85);
+            this.lblEstadio.Location = new System.Drawing.Point(200, 93);
             this.lblEstadio.Name = "lblEstadio";
             this.lblEstadio.Size = new System.Drawing.Size(80, 25);
             this.lblEstadio.TabIndex = 142;
             this.lblEstadio.Text = "Estadio:";
-            this.lblEstadio.Visible = false;
             // 
             // lblVS
             // 
             this.lblVS.AutoSize = true;
             this.lblVS.Font = new System.Drawing.Font("Microsoft Tai Le", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVS.Location = new System.Drawing.Point(276, 55);
+            this.lblVS.Location = new System.Drawing.Point(274, 60);
             this.lblVS.Name = "lblVS";
             this.lblVS.Size = new System.Drawing.Size(35, 25);
             this.lblVS.TabIndex = 139;
             this.lblVS.Text = "VS";
-            this.lblVS.Visible = false;
             // 
             // label1
             // 
@@ -168,6 +167,8 @@
             // 
             // grbDatosPartido
             // 
+            this.grbDatosPartido.Controls.Add(this.lblDiaEdit);
+            this.grbDatosPartido.Controls.Add(this.lblDia);
             this.grbDatosPartido.Controls.Add(this.pictureBox2);
             this.grbDatosPartido.Controls.Add(this.lblResultadoVisitante);
             this.grbDatosPartido.Controls.Add(this.label18);
@@ -187,6 +188,48 @@
             this.grbDatosPartido.Text = "Datos Partido";
             this.grbDatosPartido.Visible = false;
             // 
+            // lblDiaEdit
+            // 
+            this.lblDiaEdit.AutoSize = true;
+            this.lblDiaEdit.Font = new System.Drawing.Font("Microsoft Tai Le", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDiaEdit.Location = new System.Drawing.Point(279, 123);
+            this.lblDiaEdit.Name = "lblDiaEdit";
+            this.lblDiaEdit.Size = new System.Drawing.Size(55, 23);
+            this.lblDiaEdit.TabIndex = 149;
+            this.lblDiaEdit.Text = "Fecha";
+            // 
+            // lblDia
+            // 
+            this.lblDia.AutoSize = true;
+            this.lblDia.Font = new System.Drawing.Font("Microsoft Tai Le", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDia.Location = new System.Drawing.Point(235, 121);
+            this.lblDia.Name = "lblDia";
+            this.lblDia.Size = new System.Drawing.Size(45, 25);
+            this.lblDia.TabIndex = 148;
+            this.lblDia.Text = "Día:";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.pictureBox2.Location = new System.Drawing.Point(432, 44);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(117, 118);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 141;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.pictureBox1.Location = new System.Drawing.Point(55, 44);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(117, 118);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 140;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
+            // 
             // grbLocal
             // 
             this.grbLocal.Controls.Add(this.label2);
@@ -203,48 +246,6 @@
             this.grbLocal.Text = "Alineación Local";
             this.grbLocal.Visible = false;
             // 
-            // listLocal
-            // 
-            this.listLocal.FormattingEnabled = true;
-            this.listLocal.Location = new System.Drawing.Point(6, 19);
-            this.listLocal.Name = "listLocal";
-            this.listLocal.Size = new System.Drawing.Size(143, 394);
-            this.listLocal.TabIndex = 151;
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Location = new System.Drawing.Point(205, 153);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(78, 32);
-            this.btnAgregar.TabIndex = 150;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            // 
-            // btnQuitar
-            // 
-            this.btnQuitar.Location = new System.Drawing.Point(207, 204);
-            this.btnQuitar.Name = "btnQuitar";
-            this.btnQuitar.Size = new System.Drawing.Size(78, 32);
-            this.btnQuitar.TabIndex = 152;
-            this.btnQuitar.Text = "Quitar";
-            this.btnQuitar.UseVisualStyleBackColor = true;
-            // 
-            // btnConfirmar
-            // 
-            this.btnConfirmar.Location = new System.Drawing.Point(207, 263);
-            this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(78, 32);
-            this.btnConfirmar.TabIndex = 153;
-            this.btnConfirmar.Text = "Confirmar";
-            this.btnConfirmar.UseVisualStyleBackColor = true;
-            // 
-            // txtJugadoresLocal
-            // 
-            this.txtJugadoresLocal.Location = new System.Drawing.Point(155, 107);
-            this.txtJugadoresLocal.Name = "txtJugadoresLocal";
-            this.txtJugadoresLocal.Size = new System.Drawing.Size(196, 20);
-            this.txtJugadoresLocal.TabIndex = 150;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -255,6 +256,48 @@
             this.label2.TabIndex = 154;
             this.label2.Text = "Jugadores";
             this.label2.Visible = false;
+            // 
+            // txtJugadoresLocal
+            // 
+            this.txtJugadoresLocal.Location = new System.Drawing.Point(155, 107);
+            this.txtJugadoresLocal.Name = "txtJugadoresLocal";
+            this.txtJugadoresLocal.Size = new System.Drawing.Size(196, 20);
+            this.txtJugadoresLocal.TabIndex = 150;
+            // 
+            // btnConfirmar
+            // 
+            this.btnConfirmar.Location = new System.Drawing.Point(207, 263);
+            this.btnConfirmar.Name = "btnConfirmar";
+            this.btnConfirmar.Size = new System.Drawing.Size(78, 32);
+            this.btnConfirmar.TabIndex = 153;
+            this.btnConfirmar.Text = "Confirmar";
+            this.btnConfirmar.UseVisualStyleBackColor = true;
+            // 
+            // btnQuitar
+            // 
+            this.btnQuitar.Location = new System.Drawing.Point(207, 204);
+            this.btnQuitar.Name = "btnQuitar";
+            this.btnQuitar.Size = new System.Drawing.Size(78, 32);
+            this.btnQuitar.TabIndex = 152;
+            this.btnQuitar.Text = "Quitar";
+            this.btnQuitar.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(205, 153);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(78, 32);
+            this.btnAgregar.TabIndex = 150;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            // 
+            // listLocal
+            // 
+            this.listLocal.FormattingEnabled = true;
+            this.listLocal.Location = new System.Drawing.Point(6, 19);
+            this.listLocal.Name = "listLocal";
+            this.listLocal.Size = new System.Drawing.Size(143, 394);
+            this.listLocal.TabIndex = 151;
             // 
             // grbVisitante
             // 
@@ -325,35 +368,13 @@
             this.listVisitante.Size = new System.Drawing.Size(143, 394);
             this.listVisitante.TabIndex = 151;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pictureBox2.Location = new System.Drawing.Point(432, 44);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(117, 118);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 141;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Visible = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pictureBox1.Location = new System.Drawing.Point(55, 44);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(117, 118);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 140;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Visible = false;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Controls.Add(this.txtBuscarNombrePartido);
             this.groupBox1.Controls.Add(this.lblDniOApellidoNombre);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(154, 27);
+            this.groupBox1.Location = new System.Drawing.Point(154, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(636, 78);
             this.groupBox1.TabIndex = 151;
@@ -406,12 +427,12 @@
             this.Load += new System.EventHandler(this.AlineacionEquipoWF_Load);
             this.grbDatosPartido.ResumeLayout(false);
             this.grbDatosPartido.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.grbLocal.ResumeLayout(false);
             this.grbLocal.PerformLayout();
             this.grbVisitante.ResumeLayout(false);
             this.grbVisitante.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -450,5 +471,7 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscarNombrePartido;
         private System.Windows.Forms.Label lblDniOApellidoNombre;
+        private System.Windows.Forms.Label lblDiaEdit;
+        private System.Windows.Forms.Label lblDia;
     }
 }

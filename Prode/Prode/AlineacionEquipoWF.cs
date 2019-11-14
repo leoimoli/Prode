@@ -67,13 +67,41 @@ namespace Prode
                         pictureBox2.Visible = true;
                     }
 
+                    lblEstadioEdit.Text = partido.Estadio;
+                    var marcador = partido.Marcador;
+                    string var = marcador;
+                    string Local = var.Split('-')[0];
+                    string Visitante = var.Split('-')[1];
+                    lblResultadoLocal.Text = Local;
+                    lblResultadoVisitante.Text = Visitante;
+                    lblDiaEdit.Text = partido.FechaPartido.ToShortDateString();
+                    lblIdLocal.Text = Convert.ToString(partido.idEquipoLocal);
+                    lblIdVistante.Text = Convert.ToString(partido.idEquipoVisitante);
+                    HabilitarListasJugadores();               
                 }
             }
             catch (Exception ex) { }
         }
+
         #endregion
         #region Funciones
-        #endregion
+        private void HabilitarListasJugadores()
+        {
+            grbLocal.Visible = true;
+            grbVisitante.Visible = true;
+            txtJugadoresLocal.Focus();
 
+            int idEquipoLocal = Convert.ToInt32(lblIdLocal.Text);
+            txtJugadoresLocal.AutoCompleteCustomSource = Clases_Maestras.AutoCompleteJugadores.Autocomplete(idEquipoLocal);
+            txtJugadoresLocal.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtJugadoresLocal.AutoCompleteSource = AutoCompleteSource.CustomSource;           
+
+            //int idEquipoVisitante = Convert.ToInt32(lblIdLocal.Text);
+            //txtJugadoresVisitantes.AutoCompleteCustomSource = Clases_Maestras.AutoCompleteJugadores.Autocomplete(idEquipoVisitante);
+            //txtJugadoresVisitantes.AutoCompleteMode = AutoCompleteMode.Suggest;
+            //txtJugadoresVisitantes.AutoCompleteSource = AutoCompleteSource.CustomSource;
+          
+        }
+        #endregion
     }
 }
