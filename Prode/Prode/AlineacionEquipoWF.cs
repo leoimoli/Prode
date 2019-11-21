@@ -163,7 +163,39 @@ namespace Prode
         {
             try
             {
-
+                List<string> lista = new List<string>();
+                foreach (var item in listLocal.Items)
+                {
+                    var valor = item.ToString();
+                    string var = valor;
+                    string Apellido = var.Split(' ')[0];
+                    string var2 = var.Split(' ')[1];
+                    string Nombre = var2.Split(',')[0];
+                    string Id = var2.Split(',')[1];
+                    lista.Add(Id + "," + Apellido + " " + Nombre);
+                }
+                if (lista.Count > 0)
+                {
+                    List<AlineacionEquipo> listAlineacion = new List<AlineacionEquipo>();
+                    AlineacionEquipo _alineacion = new AlineacionEquipo();
+                    foreach (var item in lista)
+                    {
+                        var valor = item.ToString();
+                        string var = valor;
+                        string Id = var.Split(',')[0];
+                        string var2 = var.Split(',')[1];
+                        string Apellido = var2.Split(' ')[0];
+                        string Nombre = var2.Split(' ')[1];
+                        _alineacion.idJugador = Convert.ToInt32(Id);
+                        _alineacion.Apellido = Apellido;
+                        _alineacion.Nombre = Nombre;
+                        listAlineacion.Add(_alineacion);
+                    }
+                    for (int i = 0; i < lista.Count; i++)
+                    {
+                      
+                    }
+                }
             }
             catch (Exception ex)
             { }
@@ -222,7 +254,6 @@ namespace Prode
             catch (Exception ex)
             { }
         }
-
         private void btnQuitar_Click(object sender, EventArgs e)
         {
             try

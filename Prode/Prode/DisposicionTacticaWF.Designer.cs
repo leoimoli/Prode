@@ -177,7 +177,7 @@
             this.txtMinLI = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.pictureLI = new System.Windows.Forms.PictureBox();
-            this.grbDCI = new System.Windows.Forms.GroupBox();
+            this.grbDFI = new System.Windows.Forms.GroupBox();
             this.lblDFI = new System.Windows.Forms.Label();
             this.txtRojasDFI = new System.Windows.Forms.TextBox();
             this.txtAmarillaDFI = new System.Windows.Forms.TextBox();
@@ -211,7 +211,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.pictureDFD = new System.Windows.Forms.PictureBox();
             this.grbArea = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbArquero = new System.Windows.Forms.ComboBox();
             this.grbArquero = new System.Windows.Forms.GroupBox();
             this.lblARQ = new System.Windows.Forms.Label();
             this.txtRojasARQ = new System.Windows.Forms.TextBox();
@@ -348,7 +348,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureVD)).BeginInit();
             this.grbLI.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLI)).BeginInit();
-            this.grbDCI.SuspendLayout();
+            this.grbDFI.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureDCI)).BeginInit();
             this.grbLibero.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLIB)).BeginInit();
@@ -408,7 +408,7 @@
             this.grbCancha.Controls.Add(this.grbVID);
             this.grbCancha.Controls.Add(this.grbVD);
             this.grbCancha.Controls.Add(this.grbLI);
-            this.grbCancha.Controls.Add(this.grbDCI);
+            this.grbCancha.Controls.Add(this.grbDFI);
             this.grbCancha.Controls.Add(this.grbLibero);
             this.grbCancha.Controls.Add(this.grbDFD);
             this.grbCancha.Controls.Add(this.grbArea);
@@ -584,7 +584,7 @@
             this.grbCD2.Size = new System.Drawing.Size(159, 158);
             this.grbCD2.TabIndex = 86;
             this.grbCD2.TabStop = false;
-            this.grbCD2.Text = "groupBox19";
+            this.grbCD2.Text = "DI";
             this.grbCD2.Visible = false;
             // 
             // lblCD2
@@ -698,7 +698,7 @@
             this.grbCD1.Size = new System.Drawing.Size(159, 158);
             this.grbCD1.TabIndex = 85;
             this.grbCD1.TabStop = false;
-            this.grbCD1.Text = "groupBox18";
+            this.grbCD1.Text = "DD";
             this.grbCD1.Visible = false;
             // 
             // lblCD1
@@ -812,7 +812,7 @@
             this.grbCD.Size = new System.Drawing.Size(159, 158);
             this.grbCD.TabIndex = 84;
             this.grbCD.TabStop = false;
-            this.grbCD.Text = "groupBox17";
+            this.grbCD.Text = "CD";
             this.grbCD.Visible = false;
             // 
             // lblCD
@@ -926,7 +926,7 @@
             this.grbEI.Size = new System.Drawing.Size(159, 158);
             this.grbEI.TabIndex = 83;
             this.grbEI.TabStop = false;
-            this.grbEI.Text = "groupBox14";
+            this.grbEI.Text = "EI";
             this.grbEI.Visible = false;
             // 
             // lblEI
@@ -1040,7 +1040,7 @@
             this.grbMP.Size = new System.Drawing.Size(159, 158);
             this.grbMP.TabIndex = 82;
             this.grbMP.TabStop = false;
-            this.grbMP.Text = "groupBox15";
+            this.grbMP.Text = "MP";
             this.grbMP.Visible = false;
             // 
             // lblMP
@@ -1154,7 +1154,7 @@
             this.grbED.Size = new System.Drawing.Size(159, 158);
             this.grbED.TabIndex = 81;
             this.grbED.TabStop = false;
-            this.grbED.Text = "groupBox16";
+            this.grbED.Text = "ED";
             this.grbED.Visible = false;
             // 
             // lblED
@@ -1268,7 +1268,7 @@
             this.grbVI.Size = new System.Drawing.Size(159, 158);
             this.grbVI.TabIndex = 80;
             this.grbVI.TabStop = false;
-            this.grbVI.Text = "groupBox9";
+            this.grbVI.Text = "VI";
             this.grbVI.Visible = false;
             // 
             // lblVI
@@ -1382,7 +1382,7 @@
             this.grbVII.Size = new System.Drawing.Size(159, 158);
             this.grbVII.TabIndex = 79;
             this.grbVII.TabStop = false;
-            this.grbVII.Text = "groupBox10";
+            this.grbVII.Text = "VII";
             this.grbVII.Visible = false;
             // 
             // lblVII
@@ -1496,7 +1496,7 @@
             this.grbMC.Size = new System.Drawing.Size(159, 158);
             this.grbMC.TabIndex = 78;
             this.grbMC.TabStop = false;
-            this.grbMC.Text = "groupBox11";
+            this.grbMC.Text = "MC";
             this.grbMC.Visible = false;
             // 
             // lblMC
@@ -1610,7 +1610,7 @@
             this.grbVID.Size = new System.Drawing.Size(159, 158);
             this.grbVID.TabIndex = 77;
             this.grbVID.TabStop = false;
-            this.grbVID.Text = "groupBox12";
+            this.grbVID.Text = "VID";
             this.grbVID.Visible = false;
             // 
             // lblVID
@@ -1724,7 +1724,7 @@
             this.grbVD.Size = new System.Drawing.Size(159, 158);
             this.grbVD.TabIndex = 76;
             this.grbVD.TabStop = false;
-            this.grbVD.Text = "groupBox13";
+            this.grbVD.Text = "VD";
             this.grbVD.Visible = false;
             // 
             // lblVD
@@ -1838,7 +1838,7 @@
             this.grbLI.Size = new System.Drawing.Size(159, 158);
             this.grbLI.TabIndex = 75;
             this.grbLI.TabStop = false;
-            this.grbLI.Text = "groupBox8";
+            this.grbLI.Text = "LI";
             this.grbLI.Visible = false;
             // 
             // lblLI
@@ -1934,26 +1934,26 @@
             this.pictureLI.TabStop = false;
             this.pictureLI.Visible = false;
             // 
-            // grbDCI
+            // grbDFI
             // 
-            this.grbDCI.BackColor = System.Drawing.SystemColors.Control;
-            this.grbDCI.Controls.Add(this.lblDFI);
-            this.grbDCI.Controls.Add(this.txtRojasDFI);
-            this.grbDCI.Controls.Add(this.txtAmarillaDFI);
-            this.grbDCI.Controls.Add(this.txtGolesDFI);
-            this.grbDCI.Controls.Add(this.label13);
-            this.grbDCI.Controls.Add(this.label14);
-            this.grbDCI.Controls.Add(this.label15);
-            this.grbDCI.Controls.Add(this.txtMinDFI);
-            this.grbDCI.Controls.Add(this.label16);
-            this.grbDCI.Controls.Add(this.pictureDCI);
-            this.grbDCI.Location = new System.Drawing.Point(571, 184);
-            this.grbDCI.Name = "grbDCI";
-            this.grbDCI.Size = new System.Drawing.Size(159, 158);
-            this.grbDCI.TabIndex = 74;
-            this.grbDCI.TabStop = false;
-            this.grbDCI.Text = "groupBox7";
-            this.grbDCI.Visible = false;
+            this.grbDFI.BackColor = System.Drawing.SystemColors.Control;
+            this.grbDFI.Controls.Add(this.lblDFI);
+            this.grbDFI.Controls.Add(this.txtRojasDFI);
+            this.grbDFI.Controls.Add(this.txtAmarillaDFI);
+            this.grbDFI.Controls.Add(this.txtGolesDFI);
+            this.grbDFI.Controls.Add(this.label13);
+            this.grbDFI.Controls.Add(this.label14);
+            this.grbDFI.Controls.Add(this.label15);
+            this.grbDFI.Controls.Add(this.txtMinDFI);
+            this.grbDFI.Controls.Add(this.label16);
+            this.grbDFI.Controls.Add(this.pictureDCI);
+            this.grbDFI.Location = new System.Drawing.Point(571, 184);
+            this.grbDFI.Name = "grbDFI";
+            this.grbDFI.Size = new System.Drawing.Size(159, 158);
+            this.grbDFI.TabIndex = 74;
+            this.grbDFI.TabStop = false;
+            this.grbDFI.Text = "DFI";
+            this.grbDFI.Visible = false;
             // 
             // lblDFI
             // 
@@ -2066,7 +2066,7 @@
             this.grbLibero.Size = new System.Drawing.Size(159, 158);
             this.grbLibero.TabIndex = 73;
             this.grbLibero.TabStop = false;
-            this.grbLibero.Text = "groupBox5";
+            this.grbLibero.Text = "LIB";
             this.grbLibero.Visible = false;
             // 
             // lblLIB
@@ -2180,7 +2180,7 @@
             this.grbDFD.Size = new System.Drawing.Size(159, 158);
             this.grbDFD.TabIndex = 72;
             this.grbDFD.TabStop = false;
-            this.grbDFD.Text = "groupBox4";
+            this.grbDFD.Text = "DFD";
             this.grbDFD.Visible = false;
             // 
             // lblDFD
@@ -2278,23 +2278,22 @@
             // 
             // grbArea
             // 
-            this.grbArea.Controls.Add(this.comboBox1);
+            this.grbArea.Controls.Add(this.cmbArquero);
             this.grbArea.Controls.Add(this.grbArquero);
             this.grbArea.Location = new System.Drawing.Point(247, -1);
             this.grbArea.Name = "grbArea";
             this.grbArea.Size = new System.Drawing.Size(446, 160);
             this.grbArea.TabIndex = 71;
             this.grbArea.TabStop = false;
-            this.grbArea.Text = "groupBox3";
             // 
-            // comboBox1
+            // cmbArquero
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(147, -4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(159, 21);
-            this.comboBox1.TabIndex = 93;
-            this.comboBox1.Visible = false;
+            this.cmbArquero.FormattingEnabled = true;
+            this.cmbArquero.Location = new System.Drawing.Point(147, -4);
+            this.cmbArquero.Name = "cmbArquero";
+            this.cmbArquero.Size = new System.Drawing.Size(159, 21);
+            this.cmbArquero.TabIndex = 93;
+            this.cmbArquero.Visible = false;
             // 
             // grbArquero
             // 
@@ -2314,7 +2313,7 @@
             this.grbArquero.Size = new System.Drawing.Size(159, 158);
             this.grbArquero.TabIndex = 5;
             this.grbArquero.TabStop = false;
-            this.grbArquero.Text = "groupBox2";
+            this.grbArquero.Text = "ARQ";
             this.grbArquero.Visible = false;
             // 
             // lblARQ
@@ -2425,7 +2424,7 @@
             this.grbLD.Size = new System.Drawing.Size(159, 158);
             this.grbLD.TabIndex = 4;
             this.grbLD.TabStop = false;
-            this.grbLD.Text = "groupBox6";
+            this.grbLD.Text = "LD";
             this.grbLD.Visible = false;
             // 
             // lblLD
@@ -2557,6 +2556,7 @@
             this.cmbTactica.Name = "cmbTactica";
             this.cmbTactica.Size = new System.Drawing.Size(212, 21);
             this.cmbTactica.TabIndex = 88;
+            this.cmbTactica.SelectedIndexChanged += new System.EventHandler(this.cmbTactica_SelectedIndexChanged);
             // 
             // grbSuplentes
             // 
@@ -2609,7 +2609,7 @@
             this.grbSup6.Size = new System.Drawing.Size(159, 158);
             this.grbSup6.TabIndex = 113;
             this.grbSup6.TabStop = false;
-            this.grbSup6.Text = "groupBox14";
+            this.grbSup6.Text = "Sup6";
             this.grbSup6.Visible = false;
             // 
             // lblSup6
@@ -2741,7 +2741,7 @@
             this.grbSup4.Size = new System.Drawing.Size(159, 158);
             this.grbSup4.TabIndex = 110;
             this.grbSup4.TabStop = false;
-            this.grbSup4.Text = "groupBox14";
+            this.grbSup4.Text = "Sup4";
             this.grbSup4.Visible = false;
             // 
             // lblSup4
@@ -2855,7 +2855,7 @@
             this.grbSup2.Size = new System.Drawing.Size(159, 158);
             this.grbSup2.TabIndex = 109;
             this.grbSup2.TabStop = false;
-            this.grbSup2.Text = "groupBox9";
+            this.grbSup2.Text = "Sup2";
             this.grbSup2.Visible = false;
             // 
             // lblSup2
@@ -2978,7 +2978,7 @@
             this.grbSup7.Size = new System.Drawing.Size(159, 158);
             this.grbSup7.TabIndex = 107;
             this.grbSup7.TabStop = false;
-            this.grbSup7.Text = "groupBox14";
+            this.grbSup7.Text = "Sup7";
             this.grbSup7.Visible = false;
             // 
             // lblSup7
@@ -3119,7 +3119,7 @@
             this.grbSup5.Size = new System.Drawing.Size(159, 158);
             this.grbSup5.TabIndex = 103;
             this.grbSup5.TabStop = false;
-            this.grbSup5.Text = "groupBox14";
+            this.grbSup5.Text = "Sup5";
             this.grbSup5.Visible = false;
             // 
             // lblSup5
@@ -3233,7 +3233,7 @@
             this.grbSup3.Size = new System.Drawing.Size(159, 158);
             this.grbSup3.TabIndex = 102;
             this.grbSup3.TabStop = false;
-            this.grbSup3.Text = "groupBox9";
+            this.grbSup3.Text = "Sup3";
             this.grbSup3.Visible = false;
             // 
             // lblSup3
@@ -3347,7 +3347,7 @@
             this.grbSup1.Size = new System.Drawing.Size(159, 158);
             this.grbSup1.TabIndex = 101;
             this.grbSup1.TabStop = false;
-            this.grbSup1.Text = "groupBox8";
+            this.grbSup1.Text = "Sup1";
             this.grbSup1.Visible = false;
             // 
             // lblSup1
@@ -3454,6 +3454,7 @@
             this.Name = "DisposicionTacticaWF";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DisposicionTacticaWF";
+            this.Load += new System.EventHandler(this.DisposicionTacticaWF_Load);
             this.grbCancha.ResumeLayout(false);
             this.grbCD2.ResumeLayout(false);
             this.grbCD2.PerformLayout();
@@ -3491,8 +3492,8 @@
             this.grbLI.ResumeLayout(false);
             this.grbLI.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLI)).EndInit();
-            this.grbDCI.ResumeLayout(false);
-            this.grbDCI.PerformLayout();
+            this.grbDFI.ResumeLayout(false);
+            this.grbDFI.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureDCI)).EndInit();
             this.grbLibero.ResumeLayout(false);
             this.grbLibero.PerformLayout();
@@ -3659,7 +3660,7 @@
         private System.Windows.Forms.TextBox txtMinLI;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.PictureBox pictureLI;
-        private System.Windows.Forms.GroupBox grbDCI;
+        private System.Windows.Forms.GroupBox grbDFI;
         private System.Windows.Forms.TextBox txtRojasDFI;
         private System.Windows.Forms.TextBox txtAmarillaDFI;
         private System.Windows.Forms.TextBox txtGolesDFI;
@@ -3746,7 +3747,7 @@
         private System.Windows.Forms.ComboBox cmbDFD;
         private System.Windows.Forms.ComboBox cmbLD;
         private System.Windows.Forms.Label lblARQ;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbArquero;
         private System.Windows.Forms.GroupBox grbSuplentes;
         private System.Windows.Forms.ComboBox cmbSup5;
         private System.Windows.Forms.ComboBox cmbSup3;

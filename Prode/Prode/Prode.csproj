@@ -140,6 +140,7 @@
     <Compile Include="DisposicionTacticaWF.Designer.cs">
       <DependentUpon>DisposicionTacticaWF.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\AlineacionEquipo.cs" />
     <Compile Include="Entidades\Apostadores.cs" />
     <Compile Include="Entidades\DetallePartido.cs" />
     <Compile Include="Entidades\Equipos.cs" />

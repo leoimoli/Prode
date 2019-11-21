@@ -46,5 +46,12 @@ namespace Prode.Clase_Maestra
                 return new string[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9","10" };
             }
         }
+        public static string[] DisposicionTactica
+        {
+            get
+            {
+                return new string[] { "1-4-4-2", "1-4-3-1-2", "1-4-2-3,1", "1-4-1-3-2","1-4-3-3", "1-5-3-2", "1-5-2-1-2", "1-3-4-3", "1-3-4-1-2","1-3-3-1-3" };
+            }
+        }
     }
 }
