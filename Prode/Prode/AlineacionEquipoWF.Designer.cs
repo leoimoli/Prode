@@ -44,8 +44,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.grbLocal = new System.Windows.Forms.GroupBox();
+            this.txtJugadoresLocales = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtJugadoresLocal = new System.Windows.Forms.TextBox();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.btnQuitar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -56,7 +56,7 @@
             this.btnConfirmarVisitante = new System.Windows.Forms.Button();
             this.btnQuitarVisitante = new System.Windows.Forms.Button();
             this.btnAgregarVisitante = new System.Windows.Forms.Button();
-            this.listVisitante = new System.Windows.Forms.ListBox();
+            this.listVisitantes = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscarNombrePartido = new System.Windows.Forms.TextBox();
@@ -232,8 +232,8 @@
             // 
             // grbLocal
             // 
+            this.grbLocal.Controls.Add(this.txtJugadoresLocales);
             this.grbLocal.Controls.Add(this.label2);
-            this.grbLocal.Controls.Add(this.txtJugadoresLocal);
             this.grbLocal.Controls.Add(this.btnConfirmar);
             this.grbLocal.Controls.Add(this.btnQuitar);
             this.grbLocal.Controls.Add(this.btnAgregar);
@@ -246,6 +246,14 @@
             this.grbLocal.Text = "Alineación Local";
             this.grbLocal.Visible = false;
             // 
+            // txtJugadoresLocales
+            // 
+            this.txtJugadoresLocales.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtJugadoresLocales.Location = new System.Drawing.Point(155, 107);
+            this.txtJugadoresLocales.Name = "txtJugadoresLocales";
+            this.txtJugadoresLocales.Size = new System.Drawing.Size(199, 20);
+            this.txtJugadoresLocales.TabIndex = 155;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -257,13 +265,6 @@
             this.label2.Text = "Jugadores";
             this.label2.Visible = false;
             // 
-            // txtJugadoresLocal
-            // 
-            this.txtJugadoresLocal.Location = new System.Drawing.Point(155, 107);
-            this.txtJugadoresLocal.Name = "txtJugadoresLocal";
-            this.txtJugadoresLocal.Size = new System.Drawing.Size(196, 20);
-            this.txtJugadoresLocal.TabIndex = 150;
-            // 
             // btnConfirmar
             // 
             this.btnConfirmar.Location = new System.Drawing.Point(207, 263);
@@ -272,6 +273,7 @@
             this.btnConfirmar.TabIndex = 153;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // btnQuitar
             // 
@@ -281,6 +283,7 @@
             this.btnQuitar.TabIndex = 152;
             this.btnQuitar.Text = "Quitar";
             this.btnQuitar.UseVisualStyleBackColor = true;
+            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
             // 
             // btnAgregar
             // 
@@ -290,6 +293,7 @@
             this.btnAgregar.TabIndex = 150;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // listLocal
             // 
@@ -306,7 +310,7 @@
             this.grbVisitante.Controls.Add(this.btnConfirmarVisitante);
             this.grbVisitante.Controls.Add(this.btnQuitarVisitante);
             this.grbVisitante.Controls.Add(this.btnAgregarVisitante);
-            this.grbVisitante.Controls.Add(this.listVisitante);
+            this.grbVisitante.Controls.Add(this.listVisitantes);
             this.grbVisitante.Location = new System.Drawing.Point(615, 259);
             this.grbVisitante.Name = "grbVisitante";
             this.grbVisitante.Size = new System.Drawing.Size(357, 425);
@@ -328,6 +332,7 @@
             // 
             // txtJugadoresVisitantes
             // 
+            this.txtJugadoresVisitantes.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtJugadoresVisitantes.Location = new System.Drawing.Point(155, 107);
             this.txtJugadoresVisitantes.Name = "txtJugadoresVisitantes";
             this.txtJugadoresVisitantes.Size = new System.Drawing.Size(196, 20);
@@ -350,6 +355,7 @@
             this.btnQuitarVisitante.TabIndex = 152;
             this.btnQuitarVisitante.Text = "Quitar";
             this.btnQuitarVisitante.UseVisualStyleBackColor = true;
+            this.btnQuitarVisitante.Click += new System.EventHandler(this.btnQuitarVisitante_Click);
             // 
             // btnAgregarVisitante
             // 
@@ -359,14 +365,15 @@
             this.btnAgregarVisitante.TabIndex = 150;
             this.btnAgregarVisitante.Text = "Agregar";
             this.btnAgregarVisitante.UseVisualStyleBackColor = true;
+            this.btnAgregarVisitante.Click += new System.EventHandler(this.btnAgregarVisitante_Click);
             // 
-            // listVisitante
+            // listVisitantes
             // 
-            this.listVisitante.FormattingEnabled = true;
-            this.listVisitante.Location = new System.Drawing.Point(6, 19);
-            this.listVisitante.Name = "listVisitante";
-            this.listVisitante.Size = new System.Drawing.Size(143, 394);
-            this.listVisitante.TabIndex = 151;
+            this.listVisitantes.FormattingEnabled = true;
+            this.listVisitantes.Location = new System.Drawing.Point(6, 19);
+            this.listVisitantes.Name = "listVisitantes";
+            this.listVisitantes.Size = new System.Drawing.Size(143, 394);
+            this.listVisitantes.TabIndex = 151;
             // 
             // groupBox1
             // 
@@ -458,7 +465,6 @@
         private System.Windows.Forms.Button btnQuitar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.ListBox listLocal;
-        private System.Windows.Forms.TextBox txtJugadoresLocal;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox grbVisitante;
         private System.Windows.Forms.Label label3;
@@ -466,12 +472,13 @@
         private System.Windows.Forms.Button btnConfirmarVisitante;
         private System.Windows.Forms.Button btnQuitarVisitante;
         private System.Windows.Forms.Button btnAgregarVisitante;
-        private System.Windows.Forms.ListBox listVisitante;
+        private System.Windows.Forms.ListBox listVisitantes;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscarNombrePartido;
         private System.Windows.Forms.Label lblDniOApellidoNombre;
         private System.Windows.Forms.Label lblDiaEdit;
         private System.Windows.Forms.Label lblDia;
+        private System.Windows.Forms.TextBox txtJugadoresLocales;
     }
 }

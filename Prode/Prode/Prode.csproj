@@ -134,6 +134,12 @@
     <Compile Include="Dao\ResultadoDao.cs" />
     <Compile Include="Dao\TorneoDao.cs" />
     <Compile Include="Dao\UsuarioDao.cs" />
+    <Compile Include="DisposicionTacticaWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DisposicionTacticaWF.Designer.cs">
+      <DependentUpon>DisposicionTacticaWF.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entidades\Apostadores.cs" />
     <Compile Include="Entidades\DetallePartido.cs" />
     <Compile Include="Entidades\Equipos.cs" />
@@ -268,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultarFechaWF.resx">
       <DependentUpon>ConsultarFechaWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DisposicionTacticaWF.resx">
+      <DependentUpon>DisposicionTacticaWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EquiposWF.resx">
       <DependentUpon>EquiposWF.cs</DependentUpon>

@@ -27,6 +27,8 @@ namespace Prode
                 txtBuscarNombrePartido.AutoCompleteMode = AutoCompleteMode.Suggest;
                 txtBuscarNombrePartido.AutoCompleteSource = AutoCompleteSource.CustomSource;
                 txtBuscarNombrePartido.Focus();
+
+
             }
             catch (Exception ex) { }
         }
@@ -77,7 +79,7 @@ namespace Prode
                     lblDiaEdit.Text = partido.FechaPartido.ToShortDateString();
                     lblIdLocal.Text = Convert.ToString(partido.idEquipoLocal);
                     lblIdVistante.Text = Convert.ToString(partido.idEquipoVisitante);
-                    HabilitarListasJugadores();               
+                    HabilitarListasJugadores();
                 }
             }
             catch (Exception ex) { }
@@ -89,19 +91,155 @@ namespace Prode
         {
             grbLocal.Visible = true;
             grbVisitante.Visible = true;
-            txtJugadoresLocal.Focus();
-
             int idEquipoLocal = Convert.ToInt32(lblIdLocal.Text);
-            txtJugadoresLocal.AutoCompleteCustomSource = Clases_Maestras.AutoCompleteJugadores.Autocomplete(idEquipoLocal);
-            txtJugadoresLocal.AutoCompleteMode = AutoCompleteMode.Suggest;
-            txtJugadoresLocal.AutoCompleteSource = AutoCompleteSource.CustomSource;           
+            txtJugadoresLocales.AutoCompleteCustomSource = Clases_Maestras.AutoCompleteJugadores.Autocomplete(idEquipoLocal);
+            txtJugadoresLocales.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtJugadoresLocales.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtJugadoresLocales.Focus();
 
-            //int idEquipoVisitante = Convert.ToInt32(lblIdLocal.Text);
-            //txtJugadoresVisitantes.AutoCompleteCustomSource = Clases_Maestras.AutoCompleteJugadores.Autocomplete(idEquipoVisitante);
-            //txtJugadoresVisitantes.AutoCompleteMode = AutoCompleteMode.Suggest;
-            //txtJugadoresVisitantes.AutoCompleteSource = AutoCompleteSource.CustomSource;
-          
+            int idEquipoVisitante = Convert.ToInt32(lblIdVistante.Text);
+            txtJugadoresVisitantes.AutoCompleteCustomSource = Clases_Maestras.AutoCompleteJugadores.Autocomplete(idEquipoVisitante);
+            txtJugadoresVisitantes.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtJugadoresVisitantes.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
         }
         #endregion
+        public static List<string> ListaLocalesStatic;
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            List<string> lista = new List<string>();
+            try
+            {
+                if (listLocal.Items.Count > 0)
+                {
+                    foreach (var item in listLocal.Items)
+                    {
+                        lista.Add(item.ToString());
+                    }
+                    if (lista.Count > 0 & lista.Count <= 18)
+                    {
+                        string ValorIngresado = txtJugadoresLocales.Text;
+                        if (!lista.Any(x => x.ToString() == ValorIngresado))
+                        {
+                            listLocal.Items.Add(ValorIngresado);
+                            txtJugadoresLocales.Clear();
+                            txtJugadoresLocales.Focus();
+                        }
+                        else
+                        {
+                            const string message = "El jugador seleccionado ya fue cargado en la lista.";
+                            const string caption = "Atención";
+                            var result = MessageBox.Show(message, caption,
+                                                         MessageBoxButtons.OK,
+                                                       MessageBoxIcon.Exclamation);
+                            throw new Exception();
+                            txtJugadoresLocales.Clear();
+                            txtJugadoresLocales.Focus();
+                        }
+                    }
+                    else
+                    {
+
+                        const string message = "Ya se alcanzo la cantidad maxima de jugadores permitidos por partido.";
+                        const string caption = "Atención";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Exclamation);
+                    }
+                }
+                else
+                {
+                    string ValorIngresado = txtJugadoresLocales.Text;
+                    listLocal.Items.Add(ValorIngresado);
+                    txtJugadoresLocales.Clear();
+                    txtJugadoresLocales.Focus();
+                }
+
+            }
+            catch (Exception ex)
+            { }
+        }
+        private void btnConfirmar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            { }
+        }
+        private void btnAgregarVisitante_Click(object sender, EventArgs e)
+        {
+            List<string> lista = new List<string>();
+            try
+            {
+                if (listVisitantes.Items.Count > 0)
+                {
+                    foreach (var item in listVisitantes.Items)
+                    {
+                        lista.Add(item.ToString());
+                    }
+                    if (lista.Count > 0 & lista.Count <= 18)
+                    {
+                        string ValorIngresado = txtJugadoresVisitantes.Text;
+                        if (!lista.Any(x => x.ToString() == ValorIngresado))
+                        {
+                            listVisitantes.Items.Add(ValorIngresado);
+                            txtJugadoresVisitantes.Clear();
+                            txtJugadoresVisitantes.Focus();
+                        }
+                        else
+                        {
+                            const string message = "El jugador seleccionado ya fue cargado en la lista.";
+                            const string caption = "Atención";
+                            var result = MessageBox.Show(message, caption,
+                                                         MessageBoxButtons.OK,
+                                                       MessageBoxIcon.Exclamation);
+                            throw new Exception();
+                            txtJugadoresVisitantes.Clear();
+                            txtJugadoresVisitantes.Focus();
+                        }
+                    }
+                    else
+                    {
+
+                        const string message = "Ya se alcanzo la cantidad maxima de jugadores permitidos por partido.";
+                        const string caption = "Atención";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Exclamation);
+                    }
+                }
+                else
+                {
+                    string ValorIngresado = txtJugadoresVisitantes.Text;
+                    listVisitantes.Items.Add(ValorIngresado);
+                    txtJugadoresVisitantes.Clear();
+                    txtJugadoresVisitantes.Focus();
+                }
+
+            }
+            catch (Exception ex)
+            { }
+        }
+
+        private void btnQuitar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                listLocal.Items.RemoveAt(listLocal.SelectedIndex);
+            }
+            catch (Exception ex)
+            { }
+        }
+        private void btnQuitarVisitante_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                listVisitantes.Items.RemoveAt(listVisitantes.SelectedIndex);
+            }
+            catch (Exception ex)
+            { }
+        }
     }
 }

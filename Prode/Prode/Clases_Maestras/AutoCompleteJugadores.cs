@@ -23,14 +23,13 @@ namespace Prode.Clases_Maestras
             conexion.Close();
             return dt;
         }
-
         public static AutoCompleteStringCollection Autocomplete(int idEquipo)
         {
             DataTable DT = Datos(idEquipo);
             AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
             foreach (DataRow row in DT.Rows)
             {
-                coleccion.Add(Convert.ToString(row["idJugador"] + "," + row["Apellido"] + row["Nombre"]));
+                coleccion.Add(Convert.ToString(row["Apellido"] + " "+ row["Nombre"] + "," + row["idJugador"]));
             }
             return coleccion;
         }
