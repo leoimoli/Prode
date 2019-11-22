@@ -1119,6 +1119,18 @@ namespace Prode
             cmbPierna.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            JugadoresWF _jugadores = new JugadoresWF();
+            _jugadores.Show();
+            Hide();
+        }
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            JugadoresWF _jugadores = new JugadoresWF();
+            _jugadores.Show();
+            Hide();
+        }
     }
     #endregion
 }

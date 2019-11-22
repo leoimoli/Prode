@@ -187,7 +187,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.txtMinDFI = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.pictureDCI = new System.Windows.Forms.PictureBox();
+            this.pictureDFI = new System.Windows.Forms.PictureBox();
             this.grbLibero = new System.Windows.Forms.GroupBox();
             this.lblLIB = new System.Windows.Forms.Label();
             this.txtRojasLIB = new System.Windows.Forms.TextBox();
@@ -349,7 +349,7 @@
             this.grbLI.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLI)).BeginInit();
             this.grbDFI.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureDCI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureDFI)).BeginInit();
             this.grbLibero.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLIB)).BeginInit();
             this.grbDFD.SuspendLayout();
@@ -430,6 +430,7 @@
             this.cmbCD2.Size = new System.Drawing.Size(159, 21);
             this.cmbCD2.TabIndex = 103;
             this.cmbCD2.Visible = false;
+            this.cmbCD2.SelectedIndexChanged += new System.EventHandler(this.cmbCD2_SelectedIndexChanged);
             // 
             // cmbCD
             // 
@@ -439,6 +440,7 @@
             this.cmbCD.Size = new System.Drawing.Size(159, 21);
             this.cmbCD.TabIndex = 102;
             this.cmbCD.Visible = false;
+            this.cmbCD.SelectedIndexChanged += new System.EventHandler(this.cmbCD_SelectedIndexChanged);
             // 
             // cmbCD1
             // 
@@ -448,6 +450,7 @@
             this.cmbCD1.Size = new System.Drawing.Size(159, 21);
             this.cmbCD1.TabIndex = 101;
             this.cmbCD1.Visible = false;
+            this.cmbCD1.SelectedIndexChanged += new System.EventHandler(this.cmbCD1_SelectedIndexChanged);
             // 
             // cmbEI
             // 
@@ -457,6 +460,7 @@
             this.cmbEI.Size = new System.Drawing.Size(159, 21);
             this.cmbEI.TabIndex = 100;
             this.cmbEI.Visible = false;
+            this.cmbEI.SelectedIndexChanged += new System.EventHandler(this.cmbEI_SelectedIndexChanged);
             // 
             // cmbED
             // 
@@ -466,6 +470,7 @@
             this.cmbED.Size = new System.Drawing.Size(159, 21);
             this.cmbED.TabIndex = 99;
             this.cmbED.Visible = false;
+            this.cmbED.SelectedIndexChanged += new System.EventHandler(this.cmbED_SelectedIndexChanged);
             // 
             // cmbMP
             // 
@@ -475,6 +480,7 @@
             this.cmbMP.Size = new System.Drawing.Size(159, 21);
             this.cmbMP.TabIndex = 98;
             this.cmbMP.Visible = false;
+            this.cmbMP.SelectedIndexChanged += new System.EventHandler(this.cmbMP_SelectedIndexChanged);
             // 
             // cmbVI
             // 
@@ -484,6 +490,7 @@
             this.cmbVI.Size = new System.Drawing.Size(159, 21);
             this.cmbVI.TabIndex = 97;
             this.cmbVI.Visible = false;
+            this.cmbVI.SelectedIndexChanged += new System.EventHandler(this.cmbVI_SelectedIndexChanged);
             // 
             // cmbVII
             // 
@@ -493,6 +500,7 @@
             this.cmbVII.Size = new System.Drawing.Size(159, 21);
             this.cmbVII.TabIndex = 96;
             this.cmbVII.Visible = false;
+            this.cmbVII.SelectedIndexChanged += new System.EventHandler(this.cmbVII_SelectedIndexChanged);
             // 
             // cmbMC
             // 
@@ -502,6 +510,7 @@
             this.cmbMC.Size = new System.Drawing.Size(159, 21);
             this.cmbMC.TabIndex = 95;
             this.cmbMC.Visible = false;
+            this.cmbMC.SelectedIndexChanged += new System.EventHandler(this.cmbMC_SelectedIndexChanged);
             // 
             // cmbVID
             // 
@@ -511,6 +520,7 @@
             this.cmbVID.Size = new System.Drawing.Size(159, 21);
             this.cmbVID.TabIndex = 94;
             this.cmbVID.Visible = false;
+            this.cmbVID.SelectedIndexChanged += new System.EventHandler(this.cmbVID_SelectedIndexChanged);
             // 
             // cmbVD
             // 
@@ -520,6 +530,7 @@
             this.cmbVD.Size = new System.Drawing.Size(159, 21);
             this.cmbVD.TabIndex = 92;
             this.cmbVD.Visible = false;
+            this.cmbVD.SelectedIndexChanged += new System.EventHandler(this.cmbVD_SelectedIndexChanged);
             // 
             // cmbLI
             // 
@@ -529,6 +540,7 @@
             this.cmbLI.Size = new System.Drawing.Size(159, 21);
             this.cmbLI.TabIndex = 93;
             this.cmbLI.Visible = false;
+            this.cmbLI.SelectedIndexChanged += new System.EventHandler(this.cmbLI_SelectedIndexChanged);
             // 
             // cmbDFI
             // 
@@ -538,6 +550,7 @@
             this.cmbDFI.Size = new System.Drawing.Size(159, 21);
             this.cmbDFI.TabIndex = 92;
             this.cmbDFI.Visible = false;
+            this.cmbDFI.SelectedIndexChanged += new System.EventHandler(this.cmbDFI_SelectedIndexChanged);
             // 
             // cmbLIB
             // 
@@ -547,6 +560,7 @@
             this.cmbLIB.Size = new System.Drawing.Size(159, 21);
             this.cmbLIB.TabIndex = 91;
             this.cmbLIB.Visible = false;
+            this.cmbLIB.SelectedIndexChanged += new System.EventHandler(this.cmbLIB_SelectedIndexChanged);
             // 
             // cmbDFD
             // 
@@ -556,6 +570,7 @@
             this.cmbDFD.Size = new System.Drawing.Size(159, 21);
             this.cmbDFD.TabIndex = 90;
             this.cmbDFD.Visible = false;
+            this.cmbDFD.SelectedIndexChanged += new System.EventHandler(this.cmbDFD_SelectedIndexChanged);
             // 
             // cmbLD
             // 
@@ -565,6 +580,7 @@
             this.cmbLD.Size = new System.Drawing.Size(159, 21);
             this.cmbLD.TabIndex = 89;
             this.cmbLD.Visible = false;
+            this.cmbLD.SelectedIndexChanged += new System.EventHandler(this.cmbLD_SelectedIndexChanged);
             // 
             // grbCD2
             // 
@@ -1946,7 +1962,7 @@
             this.grbDFI.Controls.Add(this.label15);
             this.grbDFI.Controls.Add(this.txtMinDFI);
             this.grbDFI.Controls.Add(this.label16);
-            this.grbDFI.Controls.Add(this.pictureDCI);
+            this.grbDFI.Controls.Add(this.pictureDFI);
             this.grbDFI.Location = new System.Drawing.Point(571, 184);
             this.grbDFI.Name = "grbDFI";
             this.grbDFI.Size = new System.Drawing.Size(159, 158);
@@ -2037,16 +2053,16 @@
             this.label16.TabIndex = 60;
             this.label16.Text = "Minutos:";
             // 
-            // pictureDCI
+            // pictureDFI
             // 
-            this.pictureDCI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pictureDCI.Location = new System.Drawing.Point(44, 15);
-            this.pictureDCI.Name = "pictureDCI";
-            this.pictureDCI.Size = new System.Drawing.Size(72, 71);
-            this.pictureDCI.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureDCI.TabIndex = 59;
-            this.pictureDCI.TabStop = false;
-            this.pictureDCI.Visible = false;
+            this.pictureDFI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.pictureDFI.Location = new System.Drawing.Point(44, 15);
+            this.pictureDFI.Name = "pictureDFI";
+            this.pictureDFI.Size = new System.Drawing.Size(72, 71);
+            this.pictureDFI.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureDFI.TabIndex = 59;
+            this.pictureDFI.TabStop = false;
+            this.pictureDFI.Visible = false;
             // 
             // grbLibero
             // 
@@ -2289,11 +2305,12 @@
             // cmbArquero
             // 
             this.cmbArquero.FormattingEnabled = true;
-            this.cmbArquero.Location = new System.Drawing.Point(147, -4);
+            this.cmbArquero.Location = new System.Drawing.Point(147, -1);
             this.cmbArquero.Name = "cmbArquero";
             this.cmbArquero.Size = new System.Drawing.Size(159, 21);
             this.cmbArquero.TabIndex = 93;
             this.cmbArquero.Visible = false;
+            this.cmbArquero.SelectedIndexChanged += new System.EventHandler(this.cmbArquero_SelectedIndexChanged);
             // 
             // grbArquero
             // 
@@ -2308,7 +2325,7 @@
             this.grbArquero.Controls.Add(this.txtMinARQ);
             this.grbArquero.Controls.Add(this.label4);
             this.grbArquero.Controls.Add(this.pictureArquero);
-            this.grbArquero.Location = new System.Drawing.Point(147, 17);
+            this.grbArquero.Location = new System.Drawing.Point(147, 20);
             this.grbArquero.Name = "grbArquero";
             this.grbArquero.Size = new System.Drawing.Size(159, 158);
             this.grbArquero.TabIndex = 5;
@@ -2590,6 +2607,7 @@
             this.cmbSup6.Size = new System.Drawing.Size(159, 21);
             this.cmbSup6.TabIndex = 114;
             this.cmbSup6.Visible = false;
+            this.cmbSup6.SelectedIndexChanged += new System.EventHandler(this.cmbSup6_SelectedIndexChanged);
             // 
             // grbSup6
             // 
@@ -2713,6 +2731,7 @@
             this.cmbSup4.Size = new System.Drawing.Size(159, 21);
             this.cmbSup4.TabIndex = 112;
             this.cmbSup4.Visible = false;
+            this.cmbSup4.SelectedIndexChanged += new System.EventHandler(this.cmbSup4_SelectedIndexChanged);
             // 
             // cmbSup2
             // 
@@ -2722,6 +2741,7 @@
             this.cmbSup2.Size = new System.Drawing.Size(159, 21);
             this.cmbSup2.TabIndex = 111;
             this.cmbSup2.Visible = false;
+            this.cmbSup2.SelectedIndexChanged += new System.EventHandler(this.cmbSup2_SelectedIndexChanged);
             // 
             // grbSup4
             // 
@@ -2959,6 +2979,7 @@
             this.cmbSup7.Size = new System.Drawing.Size(159, 21);
             this.cmbSup7.TabIndex = 108;
             this.cmbSup7.Visible = false;
+            this.cmbSup7.SelectedIndexChanged += new System.EventHandler(this.cmbSup7_SelectedIndexChanged);
             // 
             // grbSup7
             // 
@@ -3082,6 +3103,7 @@
             this.cmbSup5.Size = new System.Drawing.Size(159, 21);
             this.cmbSup5.TabIndex = 106;
             this.cmbSup5.Visible = false;
+            this.cmbSup5.SelectedIndexChanged += new System.EventHandler(this.cmbSup5_SelectedIndexChanged);
             // 
             // cmbSup3
             // 
@@ -3091,6 +3113,7 @@
             this.cmbSup3.Size = new System.Drawing.Size(159, 21);
             this.cmbSup3.TabIndex = 105;
             this.cmbSup3.Visible = false;
+            this.cmbSup3.SelectedIndexChanged += new System.EventHandler(this.cmbSup3_SelectedIndexChanged);
             // 
             // cmbSup1
             // 
@@ -3100,6 +3123,7 @@
             this.cmbSup1.Size = new System.Drawing.Size(159, 21);
             this.cmbSup1.TabIndex = 104;
             this.cmbSup1.Visible = false;
+            this.cmbSup1.SelectedIndexChanged += new System.EventHandler(this.cmbSup1_SelectedIndexChanged);
             // 
             // grbSup5
             // 
@@ -3494,7 +3518,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureLI)).EndInit();
             this.grbDFI.ResumeLayout(false);
             this.grbDFI.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureDCI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureDFI)).EndInit();
             this.grbLibero.ResumeLayout(false);
             this.grbLibero.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLIB)).EndInit();
@@ -3669,7 +3693,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtMinDFI;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.PictureBox pictureDCI;
+        private System.Windows.Forms.PictureBox pictureDFI;
         private System.Windows.Forms.GroupBox grbLibero;
         private System.Windows.Forms.TextBox txtRojasLIB;
         private System.Windows.Forms.TextBox txtAmarillaLIB;

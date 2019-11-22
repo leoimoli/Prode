@@ -179,5 +179,18 @@ namespace Prode.Negocio
             lista = JugadoresDao.CargarComboPosiciones(puesto);
             return lista;
         }
+        public static byte[] BuscarImagenJugador(int idJugador)
+        {
+            byte[] Imagen = new Byte[10]; ;
+            try
+            {
+                Imagen = JugadoresDao.BuscarImagenJugador(idJugador);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return Imagen;
+        }
     }
 }

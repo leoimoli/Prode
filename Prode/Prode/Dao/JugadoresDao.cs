@@ -159,6 +159,39 @@ namespace Prode.Dao
             Exito = true;
             return Exito;
         }
+
+        public static byte[] BuscarImagenJugador(int idJugador)
+        {
+            byte[] Imagen = new Byte[10];
+            connection.Close();
+            connection.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                                     new MySqlParameter("idJugador_in", idJugador)};
+            string proceso = "BuscarImagenJugador";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+
+                    if (item[0].ToString() != string.Empty)
+                    {
+                        Imagen = (byte[])item["ImagenJugador"];
+                    }
+                    else
+                    {
+                        Imagen = null;
+                    }
+                }
+            }
+            return Imagen;
+        }
         public static bool EditarFichaTecnicaJugador(FichaTecnica _fichaJugadores)
         {
             bool Exito = false;

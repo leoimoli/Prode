@@ -84,26 +84,6 @@ namespace Prode
             }
             catch (Exception ex) { }
         }
-
-        #endregion
-        #region Funciones
-        private void HabilitarListasJugadores()
-        {
-            grbLocal.Visible = true;
-            grbVisitante.Visible = true;
-            int idEquipoLocal = Convert.ToInt32(lblIdLocal.Text);
-            txtJugadoresLocales.AutoCompleteCustomSource = Clases_Maestras.AutoCompleteJugadores.Autocomplete(idEquipoLocal);
-            txtJugadoresLocales.AutoCompleteMode = AutoCompleteMode.Suggest;
-            txtJugadoresLocales.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            txtJugadoresLocales.Focus();
-
-            int idEquipoVisitante = Convert.ToInt32(lblIdVistante.Text);
-            txtJugadoresVisitantes.AutoCompleteCustomSource = Clases_Maestras.AutoCompleteJugadores.Autocomplete(idEquipoVisitante);
-            txtJugadoresVisitantes.AutoCompleteMode = AutoCompleteMode.Suggest;
-            txtJugadoresVisitantes.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
-        }
-        #endregion
         public static List<string> ListaLocalesStatic;
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -163,37 +143,30 @@ namespace Prode
         {
             try
             {
-                List<string> lista = new List<string>();
-                foreach (var item in listLocal.Items)
+                const string message = "Desea confirmar la Alineación seleccionada?";
+                const string caption = "Confirmar alineación";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.YesNo,
+                                             MessageBoxIcon.Question);
                 {
-                    var valor = item.ToString();
-                    string var = valor;
-                    string Apellido = var.Split(' ')[0];
-                    string var2 = var.Split(' ')[1];
-                    string Nombre = var2.Split(',')[0];
-                    string Id = var2.Split(',')[1];
-                    lista.Add(Id + "," + Apellido + " " + Nombre);
-                }
-                if (lista.Count > 0)
-                {
-                    List<AlineacionEquipo> listAlineacion = new List<AlineacionEquipo>();
-                    AlineacionEquipo _alineacion = new AlineacionEquipo();
-                    foreach (var item in lista)
+                    if (result == DialogResult.Yes)
                     {
-                        var valor = item.ToString();
-                        string var = valor;
-                        string Id = var.Split(',')[0];
-                        string var2 = var.Split(',')[1];
-                        string Apellido = var2.Split(' ')[0];
-                        string Nombre = var2.Split(' ')[1];
-                        _alineacion.idJugador = Convert.ToInt32(Id);
-                        _alineacion.Apellido = Apellido;
-                        _alineacion.Nombre = Nombre;
-                        listAlineacion.Add(_alineacion);
-                    }
-                    for (int i = 0; i < lista.Count; i++)
-                    {
-                      
+                        List<string> lista = new List<string>();
+                        foreach (var item in listLocal.Items)
+                        {
+                            var valor = item.ToString();
+                            string var = valor;
+                            string Apellido = var.Split(' ')[0];
+                            string var2 = var.Split(' ')[1];
+                            string Nombre = var2.Split(',')[0];
+                            string Id = var2.Split(',')[1];
+                            lista.Add(Id + "," + Apellido + " " + Nombre);
+                        }
+                        if (lista.Count > 0)
+                        {
+                            DisposicionTacticaWF _disposicion = new DisposicionTacticaWF(lista);
+                            _disposicion.Show();
+                        }
                     }
                 }
             }
@@ -272,5 +245,25 @@ namespace Prode
             catch (Exception ex)
             { }
         }
+        #endregion
+        #region Funciones
+        private void HabilitarListasJugadores()
+        {
+            grbLocal.Visible = true;
+            grbVisitante.Visible = true;
+            int idEquipoLocal = Convert.ToInt32(lblIdLocal.Text);
+            txtJugadoresLocales.AutoCompleteCustomSource = Clases_Maestras.AutoCompleteJugadores.Autocomplete(idEquipoLocal);
+            txtJugadoresLocales.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtJugadoresLocales.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtJugadoresLocales.Focus();
+
+            int idEquipoVisitante = Convert.ToInt32(lblIdVistante.Text);
+            txtJugadoresVisitantes.AutoCompleteCustomSource = Clases_Maestras.AutoCompleteJugadores.Autocomplete(idEquipoVisitante);
+            txtJugadoresVisitantes.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtJugadoresVisitantes.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+        }
+        #endregion
+      
     }
 }
