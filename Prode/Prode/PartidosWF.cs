@@ -24,8 +24,15 @@ namespace Prode
 
         private void btnNuevoPartido_Click(object sender, EventArgs e)
         {
-            PartidosWF _NuevoPartido = new PartidosWF();
+            NuevoPartidoWF _NuevoPartido = new NuevoPartidoWF();
             _NuevoPartido.Show();
+            Hide();
+        }
+
+        private void btnEditarAlineacion_Click(object sender, EventArgs e)
+        {
+            AlineacionEquipoWF _alineacion = new AlineacionEquipoWF();
+            _alineacion.Show();
             Hide();
         }
     }

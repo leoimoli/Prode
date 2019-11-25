@@ -94,10 +94,10 @@
             // lblEstadioEdit
             // 
             this.lblEstadioEdit.AutoSize = true;
-            this.lblEstadioEdit.Font = new System.Drawing.Font("Microsoft Tai Le", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstadioEdit.Location = new System.Drawing.Point(278, 95);
+            this.lblEstadioEdit.Font = new System.Drawing.Font("Microsoft Tai Le", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstadioEdit.Location = new System.Drawing.Point(261, 97);
             this.lblEstadioEdit.Name = "lblEstadioEdit";
-            this.lblEstadioEdit.Size = new System.Drawing.Size(68, 23);
+            this.lblEstadioEdit.Size = new System.Drawing.Size(58, 19);
             this.lblEstadioEdit.TabIndex = 143;
             this.lblEstadioEdit.Text = "Estadio";
             // 
@@ -105,7 +105,7 @@
             // 
             this.lblEstadio.AutoSize = true;
             this.lblEstadio.Font = new System.Drawing.Font("Microsoft Tai Le", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstadio.Location = new System.Drawing.Point(200, 93);
+            this.lblEstadio.Location = new System.Drawing.Point(185, 93);
             this.lblEstadio.Name = "lblEstadio";
             this.lblEstadio.Size = new System.Drawing.Size(80, 25);
             this.lblEstadio.TabIndex = 142;
@@ -192,7 +192,7 @@
             // 
             this.lblDiaEdit.AutoSize = true;
             this.lblDiaEdit.Font = new System.Drawing.Font("Microsoft Tai Le", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiaEdit.Location = new System.Drawing.Point(279, 123);
+            this.lblDiaEdit.Location = new System.Drawing.Point(264, 123);
             this.lblDiaEdit.Name = "lblDiaEdit";
             this.lblDiaEdit.Size = new System.Drawing.Size(55, 23);
             this.lblDiaEdit.TabIndex = 149;
@@ -202,7 +202,7 @@
             // 
             this.lblDia.AutoSize = true;
             this.lblDia.Font = new System.Drawing.Font("Microsoft Tai Le", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDia.Location = new System.Drawing.Point(235, 121);
+            this.lblDia.Location = new System.Drawing.Point(220, 121);
             this.lblDia.Name = "lblDia";
             this.lblDia.Size = new System.Drawing.Size(45, 25);
             this.lblDia.TabIndex = 148;

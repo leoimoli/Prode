@@ -63,6 +63,7 @@
             this.btnEditarAlineacion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditarAlineacion.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnEditarAlineacion.UseVisualStyleBackColor = true;
+            this.btnEditarAlineacion.Click += new System.EventHandler(this.btnEditarAlineacion_Click);
             // 
             // btnEditar
             // 

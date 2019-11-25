@@ -35,5 +35,12 @@ namespace Prode
             _jugadores.Show();
             Hide();
         }
+
+        private void btnPartido_Click(object sender, EventArgs e)
+        {
+            PartidosWF _partido = new PartidosWF();
+            _partido.Show();
+            Hide();
+        }
     }
 }

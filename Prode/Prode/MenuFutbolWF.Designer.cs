@@ -120,6 +120,7 @@
             this.btnPartido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPartido.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnPartido.UseVisualStyleBackColor = true;
+            this.btnPartido.Click += new System.EventHandler(this.btnPartido_Click);
             // 
             // MenuFutbolWF
             // 

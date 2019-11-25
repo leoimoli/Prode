@@ -21,7 +21,6 @@ namespace Prode
             this.listAlineacion = listAlineacion;
             listaRecibida = listAlineacion;
         }
-
         private void DisposicionTacticaWF_Load(object sender, EventArgs e)
         {
             try
@@ -239,6 +238,37 @@ namespace Prode
         #region Botones
         #endregion
         #region Funciones
+        private void ValidarJugadorYaExistente(string Jugador)
+        {
+            List<int> lista = new List<int>();
+            if (idListaJugadoresCargado != null)
+            { lista = idListaJugadoresCargado; }
+            var valor = Jugador;
+            string var = valor;
+            string Id = var.Split(',')[0];
+            string var2 = var.Split(',')[1];
+            string Apellido = var2.Split(' ')[0];
+            string Nombre = var2.Split(' ')[1];
+            int idJugador = Convert.ToInt32(Id);
+            lista.Add(idJugador);
+            //lista = idListaJugadoresCargado;
+            if (idListaJugadoresCargado != null)
+            {
+                foreach (var item in idListaJugadoresCargado)
+                {
+                    if (item == idJugador)
+                    {
+                        const string message = "El Jugador seleccionado ya fue asignado en otra posición.";
+                        const string caption = "Atención";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Exclamation);
+                        throw new Exception();
+                    }
+                }
+            }
+            idListaJugadoresCargado = lista;
+        }
         private void CargarComboSistema()
         {
             string[] Pierna = Clase_Maestra.ValoresConstantes.DisposicionTactica;
@@ -304,6 +334,13 @@ namespace Prode
         }
         private void HabilitarSuplentes()
         {
+            cmbSup1.Visible = true;
+            cmbSup2.Visible = true;
+            cmbSup3.Visible = true;
+            cmbSup4.Visible = true;
+            cmbSup5.Visible = true;
+            cmbSup6.Visible = true;
+            cmbSup7.Visible = true;
             grbSup1.Visible = true;
             grbSup2.Visible = true;
             grbSup3.Visible = true;
@@ -333,6 +370,7 @@ namespace Prode
             try
             {
                 string Jugador = cmbArquero.Text;
+                ValidarJugadorYaExistente(Jugador);
                 var valor = Jugador;
                 string var = valor;
                 string Id = var.Split(',')[0];
@@ -340,51 +378,19 @@ namespace Prode
                 string Apellido = var2.Split(' ')[0];
                 string Nombre = var2.Split(' ')[1];
                 int idJugador = Convert.ToInt32(Id);
-                if (idListaJugadoresCargado != null)
+                grbArquero.Text = Apellido + " " + Nombre;
+                pictureArquero.Visible = true;
+                lblARQ.Text = Id;
+                byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
+                if (ImagenJugador != null)
                 {
-                    foreach (var item in idListaJugadoresCargado)
-                    {
-                        if (item == idJugador)
-                        {
-                            const string message = "El Jugador seleccionado ya fue asignado en otra posición.";
-                            const string caption = "Atención";
-                            var result = MessageBox.Show(message, caption,
-                                                         MessageBoxButtons.OK,
-                                                       MessageBoxIcon.Exclamation);
-                            throw new Exception();
-                        }
-                    }
-                    grbArquero.Text = Apellido + " " + Nombre;
-                    pictureArquero.Visible = true;
-                    lblARQ.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        pictureArquero.Image = foto1;
-                    }
-                    else
-                    {
-                        pictureArquero.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
+                    pictureArquero.Image = foto1;
                 }
                 else
                 {
-                    grbArquero.Text = Apellido + " " + Nombre;
-                    pictureArquero.Visible = true;
-                    lblARQ.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        pictureArquero.Image = foto1;
-                    }
-                    else
-                    {
-                        pictureArquero.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureArquero.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
                 }
-                idListaJugadoresCargado.Add(idJugador);
             }
             catch (Exception ex)
             { }
@@ -395,6 +401,7 @@ namespace Prode
             {
                 /////Aca Cambiar
                 string Jugador = cmbLD.Text;
+                ValidarJugadorYaExistente(Jugador);
                 var valor = Jugador;
                 string var = valor;
                 string Id = var.Split(',')[0];
@@ -402,59 +409,19 @@ namespace Prode
                 string Apellido = var2.Split(' ')[0];
                 string Nombre = var2.Split(' ')[1];
                 int idJugador = Convert.ToInt32(Id);
-                if (idListaJugadoresCargado != null)
+                grbLD.Text = Apellido + " " + Nombre;
+                pictureLD.Visible = true;
+                lblLD.Text = Id;
+                byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
+                if (ImagenJugador != null)
                 {
-                    foreach (var item in idListaJugadoresCargado)
-                    {
-                        if (item == idJugador)
-                        {
-                            const string message = "El Jugador seleccionado ya fue asignado en otra posición.";
-                            const string caption = "Atención";
-                            var result = MessageBox.Show(message, caption,
-                                                         MessageBoxButtons.OK,
-                                                       MessageBoxIcon.Exclamation);
-                            throw new Exception();
-                        }
-                    }
-                    /////Aca Cambiar
-                    grbLD.Text = Apellido + " " + Nombre;
-                    pictureLD.Visible = true;
-                    /////Aca Cambiar
-                    lblLD.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureLD.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureLD.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
+                    pictureLD.Image = foto1;
                 }
                 else
                 {
-                    /////Aca Cambiar
-                    grbLD.Text = Apellido + " " + Nombre;
-                    pictureLD.Visible = true;
-                    /////Aca Cambiar
-                    lblLD.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureLD.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureLD.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureLD.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
                 }
-                idListaJugadoresCargado.Add(idJugador);
             }
             catch (Exception ex)
             { }
@@ -463,8 +430,8 @@ namespace Prode
         {
             try
             {
-                /////Aca Cambiar
                 string Jugador = cmbDFD.Text;
+                ValidarJugadorYaExistente(Jugador);
                 var valor = Jugador;
                 string var = valor;
                 string Id = var.Split(',')[0];
@@ -472,59 +439,22 @@ namespace Prode
                 string Apellido = var2.Split(' ')[0];
                 string Nombre = var2.Split(' ')[1];
                 int idJugador = Convert.ToInt32(Id);
-                if (idListaJugadoresCargado != null)
+                grbDFD.Text = Apellido + " " + Nombre;
+                pictureDFD.Visible = true;
+                /////Aca Cambiar
+                lblDFD.Text = Id;
+                byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
+                if (ImagenJugador != null)
                 {
-                    foreach (var item in idListaJugadoresCargado)
-                    {
-                        if (item == idJugador)
-                        {
-                            const string message = "El Jugador seleccionado ya fue asignado en otra posición.";
-                            const string caption = "Atención";
-                            var result = MessageBox.Show(message, caption,
-                                                         MessageBoxButtons.OK,
-                                                       MessageBoxIcon.Exclamation);
-                            throw new Exception();
-                        }
-                    }
+                    Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
                     /////Aca Cambiar
-                    grbDFD.Text = Apellido + " " + Nombre;
-                    pictureDFD.Visible = true;
-                    /////Aca Cambiar
-                    lblDFD.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureDFD.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureDFD.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureDFD.Image = foto1;
                 }
                 else
                 {
                     /////Aca Cambiar
-                    grbDFD.Text = Apellido + " " + Nombre;
-                    pictureDFD.Visible = true;
-                    /////Aca Cambiar
-                    lblDFD.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureDFD.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureDFD.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureDFD.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
                 }
-                idListaJugadoresCargado.Add(idJugador);
             }
             catch (Exception ex)
             { }
@@ -533,8 +463,8 @@ namespace Prode
         {
             try
             {
-                /////Aca Cambiar
                 string Jugador = cmbLIB.Text;
+                ValidarJugadorYaExistente(Jugador);
                 var valor = Jugador;
                 string var = valor;
                 string Id = var.Split(',')[0];
@@ -542,59 +472,22 @@ namespace Prode
                 string Apellido = var2.Split(' ')[0];
                 string Nombre = var2.Split(' ')[1];
                 int idJugador = Convert.ToInt32(Id);
-                if (idListaJugadoresCargado != null)
+                grbLibero.Text = Apellido + " " + Nombre;
+                pictureLIB.Visible = true;
+                /////Aca Cambiar
+                lblLIB.Text = Id;
+                byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
+                if (ImagenJugador != null)
                 {
-                    foreach (var item in idListaJugadoresCargado)
-                    {
-                        if (item == idJugador)
-                        {
-                            const string message = "El Jugador seleccionado ya fue asignado en otra posición.";
-                            const string caption = "Atención";
-                            var result = MessageBox.Show(message, caption,
-                                                         MessageBoxButtons.OK,
-                                                       MessageBoxIcon.Exclamation);
-                            throw new Exception();
-                        }
-                    }
+                    Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
                     /////Aca Cambiar
-                    grbLibero.Text = Apellido + " " + Nombre;
-                    pictureLIB.Visible = true;
-                    /////Aca Cambiar
-                    lblLIB.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureLIB.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureLIB.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureLIB.Image = foto1;
                 }
                 else
                 {
                     /////Aca Cambiar
-                    grbLibero.Text = Apellido + " " + Nombre;
-                    pictureLIB.Visible = true;
-                    /////Aca Cambiar
-                    lblLIB.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureLIB.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureLIB.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureLIB.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
                 }
-                idListaJugadoresCargado.Add(idJugador);
             }
             catch (Exception ex)
             { }
@@ -603,8 +496,10 @@ namespace Prode
         {
             try
             {
+                List<int> lista = new List<int>();
                 /////Aca Cambiar
                 string Jugador = cmbDFI.Text;
+                ValidarJugadorYaExistente(Jugador);
                 var valor = Jugador;
                 string var = valor;
                 string Id = var.Split(',')[0];
@@ -612,59 +507,22 @@ namespace Prode
                 string Apellido = var2.Split(' ')[0];
                 string Nombre = var2.Split(' ')[1];
                 int idJugador = Convert.ToInt32(Id);
-                if (idListaJugadoresCargado != null)
+                grbDFI.Text = Apellido + " " + Nombre;
+                pictureDFI.Visible = true;
+                /////Aca Cambiar
+                lblDFI.Text = Id;
+                byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
+                if (ImagenJugador != null)
                 {
-                    foreach (var item in idListaJugadoresCargado)
-                    {
-                        if (item == idJugador)
-                        {
-                            const string message = "El Jugador seleccionado ya fue asignado en otra posición.";
-                            const string caption = "Atención";
-                            var result = MessageBox.Show(message, caption,
-                                                         MessageBoxButtons.OK,
-                                                       MessageBoxIcon.Exclamation);
-                            throw new Exception();
-                        }
-                    }
+                    Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
                     /////Aca Cambiar
-                    grbDFI.Text = Apellido + " " + Nombre;
-                    pictureDFI.Visible = true;
-                    /////Aca Cambiar
-                    lblDFI.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureDFI.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureDFI.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureDFI.Image = foto1;
                 }
                 else
                 {
                     /////Aca Cambiar
-                    grbDFI.Text = Apellido + " " + Nombre;
-                    pictureDFI.Visible = true;
-                    /////Aca Cambiar
-                    lblDFI.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureDFI.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureDFI.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureDFI.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
                 }
-                idListaJugadoresCargado.Add(idJugador);
             }
             catch (Exception ex)
             { }
@@ -673,8 +531,10 @@ namespace Prode
         {
             try
             {
+                List<int> lista = new List<int>();
                 /////Aca Cambiar
                 string Jugador = cmbLI.Text;
+                ValidarJugadorYaExistente(Jugador);
                 var valor = Jugador;
                 string var = valor;
                 string Id = var.Split(',')[0];
@@ -682,70 +542,34 @@ namespace Prode
                 string Apellido = var2.Split(' ')[0];
                 string Nombre = var2.Split(' ')[1];
                 int idJugador = Convert.ToInt32(Id);
-                if (idListaJugadoresCargado != null)
+                grbLI.Text = Apellido + " " + Nombre;
+                pictureLI.Visible = true;
+                /////Aca Cambiar
+                lblLI.Text = Id;
+                byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
+                if (ImagenJugador != null)
                 {
-                    foreach (var item in idListaJugadoresCargado)
-                    {
-                        if (item == idJugador)
-                        {
-                            const string message = "El Jugador seleccionado ya fue asignado en otra posición.";
-                            const string caption = "Atención";
-                            var result = MessageBox.Show(message, caption,
-                                                         MessageBoxButtons.OK,
-                                                       MessageBoxIcon.Exclamation);
-                            throw new Exception();
-                        }
-                    }
+                    Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
                     /////Aca Cambiar
-                    grbLI.Text = Apellido + " " + Nombre;
-                    pictureLI.Visible = true;
-                    /////Aca Cambiar
-                    lblLI.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureLI.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureLI.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureLI.Image = foto1;
                 }
                 else
                 {
                     /////Aca Cambiar
-                    grbLI.Text = Apellido + " " + Nombre;
-                    pictureLI.Visible = true;
-                    /////Aca Cambiar
-                    lblLI.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureLI.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureLI.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureLI.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
                 }
-                idListaJugadoresCargado.Add(idJugador);
             }
             catch (Exception ex)
             { }
         }
-        #endregion
         private void cmbVD_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
+                List<int> lista = new List<int>();
                 /////Aca Cambiar
                 string Jugador = cmbVD.Text;
+                ValidarJugadorYaExistente(Jugador);
                 var valor = Jugador;
                 string var = valor;
                 string Id = var.Split(',')[0];
@@ -753,70 +577,33 @@ namespace Prode
                 string Apellido = var2.Split(' ')[0];
                 string Nombre = var2.Split(' ')[1];
                 int idJugador = Convert.ToInt32(Id);
-                if (idListaJugadoresCargado != null)
+                grbVD.Text = Apellido + " " + Nombre;
+                pictureVD.Visible = true;
+                /////Aca Cambiar
+                lblVD.Text = Id;
+                byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
+                if (ImagenJugador != null)
                 {
-                    foreach (var item in idListaJugadoresCargado)
-                    {
-                        if (item == idJugador)
-                        {
-                            const string message = "El Jugador seleccionado ya fue asignado en otra posición.";
-                            const string caption = "Atención";
-                            var result = MessageBox.Show(message, caption,
-                                                         MessageBoxButtons.OK,
-                                                       MessageBoxIcon.Exclamation);
-                            throw new Exception();
-                        }
-                    }
+                    Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
                     /////Aca Cambiar
-                    grbVD.Text = Apellido + " " + Nombre;
-                    pictureVD.Visible = true;
-                    /////Aca Cambiar
-                    lblVD.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureVD.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureVD.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureVD.Image = foto1;
                 }
                 else
                 {
                     /////Aca Cambiar
-                    grbVD.Text = Apellido + " " + Nombre;
-                    pictureVD.Visible = true;
-                    /////Aca Cambiar
-                    lblVD.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureVD.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureVD.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureVD.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
                 }
-                idListaJugadoresCargado.Add(idJugador);
             }
             catch (Exception ex)
             { }
         }
-
         private void cmbVID_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 /////Aca Cambiar
                 string Jugador = cmbVID.Text;
+                ValidarJugadorYaExistente(Jugador);
                 var valor = Jugador;
                 string var = valor;
                 string Id = var.Split(',')[0];
@@ -824,70 +611,34 @@ namespace Prode
                 string Apellido = var2.Split(' ')[0];
                 string Nombre = var2.Split(' ')[1];
                 int idJugador = Convert.ToInt32(Id);
-                if (idListaJugadoresCargado != null)
+                /////Aca Cambiar
+                grbVID.Text = Apellido + " " + Nombre;
+                pictureVID.Visible = true;
+                /////Aca Cambiar
+                lblVID.Text = Id;
+                byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
+                if (ImagenJugador != null)
                 {
-                    foreach (var item in idListaJugadoresCargado)
-                    {
-                        if (item == idJugador)
-                        {
-                            const string message = "El Jugador seleccionado ya fue asignado en otra posición.";
-                            const string caption = "Atención";
-                            var result = MessageBox.Show(message, caption,
-                                                         MessageBoxButtons.OK,
-                                                       MessageBoxIcon.Exclamation);
-                            throw new Exception();
-                        }
-                    }
+                    Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
                     /////Aca Cambiar
-                    grbVID.Text = Apellido + " " + Nombre;
-                    pictureVID.Visible = true;
-                    /////Aca Cambiar
-                    lblVID.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureVID.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureVID.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureVID.Image = foto1;
                 }
                 else
                 {
                     /////Aca Cambiar
-                    grbVID.Text = Apellido + " " + Nombre;
-                    pictureVID.Visible = true;
-                    /////Aca Cambiar
-                    lblVID.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureVID.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureVID.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureVID.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
                 }
-                idListaJugadoresCargado.Add(idJugador);
             }
             catch (Exception ex)
             { }
         }
-
         private void cmbMC_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 /////Aca Cambiar
                 string Jugador = cmbMC.Text;
+                ValidarJugadorYaExistente(Jugador);
                 var valor = Jugador;
                 string var = valor;
                 string Id = var.Split(',')[0];
@@ -895,70 +646,33 @@ namespace Prode
                 string Apellido = var2.Split(' ')[0];
                 string Nombre = var2.Split(' ')[1];
                 int idJugador = Convert.ToInt32(Id);
-                if (idListaJugadoresCargado != null)
+                grbMC.Text = Apellido + " " + Nombre;
+                pictureMC.Visible = true;
+                /////Aca Cambiar
+                lblMC.Text = Id;
+                byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
+                if (ImagenJugador != null)
                 {
-                    foreach (var item in idListaJugadoresCargado)
-                    {
-                        if (item == idJugador)
-                        {
-                            const string message = "El Jugador seleccionado ya fue asignado en otra posición.";
-                            const string caption = "Atención";
-                            var result = MessageBox.Show(message, caption,
-                                                         MessageBoxButtons.OK,
-                                                       MessageBoxIcon.Exclamation);
-                            throw new Exception();
-                        }
-                    }
+                    Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
                     /////Aca Cambiar
-                    grbMC.Text = Apellido + " " + Nombre;
-                    pictureMC.Visible = true;
-                    /////Aca Cambiar
-                    lblMC.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureMC.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureMC.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureMC.Image = foto1;
                 }
                 else
                 {
                     /////Aca Cambiar
-                    grbMC.Text = Apellido + " " + Nombre;
-                    pictureMC.Visible = true;
-                    /////Aca Cambiar
-                    lblMC.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureMC.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureMC.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureMC.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
                 }
-                idListaJugadoresCargado.Add(idJugador);
             }
             catch (Exception ex)
             { }
         }
-
         private void cmbVII_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 /////Aca Cambiar
                 string Jugador = cmbVII.Text;
+                ValidarJugadorYaExistente(Jugador);
                 var valor = Jugador;
                 string var = valor;
                 string Id = var.Split(',')[0];
@@ -966,70 +680,33 @@ namespace Prode
                 string Apellido = var2.Split(' ')[0];
                 string Nombre = var2.Split(' ')[1];
                 int idJugador = Convert.ToInt32(Id);
-                if (idListaJugadoresCargado != null)
+                grbVII.Text = Apellido + " " + Nombre;
+                pictureVII.Visible = true;
+                /////Aca Cambiar
+                lblVII.Text = Id;
+                byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
+                if (ImagenJugador != null)
                 {
-                    foreach (var item in idListaJugadoresCargado)
-                    {
-                        if (item == idJugador)
-                        {
-                            const string message = "El Jugador seleccionado ya fue asignado en otra posición.";
-                            const string caption = "Atención";
-                            var result = MessageBox.Show(message, caption,
-                                                         MessageBoxButtons.OK,
-                                                       MessageBoxIcon.Exclamation);
-                            throw new Exception();
-                        }
-                    }
+                    Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
                     /////Aca Cambiar
-                    grbVII.Text = Apellido + " " + Nombre;
-                    pictureVII.Visible = true;
-                    /////Aca Cambiar
-                    lblVII.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureVII.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureVII.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureVII.Image = foto1;
                 }
                 else
                 {
                     /////Aca Cambiar
-                    grbVII.Text = Apellido + " " + Nombre;
-                    pictureVII.Visible = true;
-                    /////Aca Cambiar
-                    lblVII.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureVII.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureVII.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureVII.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
                 }
-                idListaJugadoresCargado.Add(idJugador);
             }
             catch (Exception ex)
             { }
         }
-
         private void cmbVI_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 /////Aca Cambiar
                 string Jugador = cmbVI.Text;
+                ValidarJugadorYaExistente(Jugador);
                 var valor = Jugador;
                 string var = valor;
                 string Id = var.Split(',')[0];
@@ -1037,70 +714,33 @@ namespace Prode
                 string Apellido = var2.Split(' ')[0];
                 string Nombre = var2.Split(' ')[1];
                 int idJugador = Convert.ToInt32(Id);
-                if (idListaJugadoresCargado != null)
+                grbVI.Text = Apellido + " " + Nombre;
+                pictureVI.Visible = true;
+                /////Aca Cambiar
+                lblVI.Text = Id;
+                byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
+                if (ImagenJugador != null)
                 {
-                    foreach (var item in idListaJugadoresCargado)
-                    {
-                        if (item == idJugador)
-                        {
-                            const string message = "El Jugador seleccionado ya fue asignado en otra posición.";
-                            const string caption = "Atención";
-                            var result = MessageBox.Show(message, caption,
-                                                         MessageBoxButtons.OK,
-                                                       MessageBoxIcon.Exclamation);
-                            throw new Exception();
-                        }
-                    }
+                    Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
                     /////Aca Cambiar
-                    grbVI.Text = Apellido + " " + Nombre;
-                    pictureVI.Visible = true;
-                    /////Aca Cambiar
-                    lblVI.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureVI.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureVI.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureVI.Image = foto1;
                 }
                 else
                 {
                     /////Aca Cambiar
-                    grbVI.Text = Apellido + " " + Nombre;
-                    pictureVI.Visible = true;
-                    /////Aca Cambiar
-                    lblVI.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureVI.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureVI.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureVI.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
                 }
-                idListaJugadoresCargado.Add(idJugador);
             }
             catch (Exception ex)
             { }
         }
-
         private void cmbMP_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 /////Aca Cambiar
                 string Jugador = cmbMP.Text;
+                ValidarJugadorYaExistente(Jugador);
                 var valor = Jugador;
                 string var = valor;
                 string Id = var.Split(',')[0];
@@ -1108,70 +748,33 @@ namespace Prode
                 string Apellido = var2.Split(' ')[0];
                 string Nombre = var2.Split(' ')[1];
                 int idJugador = Convert.ToInt32(Id);
-                if (idListaJugadoresCargado != null)
+                grbMP.Text = Apellido + " " + Nombre;
+                pictureMP.Visible = true;
+                /////Aca Cambiar
+                lblMP.Text = Id;
+                byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
+                if (ImagenJugador != null)
                 {
-                    foreach (var item in idListaJugadoresCargado)
-                    {
-                        if (item == idJugador)
-                        {
-                            const string message = "El Jugador seleccionado ya fue asignado en otra posición.";
-                            const string caption = "Atención";
-                            var result = MessageBox.Show(message, caption,
-                                                         MessageBoxButtons.OK,
-                                                       MessageBoxIcon.Exclamation);
-                            throw new Exception();
-                        }
-                    }
+                    Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
                     /////Aca Cambiar
-                    grbMP.Text = Apellido + " " + Nombre;
-                    pictureMP.Visible = true;
-                    /////Aca Cambiar
-                    lblMP.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureMP.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureMP.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureMP.Image = foto1;
                 }
                 else
                 {
                     /////Aca Cambiar
-                    grbMP.Text = Apellido + " " + Nombre;
-                    pictureMP.Visible = true;
-                    /////Aca Cambiar
-                    lblMP.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureMP.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureMP.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureMP.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
                 }
-                idListaJugadoresCargado.Add(idJugador);
             }
             catch (Exception ex)
             { }
         }
-
         private void cmbED_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 /////Aca Cambiar
                 string Jugador = cmbED.Text;
+                ValidarJugadorYaExistente(Jugador);
                 var valor = Jugador;
                 string var = valor;
                 string Id = var.Split(',')[0];
@@ -1179,70 +782,34 @@ namespace Prode
                 string Apellido = var2.Split(' ')[0];
                 string Nombre = var2.Split(' ')[1];
                 int idJugador = Convert.ToInt32(Id);
-                if (idListaJugadoresCargado != null)
+                grbED.Text = Apellido + " " + Nombre;
+                pictureED.Visible = true;
+                /////Aca Cambiar
+                lblED.Text = Id;
+                byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
+                if (ImagenJugador != null)
                 {
-                    foreach (var item in idListaJugadoresCargado)
-                    {
-                        if (item == idJugador)
-                        {
-                            const string message = "El Jugador seleccionado ya fue asignado en otra posición.";
-                            const string caption = "Atención";
-                            var result = MessageBox.Show(message, caption,
-                                                         MessageBoxButtons.OK,
-                                                       MessageBoxIcon.Exclamation);
-                            throw new Exception();
-                        }
-                    }
+                    Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
                     /////Aca Cambiar
-                    grbED.Text = Apellido + " " + Nombre;
-                    pictureED.Visible = true;
-                    /////Aca Cambiar
-                    lblED.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureED.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureED.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureED.Image = foto1;
                 }
                 else
                 {
                     /////Aca Cambiar
-                    grbED.Text = Apellido + " " + Nombre;
-                    pictureED.Visible = true;
-                    /////Aca Cambiar
-                    lblED.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureED.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureED.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureED.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
                 }
-                idListaJugadoresCargado.Add(idJugador);
+
             }
             catch (Exception ex)
             { }
         }
-
         private void cmbCD1_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 /////Aca Cambiar
                 string Jugador = cmbCD1.Text;
+                ValidarJugadorYaExistente(Jugador);
                 var valor = Jugador;
                 string var = valor;
                 string Id = var.Split(',')[0];
@@ -1250,70 +817,33 @@ namespace Prode
                 string Apellido = var2.Split(' ')[0];
                 string Nombre = var2.Split(' ')[1];
                 int idJugador = Convert.ToInt32(Id);
-                if (idListaJugadoresCargado != null)
+                grbCD1.Text = Apellido + " " + Nombre;
+                pictureCD1.Visible = true;
+                /////Aca Cambiar
+                lblCD1.Text = Id;
+                byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
+                if (ImagenJugador != null)
                 {
-                    foreach (var item in idListaJugadoresCargado)
-                    {
-                        if (item == idJugador)
-                        {
-                            const string message = "El Jugador seleccionado ya fue asignado en otra posición.";
-                            const string caption = "Atención";
-                            var result = MessageBox.Show(message, caption,
-                                                         MessageBoxButtons.OK,
-                                                       MessageBoxIcon.Exclamation);
-                            throw new Exception();
-                        }
-                    }
+                    Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
                     /////Aca Cambiar
-                    grbCD1.Text = Apellido + " " + Nombre;
-                    pictureCD1.Visible = true;
-                    /////Aca Cambiar
-                    lblCD1.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureCD1.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureCD1.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureCD1.Image = foto1;
                 }
                 else
                 {
                     /////Aca Cambiar
-                    grbCD1.Text = Apellido + " " + Nombre;
-                    pictureCD1.Visible = true;
-                    /////Aca Cambiar
-                    lblCD1.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureCD1.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureCD1.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureCD1.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
                 }
-                idListaJugadoresCargado.Add(idJugador);
             }
             catch (Exception ex)
             { }
         }
-
         private void cmbCD_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 /////Aca Cambiar
                 string Jugador = cmbCD.Text;
+                ValidarJugadorYaExistente(Jugador);
                 var valor = Jugador;
                 string var = valor;
                 string Id = var.Split(',')[0];
@@ -1321,70 +851,33 @@ namespace Prode
                 string Apellido = var2.Split(' ')[0];
                 string Nombre = var2.Split(' ')[1];
                 int idJugador = Convert.ToInt32(Id);
-                if (idListaJugadoresCargado != null)
+                grbCD.Text = Apellido + " " + Nombre;
+                pictureCD.Visible = true;
+                /////Aca Cambiar
+                lblCD.Text = Id;
+                byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
+                if (ImagenJugador != null)
                 {
-                    foreach (var item in idListaJugadoresCargado)
-                    {
-                        if (item == idJugador)
-                        {
-                            const string message = "El Jugador seleccionado ya fue asignado en otra posición.";
-                            const string caption = "Atención";
-                            var result = MessageBox.Show(message, caption,
-                                                         MessageBoxButtons.OK,
-                                                       MessageBoxIcon.Exclamation);
-                            throw new Exception();
-                        }
-                    }
+                    Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
                     /////Aca Cambiar
-                    grbCD.Text = Apellido + " " + Nombre;
-                    pictureCD.Visible = true;
-                    /////Aca Cambiar
-                    lblCD.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureCD.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureCD.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureCD.Image = foto1;
                 }
                 else
                 {
                     /////Aca Cambiar
-                    grbCD.Text = Apellido + " " + Nombre;
-                    pictureCD.Visible = true;
-                    /////Aca Cambiar
-                    lblCD.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureCD.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureCD.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureCD.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
                 }
-                idListaJugadoresCargado.Add(idJugador);
             }
             catch (Exception ex)
             { }
         }
-
         private void cmbCD2_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 /////Aca Cambiar
                 string Jugador = cmbCD2.Text;
+                ValidarJugadorYaExistente(Jugador);
                 var valor = Jugador;
                 string var = valor;
                 string Id = var.Split(',')[0];
@@ -1392,70 +885,33 @@ namespace Prode
                 string Apellido = var2.Split(' ')[0];
                 string Nombre = var2.Split(' ')[1];
                 int idJugador = Convert.ToInt32(Id);
-                if (idListaJugadoresCargado != null)
+                grbCD2.Text = Apellido + " " + Nombre;
+                pictureCD2.Visible = true;
+                /////Aca Cambiar
+                lblCD2.Text = Id;
+                byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
+                if (ImagenJugador != null)
                 {
-                    foreach (var item in idListaJugadoresCargado)
-                    {
-                        if (item == idJugador)
-                        {
-                            const string message = "El Jugador seleccionado ya fue asignado en otra posición.";
-                            const string caption = "Atención";
-                            var result = MessageBox.Show(message, caption,
-                                                         MessageBoxButtons.OK,
-                                                       MessageBoxIcon.Exclamation);
-                            throw new Exception();
-                        }
-                    }
+                    Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
                     /////Aca Cambiar
-                    grbCD2.Text = Apellido + " " + Nombre;
-                    pictureCD2.Visible = true;
-                    /////Aca Cambiar
-                    lblCD2.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureCD2.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureCD2.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureCD2.Image = foto1;
                 }
                 else
                 {
                     /////Aca Cambiar
-                    grbCD2.Text = Apellido + " " + Nombre;
-                    pictureCD2.Visible = true;
-                    /////Aca Cambiar
-                    lblCD2.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureCD2.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureCD2.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureCD2.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
                 }
-                idListaJugadoresCargado.Add(idJugador);
             }
             catch (Exception ex)
             { }
         }
-
         private void cmbEI_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 /////Aca Cambiar
                 string Jugador = cmbEI.Text;
+                ValidarJugadorYaExistente(Jugador);
                 var valor = Jugador;
                 string var = valor;
                 string Id = var.Split(',')[0];
@@ -1463,70 +919,33 @@ namespace Prode
                 string Apellido = var2.Split(' ')[0];
                 string Nombre = var2.Split(' ')[1];
                 int idJugador = Convert.ToInt32(Id);
-                if (idListaJugadoresCargado != null)
+                grbEI.Text = Apellido + " " + Nombre;
+                pictureEI.Visible = true;
+                /////Aca Cambiar
+                lblEI.Text = Id;
+                byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
+                if (ImagenJugador != null)
                 {
-                    foreach (var item in idListaJugadoresCargado)
-                    {
-                        if (item == idJugador)
-                        {
-                            const string message = "El Jugador seleccionado ya fue asignado en otra posición.";
-                            const string caption = "Atención";
-                            var result = MessageBox.Show(message, caption,
-                                                         MessageBoxButtons.OK,
-                                                       MessageBoxIcon.Exclamation);
-                            throw new Exception();
-                        }
-                    }
+                    Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
                     /////Aca Cambiar
-                    grbEI.Text = Apellido + " " + Nombre;
-                    pictureEI.Visible = true;
-                    /////Aca Cambiar
-                    lblEI.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureEI.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureEI.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureEI.Image = foto1;
                 }
                 else
                 {
                     /////Aca Cambiar
-                    grbEI.Text = Apellido + " " + Nombre;
-                    pictureEI.Visible = true;
-                    /////Aca Cambiar
-                    lblEI.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureEI.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureEI.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureEI.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
                 }
-                idListaJugadoresCargado.Add(idJugador);
             }
             catch (Exception ex)
             { }
         }
-
         private void cmbSup1_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 /////Aca Cambiar
                 string Jugador = cmbSup1.Text;
+                ValidarJugadorYaExistente(Jugador);
                 var valor = Jugador;
                 string var = valor;
                 string Id = var.Split(',')[0];
@@ -1534,69 +953,33 @@ namespace Prode
                 string Apellido = var2.Split(' ')[0];
                 string Nombre = var2.Split(' ')[1];
                 int idJugador = Convert.ToInt32(Id);
-                if (idListaJugadoresCargado != null)
+                grbSup1.Text = Apellido + " " + Nombre;
+                pictureSup1.Visible = true;
+                /////Aca Cambiar
+                lblSup1.Text = Id;
+                byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
+                if (ImagenJugador != null)
                 {
-                    foreach (var item in idListaJugadoresCargado)
-                    {
-                        if (item == idJugador)
-                        {
-                            const string message = "El Jugador seleccionado ya fue asignado en otra posición.";
-                            const string caption = "Atención";
-                            var result = MessageBox.Show(message, caption,
-                                                         MessageBoxButtons.OK,
-                                                       MessageBoxIcon.Exclamation);
-                            throw new Exception();
-                        }
-                    }
+                    Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
                     /////Aca Cambiar
-                    grbSup1.Text = Apellido + " " + Nombre;
-                    pictureSup1.Visible = true;
-                    /////Aca Cambiar
-                    lblSup1.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureSup1.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureSup1.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureSup1.Image = foto1;
                 }
                 else
                 {
-                    grbSup1.Text = Apellido + " " + Nombre;
-                    pictureSup1.Visible = true;
                     /////Aca Cambiar
-                    lblSup1.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureSup1.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureSup1.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureSup1.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
                 }
-                idListaJugadoresCargado.Add(idJugador);
             }
             catch (Exception ex)
             { }
         }
-
         private void cmbSup2_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 /////Aca Cambiar
                 string Jugador = cmbSup2.Text;
+                ValidarJugadorYaExistente(Jugador);
                 var valor = Jugador;
                 string var = valor;
                 string Id = var.Split(',')[0];
@@ -1604,70 +987,33 @@ namespace Prode
                 string Apellido = var2.Split(' ')[0];
                 string Nombre = var2.Split(' ')[1];
                 int idJugador = Convert.ToInt32(Id);
-                if (idListaJugadoresCargado != null)
+                grbSup2.Text = Apellido + " " + Nombre;
+                pictureSup2.Visible = true;
+                /////Aca Cambiar
+                lblSup2.Text = Id;
+                byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
+                if (ImagenJugador != null)
                 {
-                    foreach (var item in idListaJugadoresCargado)
-                    {
-                        if (item == idJugador)
-                        {
-                            const string message = "El Jugador seleccionado ya fue asignado en otra posición.";
-                            const string caption = "Atención";
-                            var result = MessageBox.Show(message, caption,
-                                                         MessageBoxButtons.OK,
-                                                       MessageBoxIcon.Exclamation);
-                            throw new Exception();
-                        }
-                    }
+                    Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
                     /////Aca Cambiar
-                    grbSup2.Text = Apellido + " " + Nombre;
-                    pictureSup2.Visible = true;
-                    /////Aca Cambiar
-                    lblSup2.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureSup2.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureSup2.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureSup2.Image = foto1;
                 }
                 else
                 {
                     /////Aca Cambiar
-                    grbSup2.Text = Apellido + " " + Nombre;
-                    pictureSup2.Visible = true;
-                    /////Aca Cambiar
-                    lblSup2.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureSup2.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureSup2.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureSup2.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
                 }
-                idListaJugadoresCargado.Add(idJugador);
             }
             catch (Exception ex)
             { }
         }
-
         private void cmbSup3_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 /////Aca Cambiar
                 string Jugador = cmbSup3.Text;
+                ValidarJugadorYaExistente(Jugador);
                 var valor = Jugador;
                 string var = valor;
                 string Id = var.Split(',')[0];
@@ -1675,70 +1021,33 @@ namespace Prode
                 string Apellido = var2.Split(' ')[0];
                 string Nombre = var2.Split(' ')[1];
                 int idJugador = Convert.ToInt32(Id);
-                if (idListaJugadoresCargado != null)
+                grbSup3.Text = Apellido + " " + Nombre;
+                pictureSup3.Visible = true;
+                /////Aca Cambiar
+                lblSup3.Text = Id;
+                byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
+                if (ImagenJugador != null)
                 {
-                    foreach (var item in idListaJugadoresCargado)
-                    {
-                        if (item == idJugador)
-                        {
-                            const string message = "El Jugador seleccionado ya fue asignado en otra posición.";
-                            const string caption = "Atención";
-                            var result = MessageBox.Show(message, caption,
-                                                         MessageBoxButtons.OK,
-                                                       MessageBoxIcon.Exclamation);
-                            throw new Exception();
-                        }
-                    }
+                    Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
                     /////Aca Cambiar
-                    grbSup3.Text = Apellido + " " + Nombre;
-                    pictureSup3.Visible = true;
-                    /////Aca Cambiar
-                    lblSup3.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureSup3.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureSup3.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureSup3.Image = foto1;
                 }
                 else
                 {
                     /////Aca Cambiar
-                    grbSup3.Text = Apellido + " " + Nombre;
-                    pictureSup3.Visible = true;
-                    /////Aca Cambiar
-                    lblSup3.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureSup3.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureSup3.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureSup3.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
                 }
-                idListaJugadoresCargado.Add(idJugador);
             }
             catch (Exception ex)
             { }
         }
-
         private void cmbSup4_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 /////Aca Cambiar
                 string Jugador = cmbSup4.Text;
+                ValidarJugadorYaExistente(Jugador);
                 var valor = Jugador;
                 string var = valor;
                 string Id = var.Split(',')[0];
@@ -1746,70 +1055,33 @@ namespace Prode
                 string Apellido = var2.Split(' ')[0];
                 string Nombre = var2.Split(' ')[1];
                 int idJugador = Convert.ToInt32(Id);
-                if (idListaJugadoresCargado != null)
+                grbSup4.Text = Apellido + " " + Nombre;
+                pictureSup4.Visible = true;
+                /////Aca Cambiar
+                lblSup4.Text = Id;
+                byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
+                if (ImagenJugador != null)
                 {
-                    foreach (var item in idListaJugadoresCargado)
-                    {
-                        if (item == idJugador)
-                        {
-                            const string message = "El Jugador seleccionado ya fue asignado en otra posición.";
-                            const string caption = "Atención";
-                            var result = MessageBox.Show(message, caption,
-                                                         MessageBoxButtons.OK,
-                                                       MessageBoxIcon.Exclamation);
-                            throw new Exception();
-                        }
-                    }
+                    Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
                     /////Aca Cambiar
-                    grbSup4.Text = Apellido + " " + Nombre;
-                    pictureSup4.Visible = true;
-                    /////Aca Cambiar
-                    lblSup4.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureSup4.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureSup4.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureSup4.Image = foto1;
                 }
                 else
                 {
                     /////Aca Cambiar
-                    grbSup4.Text = Apellido + " " + Nombre;
-                    pictureSup4.Visible = true;
-                    /////Aca Cambiar
-                    lblSup4.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureSup4.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureSup4.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureSup4.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
                 }
-                idListaJugadoresCargado.Add(idJugador);
             }
             catch (Exception ex)
             { }
         }
-
         private void cmbSup5_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 /////Aca Cambiar
                 string Jugador = cmbSup5.Text;
+                ValidarJugadorYaExistente(Jugador);
                 var valor = Jugador;
                 string var = valor;
                 string Id = var.Split(',')[0];
@@ -1817,70 +1089,33 @@ namespace Prode
                 string Apellido = var2.Split(' ')[0];
                 string Nombre = var2.Split(' ')[1];
                 int idJugador = Convert.ToInt32(Id);
-                if (idListaJugadoresCargado != null)
+                grbSup5.Text = Apellido + " " + Nombre;
+                pictureSup5.Visible = true;
+                /////Aca Cambiar
+                lblSup5.Text = Id;
+                byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
+                if (ImagenJugador != null)
                 {
-                    foreach (var item in idListaJugadoresCargado)
-                    {
-                        if (item == idJugador)
-                        {
-                            const string message = "El Jugador seleccionado ya fue asignado en otra posición.";
-                            const string caption = "Atención";
-                            var result = MessageBox.Show(message, caption,
-                                                         MessageBoxButtons.OK,
-                                                       MessageBoxIcon.Exclamation);
-                            throw new Exception();
-                        }
-                    }
+                    Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
                     /////Aca Cambiar
-                    grbSup5.Text = Apellido + " " + Nombre;
-                    pictureSup5.Visible = true;
-                    /////Aca Cambiar
-                    lblSup5.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureSup5.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureSup5.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureSup5.Image = foto1;
                 }
                 else
                 {
                     /////Aca Cambiar
-                    grbSup5.Text = Apellido + " " + Nombre;
-                    pictureSup5.Visible = true;
-                    /////Aca Cambiar
-                    lblSup5.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureSup5.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureSup5.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureSup5.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
                 }
-                idListaJugadoresCargado.Add(idJugador);
             }
             catch (Exception ex)
             { }
         }
-
         private void cmbSup6_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 /////Aca Cambiar
                 string Jugador = cmbSup6.Text;
+                ValidarJugadorYaExistente(Jugador);
                 var valor = Jugador;
                 string var = valor;
                 string Id = var.Split(',')[0];
@@ -1888,70 +1123,33 @@ namespace Prode
                 string Apellido = var2.Split(' ')[0];
                 string Nombre = var2.Split(' ')[1];
                 int idJugador = Convert.ToInt32(Id);
-                if (idListaJugadoresCargado != null)
+                grbSup6.Text = Apellido + " " + Nombre;
+                pictureSup6.Visible = true;
+                /////Aca Cambiar
+                lblSup6.Text = Id;
+                byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
+                if (ImagenJugador != null)
                 {
-                    foreach (var item in idListaJugadoresCargado)
-                    {
-                        if (item == idJugador)
-                        {
-                            const string message = "El Jugador seleccionado ya fue asignado en otra posición.";
-                            const string caption = "Atención";
-                            var result = MessageBox.Show(message, caption,
-                                                         MessageBoxButtons.OK,
-                                                       MessageBoxIcon.Exclamation);
-                            throw new Exception();
-                        }
-                    }
+                    Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
                     /////Aca Cambiar
-                    grbSup6.Text = Apellido + " " + Nombre;
-                    pictureSup6.Visible = true;
-                    /////Aca Cambiar
-                    lblSup6.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureSup6.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureSup6.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureSup6.Image = foto1;
                 }
                 else
                 {
                     /////Aca Cambiar
-                    grbSup6.Text = Apellido + " " + Nombre;
-                    pictureSup6.Visible = true;
-                    /////Aca Cambiar
-                    lblSup6.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureSup6.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureSup6.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureSup6.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
                 }
-                idListaJugadoresCargado.Add(idJugador);
             }
             catch (Exception ex)
             { }
         }
-
         private void cmbSup7_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 /////Aca Cambiar
                 string Jugador = cmbSup7.Text;
+                ValidarJugadorYaExistente(Jugador);
                 var valor = Jugador;
                 string var = valor;
                 string Id = var.Split(',')[0];
@@ -1959,62 +1157,27 @@ namespace Prode
                 string Apellido = var2.Split(' ')[0];
                 string Nombre = var2.Split(' ')[1];
                 int idJugador = Convert.ToInt32(Id);
-                if (idListaJugadoresCargado != null)
+                grbSup7.Text = Apellido + " " + Nombre;
+                pictureSup7.Visible = true;
+                /////Aca Cambiar
+                lblSup7.Text = Id;
+                byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
+                if (ImagenJugador != null)
                 {
-                    foreach (var item in idListaJugadoresCargado)
-                    {
-                        if (item == idJugador)
-                        {
-                            const string message = "El Jugador seleccionado ya fue asignado en otra posición.";
-                            const string caption = "Atención";
-                            var result = MessageBox.Show(message, caption,
-                                                         MessageBoxButtons.OK,
-                                                       MessageBoxIcon.Exclamation);
-                            throw new Exception();
-                        }
-                    }
+                    Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
                     /////Aca Cambiar
-                    grbSup7.Text = Apellido + " " + Nombre;
-                    pictureSup7.Visible = true;
-                    /////Aca Cambiar
-                    lblSup7.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureSup7.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureSup7.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureSup7.Image = foto1;
                 }
                 else
                 {
                     /////Aca Cambiar
-                    grbSup7.Text = Apellido + " " + Nombre;
-                    pictureSup7.Visible = true;
-                    /////Aca Cambiar
-                    lblSup7.Text = Id;
-                    byte[] ImagenJugador = JugadoresNeg.BuscarImagenJugador(idJugador);
-                    if (ImagenJugador != null)
-                    {
-                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(ImagenJugador);
-                        /////Aca Cambiar
-                        pictureSup7.Image = foto1;
-                    }
-                    else
-                    {
-                        /////Aca Cambiar
-                        pictureSup7.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    }
+                    pictureSup7.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
                 }
-                idListaJugadoresCargado.Add(idJugador);
             }
             catch (Exception ex)
             { }
         }
+        #endregion
+
     }
 }

@@ -140,7 +140,7 @@
             // 
             this.lblEstadio.AutoSize = true;
             this.lblEstadio.Font = new System.Drawing.Font("Microsoft Tai Le", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstadio.Location = new System.Drawing.Point(372, 161);
+            this.lblEstadio.Location = new System.Drawing.Point(351, 169);
             this.lblEstadio.Name = "lblEstadio";
             this.lblEstadio.Size = new System.Drawing.Size(80, 25);
             this.lblEstadio.TabIndex = 59;
@@ -150,10 +150,10 @@
             // lblEstadioEdit
             // 
             this.lblEstadioEdit.AutoSize = true;
-            this.lblEstadioEdit.Font = new System.Drawing.Font("Microsoft Tai Le", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstadioEdit.Location = new System.Drawing.Point(446, 161);
+            this.lblEstadioEdit.Font = new System.Drawing.Font("Microsoft Tai Le", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstadioEdit.Location = new System.Drawing.Point(425, 173);
             this.lblEstadioEdit.Name = "lblEstadioEdit";
-            this.lblEstadioEdit.Size = new System.Drawing.Size(68, 23);
+            this.lblEstadioEdit.Size = new System.Drawing.Size(58, 19);
             this.lblEstadioEdit.TabIndex = 60;
             this.lblEstadioEdit.Text = "Estadio";
             this.lblEstadioEdit.Visible = false;
