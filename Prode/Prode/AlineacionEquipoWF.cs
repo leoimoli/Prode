@@ -70,6 +70,26 @@ namespace Prode
                     }
 
                     lblEstadioEdit.Text = partido.Estadio;
+                    if (lblEstadioEdit.Text != null)
+                    {
+                        int cantidadLetras = lblEstadioEdit.Text.Length;
+                        if (cantidadLetras > 8 & cantidadLetras < 10)
+                        {
+                            lblEstadioEdit.Font = new Font(lblEstadioEdit.Font.Name, 9);
+                        }
+                        if (cantidadLetras > 10 & cantidadLetras < 15)
+                        {
+                            lblEstadioEdit.Font = new Font(lblEstadioEdit.Font.Name, 8);
+                        }
+                        if (cantidadLetras > 15)
+                        {
+                            lblEstadioEdit.Font = new Font(lblEstadioEdit.Font.Name, 7);
+                        }
+                        if (cantidadLetras > 30)
+                        {
+                            lblEstadioEdit.Font = new Font(lblEstadioEdit.Font.Name, 6);
+                        }
+                    }
                     var marcador = partido.Marcador;
                     string var = marcador;
                     string Local = var.Split('-')[0];
@@ -264,6 +284,6 @@ namespace Prode
 
         }
         #endregion
-      
+
     }
 }

@@ -61,6 +61,8 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscarNombrePartido = new System.Windows.Forms.TextBox();
             this.lblDniOApellidoNombre = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.grbDatosPartido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -232,6 +234,7 @@
             // 
             // grbLocal
             // 
+            this.grbLocal.Controls.Add(this.button1);
             this.grbLocal.Controls.Add(this.txtJugadoresLocales);
             this.grbLocal.Controls.Add(this.label2);
             this.grbLocal.Controls.Add(this.btnConfirmar);
@@ -267,7 +270,7 @@
             // 
             // btnConfirmar
             // 
-            this.btnConfirmar.Location = new System.Drawing.Point(207, 263);
+            this.btnConfirmar.Location = new System.Drawing.Point(207, 322);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(78, 32);
             this.btnConfirmar.TabIndex = 153;
@@ -305,6 +308,7 @@
             // 
             // grbVisitante
             // 
+            this.grbVisitante.Controls.Add(this.button2);
             this.grbVisitante.Controls.Add(this.label3);
             this.grbVisitante.Controls.Add(this.txtJugadoresVisitantes);
             this.grbVisitante.Controls.Add(this.btnConfirmarVisitante);
@@ -340,7 +344,7 @@
             // 
             // btnConfirmarVisitante
             // 
-            this.btnConfirmarVisitante.Location = new System.Drawing.Point(207, 276);
+            this.btnConfirmarVisitante.Location = new System.Drawing.Point(204, 322);
             this.btnConfirmarVisitante.Name = "btnConfirmarVisitante";
             this.btnConfirmarVisitante.Size = new System.Drawing.Size(78, 32);
             this.btnConfirmarVisitante.TabIndex = 153;
@@ -349,7 +353,7 @@
             // 
             // btnQuitarVisitante
             // 
-            this.btnQuitarVisitante.Location = new System.Drawing.Point(205, 213);
+            this.btnQuitarVisitante.Location = new System.Drawing.Point(204, 204);
             this.btnQuitarVisitante.Name = "btnQuitarVisitante";
             this.btnQuitarVisitante.Size = new System.Drawing.Size(78, 32);
             this.btnQuitarVisitante.TabIndex = 152;
@@ -359,7 +363,7 @@
             // 
             // btnAgregarVisitante
             // 
-            this.btnAgregarVisitante.Location = new System.Drawing.Point(205, 153);
+            this.btnAgregarVisitante.Location = new System.Drawing.Point(204, 153);
             this.btnAgregarVisitante.Name = "btnAgregarVisitante";
             this.btnAgregarVisitante.Size = new System.Drawing.Size(78, 32);
             this.btnAgregarVisitante.TabIndex = 150;
@@ -417,6 +421,24 @@
             this.lblDniOApellidoNombre.Size = new System.Drawing.Size(79, 20);
             this.lblDniOApellidoNombre.TabIndex = 39;
             this.lblDniOApellidoNombre.Text = "Partido(*):";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(207, 261);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(78, 32);
+            this.button1.TabIndex = 156;
+            this.button1.Text = "Nuevo";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(204, 261);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(78, 32);
+            this.button2.TabIndex = 157;
+            this.button2.Text = "Nuevo";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // AlineacionEquipoWF
             // 
@@ -480,5 +502,7 @@
         private System.Windows.Forms.Label lblDiaEdit;
         private System.Windows.Forms.Label lblDia;
         private System.Windows.Forms.TextBox txtJugadoresLocales;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

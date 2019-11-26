@@ -192,5 +192,18 @@ namespace Prode.Negocio
             }
             return Imagen;
         }
+        public static List<AlineacionEquipo> BuscarJugadoresSinAsignar()
+        {
+            List<AlineacionEquipo> _listaJugadores = new List<AlineacionEquipo>();
+            try
+            {
+                _listaJugadores = JugadoresDao.BuscarJugadoresSinAsignar();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return _listaJugadores;
+        }
     }
 }

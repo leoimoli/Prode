@@ -25,8 +25,9 @@ namespace Prode
         {
             try
             {
-                CargarComboSistema();
+                CargarComboSistemaFutbol11();
                 CargarComboJugadores();
+                CargarComboMinutos();
             }
             catch (Exception ex)
             { }
@@ -238,11 +239,48 @@ namespace Prode
         #region Botones
         #endregion
         #region Funciones
+        private void AsignarMinutosJugadoresTitulares(string minutos)
+        {
+            ////// Arqueros
+            txtMinARQ.Text = minutos;
+            ////// Defensores
+            txtMinLD.Text = minutos;
+            txtMinDFD.Text = minutos;
+            txtMinLIB.Text = minutos;
+            txtMinDFI.Text = minutos;
+            txtMinLI.Text = minutos;
+            ////// Volantes
+            txtMinVD.Text = minutos;
+            txtMinVID.Text = minutos;
+            txtMinVII.Text = minutos;
+            txtMinVI.Text = minutos;
+            txtMinMC.Text = minutos;
+            txtMinMP.Text = minutos;
+            ////// Delanteros
+            txtMinCD1.Text = minutos;
+            txtMinCD2.Text = minutos;
+            txtMinED.Text = minutos;
+            txtMinEI.Text = minutos;
+            txtMinCD.Text = minutos;
+        }
+        private void CargarComboMinutos()
+        {
+            string[] Minutos = Clase_Maestra.ValoresConstantes.MinutosDePartido;
+            cmbMinutos.Items.Add("Seleccione");
+            cmbMinutos.Items.Clear();
+            foreach (string item in Minutos)
+            {
+                cmbMinutos.Text = "Seleccione";
+                cmbMinutos.Items.Add(item);
+            }
+        }
         private void ValidarJugadorYaExistente(string Jugador)
         {
             List<int> lista = new List<int>();
             if (idListaJugadoresCargado != null)
-            { lista = idListaJugadoresCargado; }
+            {
+                lista = idListaJugadoresCargado;
+            }
             var valor = Jugador;
             string var = valor;
             string Id = var.Split(',')[0];
@@ -250,8 +288,6 @@ namespace Prode
             string Apellido = var2.Split(' ')[0];
             string Nombre = var2.Split(' ')[1];
             int idJugador = Convert.ToInt32(Id);
-            lista.Add(idJugador);
-            //lista = idListaJugadoresCargado;
             if (idListaJugadoresCargado != null)
             {
                 foreach (var item in idListaJugadoresCargado)
@@ -267,11 +303,34 @@ namespace Prode
                     }
                 }
             }
+            lista.Add(idJugador);
             idListaJugadoresCargado = lista;
         }
-        private void CargarComboSistema()
+        private void CargarComboSistemaFutbol11()
         {
             string[] Pierna = Clase_Maestra.ValoresConstantes.DisposicionTactica;
+            cmbTactica.Items.Add("Seleccione");
+            cmbTactica.Items.Clear();
+            foreach (string item in Pierna)
+            {
+                cmbTactica.Text = "Seleccione";
+                cmbTactica.Items.Add(item);
+            }
+        }
+        private void CargarComboSistemaFutbol7()
+        {
+            string[] Pierna = Clase_Maestra.ValoresConstantes.DisposicionTacticaFutbol7;
+            cmbTactica.Items.Add("Seleccione");
+            cmbTactica.Items.Clear();
+            foreach (string item in Pierna)
+            {
+                cmbTactica.Text = "Seleccione";
+                cmbTactica.Items.Add(item);
+            }
+        }
+        private void CargarComboSistemaFutbol5()
+        {
+            string[] Pierna = Clase_Maestra.ValoresConstantes.DisposicionTacticaFutbol5;
             cmbTactica.Items.Add("Seleccione");
             cmbTactica.Items.Clear();
             foreach (string item in Pierna)
@@ -332,6 +391,773 @@ namespace Prode
             cmbCD.Visible = false;
 
         }
+        private void HabiltarCamposTactica1433()
+        {
+            HabilitarSuplentes();
+            grbCancha.Visible = true;
+            grbSuplentes.Visible = true;
+
+            ////// Arqueros
+            grbArquero.Visible = true;
+            cmbArquero.Visible = true;
+
+            ////// Defensores
+            grbLD.Visible = true;
+            grbDFD.Visible = true;
+            grbLibero.Visible = false;
+            grbDFI.Visible = true;
+            grbLI.Visible = true;
+            ////// Defensores Combos
+            cmbLD.Visible = true;
+            cmbDFD.Visible = true;
+            cmbLIB.Visible = false;
+            cmbDFI.Visible = true;
+            cmbLI.Visible = true;
+
+            ////// Volantes
+            grbVD.Visible = false;
+            grbVID.Visible = true;
+            grbVII.Visible = true;
+            grbVI.Visible = false;
+            grbMC.Visible = true;
+            grbMP.Visible = false;
+            ////// Volantes Combos
+            cmbVD.Visible = false;
+            cmbVID.Visible = true;
+            cmbVII.Visible = true;
+            cmbVI.Visible = false;
+            cmbMC.Visible = true;
+            cmbMP.Visible = false;
+
+            ////// Delanteros
+            grbCD1.Visible = false;
+            grbCD2.Visible = false;
+            grbED.Visible = true;
+            grbEI.Visible = true;
+            grbCD.Visible = true;
+            ////// Volantes Combos
+            cmbCD1.Visible = false;
+            cmbCD2.Visible = false;
+            cmbED.Visible = true;
+            cmbEI.Visible = true;
+            cmbCD.Visible = true;
+        }
+        private void HabiltarCamposTactica14132()
+        {
+            HabilitarSuplentes();
+            grbCancha.Visible = true;
+            grbSuplentes.Visible = true;
+
+            ////// Arqueros
+            grbArquero.Visible = true;
+            cmbArquero.Visible = true;
+
+            ////// Defensores
+            grbLD.Visible = true;
+            grbDFD.Visible = true;
+            grbLibero.Visible = false;
+            grbDFI.Visible = true;
+            grbLI.Visible = true;
+            ////// Defensores Combos
+            cmbLD.Visible = true;
+            cmbDFD.Visible = true;
+            cmbLIB.Visible = false;
+            cmbDFI.Visible = true;
+            cmbLI.Visible = true;
+
+            ////// Volantes
+            grbVD.Visible = false;
+            grbVID.Visible = false;
+            grbVII.Visible = false;
+            grbVI.Visible = false;
+            grbMC.Visible = true;
+            grbMP.Visible = true;
+            ////// Volantes Combos
+            cmbVD.Visible = false;
+            cmbVID.Visible = false;
+            cmbVII.Visible = false;
+            cmbVI.Visible = false;
+            cmbMC.Visible = true;
+            cmbMP.Visible = true;
+
+            ////// Delanteros
+            grbCD1.Visible = true;
+            grbCD2.Visible = true;
+            grbED.Visible = true;
+            grbEI.Visible = true;
+            grbCD.Visible = false;
+            ////// Volantes Combos
+            cmbCD1.Visible = true;
+            cmbCD2.Visible = true;
+            cmbED.Visible = true;
+            cmbEI.Visible = true;
+            cmbCD.Visible = false;
+        }
+        private void HabiltarCamposTactica14231()
+        {
+            HabilitarSuplentes();
+            grbCancha.Visible = true;
+            grbSuplentes.Visible = true;
+
+            ////// Arqueros
+            grbArquero.Visible = true;
+            cmbArquero.Visible = true;
+
+            ////// Defensores
+            grbLD.Visible = true;
+            grbDFD.Visible = true;
+            grbLibero.Visible = false;
+            grbDFI.Visible = true;
+            grbLI.Visible = true;
+            ////// Defensores Combos
+            cmbLD.Visible = true;
+            cmbDFD.Visible = true;
+            cmbLIB.Visible = false;
+            cmbDFI.Visible = true;
+            cmbLI.Visible = true;
+
+            ////// Volantes
+            grbVD.Visible = false;
+            grbVID.Visible = true;
+            grbVII.Visible = true;
+            grbVI.Visible = false;
+            grbMC.Visible = false;
+            grbMP.Visible = true;
+            ////// Volantes Combos
+            cmbVD.Visible = false;
+            cmbVID.Visible = true;
+            cmbVII.Visible = true;
+            cmbVI.Visible = false;
+            cmbMC.Visible = false;
+            cmbMP.Visible = true;
+
+            ////// Delanteros
+            grbCD1.Visible = false;
+            grbCD2.Visible = false;
+            grbED.Visible = true;
+            grbEI.Visible = true;
+            grbCD.Visible = true;
+            ////// Volantes Combos
+            cmbCD1.Visible = false;
+            cmbCD2.Visible = false;
+            cmbED.Visible = true;
+            cmbEI.Visible = true;
+            cmbCD.Visible = true;
+        }
+        private void HabiltarCamposTactica14312()
+        {
+            HabilitarSuplentes();
+            grbCancha.Visible = true;
+            grbSuplentes.Visible = true;
+
+            ////// Arqueros
+            grbArquero.Visible = true;
+            cmbArquero.Visible = true;
+
+            ////// Defensores
+            grbLD.Visible = true;
+            grbDFD.Visible = true;
+            grbLibero.Visible = false;
+            grbDFI.Visible = true;
+            grbLI.Visible = true;
+            ////// Defensores Combos
+            cmbLD.Visible = true;
+            cmbDFD.Visible = true;
+            cmbLIB.Visible = false;
+            cmbDFI.Visible = true;
+            cmbLI.Visible = true;
+
+            ////// Volantes
+            grbVD.Visible = true;
+            grbVID.Visible = false;
+            grbVII.Visible = false;
+            grbVI.Visible = true;
+            grbMC.Visible = true;
+            grbMP.Visible = true;
+            ////// Volantes Combos
+            cmbVD.Visible = true;
+            cmbVID.Visible = false;
+            cmbVII.Visible = false;
+            cmbVI.Visible = true;
+            cmbMC.Visible = true;
+            cmbMP.Visible = true;
+
+            ////// Delanteros
+            grbCD1.Visible = true;
+            grbCD2.Visible = true;
+            grbED.Visible = false;
+            grbEI.Visible = false;
+            grbCD.Visible = false;
+            ////// Volantes Combos
+            cmbCD1.Visible = true;
+            cmbCD2.Visible = true;
+            cmbED.Visible = false;
+            cmbEI.Visible = false;
+            cmbCD.Visible = false;
+        }
+        private void HabiltarCamposTactica1532()
+        {
+            HabilitarSuplentes();
+            grbCancha.Visible = true;
+            grbSuplentes.Visible = true;
+
+            ////// Arqueros
+            grbArquero.Visible = true;
+            cmbArquero.Visible = true;
+
+            ////// Defensores
+            grbLD.Visible = true;
+            grbDFD.Visible = true;
+            grbLibero.Visible = true;
+            grbDFI.Visible = true;
+            grbLI.Visible = true;
+            ////// Defensores Combos
+            cmbLD.Visible = true;
+            cmbDFD.Visible = true;
+            cmbLIB.Visible = true;
+            cmbDFI.Visible = true;
+            cmbLI.Visible = true;
+
+            ////// Volantes
+            grbVD.Visible = false;
+            grbVID.Visible = true;
+            grbVII.Visible = true;
+            grbVI.Visible = false;
+            grbMC.Visible = true;
+            grbMP.Visible = false;
+            ////// Volantes Combos
+            cmbVD.Visible = false;
+            cmbVID.Visible = true;
+            cmbVII.Visible = true;
+            cmbVI.Visible = false;
+            cmbMC.Visible = true;
+            cmbMP.Visible = false;
+
+            ////// Delanteros
+            grbCD1.Visible = true;
+            grbCD2.Visible = true;
+            grbED.Visible = false;
+            grbEI.Visible = false;
+            grbCD.Visible = false;
+            ////// Volantes Combos
+            cmbCD1.Visible = true;
+            cmbCD2.Visible = true;
+            cmbED.Visible = false;
+            cmbEI.Visible = false;
+            cmbCD.Visible = false;
+        }
+        private void HabiltarCamposTactica15212()
+        {
+            HabilitarSuplentes();
+            grbCancha.Visible = true;
+            grbSuplentes.Visible = true;
+
+            ////// Arqueros
+            grbArquero.Visible = true;
+            cmbArquero.Visible = true;
+
+            ////// Defensores
+            grbLD.Visible = true;
+            grbDFD.Visible = true;
+            grbLibero.Visible = true;
+            grbDFI.Visible = true;
+            grbLI.Visible = true;
+            ////// Defensores Combos
+            cmbLD.Visible = true;
+            cmbDFD.Visible = true;
+            cmbLIB.Visible = true;
+            cmbDFI.Visible = true;
+            cmbLI.Visible = true;
+
+            ////// Volantes
+            grbVD.Visible = false;
+            grbVID.Visible = true;
+            grbVII.Visible = true;
+            grbVI.Visible = false;
+            grbMC.Visible = false;
+            grbMP.Visible = true;
+            ////// Volantes Combos
+            cmbVD.Visible = false;
+            cmbVID.Visible = true;
+            cmbVII.Visible = true;
+            cmbVI.Visible = false;
+            cmbMC.Visible = false;
+            cmbMP.Visible = true;
+
+            ////// Delanteros
+            grbCD1.Visible = true;
+            grbCD2.Visible = true;
+            grbED.Visible = false;
+            grbEI.Visible = false;
+            grbCD.Visible = false;
+            ////// Volantes Combos
+            cmbCD1.Visible = true;
+            cmbCD2.Visible = true;
+            cmbED.Visible = false;
+            cmbEI.Visible = false;
+            cmbCD.Visible = false;
+        }
+        private void HabiltarCamposTactica1343()
+        {
+            HabilitarSuplentes();
+            grbCancha.Visible = true;
+            grbSuplentes.Visible = true;
+
+            ////// Arqueros
+            grbArquero.Visible = true;
+            cmbArquero.Visible = true;
+
+            ////// Defensores
+            grbLD.Visible = false;
+            grbDFD.Visible = true;
+            grbLibero.Visible = true;
+            grbDFI.Visible = true;
+            grbLI.Visible = false;
+            ////// Defensores Combos
+            cmbLD.Visible = false;
+            cmbDFD.Visible = true;
+            cmbLIB.Visible = true;
+            cmbDFI.Visible = true;
+            cmbLI.Visible = false;
+
+            ////// Volantes
+            grbVD.Visible = true;
+            grbVID.Visible = true;
+            grbVII.Visible = true;
+            grbVI.Visible = true;
+            grbMC.Visible = false;
+            grbMP.Visible = false;
+            ////// Volantes Combos
+            cmbVD.Visible = false;
+            cmbVID.Visible = true;
+            cmbVII.Visible = true;
+            cmbVI.Visible = true;
+            cmbMC.Visible = false;
+            cmbMP.Visible = false;
+
+            ////// Delanteros
+            grbCD1.Visible = false;
+            grbCD2.Visible = false;
+            grbED.Visible = true;
+            grbEI.Visible = true;
+            grbCD.Visible = true;
+            ////// Volantes Combos
+            cmbCD1.Visible = false;
+            cmbCD2.Visible = false;
+            cmbED.Visible = true;
+            cmbEI.Visible = true;
+            cmbCD.Visible = true;
+        }
+        private void HabiltarCamposTactica13412()
+        {
+            HabilitarSuplentes();
+            grbCancha.Visible = true;
+            grbSuplentes.Visible = true;
+
+            ////// Arqueros
+            grbArquero.Visible = true;
+            cmbArquero.Visible = true;
+
+            ////// Defensores
+            grbLD.Visible = false;
+            grbDFD.Visible = true;
+            grbLibero.Visible = true;
+            grbDFI.Visible = true;
+            grbLI.Visible = false;
+            ////// Defensores Combos
+            cmbLD.Visible = false;
+            cmbDFD.Visible = true;
+            cmbLIB.Visible = true;
+            cmbDFI.Visible = true;
+            cmbLI.Visible = false;
+
+            ////// Volantes
+            grbVD.Visible = true;
+            grbVID.Visible = true;
+            grbVII.Visible = true;
+            grbVI.Visible = true;
+            grbMC.Visible = false;
+            grbMP.Visible = true;
+            ////// Volantes Combos
+            cmbVD.Visible = false;
+            cmbVID.Visible = true;
+            cmbVII.Visible = true;
+            cmbVI.Visible = true;
+            cmbMC.Visible = false;
+            cmbMP.Visible = true;
+
+            ////// Delanteros
+            grbCD1.Visible = true;
+            grbCD2.Visible = true;
+            grbED.Visible = false;
+            grbEI.Visible = false;
+            grbCD.Visible = false;
+            ////// Volantes Combos
+            cmbCD1.Visible = true;
+            cmbCD2.Visible = true;
+            cmbED.Visible = false;
+            cmbEI.Visible = false;
+            cmbCD.Visible = false;
+        }
+        private void HabiltarCamposTactica13313()
+        {
+            HabilitarSuplentes();
+            grbCancha.Visible = true;
+            grbSuplentes.Visible = true;
+
+            ////// Arqueros
+            grbArquero.Visible = true;
+            cmbArquero.Visible = true;
+
+            ////// Defensores
+            grbLD.Visible = false;
+            grbDFD.Visible = true;
+            grbLibero.Visible = true;
+            grbDFI.Visible = true;
+            grbLI.Visible = false;
+            ////// Defensores Combos
+            cmbLD.Visible = false;
+            cmbDFD.Visible = true;
+            cmbLIB.Visible = true;
+            cmbDFI.Visible = true;
+            cmbLI.Visible = false;
+
+            ////// Volantes
+            grbVD.Visible = false;
+            grbVID.Visible = true;
+            grbVII.Visible = true;
+            grbVI.Visible = false;
+            grbMC.Visible = true;
+            grbMP.Visible = true;
+            ////// Volantes Combos
+            cmbVD.Visible = false;
+            cmbVID.Visible = true;
+            cmbVII.Visible = true;
+            cmbVI.Visible = false;
+            cmbMC.Visible = true;
+            cmbMP.Visible = true;
+
+            ////// Delanteros
+            grbCD1.Visible = false;
+            grbCD2.Visible = false;
+            grbED.Visible = true;
+            grbEI.Visible = true;
+            grbCD.Visible = true;
+            ////// Volantes Combos
+            cmbCD1.Visible = false;
+            cmbCD2.Visible = false;
+            cmbED.Visible = true;
+            cmbEI.Visible = true;
+            cmbCD.Visible = true;
+        }
+        //////////Fútbol 7
+        private void HabiltarCamposTactica1312()
+        {
+            HabilitarSuplentesFutbol7();
+            grbCancha.Visible = true;
+            grbSuplentes.Visible = true;
+
+            ////// Arqueros
+            grbArquero.Visible = true;
+            cmbArquero.Visible = true;
+
+            ////// Defensores
+            grbLD.Visible = true;
+            grbDFD.Visible = false;
+            grbLibero.Visible = true;
+            grbDFI.Visible = false;
+            grbLI.Visible = true;
+            ////// Defensores Combos
+            cmbLD.Visible = true;
+            cmbDFD.Visible = false;
+            cmbLIB.Visible = true;
+            cmbDFI.Visible = false;
+            cmbLI.Visible = true;
+
+            ////// Volantes
+            grbVD.Visible = false;
+            grbVID.Visible = false;
+            grbVII.Visible = false;
+            grbVI.Visible = false;
+            grbMC.Visible = true;
+            grbMP.Visible = false;
+            ////// Volantes Combos
+            cmbVD.Visible = false;
+            cmbVID.Visible = false;
+            cmbVII.Visible = false;
+            cmbVI.Visible = false;
+            cmbMC.Visible = true;
+            cmbMP.Visible = false;
+
+            ////// Delanteros
+            grbCD1.Visible = true;
+            grbCD2.Visible = true;
+            grbED.Visible = false;
+            grbEI.Visible = false;
+            grbCD.Visible = false;
+            ////// Volantes Combos
+            cmbCD1.Visible = true;
+            cmbCD2.Visible = true;
+            cmbED.Visible = false;
+            cmbEI.Visible = false;
+            cmbCD.Visible = false;
+        }
+        private void HabiltarCamposTactica1222()
+        {
+            HabilitarSuplentesFutbol7();
+            grbCancha.Visible = true;
+            grbSuplentes.Visible = true;
+
+            ////// Arqueros
+            grbArquero.Visible = true;
+            cmbArquero.Visible = true;
+
+            ////// Defensores
+            grbLD.Visible = false;
+            grbDFD.Visible = true;
+            grbLibero.Visible = false;
+            grbDFI.Visible = true;
+            grbLI.Visible = false;
+            ////// Defensores Combos
+            cmbLD.Visible = false;
+            cmbDFD.Visible = true;
+            cmbLIB.Visible = false;
+            cmbDFI.Visible = true;
+            cmbLI.Visible = false;
+
+            ////// Volantes
+            grbVD.Visible = false;
+            grbVID.Visible = true;
+            grbVII.Visible = true;
+            grbVI.Visible = false;
+            grbMC.Visible = false;
+            grbMP.Visible = false;
+            ////// Volantes Combos
+            cmbVD.Visible = false;
+            cmbVID.Visible = true;
+            cmbVII.Visible = true;
+            cmbVI.Visible = false;
+            cmbMC.Visible = false;
+            cmbMP.Visible = false;
+
+            ////// Delanteros
+            grbCD1.Visible = true;
+            grbCD2.Visible = true;
+            grbED.Visible = false;
+            grbEI.Visible = false;
+            grbCD.Visible = false;
+            ////// Volantes Combos
+            cmbCD1.Visible = true;
+            cmbCD2.Visible = true;
+            cmbED.Visible = false;
+            cmbEI.Visible = false;
+            cmbCD.Visible = false;
+        }
+        private void HabiltarCamposTactica1231()
+        {
+            HabilitarSuplentesFutbol7();
+            grbCancha.Visible = true;
+            grbSuplentes.Visible = true;
+
+            ////// Arqueros
+            grbArquero.Visible = true;
+            cmbArquero.Visible = true;
+
+            ////// Defensores
+            grbLD.Visible = false;
+            grbDFD.Visible = true;
+            grbLibero.Visible = false;
+            grbDFI.Visible = true;
+            grbLI.Visible = false;
+            ////// Defensores Combos
+            cmbLD.Visible = false;
+            cmbDFD.Visible = true;
+            cmbLIB.Visible = false;
+            cmbDFI.Visible = true;
+            cmbLI.Visible = false;
+
+            ////// Volantes
+            grbVD.Visible = true;
+            grbVID.Visible = false;
+            grbVII.Visible = false;
+            grbVI.Visible = true;
+            grbMC.Visible = true;
+            grbMP.Visible = false;
+            ////// Volantes Combos
+            cmbVD.Visible = true;
+            cmbVID.Visible = false;
+            cmbVII.Visible = false;
+            cmbVI.Visible = true;
+            cmbMC.Visible = true;
+            cmbMP.Visible = false;
+
+            ////// Delanteros
+            grbCD1.Visible = false;
+            grbCD2.Visible = false;
+            grbED.Visible = false;
+            grbEI.Visible = false;
+            grbCD.Visible = true;
+            ////// Volantes Combos
+            cmbCD1.Visible = false;
+            cmbCD2.Visible = false;
+            cmbED.Visible = false;
+            cmbEI.Visible = false;
+            cmbCD.Visible = true;
+        }
+        private void HabiltarCamposTactica1132()
+        {
+            HabilitarSuplentesFutbol7();
+            grbCancha.Visible = true;
+            grbSuplentes.Visible = true;
+
+            ////// Arqueros
+            grbArquero.Visible = true;
+            cmbArquero.Visible = true;
+
+            ////// Defensores
+            grbLD.Visible = false;
+            grbDFD.Visible = false;
+            grbLibero.Visible = true;
+            grbDFI.Visible = false;
+            grbLI.Visible = false;
+            ////// Defensores Combos
+            cmbLD.Visible = false;
+            cmbDFD.Visible = false;
+            cmbLIB.Visible = true;
+            cmbDFI.Visible = false;
+            cmbLI.Visible = false;
+
+            ////// Volantes
+            grbVD.Visible = true;
+            grbVID.Visible = false;
+            grbVII.Visible = false;
+            grbVI.Visible = true;
+            grbMC.Visible = true;
+            grbMP.Visible = false;
+            ////// Volantes Combos
+            cmbVD.Visible = true;
+            cmbVID.Visible = false;
+            cmbVII.Visible = false;
+            cmbVI.Visible = true;
+            cmbMC.Visible = true;
+            cmbMP.Visible = false;
+
+            ////// Delanteros
+            grbCD1.Visible = true;
+            grbCD2.Visible = true;
+            grbED.Visible = false;
+            grbEI.Visible = false;
+            grbCD.Visible = false;
+            ////// Volantes Combos
+            cmbCD1.Visible = true;
+            cmbCD2.Visible = true;
+            cmbED.Visible = false;
+            cmbEI.Visible = false;
+            cmbCD.Visible = false;
+        }
+        //////////Fútbol 5
+        private void HabiltarCamposTactica1121()
+        {
+            HabilitarSuplentesFutbol5();
+            grbCancha.Visible = true;
+            grbSuplentes.Visible = true;
+
+            ////// Arqueros
+            grbArquero.Visible = true;
+            cmbArquero.Visible = true;
+
+            ////// Defensores
+            grbLD.Visible = false;
+            grbDFD.Visible = false;
+            grbLibero.Visible = true;
+            grbDFI.Visible = false;
+            grbLI.Visible = false;
+            ////// Defensores Combos
+            cmbLD.Visible = false;
+            cmbDFD.Visible = false;
+            cmbLIB.Visible = true;
+            cmbDFI.Visible = false;
+            cmbLI.Visible = false;
+
+            ////// Volantes
+            grbVD.Visible = false;
+            grbVID.Visible = true;
+            grbVII.Visible = true;
+            grbVI.Visible = false;
+            grbMC.Visible = false;
+            grbMP.Visible = false;
+            ////// Volantes Combos
+            cmbVD.Visible = false;
+            cmbVID.Visible = true;
+            cmbVII.Visible = true;
+            cmbVI.Visible = false;
+            cmbMC.Visible = false;
+            cmbMP.Visible = false;
+
+            ////// Delanteros
+            grbCD1.Visible = false;
+            grbCD2.Visible = false;
+            grbED.Visible = false;
+            grbEI.Visible = false;
+            grbCD.Visible = true;
+            ////// Volantes Combos
+            cmbCD1.Visible = false;
+            cmbCD2.Visible = false;
+            cmbED.Visible = false;
+            cmbEI.Visible = false;
+            cmbCD.Visible = true;
+        }
+        private void HabiltarCamposTactica1211()
+        {
+            HabilitarSuplentesFutbol5();
+            grbCancha.Visible = true;
+            grbSuplentes.Visible = true;
+
+            ////// Arqueros
+            grbArquero.Visible = true;
+            cmbArquero.Visible = true;
+
+            ////// Defensores
+            grbLD.Visible = false;
+            grbDFD.Visible = true;
+            grbLibero.Visible = false;
+            grbDFI.Visible = true;
+            grbLI.Visible = false;
+            ////// Defensores Combos
+            cmbLD.Visible = false;
+            cmbDFD.Visible = true;
+            cmbLIB.Visible = false;
+            cmbDFI.Visible = true;
+            cmbLI.Visible = false;
+
+            ////// Volantes
+            grbVD.Visible = false;
+            grbVID.Visible = false;
+            grbVII.Visible = false;
+            grbVI.Visible = false;
+            grbMC.Visible = true;
+            grbMP.Visible = false;
+            ////// Volantes Combos
+            cmbVD.Visible = false;
+            cmbVID.Visible = false;
+            cmbVII.Visible = false;
+            cmbVI.Visible = false;
+            cmbMC.Visible = true;
+            cmbMP.Visible = false;
+
+            ////// Delanteros
+            grbCD1.Visible = false;
+            grbCD2.Visible = false;
+            grbED.Visible = false;
+            grbEI.Visible = false;
+            grbCD.Visible = true;
+            ////// Volantes Combos
+            cmbCD1.Visible = false;
+            cmbCD2.Visible = false;
+            cmbED.Visible = false;
+            cmbEI.Visible = false;
+            cmbCD.Visible = true;
+        }
         private void HabilitarSuplentes()
         {
             cmbSup1.Visible = true;
@@ -349,9 +1175,102 @@ namespace Prode
             grbSup6.Visible = true;
             grbSup7.Visible = true;
         }
+        private void HabilitarSuplentesFutbol7()
+        {
+            cmbSup1.Visible = true;
+            cmbSup2.Visible = true;
+            cmbSup3.Visible = true;
+            cmbSup4.Visible = true;
+            cmbSup5.Visible = true;
+            cmbSup6.Visible = false;
+            cmbSup7.Visible = false;
+            grbSup1.Visible = true;
+            grbSup2.Visible = true;
+            grbSup3.Visible = true;
+            grbSup4.Visible = true;
+            grbSup5.Visible = true;
+            grbSup6.Visible = false;
+            grbSup7.Visible = false;
+        }
+        private void HabilitarSuplentesFutbol5()
+        {
+            cmbSup1.Visible = true;
+            cmbSup2.Visible = true;
+            cmbSup3.Visible = true;
+            cmbSup4.Visible = false;
+            cmbSup5.Visible = false;
+            cmbSup6.Visible = false;
+            cmbSup7.Visible = false;
+            grbSup1.Visible = true;
+            grbSup2.Visible = true;
+            grbSup3.Visible = true;
+            grbSup4.Visible = false;
+            grbSup5.Visible = false;
+            grbSup6.Visible = false;
+            grbSup7.Visible = false;
+        }
+        private void chcFutbol11_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (chcFutbol11.Checked == true)
+                {
+                    CargarComboSistemaFutbol11();
+                    chcFutbol5.Checked = false;
+                    chcFutbol7.Checked = false;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+        private void chcFutbol7_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (chcFutbol7.Checked == true)
+                {
+                    CargarComboSistemaFutbol7();
+                    chcFutbol5.Checked = false;
+                    chcFutbol11.Checked = false;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+        private void chcFutbol5_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (chcFutbol5.Checked == true)
+                {
+                    CargarComboSistemaFutbol5();
+                    chcFutbol11.Checked = false;
+                    chcFutbol7.Checked = false;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
         #endregion
         #region Eventos Combos
         public static List<int> idListaJugadoresCargado;
+        private void cmbMinutos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string Minutos = cmbMinutos.Text;
+                AsignarMinutosJugadoresTitulares(Minutos);
+
+            }
+            catch (Exception ex)
+            { }
+        }
         private void cmbTactica_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -360,6 +1279,68 @@ namespace Prode
                 if (Tactica == "1-4-4-2")
                 {
                     HabiltarCamposTactica1442();
+                }
+                if (Tactica == "1-4-3-1-2")
+                {
+                    HabiltarCamposTactica14312();
+                }
+                if (Tactica == "1-4-2-3-1")
+                {
+                    HabiltarCamposTactica14231();
+                }
+                if (Tactica == "1-4-1-3-2")
+                {
+                    HabiltarCamposTactica14132();
+                }
+                if (Tactica == "1-4-3-3")
+                {
+                    HabiltarCamposTactica1433();
+                }
+                if (Tactica == "1-5-3-2")
+                {
+                    HabiltarCamposTactica1532();
+                }
+                if (Tactica == "1-5-2-1-2")
+                {
+                    HabiltarCamposTactica15212();
+                }
+                if (Tactica == "1-3-4-3")
+                {
+                    HabiltarCamposTactica1343();
+                }
+                if (Tactica == "1-3-4-1-2")
+                {
+                    HabiltarCamposTactica13412();
+                }
+                if (Tactica == "1-3-3-1-3")
+                {
+                    HabiltarCamposTactica13313();
+                }
+                ////// Fútbol 7
+                if (Tactica == "1-3-1-2")
+                {
+                    HabiltarCamposTactica1312();
+                }
+                if (Tactica == "1-2-3-1")
+                {
+                    HabiltarCamposTactica1231();
+                }
+                if (Tactica == "1-2-2-2")
+                {
+                    HabiltarCamposTactica1222();
+                }
+                if (Tactica == "1-1-3-2")
+                {
+                    HabiltarCamposTactica1132();
+                }
+                ////// Fútbol 5
+                if (Tactica == "1-1-2-1")
+                {
+                    HabiltarCamposTactica1121();
+                }
+                if (Tactica == "1-2-1-1")
+                {
+                    HabiltarCamposTactica1211();
                 }
             }
             catch (Exception ex)
@@ -1177,7 +2158,6 @@ namespace Prode
             catch (Exception ex)
             { }
         }
-        #endregion
-
+        #endregion               
     }
 }

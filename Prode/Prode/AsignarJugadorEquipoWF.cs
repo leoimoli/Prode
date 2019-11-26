@@ -91,42 +91,101 @@ namespace Prode
             try
             {
                 bool Exito = false;
-                int idJugador = Convert.ToInt32(lblId.Text);
-                int idEquipoSeleccionado = Convert.ToInt32(lblIdEquipo.Text);
-                if (idEquipoSeleccionado <= 0)
+                if (ValorCheck == 1)
                 {
-                    const string message = "Debe seleccionar un equipo al que asignar el jugador.";
-                    const string caption = "Error";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                string jugador = lblJugadorEdit.Text;
-                var Mensaje = "Desae asignar el jugador '" + jugador + "' al equipo '" + txtBuscar.Text + "' ?";
-
-                string message2 = Mensaje;
-                const string caption2 = "Asignar Jugador";
-                var result2 = MessageBox.Show(message2, caption2,
-                                             MessageBoxButtons.YesNo,
-                                             MessageBoxIcon.Question);
-                {
-                    if (result2 == DialogResult.Yes)
+                    int idJugador = Convert.ToInt32(lblId.Text);
+                    int idEquipoSeleccionado = Convert.ToInt32(lblIdEquipo.Text);
+                    if (idEquipoSeleccionado <= 0)
                     {
-                        Exito = EquiposNeg.AsignarJugarNuevoEquipo(idJugador, idEquipoSeleccionado);
-                        if (Exito == true)
+                        const string message = "Debe seleccionar un equipo al que asignar el jugador.";
+                        const string caption = "Error";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Exclamation);
+                        throw new Exception();
+                    }
+                    string jugador = lblJugadorEdit.Text;
+                    var Mensaje = "Desae asignar el jugador '" + jugador + "' al equipo '" + txtBuscar.Text + "' ?";
+
+                    string message2 = Mensaje;
+                    const string caption2 = "Asignar Jugador";
+                    var result2 = MessageBox.Show(message2, caption2,
+                                                 MessageBoxButtons.YesNo,
+                                                 MessageBoxIcon.Question);
+
+                    {
+                        if (result2 == DialogResult.Yes)
                         {
-                            ProgressBar();
-                            const string message3 = "Se asigno el jugador exitosamente.";
-                            const string caption3 = "Éxito";
-                            var result3 = MessageBox.Show(message3, caption3,
-                                                         MessageBoxButtons.OK,
-                                                         MessageBoxIcon.Asterisk);
-                            LimpiarCampos();
+                            Exito = EquiposNeg.AsignarJugarNuevoEquipo(idJugador, idEquipoSeleccionado);
+                            if (Exito == true)
+                            {
+                                ProgressBar();
+                                const string message3 = "Se asigno el jugador exitosamente.";
+                                const string caption3 = "Éxito";
+                                var result3 = MessageBox.Show(message3, caption3,
+                                                             MessageBoxButtons.OK,
+                                                             MessageBoxIcon.Asterisk);
+                                LimpiarCampos();
+                            }
+                        }
+                        else
+                        {
                         }
                     }
-                    else
+                }
+                if (ValorCheck == 2)
+                {
+                    List<int> ListaId = new List<int>();
+                    DataGridViewCheckBoxCell oCell;
+                    foreach (DataGridViewRow row in dgvMasiva.Rows)
                     {
+                        oCell = row.Cells[3] as DataGridViewCheckBoxCell;
+                        bool bChecked = (null != oCell && null != oCell.Value && true == (bool)oCell.Value);
+                        if (true == bChecked)
+                        {
+                            int Valor = Convert.ToInt32(row.Cells[0].Value.ToString());
+                            ListaId.Add(Valor);
+                        }
+                    }
+                    if (ListaId.Count > 0)
+                    {
+                        int idEquipoSeleccionado = Convert.ToInt32(lblIdEquipo.Text);
+                        if (idEquipoSeleccionado <= 0)
+                        {
+                            const string message = "Debe seleccionar un equipo al que asignar el jugador.";
+                            const string caption = "Error";
+                            var result = MessageBox.Show(message, caption,
+                                                         MessageBoxButtons.OK,
+                                                       MessageBoxIcon.Exclamation);
+                            throw new Exception();
+                        }
+                        var Mensaje = "Desae asignar los jugadores seleccionados al equipo '" + txtBuscar.Text + "' ?";
+
+                        string message2 = Mensaje;
+                        const string caption2 = "Asignar Jugador";
+                        var result2 = MessageBox.Show(message2, caption2,
+                                                     MessageBoxButtons.YesNo,
+                                                     MessageBoxIcon.Question);
+
+                        {
+                            if (result2 == DialogResult.Yes)
+                            {
+                                Exito = EquiposNeg.CargaMasivaDeAsignaciones(ListaId, idEquipoSeleccionado);
+                                if (Exito == true)
+                                {
+                                    ProgressBar();
+                                    const string message3 = "Se asignaron los jugadores seleccionados exitosamente.";
+                                    const string caption3 = "Éxito";
+                                    var result3 = MessageBox.Show(message3, caption3,
+                                                                 MessageBoxButtons.OK,
+                                                                 MessageBoxIcon.Asterisk);
+                                    LimpiarCampos();
+                                }
+                            }
+                            else
+                            {
+                            }
+                        }
                     }
                 }
             }
@@ -160,6 +219,10 @@ namespace Prode
             groupBox1.Visible = true;
             progressBar1.Value = Convert.ToInt32(null);
             progressBar1.Visible = false;
+            dgvMasiva.Rows.Clear();
+            dgvMasiva.Visible = false;
+            chcPersonal.Checked = true;
+            groupBox1.Visible = true;
         }
         private void ProgressBar()
         {
@@ -262,7 +325,121 @@ namespace Prode
                 }
             }
         }
+
+        private void chcPersonal_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (chcPersonal.Checked == true)
+                {
+                    ValorCheck = 1;
+                    dgvMasiva.Visible = false;
+                    chcMasiva.Checked = false;
+                    groupBox1.Visible = true;
+                    txtBuscarApellidoNombre.Focus();
+                }
+            }
+            catch (Exception ex)
+            { }
+        }
+        public static int ValorCheck;
+        private void chcMasiva_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (chcMasiva.Checked == true)
+                {
+                    ValorCheck = 2;
+                    chcPersonal.Checked = false;
+                    groupBox1.Visible = false;
+                    lblJugador.Visible = false;
+                    lblJugadorEdit.Visible = false;
+                    pictureBox1.Visible = false;
+                    ListaResultados = JugadoresNeg.BuscarJugadoresSinAsignar();
+                }
+            }
+            catch (Exception ex)
+            { }
+        }
+        public List<Entidades.AlineacionEquipo> ListaResultados
+        {
+            set
+            {
+                if (value.Count > 0)
+                {
+
+                    groupBox2.Visible = true;
+                    txtBuscar.Focus();
+                    txtBuscar.AutoCompleteCustomSource = Clases_Maestras.AutoCompletePorEquipo.Autocomplete();
+                    txtBuscar.AutoCompleteMode = AutoCompleteMode.Suggest;
+                    txtBuscar.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                    txtBuscar.Focus();
+                    if (value != dgvMasiva.DataSource && dgvMasiva.DataSource != null)
+                    {
+                        dgvMasiva.Columns.Clear();
+                        dgvMasiva.Refresh();
+                    }
+                    dgvMasiva.Visible = true;
+                    dgvMasiva.ReadOnly = true;
+                    dgvMasiva.RowHeadersVisible = false;
+                    dgvMasiva.DataSource = value;
+
+                    dgvMasiva.Columns[0].HeaderText = "Nro.Identificador";
+                    dgvMasiva.Columns[0].Width = 130;
+                    dgvMasiva.Columns[0].HeaderCell.Style.BackColor = Color.DarkBlue;
+                    dgvMasiva.Columns[0].HeaderCell.Style.Font = new System.Drawing.Font("Tahoma", 10, FontStyle.Bold);
+                    dgvMasiva.Columns[0].HeaderCell.Style.ForeColor = Color.White;
+                    dgvMasiva.Columns[0].Visible = false;
+
+                    dgvMasiva.Columns[1].HeaderText = "Apellido";
+                    dgvMasiva.Columns[1].Width = 150;
+                    dgvMasiva.Columns[1].HeaderCell.Style.BackColor = Color.DarkBlue;
+                    dgvMasiva.Columns[1].HeaderCell.Style.Font = new System.Drawing.Font("Tahoma", 10, FontStyle.Bold);
+                    dgvMasiva.Columns[1].HeaderCell.Style.ForeColor = Color.White;
+
+                    dgvMasiva.Columns[2].HeaderText = "Nombre";
+                    dgvMasiva.Columns[2].Width = 150;
+                    dgvMasiva.Columns[2].HeaderCell.Style.BackColor = Color.DarkBlue;
+                    dgvMasiva.Columns[2].HeaderCell.Style.Font = new System.Drawing.Font("Tahoma", 10, FontStyle.Bold);
+                    dgvMasiva.Columns[2].HeaderCell.Style.ForeColor = Color.White;
+
+                    DataGridViewCheckBoxColumn Seleccionar = new DataGridViewCheckBoxColumn();
+                    Seleccionar.Name = "Seleccionar";
+                    Seleccionar.HeaderText = "Seleccionar";
+                    this.dgvMasiva.Columns.Add(Seleccionar);
+                    dgvMasiva.Columns[3].Width = 100;
+                    dgvMasiva.Columns[3].HeaderCell.Style.BackColor = Color.DarkBlue;
+                    dgvMasiva.Columns[3].HeaderCell.Style.Font = new Font("Tahoma", 10, FontStyle.Bold);
+                    dgvMasiva.Columns[3].HeaderCell.Style.ForeColor = Color.White;
+                }
+                else
+                {
+                    const string message3 = "No se encontraron jugadores disponibles para ser asignados.";
+                    const string caption3 = "Atención";
+                    var result3 = MessageBox.Show(message3, caption3,
+                                                 MessageBoxButtons.OK,
+                                                 MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+        private void dgvMasiva_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewCheckBoxCell ch1 = new DataGridViewCheckBoxCell();
+            ch1 = (DataGridViewCheckBoxCell)dgvMasiva.Rows[dgvMasiva.CurrentRow.Index].Cells[3];
+
+            if (ch1.Value == null)
+                ch1.Value = false;
+            switch (ch1.Value.ToString())
+            {
+                case "True":
+                    ch1.Value = false;
+                    break;
+                case "False":
+                    ch1.Value = true;
+                    break;
+            }
+        }
+        #endregion
     }
-    #endregion
 }
 

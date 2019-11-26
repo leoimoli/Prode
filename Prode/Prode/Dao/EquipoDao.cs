@@ -156,6 +156,26 @@ namespace Prode.Dao
             connection.Close();
             return Existe;
         }
+        public static bool CargaMasivaDeAsignaciones(List<int> listaId, int idEquipoSeleccionado)
+        {
+            bool exito = false;
+            connection.Close();
+            connection.Open();
+            foreach (var item in listaId)
+            {
+                DateTime FechaAsignacion = DateTime.Now;
+                string proceso = "AsignarJugadorEquipo";
+                MySqlCommand cmd = new MySqlCommand(proceso, connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("idJugador_in", item);
+                cmd.Parameters.AddWithValue("idEquipoSeleccionado_in", idEquipoSeleccionado);
+                cmd.Parameters.AddWithValue("FechaAsignacion_in", FechaAsignacion);
+                cmd.ExecuteNonQuery();
+                exito = true;
+            }
+            connection.Close();
+            return exito;
+        }
         public static bool AsignarJugadorEquipo(int idJugador, int idEquipoSeleccionado)
         {
             bool exito = false;

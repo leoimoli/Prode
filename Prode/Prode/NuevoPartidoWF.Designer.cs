@@ -140,7 +140,7 @@
             // 
             this.lblEstadio.AutoSize = true;
             this.lblEstadio.Font = new System.Drawing.Font("Microsoft Tai Le", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstadio.Location = new System.Drawing.Point(351, 169);
+            this.lblEstadio.Location = new System.Drawing.Point(339, 169);
             this.lblEstadio.Name = "lblEstadio";
             this.lblEstadio.Size = new System.Drawing.Size(80, 25);
             this.lblEstadio.TabIndex = 59;
@@ -586,7 +586,7 @@
             // 
             this.lblIdLocal.AutoSize = true;
             this.lblIdLocal.Font = new System.Drawing.Font("Microsoft Tai Le", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdLocal.Location = new System.Drawing.Point(328, 144);
+            this.lblIdLocal.Location = new System.Drawing.Point(328, 139);
             this.lblIdLocal.Name = "lblIdLocal";
             this.lblIdLocal.Size = new System.Drawing.Size(48, 25);
             this.lblIdLocal.TabIndex = 135;

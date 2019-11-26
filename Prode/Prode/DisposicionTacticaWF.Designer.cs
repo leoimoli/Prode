@@ -323,6 +323,16 @@
             this.txtMinSup1 = new System.Windows.Forms.TextBox();
             this.label84 = new System.Windows.Forms.Label();
             this.pictureSup1 = new System.Windows.Forms.PictureBox();
+            this.grbTipo = new System.Windows.Forms.GroupBox();
+            this.chcFutbol5 = new System.Windows.Forms.CheckBox();
+            this.chcFutbol7 = new System.Windows.Forms.CheckBox();
+            this.chcFutbol11 = new System.Windows.Forms.CheckBox();
+            this.btnVolver = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.grbDuaracionPartido = new System.Windows.Forms.GroupBox();
+            this.label70 = new System.Windows.Forms.Label();
+            this.cmbMinutos = new System.Windows.Forms.ComboBox();
             this.grbCancha.SuspendLayout();
             this.grbCD2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCD2)).BeginInit();
@@ -375,6 +385,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureSup3)).BeginInit();
             this.grbSup1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureSup1)).BeginInit();
+            this.grbTipo.SuspendLayout();
+            this.grbDuaracionPartido.SuspendLayout();
             this.SuspendLayout();
             // 
             // grbCancha
@@ -2550,7 +2562,7 @@
             // 
             this.grbSistemaTactico.Controls.Add(this.label69);
             this.grbSistemaTactico.Controls.Add(this.cmbTactica);
-            this.grbSistemaTactico.Location = new System.Drawing.Point(250, 3);
+            this.grbSistemaTactico.Location = new System.Drawing.Point(326, 0);
             this.grbSistemaTactico.Name = "grbSistemaTactico";
             this.grbSistemaTactico.Size = new System.Drawing.Size(486, 57);
             this.grbSistemaTactico.TabIndex = 87;
@@ -3467,11 +3479,131 @@
             this.pictureSup1.TabStop = false;
             this.pictureSup1.Visible = false;
             // 
+            // grbTipo
+            // 
+            this.grbTipo.Controls.Add(this.chcFutbol11);
+            this.grbTipo.Controls.Add(this.chcFutbol7);
+            this.grbTipo.Controls.Add(this.chcFutbol5);
+            this.grbTipo.Location = new System.Drawing.Point(23, 0);
+            this.grbTipo.Name = "grbTipo";
+            this.grbTipo.Size = new System.Drawing.Size(285, 57);
+            this.grbTipo.TabIndex = 89;
+            this.grbTipo.TabStop = false;
+            this.grbTipo.Text = "Tipo de Cancha";
+            // 
+            // chcFutbol5
+            // 
+            this.chcFutbol5.AutoSize = true;
+            this.chcFutbol5.Location = new System.Drawing.Point(15, 21);
+            this.chcFutbol5.Name = "chcFutbol5";
+            this.chcFutbol5.Size = new System.Drawing.Size(61, 17);
+            this.chcFutbol5.TabIndex = 0;
+            this.chcFutbol5.Text = "Fútbol5";
+            this.chcFutbol5.UseVisualStyleBackColor = true;
+            this.chcFutbol5.CheckedChanged += new System.EventHandler(this.chcFutbol5_CheckedChanged);
+            // 
+            // chcFutbol7
+            // 
+            this.chcFutbol7.AutoSize = true;
+            this.chcFutbol7.Location = new System.Drawing.Point(104, 21);
+            this.chcFutbol7.Name = "chcFutbol7";
+            this.chcFutbol7.Size = new System.Drawing.Size(61, 17);
+            this.chcFutbol7.TabIndex = 1;
+            this.chcFutbol7.Text = "Fútbol7";
+            this.chcFutbol7.UseVisualStyleBackColor = true;
+            this.chcFutbol7.CheckedChanged += new System.EventHandler(this.chcFutbol7_CheckedChanged);
+            // 
+            // chcFutbol11
+            // 
+            this.chcFutbol11.AutoSize = true;
+            this.chcFutbol11.Checked = true;
+            this.chcFutbol11.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chcFutbol11.Location = new System.Drawing.Point(195, 21);
+            this.chcFutbol11.Name = "chcFutbol11";
+            this.chcFutbol11.Size = new System.Drawing.Size(67, 17);
+            this.chcFutbol11.TabIndex = 2;
+            this.chcFutbol11.Text = "Fútbol11";
+            this.chcFutbol11.UseVisualStyleBackColor = true;
+            this.chcFutbol11.CheckedChanged += new System.EventHandler(this.chcFutbol11_CheckedChanged);
+            // 
+            // btnVolver
+            // 
+            this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.Image = global::Prode.Properties.Resources.deshacer;
+            this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnVolver.Location = new System.Drawing.Point(1055, 887);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(80, 51);
+            this.btnVolver.TabIndex = 132;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnVolver.UseVisualStyleBackColor = true;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Image = global::Prode.Properties.Resources.error;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCancelar.Location = new System.Drawing.Point(1141, 887);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(80, 51);
+            this.btnCancelar.TabIndex = 131;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Image = global::Prode.Properties.Resources.apoyo;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnGuardar.Location = new System.Drawing.Point(1227, 888);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(80, 51);
+            this.btnGuardar.TabIndex = 130;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            // 
+            // grbDuaracionPartido
+            // 
+            this.grbDuaracionPartido.Controls.Add(this.label70);
+            this.grbDuaracionPartido.Controls.Add(this.cmbMinutos);
+            this.grbDuaracionPartido.Location = new System.Drawing.Point(840, 0);
+            this.grbDuaracionPartido.Name = "grbDuaracionPartido";
+            this.grbDuaracionPartido.Size = new System.Drawing.Size(354, 57);
+            this.grbDuaracionPartido.TabIndex = 133;
+            this.grbDuaracionPartido.TabStop = false;
+            this.grbDuaracionPartido.Text = "Duración del partido";
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Location = new System.Drawing.Point(30, 22);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(91, 13);
+            this.label70.TabIndex = 88;
+            this.label70.Text = "Minutos de juego:";
+            // 
+            // cmbMinutos
+            // 
+            this.cmbMinutos.FormattingEnabled = true;
+            this.cmbMinutos.Location = new System.Drawing.Point(121, 19);
+            this.cmbMinutos.Name = "cmbMinutos";
+            this.cmbMinutos.Size = new System.Drawing.Size(212, 21);
+            this.cmbMinutos.TabIndex = 88;
+            this.cmbMinutos.SelectedIndexChanged += new System.EventHandler(this.cmbMinutos_SelectedIndexChanged);
+            // 
             // DisposicionTacticaWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 964);
+            this.Controls.Add(this.grbDuaracionPartido);
+            this.Controls.Add(this.btnVolver);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.grbTipo);
             this.Controls.Add(this.grbSuplentes);
             this.Controls.Add(this.grbSistemaTactico);
             this.Controls.Add(this.grbCancha);
@@ -3556,6 +3688,10 @@
             this.grbSup1.ResumeLayout(false);
             this.grbSup1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureSup1)).EndInit();
+            this.grbTipo.ResumeLayout(false);
+            this.grbTipo.PerformLayout();
+            this.grbDuaracionPartido.ResumeLayout(false);
+            this.grbDuaracionPartido.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3857,5 +3993,15 @@
         private System.Windows.Forms.TextBox txtMinSup7;
         private System.Windows.Forms.Label label89;
         private System.Windows.Forms.PictureBox pictureSup7;
+        private System.Windows.Forms.GroupBox grbTipo;
+        private System.Windows.Forms.CheckBox chcFutbol5;
+        private System.Windows.Forms.CheckBox chcFutbol11;
+        private System.Windows.Forms.CheckBox chcFutbol7;
+        private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.GroupBox grbDuaracionPartido;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.ComboBox cmbMinutos;
     }
 }

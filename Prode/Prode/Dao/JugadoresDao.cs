@@ -70,7 +70,6 @@ namespace Prode.Dao
             connection.Close();
             return exito;
         }
-
         public static List<Jugadores> BuscarJugadoresPorId(int idJugadorStatic)
         {
             connection.Close();
@@ -123,7 +122,6 @@ namespace Prode.Dao
             connection.Close();
             return lista;
         }
-
         public static bool AltaFichaTecnica(FichaTecnica _fichaJugadores)
         {
             bool Exito = false;
@@ -160,6 +158,34 @@ namespace Prode.Dao
             return Exito;
         }
 
+        public static List<AlineacionEquipo> BuscarJugadoresSinAsignar()
+        {
+            connection.Close();
+            connection.Open();
+            List<Entidades.AlineacionEquipo> lista = new List<Entidades.AlineacionEquipo>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { };
+            string proceso = "BuscarJugadoresSinAsignar";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    AlineacionEquipo listaJugadores = new AlineacionEquipo();
+                    listaJugadores.idJugador = Convert.ToInt32(item["idPersonaFisicaJugador"].ToString());
+                    listaJugadores.Apellido = item["Apellido"].ToString();
+                    listaJugadores.Nombre = item["Nombre"].ToString();
+                    lista.Add(listaJugadores);
+                }
+            }
+            connection.Close();
+            return lista;
+        }
         public static byte[] BuscarImagenJugador(int idJugador)
         {
             byte[] Imagen = new Byte[10];

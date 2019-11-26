@@ -66,7 +66,28 @@ namespace Prode
                         string EstadioLocal = EquiposNeg.BuscarEstadioPorEquipoLocalSeleccionado(equipoLocal);
                         if (EstadioLocal != null)
                         {
-                            lblEstadioEdit.Text = EstadioLocal;
+                            int cantidadLetras = EstadioLocal.Length;
+                            if (cantidadLetras > 8 & cantidadLetras < 10)
+                            {
+                                lblEstadioEdit.Font = new Font(lblEstadioEdit.Font.Name, 9);
+                                lblEstadioEdit.Text = EstadioLocal;
+                            }
+                            if (cantidadLetras > 10 & cantidadLetras < 15)
+                            {
+                                lblEstadioEdit.Font = new Font(lblEstadioEdit.Font.Name, 8);
+                                lblEstadioEdit.Text = EstadioLocal;
+                            }
+                            if (cantidadLetras > 15)
+                            {
+                                lblEstadioEdit.Font = new Font(lblEstadioEdit.Font.Name, 7);
+                                lblEstadioEdit.Text = EstadioLocal;
+                            }
+                            if (cantidadLetras > 30)
+                            {
+                                lblEstadioEdit.Font = new Font(lblEstadioEdit.Font.Name, 6);
+                                lblEstadioEdit.Text = EstadioLocal;
+                            }
+
                         }
                         List<Equipos> _equipo = new List<Equipos>();
                         var NombreEquipo = txtEquipoLocal.Text;
@@ -329,7 +350,10 @@ namespace Prode
             _partido.idEquipoVisitante = Convert.ToInt32(lblIdVistante.Text);
             _partido.Estadio = lblEstadioEdit.Text;
             _partido.NroFecha = Convert.ToInt32(txtFecha.Text);
-            _partido.NombrePartido = txtEquipoLocal.Text + " - " + txtEquipoVisitante.Text;
+
+            string Fech = dtFecha.Value.ToShortDateString();
+            string FechaNombre = Fech;
+            _partido.NombrePartido = txtEquipoLocal.Text + " -VS- " + txtEquipoVisitante.Text + "(" + FechaNombre + ")";
 
             ////////Info Partido
             _partido.CornersLocal = Convert.ToInt32(txtCornersLocal.Text);

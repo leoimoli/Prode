@@ -50,7 +50,28 @@ namespace Prode.Clase_Maestra
         {
             get
             {
-                return new string[] { "1-4-4-2", "1-4-3-1-2", "1-4-2-3,1", "1-4-1-3-2","1-4-3-3", "1-5-3-2", "1-5-2-1-2", "1-3-4-3", "1-3-4-1-2","1-3-3-1-3" };
+                return new string[] { "1-4-4-2", "1-4-3-1-2", "1-4-2-3-1", "1-4-1-3-2","1-4-3-3", "1-5-3-2", "1-5-2-1-2", "1-3-4-3", "1-3-4-1-2","1-3-3-1-3" };
+            }
+        }
+        public static string[] DisposicionTacticaFutbol7
+        {
+            get
+            {
+                return new string[] { "1-3-1-2", "1-2-2-2", "1-2-3-1", "1-1-3-2" };
+            }
+        }
+        public static string[] DisposicionTacticaFutbol5
+        {
+            get
+            {
+                return new string[] { "1-1-2-1", "1-2-1-1"};
+            }
+        }
+        public static string[] MinutosDePartido
+        {
+            get
+            {
+                return new string[] { "30", "40", "50", "60","90","120" };
             }
         }
     }
