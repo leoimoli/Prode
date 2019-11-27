@@ -15,12 +15,17 @@ namespace Prode
     public partial class DisposicionTacticaWF : Form
     {
         private List<string> listAlineacion;
-        public DisposicionTacticaWF(List<string> listAlineacion)
+        private int idEquipos;
+        private int idPartidos;
+        public DisposicionTacticaWF(List<string> listAlineacion, int idEquipo, int idPartido)
         {
             InitializeComponent();
             this.listAlineacion = listAlineacion;
             listaRecibida = listAlineacion;
+            this.idEquipos = idEquipo;
+            this.idPartidos = idPartido;
         }
+
         private void DisposicionTacticaWF_Load(object sender, EventArgs e)
         {
             try
@@ -238,7 +243,7 @@ namespace Prode
         }
         #region Botones
         #endregion
-        #region Funciones
+        #region Funciones       
         private void AsignarMinutosJugadoresTitulares(string minutos)
         {
             ////// Arqueros
@@ -1260,6 +1265,9 @@ namespace Prode
         #endregion
         #region Eventos Combos
         public static List<int> idListaJugadoresCargado;
+        private int idEquipo;
+        private int idPartido;
+
         private void cmbMinutos_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -2158,6 +2166,297 @@ namespace Prode
             catch (Exception ex)
             { }
         }
-        #endregion               
+        #endregion
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<string> listaEstadistica = new List<string>();
+                string SistemaTactico = cmbTactica.Text;
+                listaEstadistica = CargarEntidad();
+                bool Exito = FutbolEstadisticaJugadorNeg.GuardarEstadisticaJugador(listaEstadistica, SistemaTactico, idEquipos, idPartidos);
+
+            }
+            catch (Exception ex)
+            { }
+        }
+
+        private List<string> CargarEntidad()
+        {
+            List<string> listaString = new List<string>();
+            string id = "";
+            string Minutos = "";
+            string Goles = "";
+            string Amarilla = "";
+            string Roja = "";
+            string Cadena = "";
+
+            if (lblARQ.Text != "@LD")
+            {
+                id = lblARQ.Text;
+                Minutos = txtMinARQ.Text;
+                Goles = txtGolesARQ.Text;
+                Amarilla = txtAmarillaARQ.Text;
+                Roja = txtRojasARQ.Text;
+                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+            }
+            listaString.Add(Cadena);
+
+            if (lblLD.Text != "@LD")
+            {
+                id = lblLD.Text;
+                Minutos = txtMinLD.Text;
+                Goles = txtGolesLD.Text;
+                Amarilla = txtAmarillaLD.Text;
+                Roja = txtRojasLD.Text;
+                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+            }
+            listaString.Add(Cadena);
+
+            if (lblDFD.Text != "@LD")
+            {
+                id = lblDFD.Text;
+                Minutos = txtMinDFD.Text;
+                Goles = txtGolesDFD.Text;
+                Amarilla = txtAmarillaDFD.Text;
+                Roja = txtRojasDFD.Text;
+                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+            }
+            listaString.Add(Cadena);
+
+            if (lblLIB.Text != "@LD")
+            {
+                id = lblLIB.Text;
+                Minutos = txtMinLIB.Text;
+                Goles = txtGolesLIB.Text;
+                Amarilla = txtAmarillaLIB.Text;
+                Roja = txtRojasLIB.Text;
+                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+            }
+            listaString.Add(Cadena);
+
+            if (lblDFI.Text != "@LD")
+            {
+                id = lblDFI.Text;
+                Minutos = txtMinDFI.Text;
+                Goles = txtGolesDFI.Text;
+                Amarilla = txtAmarillaDFI.Text;
+                Roja = txtRojasDFI.Text;
+                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+            }
+            listaString.Add(Cadena);
+
+            if (lblLI.Text != "@LD")
+            {
+                id = lblLI.Text;
+                Minutos = txtMinLI.Text;
+                Goles = txtGolesLI.Text;
+                Amarilla = txtAmarillaLI.Text;
+                Roja = txtRojasLI.Text;
+                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+            }
+            listaString.Add(Cadena);
+
+            if (lblVD.Text != "@LD")
+            {
+                id = lblVD.Text;
+                Minutos = txtMinVD.Text;
+                Goles = txtGolesVD.Text;
+                Amarilla = txtAmarillaVD.Text;
+                Roja = txtRojasVD.Text;
+                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+            }
+            listaString.Add(Cadena);
+
+            if (lblVID.Text != "@LD")
+            {
+                id = lblVID.Text;
+                Minutos = txtMinVID.Text;
+                Goles = txtGolesVID.Text;
+                Amarilla = txtAmarillaVID.Text;
+                Roja = txtRojasVID.Text;
+                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+            }
+            listaString.Add(Cadena);
+
+            if (lblMC.Text != "@LD")
+            {
+                id = lblMC.Text;
+                Minutos = txtMinMC.Text;
+                Goles = txtGolesMC.Text;
+                Amarilla = txtAmarillaMC.Text;
+                Roja = txtRojasMC.Text;
+                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+            }
+            listaString.Add(Cadena);
+
+            if (lblVII.Text != "@LD")
+            {
+                id = lblVII.Text;
+                Minutos = txtMinVII.Text;
+                Goles = txtGolesVII.Text;
+                Amarilla = txtAmarillaVII.Text;
+                Roja = txtRojasVII.Text;
+                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+            }
+            listaString.Add(Cadena);
+
+            if (lblVI.Text != "@LD")
+            {
+                id = lblVI.Text;
+                Minutos = txtMinVI.Text;
+                Goles = txtGolesVI.Text;
+                Amarilla = txtAmarillaVI.Text;
+                Roja = txtRojasVI.Text;
+                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+            }
+            listaString.Add(Cadena);
+
+            if (lblMP.Text != "@LD")
+            {
+                id = lblMP.Text;
+                Minutos = txtMinMP.Text;
+                Goles = txtGolesMP.Text;
+                Amarilla = txtAmarillaMP.Text;
+                Roja = txtRojasMP.Text;
+                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+            }
+            listaString.Add(Cadena);
+
+            if (lblED.Text != "@LD")
+            {
+                id = lblED.Text;
+                Minutos = txtMinED.Text;
+                Goles = txtGolesED.Text;
+                Amarilla = txtAmarillaED.Text;
+                Roja = txtRojasED.Text;
+                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+            }
+            listaString.Add(Cadena);
+
+            if (lblCD1.Text != "@LD")
+            {
+                id = lblCD1.Text;
+                Minutos = txtMinCD1.Text;
+                Goles = txtGolesCD1.Text;
+                Amarilla = txtAmarillaCD1.Text;
+                Roja = txtRojasCD1.Text;
+                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+            }
+            listaString.Add(Cadena);
+
+            if (lblCD.Text != "@LD")
+            {
+                id = lblCD.Text;
+                Minutos = txtMinCD.Text;
+                Goles = txtGolesCD.Text;
+                Amarilla = txtAmarillaCD.Text;
+                Roja = txtRojasCD.Text;
+                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+            }
+            listaString.Add(Cadena);
+
+            if (lblCD2.Text != "@LD")
+            {
+                id = lblCD2.Text;
+                Minutos = txtMinCD2.Text;
+                Goles = txtGolesCD2.Text;
+                Amarilla = txtAmarillaCD2.Text;
+                Roja = txtRojasCD2.Text;
+                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+            }
+            listaString.Add(Cadena);
+
+            if (lblEI.Text != "@LD")
+            {
+                id = lblEI.Text;
+                Minutos = txtMinEI.Text;
+                Goles = txtGolesEI.Text;
+                Amarilla = txtAmarillaEI.Text;
+                Roja = txtRojasEI.Text;
+                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+            }
+            listaString.Add(Cadena);
+
+            if (lblSup1.Text != "@LD")
+            {
+                id = lblSup1.Text;
+                Minutos = txtMinSup1.Text;
+                Goles = txtGolesSup1.Text;
+                Amarilla = txtAmarillasSup1.Text;
+                Roja = txtRojasSup1.Text;
+                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+            }
+            listaString.Add(Cadena);
+
+            if (lblSup2.Text != "@LD")
+            {
+                id = lblSup2.Text;
+                Minutos = txtMinSup2.Text;
+                Goles = txtGolesSup2.Text;
+                Amarilla = txtAmarillasSup2.Text;
+                Roja = txtRojasSup2.Text;
+                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+            }
+            listaString.Add(Cadena);
+
+            if (lblSup3.Text != "@LD")
+            {
+                id = lblSup3.Text;
+                Minutos = txtMinSup3.Text;
+                Goles = txtGolesSup3.Text;
+                Amarilla = txtAmarillasSup3.Text;
+                Roja = txtRojasSup3.Text;
+                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+            }
+            listaString.Add(Cadena);
+
+            if (lblSup4.Text != "@LD")
+            {
+                id = lblSup4.Text;
+                Minutos = txtMinSup4.Text;
+                Goles = txtGolesSup4.Text;
+                Amarilla = txtAmarillasSup4.Text;
+                Roja = txtRojasSup4.Text;
+                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+            }
+            listaString.Add(Cadena);
+
+            if (lblSup5.Text != "@LD")
+            {
+                id = lblSup5.Text;
+                Minutos = txtMinSup5.Text;
+                Goles = txtGolesSup5.Text;
+                Amarilla = txtAmarillasSup5.Text;
+                Roja = txtRojasSup5.Text;
+                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+            }
+            listaString.Add(Cadena);
+
+            if (lblSup6.Text != "@LD")
+            {
+                id = lblSup6.Text;
+                Minutos = txtMinSup6.Text;
+                Goles = txtGolesSup6.Text;
+                Amarilla = txtAmarillasSup6.Text;
+                Roja = txtRojasSup6.Text;
+                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+            }
+            listaString.Add(Cadena);
+
+            if (lblSup7.Text != "@LD")
+            {
+                id = lblSup7.Text;
+                Minutos = txtMinSup7.Text;
+                Goles = txtGolesSup7.Text;
+                Amarilla = txtAmarillasSup7.Text;
+                Roja = txtRojasSup7.Text;
+                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+            }
+            listaString.Add(Cadena);
+
+            return listaString;
+        }
     }
 }

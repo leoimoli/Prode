@@ -44,6 +44,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.grbLocal = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.txtJugadoresLocales = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnConfirmar = new System.Windows.Forms.Button();
@@ -51,6 +52,7 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.listLocal = new System.Windows.Forms.ListBox();
             this.grbVisitante = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtJugadoresVisitantes = new System.Windows.Forms.TextBox();
             this.btnConfirmarVisitante = new System.Windows.Forms.Button();
@@ -61,8 +63,8 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscarNombrePartido = new System.Windows.Forms.TextBox();
             this.lblDniOApellidoNombre = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.lblIdPartido = new System.Windows.Forms.Label();
             this.grbDatosPartido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -249,6 +251,15 @@
             this.grbLocal.Text = "Alineación Local";
             this.grbLocal.Visible = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(207, 261);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(78, 32);
+            this.button1.TabIndex = 156;
+            this.button1.Text = "Nuevo";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // txtJugadoresLocales
             // 
             this.txtJugadoresLocales.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -322,6 +333,15 @@
             this.grbVisitante.TabStop = false;
             this.grbVisitante.Text = "Alineación Visitante";
             this.grbVisitante.Visible = false;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(204, 261);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(78, 32);
+            this.button2.TabIndex = 157;
+            this.button2.Text = "Nuevo";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -422,29 +442,39 @@
             this.lblDniOApellidoNombre.TabIndex = 39;
             this.lblDniOApellidoNombre.Text = "Partido(*):";
             // 
-            // button1
+            // button3
             // 
-            this.button1.Location = new System.Drawing.Point(207, 261);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(78, 32);
-            this.button1.TabIndex = 156;
-            this.button1.Text = "Nuevo";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Image = global::Prode.Properties.Resources.deshacer;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button3.Location = new System.Drawing.Point(796, 26);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(49, 48);
+            this.button3.TabIndex = 152;
+            this.button3.Text = "Volver";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button2
+            // lblIdPartido
             // 
-            this.button2.Location = new System.Drawing.Point(204, 261);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(78, 32);
-            this.button2.TabIndex = 157;
-            this.button2.Text = "Nuevo";
-            this.button2.UseVisualStyleBackColor = true;
+            this.lblIdPartido.AutoSize = true;
+            this.lblIdPartido.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdPartido.ForeColor = System.Drawing.Color.SeaGreen;
+            this.lblIdPartido.Location = new System.Drawing.Point(469, 345);
+            this.lblIdPartido.Name = "lblIdPartido";
+            this.lblIdPartido.Size = new System.Drawing.Size(66, 25);
+            this.lblIdPartido.TabIndex = 153;
+            this.lblIdPartido.Text = "@Res";
+            this.lblIdPartido.Visible = false;
             // 
             // AlineacionEquipoWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1012, 743);
+            this.Controls.Add(this.lblIdPartido);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grbVisitante);
             this.Controls.Add(this.grbLocal);
@@ -465,6 +495,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -504,5 +535,7 @@
         private System.Windows.Forms.TextBox txtJugadoresLocales;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label lblIdPartido;
     }
 }

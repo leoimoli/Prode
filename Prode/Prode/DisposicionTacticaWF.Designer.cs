@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DisposicionTacticaWF));
             this.grbCancha = new System.Windows.Forms.GroupBox();
             this.cmbCD2 = new System.Windows.Forms.ComboBox();
             this.cmbCD = new System.Windows.Forms.ComboBox();
@@ -324,9 +325,9 @@
             this.label84 = new System.Windows.Forms.Label();
             this.pictureSup1 = new System.Windows.Forms.PictureBox();
             this.grbTipo = new System.Windows.Forms.GroupBox();
-            this.chcFutbol5 = new System.Windows.Forms.CheckBox();
-            this.chcFutbol7 = new System.Windows.Forms.CheckBox();
             this.chcFutbol11 = new System.Windows.Forms.CheckBox();
+            this.chcFutbol7 = new System.Windows.Forms.CheckBox();
+            this.chcFutbol5 = new System.Windows.Forms.CheckBox();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -2362,6 +2363,7 @@
             this.txtRojasARQ.Name = "txtRojasARQ";
             this.txtRojasARQ.Size = new System.Drawing.Size(29, 20);
             this.txtRojasARQ.TabIndex = 70;
+            this.txtRojasARQ.Text = "0";
             // 
             // txtAmarillaARQ
             // 
@@ -2369,6 +2371,7 @@
             this.txtAmarillaARQ.Name = "txtAmarillaARQ";
             this.txtAmarillaARQ.Size = new System.Drawing.Size(29, 20);
             this.txtAmarillaARQ.TabIndex = 69;
+            this.txtAmarillaARQ.Text = "0";
             // 
             // txtGolesARQ
             // 
@@ -2376,6 +2379,7 @@
             this.txtGolesARQ.Name = "txtGolesARQ";
             this.txtGolesARQ.Size = new System.Drawing.Size(29, 20);
             this.txtGolesARQ.TabIndex = 68;
+            this.txtGolesARQ.Text = "0";
             // 
             // label1
             // 
@@ -2713,6 +2717,7 @@
             this.txtMinSup6.Name = "txtMinSup6";
             this.txtMinSup6.Size = new System.Drawing.Size(29, 20);
             this.txtMinSup6.TabIndex = 61;
+            this.txtMinSup6.Text = "0";
             // 
             // label94
             // 
@@ -2847,6 +2852,7 @@
             this.txtMinSup4.Name = "txtMinSup4";
             this.txtMinSup4.Size = new System.Drawing.Size(29, 20);
             this.txtMinSup4.TabIndex = 61;
+            this.txtMinSup4.Text = "0";
             // 
             // label99
             // 
@@ -2961,6 +2967,7 @@
             this.txtMinSup2.Name = "txtMinSup2";
             this.txtMinSup2.Size = new System.Drawing.Size(29, 20);
             this.txtMinSup2.TabIndex = 61;
+            this.txtMinSup2.Text = "0";
             // 
             // label104
             // 
@@ -3085,6 +3092,7 @@
             this.txtMinSup7.Name = "txtMinSup7";
             this.txtMinSup7.Size = new System.Drawing.Size(29, 20);
             this.txtMinSup7.TabIndex = 61;
+            this.txtMinSup7.Text = "0";
             // 
             // label89
             // 
@@ -3229,6 +3237,7 @@
             this.txtMinSup5.Name = "txtMinSup5";
             this.txtMinSup5.Size = new System.Drawing.Size(29, 20);
             this.txtMinSup5.TabIndex = 61;
+            this.txtMinSup5.Text = "0";
             // 
             // label74
             // 
@@ -3343,6 +3352,7 @@
             this.txtMinSup3.Name = "txtMinSup3";
             this.txtMinSup3.Size = new System.Drawing.Size(29, 20);
             this.txtMinSup3.TabIndex = 61;
+            this.txtMinSup3.Text = "0";
             // 
             // label79
             // 
@@ -3457,6 +3467,7 @@
             this.txtMinSup1.Name = "txtMinSup1";
             this.txtMinSup1.Size = new System.Drawing.Size(29, 20);
             this.txtMinSup1.TabIndex = 61;
+            this.txtMinSup1.Text = "0";
             // 
             // label84
             // 
@@ -3491,28 +3502,6 @@
             this.grbTipo.TabStop = false;
             this.grbTipo.Text = "Tipo de Cancha";
             // 
-            // chcFutbol5
-            // 
-            this.chcFutbol5.AutoSize = true;
-            this.chcFutbol5.Location = new System.Drawing.Point(15, 21);
-            this.chcFutbol5.Name = "chcFutbol5";
-            this.chcFutbol5.Size = new System.Drawing.Size(61, 17);
-            this.chcFutbol5.TabIndex = 0;
-            this.chcFutbol5.Text = "Fútbol5";
-            this.chcFutbol5.UseVisualStyleBackColor = true;
-            this.chcFutbol5.CheckedChanged += new System.EventHandler(this.chcFutbol5_CheckedChanged);
-            // 
-            // chcFutbol7
-            // 
-            this.chcFutbol7.AutoSize = true;
-            this.chcFutbol7.Location = new System.Drawing.Point(104, 21);
-            this.chcFutbol7.Name = "chcFutbol7";
-            this.chcFutbol7.Size = new System.Drawing.Size(61, 17);
-            this.chcFutbol7.TabIndex = 1;
-            this.chcFutbol7.Text = "Fútbol7";
-            this.chcFutbol7.UseVisualStyleBackColor = true;
-            this.chcFutbol7.CheckedChanged += new System.EventHandler(this.chcFutbol7_CheckedChanged);
-            // 
             // chcFutbol11
             // 
             this.chcFutbol11.AutoSize = true;
@@ -3525,6 +3514,28 @@
             this.chcFutbol11.Text = "Fútbol11";
             this.chcFutbol11.UseVisualStyleBackColor = true;
             this.chcFutbol11.CheckedChanged += new System.EventHandler(this.chcFutbol11_CheckedChanged);
+            // 
+            // chcFutbol7
+            // 
+            this.chcFutbol7.AutoSize = true;
+            this.chcFutbol7.Location = new System.Drawing.Point(104, 21);
+            this.chcFutbol7.Name = "chcFutbol7";
+            this.chcFutbol7.Size = new System.Drawing.Size(61, 17);
+            this.chcFutbol7.TabIndex = 1;
+            this.chcFutbol7.Text = "Fútbol7";
+            this.chcFutbol7.UseVisualStyleBackColor = true;
+            this.chcFutbol7.CheckedChanged += new System.EventHandler(this.chcFutbol7_CheckedChanged);
+            // 
+            // chcFutbol5
+            // 
+            this.chcFutbol5.AutoSize = true;
+            this.chcFutbol5.Location = new System.Drawing.Point(15, 21);
+            this.chcFutbol5.Name = "chcFutbol5";
+            this.chcFutbol5.Size = new System.Drawing.Size(61, 17);
+            this.chcFutbol5.TabIndex = 0;
+            this.chcFutbol5.Text = "Fútbol5";
+            this.chcFutbol5.UseVisualStyleBackColor = true;
+            this.chcFutbol5.CheckedChanged += new System.EventHandler(this.chcFutbol5_CheckedChanged);
             // 
             // btnVolver
             // 
@@ -3564,6 +3575,7 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // grbDuaracionPartido
             // 
@@ -3607,9 +3619,10 @@
             this.Controls.Add(this.grbSuplentes);
             this.Controls.Add(this.grbSistemaTactico);
             this.Controls.Add(this.grbCancha);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DisposicionTacticaWF";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DisposicionTacticaWF";
+            this.Text = "Disposicion Táctica";
             this.Load += new System.EventHandler(this.DisposicionTacticaWF_Load);
             this.grbCancha.ResumeLayout(false);
             this.grbCD2.ResumeLayout(false);

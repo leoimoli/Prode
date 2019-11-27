@@ -51,6 +51,8 @@
             this.chcMasiva = new System.Windows.Forms.CheckBox();
             this.chcPersonal = new System.Windows.Forms.CheckBox();
             this.dgvMasiva = new System.Windows.Forms.DataGridView();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.lblTotalEdit = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlantel)).BeginInit();
@@ -138,6 +140,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lblTotalEdit);
+            this.groupBox2.Controls.Add(this.lblTotal);
             this.groupBox2.Controls.Add(this.progressBar1);
             this.groupBox2.Controls.Add(this.lblIdEquipo);
             this.groupBox2.Controls.Add(this.lblPlantel);
@@ -156,7 +160,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(170, 407);
+            this.progressBar1.Location = new System.Drawing.Point(170, 332);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(330, 23);
             this.progressBar1.TabIndex = 110;
@@ -191,7 +195,7 @@
             this.dgvPlantel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPlantel.Location = new System.Drawing.Point(116, 82);
             this.dgvPlantel.Name = "dgvPlantel";
-            this.dgvPlantel.Size = new System.Drawing.Size(422, 375);
+            this.dgvPlantel.Size = new System.Drawing.Size(422, 354);
             this.dgvPlantel.TabIndex = 65;
             this.dgvPlantel.Visible = false;
             this.dgvPlantel.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClickBoton);
@@ -314,6 +318,28 @@
             this.dgvMasiva.Visible = false;
             this.dgvMasiva.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMasiva_CellContentClick);
             // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.Location = new System.Drawing.Point(334, 439);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(144, 20);
+            this.lblTotal.TabIndex = 111;
+            this.lblTotal.Text = "Total de jugadores:";
+            this.lblTotal.Visible = false;
+            // 
+            // lblTotalEdit
+            // 
+            this.lblTotalEdit.AutoSize = true;
+            this.lblTotalEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalEdit.Location = new System.Drawing.Point(474, 439);
+            this.lblTotalEdit.Name = "lblTotalEdit";
+            this.lblTotalEdit.Size = new System.Drawing.Size(25, 20);
+            this.lblTotalEdit.TabIndex = 112;
+            this.lblTotalEdit.Text = "@";
+            this.lblTotalEdit.Visible = false;
+            // 
             // AsignarJugadorEquipoWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -372,5 +398,7 @@
         private System.Windows.Forms.CheckBox chcMasiva;
         private System.Windows.Forms.CheckBox chcPersonal;
         private System.Windows.Forms.DataGridView dgvMasiva;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Label lblTotalEdit;
     }
 }

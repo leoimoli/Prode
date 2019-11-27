@@ -127,6 +127,7 @@
     <Compile Include="Dao\Consultar.cs" />
     <Compile Include="Dao\EquipoDao.cs" />
     <Compile Include="Dao\FechaDao.cs" />
+    <Compile Include="Dao\FutbolEstadisticaJugadorDao.cs" />
     <Compile Include="Dao\FutbolPartidoEstadisticaDao.cs" />
     <Compile Include="Dao\InsertDao.cs" />
     <Compile Include="Dao\JugadaDao.cs" />
@@ -150,6 +151,7 @@
     <Compile Include="Entidades\FichaTecnica.cs" />
     <Compile Include="Entidades\Jugada.cs" />
     <Compile Include="Entidades\Jugadores.cs" />
+    <Compile Include="Entidades\JugadorEstadisticaPartido.cs" />
     <Compile Include="Entidades\PartidoEstadistica.cs" />
     <Compile Include="Entidades\PlantelActual.cs" />
     <Compile Include="Entidades\ResultadoApuestas.cs" />
@@ -221,6 +223,7 @@
     <Compile Include="Negocio\Consultar.cs" />
     <Compile Include="Negocio\EquiposNeg.cs" />
     <Compile Include="Negocio\FechaNeg.cs" />
+    <Compile Include="Negocio\FutbolEstadisticaJugadorNeg.cs" />
     <Compile Include="Negocio\FutbolPartidoEstadisticaNeg.cs" />
     <Compile Include="Negocio\Insert.cs" />
     <Compile Include="Negocio\JugadaNeg.cs" />

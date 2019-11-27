@@ -33,6 +33,7 @@ namespace Prode
             catch (Exception ex) { }
         }
         #region Botones
+        public static int idPartido;
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             try
@@ -98,7 +99,8 @@ namespace Prode
                     lblResultadoVisitante.Text = Visitante;
                     lblDiaEdit.Text = partido.FechaPartido.ToShortDateString();
                     lblIdLocal.Text = Convert.ToString(partido.idEquipoLocal);
-                    lblIdVistante.Text = Convert.ToString(partido.idEquipoVisitante);
+                    lblIdVistante.Text = Convert.ToString(partido.idEquipoVisitante);                   
+                    idPartido = partido.idPartido;
                     HabilitarListasJugadores();
                 }
             }
@@ -184,7 +186,8 @@ namespace Prode
                         }
                         if (lista.Count > 0)
                         {
-                            DisposicionTacticaWF _disposicion = new DisposicionTacticaWF(lista);
+                            int idEquipo = Convert.ToInt32(lblIdLocal.Text);
+                            DisposicionTacticaWF _disposicion = new DisposicionTacticaWF(lista, idEquipo, idPartido);
                             _disposicion.Show();
                         }
                     }
@@ -285,5 +288,11 @@ namespace Prode
         }
         #endregion
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MenuFutbolWF _futbol = new MenuFutbolWF();
+            _futbol.Show();
+            Hide();
+        }
     }
 }

@@ -157,7 +157,6 @@ namespace Prode.Dao
             Exito = true;
             return Exito;
         }
-
         public static List<AlineacionEquipo> BuscarJugadoresSinAsignar()
         {
             connection.Close();

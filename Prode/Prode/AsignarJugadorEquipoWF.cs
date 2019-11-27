@@ -284,7 +284,9 @@ namespace Prode
                         dgvPlantel.Refresh();
                     }
                     dgvPlantel.Visible = true;
-
+                    lblTotal.Visible = true;
+                    lblTotalEdit.Visible = true;
+                    lblTotalEdit.Text = Convert.ToString(value.Count);
                     dgvPlantel.ReadOnly = true;
                     dgvPlantel.RowHeadersVisible = false;
                     dgvPlantel.DataSource = value;
@@ -325,7 +327,6 @@ namespace Prode
                 }
             }
         }
-
         private void chcPersonal_CheckedChanged(object sender, EventArgs e)
         {
             try
@@ -349,6 +350,8 @@ namespace Prode
             {
                 if (chcMasiva.Checked == true)
                 {
+                    groupBox2.Visible = false;
+                    LimpiarCampos();
                     ValorCheck = 2;
                     chcPersonal.Checked = false;
                     groupBox1.Visible = false;
