@@ -2172,14 +2172,64 @@ namespace Prode
         {
             try
             {
+                BloquearPantalla();
                 List<string> listaEstadistica = new List<string>();
                 string SistemaTactico = cmbTactica.Text;
                 listaEstadistica = CargarEntidad();
                 bool Exito = FutbolEstadisticaJugadorNeg.GuardarEstadisticaJugador(listaEstadistica, SistemaTactico, idEquipos, idPartidos);
+                if (Exito == true)
+                {
+                    ProgressBar();
+                    const string message2 = "Se registro la formación del equipo exitosamente.";
+                    const string caption2 = "Éxito";
+                    var result2 = MessageBox.Show(message2, caption2,
+                                                 MessageBoxButtons.OK,
+                                                 MessageBoxIcon.Asterisk);
+                    LimpiarCampos();
+                }
 
             }
             catch (Exception ex)
             { }
+        }
+
+        private void LimpiarCampos()
+        {
+            grbCancha.Enabled = true;
+            grbSuplentes.Enabled = true;
+            grbDuaracionPartido.Enabled = true;
+            grbTipo.Enabled = true;
+            grbSistemaTactico.Enabled = true;
+            grbCancha.Visible = false;
+            grbSuplentes.Visible = false;
+            chcFutbol11.Checked = true;
+            CargarComboMinutos();
+        }
+
+        private void ProgressBar()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Maximum = 100000;
+            progressBar1.Step = 1;
+
+            for (int j = 0; j < 100000; j++)
+            {
+                Caluculate(j);
+                progressBar1.PerformStep();
+            }
+        }
+        private void Caluculate(int i)
+        {
+            double pow = Math.Pow(i, i);
+        }
+
+        private void BloquearPantalla()
+        {
+            grbCancha.Enabled = false;
+            grbSuplentes.Enabled = false;
+            grbDuaracionPartido.Enabled = false;
+            grbTipo.Enabled = false;
+            grbSistemaTactico.Enabled = false;
         }
 
         private List<string> CargarEntidad()
@@ -2200,8 +2250,9 @@ namespace Prode
                 Amarilla = txtAmarillaARQ.Text;
                 Roja = txtRojasARQ.Text;
                 Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+                listaString.Add(Cadena);
             }
-            listaString.Add(Cadena);
+
 
             if (lblLD.Text != "@LD")
             {
@@ -2211,8 +2262,9 @@ namespace Prode
                 Amarilla = txtAmarillaLD.Text;
                 Roja = txtRojasLD.Text;
                 Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+                listaString.Add(Cadena);
             }
-            listaString.Add(Cadena);
+
 
             if (lblDFD.Text != "@LD")
             {
@@ -2222,8 +2274,9 @@ namespace Prode
                 Amarilla = txtAmarillaDFD.Text;
                 Roja = txtRojasDFD.Text;
                 Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+                listaString.Add(Cadena);
             }
-            listaString.Add(Cadena);
+
 
             if (lblLIB.Text != "@LD")
             {
@@ -2233,8 +2286,8 @@ namespace Prode
                 Amarilla = txtAmarillaLIB.Text;
                 Roja = txtRojasLIB.Text;
                 Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+                listaString.Add(Cadena);
             }
-            listaString.Add(Cadena);
 
             if (lblDFI.Text != "@LD")
             {
@@ -2244,8 +2297,9 @@ namespace Prode
                 Amarilla = txtAmarillaDFI.Text;
                 Roja = txtRojasDFI.Text;
                 Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+                listaString.Add(Cadena);
             }
-            listaString.Add(Cadena);
+
 
             if (lblLI.Text != "@LD")
             {
@@ -2255,8 +2309,8 @@ namespace Prode
                 Amarilla = txtAmarillaLI.Text;
                 Roja = txtRojasLI.Text;
                 Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+                listaString.Add(Cadena);
             }
-            listaString.Add(Cadena);
 
             if (lblVD.Text != "@LD")
             {
@@ -2266,8 +2320,8 @@ namespace Prode
                 Amarilla = txtAmarillaVD.Text;
                 Roja = txtRojasVD.Text;
                 Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+                listaString.Add(Cadena);
             }
-            listaString.Add(Cadena);
 
             if (lblVID.Text != "@LD")
             {
@@ -2277,8 +2331,9 @@ namespace Prode
                 Amarilla = txtAmarillaVID.Text;
                 Roja = txtRojasVID.Text;
                 Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+                listaString.Add(Cadena);
             }
-            listaString.Add(Cadena);
+
 
             if (lblMC.Text != "@LD")
             {
@@ -2288,9 +2343,8 @@ namespace Prode
                 Amarilla = txtAmarillaMC.Text;
                 Roja = txtRojasMC.Text;
                 Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+                listaString.Add(Cadena);
             }
-            listaString.Add(Cadena);
-
             if (lblVII.Text != "@LD")
             {
                 id = lblVII.Text;
@@ -2299,8 +2353,8 @@ namespace Prode
                 Amarilla = txtAmarillaVII.Text;
                 Roja = txtRojasVII.Text;
                 Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+                listaString.Add(Cadena);
             }
-            listaString.Add(Cadena);
 
             if (lblVI.Text != "@LD")
             {
@@ -2310,9 +2364,8 @@ namespace Prode
                 Amarilla = txtAmarillaVI.Text;
                 Roja = txtRojasVI.Text;
                 Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+                listaString.Add(Cadena);
             }
-            listaString.Add(Cadena);
-
             if (lblMP.Text != "@LD")
             {
                 id = lblMP.Text;
@@ -2321,9 +2374,8 @@ namespace Prode
                 Amarilla = txtAmarillaMP.Text;
                 Roja = txtRojasMP.Text;
                 Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+                listaString.Add(Cadena);
             }
-            listaString.Add(Cadena);
-
             if (lblED.Text != "@LD")
             {
                 id = lblED.Text;
@@ -2332,9 +2384,8 @@ namespace Prode
                 Amarilla = txtAmarillaED.Text;
                 Roja = txtRojasED.Text;
                 Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+                listaString.Add(Cadena);
             }
-            listaString.Add(Cadena);
-
             if (lblCD1.Text != "@LD")
             {
                 id = lblCD1.Text;
@@ -2343,9 +2394,8 @@ namespace Prode
                 Amarilla = txtAmarillaCD1.Text;
                 Roja = txtRojasCD1.Text;
                 Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+                listaString.Add(Cadena);
             }
-            listaString.Add(Cadena);
-
             if (lblCD.Text != "@LD")
             {
                 id = lblCD.Text;
@@ -2354,9 +2404,8 @@ namespace Prode
                 Amarilla = txtAmarillaCD.Text;
                 Roja = txtRojasCD.Text;
                 Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+                listaString.Add(Cadena);
             }
-            listaString.Add(Cadena);
-
             if (lblCD2.Text != "@LD")
             {
                 id = lblCD2.Text;
@@ -2365,9 +2414,8 @@ namespace Prode
                 Amarilla = txtAmarillaCD2.Text;
                 Roja = txtRojasCD2.Text;
                 Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+                listaString.Add(Cadena);
             }
-            listaString.Add(Cadena);
-
             if (lblEI.Text != "@LD")
             {
                 id = lblEI.Text;
@@ -2376,9 +2424,8 @@ namespace Prode
                 Amarilla = txtAmarillaEI.Text;
                 Roja = txtRojasEI.Text;
                 Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+                listaString.Add(Cadena);
             }
-            listaString.Add(Cadena);
-
             if (lblSup1.Text != "@LD")
             {
                 id = lblSup1.Text;
@@ -2387,9 +2434,8 @@ namespace Prode
                 Amarilla = txtAmarillasSup1.Text;
                 Roja = txtRojasSup1.Text;
                 Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+                listaString.Add(Cadena);
             }
-            listaString.Add(Cadena);
-
             if (lblSup2.Text != "@LD")
             {
                 id = lblSup2.Text;
@@ -2398,9 +2444,8 @@ namespace Prode
                 Amarilla = txtAmarillasSup2.Text;
                 Roja = txtRojasSup2.Text;
                 Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+                listaString.Add(Cadena);
             }
-            listaString.Add(Cadena);
-
             if (lblSup3.Text != "@LD")
             {
                 id = lblSup3.Text;
@@ -2409,9 +2454,8 @@ namespace Prode
                 Amarilla = txtAmarillasSup3.Text;
                 Roja = txtRojasSup3.Text;
                 Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+                listaString.Add(Cadena);
             }
-            listaString.Add(Cadena);
-
             if (lblSup4.Text != "@LD")
             {
                 id = lblSup4.Text;
@@ -2420,9 +2464,8 @@ namespace Prode
                 Amarilla = txtAmarillasSup4.Text;
                 Roja = txtRojasSup4.Text;
                 Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+                listaString.Add(Cadena);
             }
-            listaString.Add(Cadena);
-
             if (lblSup5.Text != "@LD")
             {
                 id = lblSup5.Text;
@@ -2431,9 +2474,8 @@ namespace Prode
                 Amarilla = txtAmarillasSup5.Text;
                 Roja = txtRojasSup5.Text;
                 Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+                listaString.Add(Cadena);
             }
-            listaString.Add(Cadena);
-
             if (lblSup6.Text != "@LD")
             {
                 id = lblSup6.Text;
@@ -2442,9 +2484,8 @@ namespace Prode
                 Amarilla = txtAmarillasSup6.Text;
                 Roja = txtRojasSup6.Text;
                 Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+                listaString.Add(Cadena);
             }
-            listaString.Add(Cadena);
-
             if (lblSup7.Text != "@LD")
             {
                 id = lblSup7.Text;
@@ -2453,9 +2494,8 @@ namespace Prode
                 Amarilla = txtAmarillasSup7.Text;
                 Roja = txtRojasSup7.Text;
                 Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
+                listaString.Add(Cadena);
             }
-            listaString.Add(Cadena);
-
             return listaString;
         }
     }

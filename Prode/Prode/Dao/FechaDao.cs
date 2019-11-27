@@ -69,11 +69,11 @@ namespace Prode.Dao
                     listaPartido.Marcador = item["Marcador"].ToString();
                     listaPartido.Estadio = item["Estadio"].ToString();
                     listaPartido.FechaPartido = Convert.ToDateTime(item["FechaPartido"].ToString());
-                    if (item[10].ToString() != string.Empty)
+                    if (item[11].ToString() != string.Empty)
                     {
                         listaPartido.EscudoLocal = (byte[])item["EscudoLocal"];
                     }
-                    if (item[11].ToString() != string.Empty)
+                    if (item[12].ToString() != string.Empty)
                     {
                         listaPartido.EscudoVisitante = (byte[])item["EscudoVisitante"];
                     }

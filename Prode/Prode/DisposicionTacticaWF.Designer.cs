@@ -334,6 +334,7 @@
             this.grbDuaracionPartido = new System.Windows.Forms.GroupBox();
             this.label70 = new System.Windows.Forms.Label();
             this.cmbMinutos = new System.Windows.Forms.ComboBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.grbCancha.SuspendLayout();
             this.grbCD2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCD2)).BeginInit();
@@ -393,6 +394,7 @@
             // grbCancha
             // 
             this.grbCancha.BackColor = System.Drawing.Color.SeaGreen;
+            this.grbCancha.Controls.Add(this.progressBar1);
             this.grbCancha.Controls.Add(this.cmbCD2);
             this.grbCancha.Controls.Add(this.cmbCD);
             this.grbCancha.Controls.Add(this.cmbCD1);
@@ -3606,6 +3608,15 @@
             this.cmbMinutos.TabIndex = 88;
             this.cmbMinutos.SelectedIndexChanged += new System.EventHandler(this.cmbMinutos_SelectedIndexChanged);
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(575, 570);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(330, 23);
+            this.progressBar1.TabIndex = 107;
+            this.progressBar1.Value = 50;
+            this.progressBar1.Visible = false;
+            // 
             // DisposicionTacticaWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4016,5 +4027,6 @@
         private System.Windows.Forms.GroupBox grbDuaracionPartido;
         private System.Windows.Forms.Label label70;
         private System.Windows.Forms.ComboBox cmbMinutos;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }

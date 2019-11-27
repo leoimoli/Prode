@@ -19,50 +19,73 @@ namespace Prode.Dao
             bool exito = false;
             connection.Close();
             connection.Open();
-            foreach (var item in listaEstadistica)
-            {
-                JugadorEstadisticaPartido listaJugador = new JugadorEstadisticaPartido();
-                string Cadena = item;
-                string id = Cadena.Split(',')[0];
-                string Min = Cadena.Split(',')[1];
-                string Gol = Min.Split(',')[0];
-                string Ama = Min.Split(',')[1];
-                string Ro = Ama.Split(',')[1];
-                int idJugador = Convert.ToInt32(id);
-                int Minutos = Convert.ToInt32(Min);
-                int Goles = Convert.ToInt32(Gol);
-                int Amarillas = Convert.ToInt32(Ama);
-                int Rojas = Convert.ToInt32(Ro);
 
-                listaJugador.idJugador = idJugador;
-                listaJugador.Minutos = Minutos;
-                listaJugador.Goles = Goles;
-                listaJugador.Amarillas = Amarillas;
-                listaJugador.Rojas = Rojas;
-
-                string proceso = "GuardarEstadisticaJugadorPartido";
-                MySqlCommand cmd = new MySqlCommand(proceso, connection);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("idJugador_in", idJugador);
-                cmd.Parameters.AddWithValue("Minutos_in", Minutos);
-                cmd.Parameters.AddWithValue("Goles_in", Goles);
-                cmd.Parameters.AddWithValue("Amarillas_in", Amarillas);
-                cmd.Parameters.AddWithValue("Rojas_in", Amarillas);
-                cmd.Parameters.AddWithValue("idEquipo_in", idEquipos);
-                cmd.Parameters.AddWithValue("idPartido_in", idPartidos);
-                cmd.ExecuteNonQuery();
-                listaStatic.Add(listaJugador);
-            }
-            exito = true;
-
+            exito = ActualizarSistemaTactico(sistemaTactico, idPartidos);
             if (exito == true)
             {
-                exito = ActualizarEstadisticaGeneral(idPartidos, idEquipos);
+                foreach (var item in listaEstadistica)
+                {
+                    JugadorEstadisticaPartido listaJugador = new JugadorEstadisticaPartido();
+                    string Cadena = item;
+                    string id = Cadena.Split(',')[0];
+                    string Min = Cadena.Split(',')[1];
+                    string Coma = Min.Split(',')[2];
+                    string Gol = Min.Split(',')[3];
+                    string Coma2 = Min.Split(',')[4];
+                    string Ama = Min.Split(',')[5];
+                    string Coma3 = Min.Split(',')[6];
+                    string Ro = Ama.Split(',')[7];
+                    int idJugador = Convert.ToInt32(id);
+                    int Minutos = Convert.ToInt32(Min);
+                    int Goles = Convert.ToInt32(Gol);
+                    int Amarillas = Convert.ToInt32(Ama);
+                    int Rojas = Convert.ToInt32(Ro);
+
+                    listaJugador.idJugador = idJugador;
+                    listaJugador.Minutos = Minutos;
+                    listaJugador.Goles = Goles;
+                    listaJugador.Amarillas = Amarillas;
+                    listaJugador.Rojas = Rojas;
+
+                    string proceso = "GuardarEstadisticaJugadorPartido";
+                    MySqlCommand cmd = new MySqlCommand(proceso, connection);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("idJugador_in", idJugador);
+                    cmd.Parameters.AddWithValue("Minutos_in", Minutos);
+                    cmd.Parameters.AddWithValue("Goles_in", Goles);
+                    cmd.Parameters.AddWithValue("Amarillas_in", Amarillas);
+                    cmd.Parameters.AddWithValue("Rojas_in", Amarillas);
+                    cmd.Parameters.AddWithValue("idEquipo_in", idEquipos);
+                    cmd.Parameters.AddWithValue("idPartido_in", idPartidos);
+                    cmd.ExecuteNonQuery();
+                    listaStatic.Add(listaJugador);
+                }
+                exito = true;
+
+                if (exito == true)
+                {
+                    exito = ActualizarEstadisticaGeneral(idPartidos, idEquipos);
+                }
             }
             connection.Close();
             return exito;
+
         }
 
+        private static bool ActualizarSistemaTactico(string sistemaTactico, int idPartidos)
+        {
+            bool exito = false;
+            connection.Close();
+            connection.Open();
+            string procesoUpdate = "ActualizarSistemaTactico";
+            MySqlCommand cmd3 = new MySqlCommand(procesoUpdate, connection);
+            cmd3.CommandType = CommandType.StoredProcedure;
+            cmd3.Parameters.AddWithValue("sistemaTactico_in", sistemaTactico);
+            cmd3.Parameters.AddWithValue("idPartido_in", idPartidos);
+            cmd3.ExecuteNonQuery();
+            exito = true;
+            return exito;
+        }
         private static bool ActualizarEstadisticaGeneral(int idPartidos, int idEquipos)
         {
             bool exito = false;
@@ -118,7 +141,7 @@ namespace Prode.Dao
                     exito = false;
                     connection.Close();
                     connection.Open();
-                    string procesoUpdate = "EditarEstadisticaJugador";
+                    string procesoUpdate = "EditarEstadisticaTotalJugador";
                     MySqlCommand cmd3 = new MySqlCommand(procesoUpdate, connection);
                     cmd3.CommandType = CommandType.StoredProcedure;
                     cmd3.Parameters.AddWithValue("Minutos_in", MinutosFinales);
@@ -139,8 +162,6 @@ namespace Prode.Dao
                     cmd2.Parameters.AddWithValue("Goles_in", GolesNew);
                     cmd2.Parameters.AddWithValue("Amarillas_in", AmarillasNew);
                     cmd2.Parameters.AddWithValue("Amarillas_in", RojasNew);
-                    cmd2.Parameters.AddWithValue("idEquipo_in", idEquipos);
-                    cmd2.Parameters.AddWithValue("idPartido_in", idPartidos);
                     cmd2.Parameters.AddWithValue("PJ_in", PJNew);
                     cmd2.ExecuteNonQuery();
                 }
