@@ -1487,20 +1487,6 @@ namespace Prode
                 int gol = Convert.ToInt32(Goles);
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaARQ.Text;
-                int Amonestado = Convert.ToInt32(Amarilla);
-                if (Amonestado > 2)
-                {
-                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                if (Amonestado == 2)
-                {
-                    txtRojasARQ.Text = "1";
-                }
                 Roja = txtRojasARQ.Text;
                 int Expulsion = Convert.ToInt32(Roja);
                 if (Expulsion > 1)
@@ -1516,7 +1502,6 @@ namespace Prode
                 listaString.Add(Cadena);
             }
 
-
             if (lblLD.Text != "@LD")
             {
                 id = lblLD.Text;
@@ -1525,20 +1510,6 @@ namespace Prode
                 int gol = Convert.ToInt32(Goles);
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaLD.Text;
-                int Amonestado = Convert.ToInt32(Amarilla);
-                if (Amonestado > 2)
-                {
-                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                if (Amonestado == 2)
-                {
-                    txtRojasLD.Text = "1";
-                }
                 Roja = txtRojasLD.Text;
                 int Expulsion = Convert.ToInt32(Roja);
                 if (Expulsion > 1)
@@ -1563,20 +1534,6 @@ namespace Prode
                 int gol = Convert.ToInt32(Goles);
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaDFD.Text;
-                int Amonestado = Convert.ToInt32(Amarilla);
-                if (Amonestado > 2)
-                {
-                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                if (Amonestado == 2)
-                {
-                    txtRojasDFD.Text = "1";
-                }
                 Roja = txtRojasDFD.Text;
                 int Expulsion = Convert.ToInt32(Roja);
                 if (Expulsion > 1)
@@ -1601,20 +1558,6 @@ namespace Prode
                 int gol = Convert.ToInt32(Goles);
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaLIB.Text;
-                int Amonestado = Convert.ToInt32(Amarilla);
-                if (Amonestado > 2)
-                {
-                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                if (Amonestado == 2)
-                {
-                    txtRojasLIB.Text = "1";
-                }
                 Roja = txtRojasLIB.Text;
                 int Expulsion = Convert.ToInt32(Roja);
                 if (Expulsion > 1)
@@ -1638,20 +1581,6 @@ namespace Prode
                 int gol = Convert.ToInt32(Goles);
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaDFI.Text;
-                int Amonestado = Convert.ToInt32(Amarilla);
-                if (Amonestado > 2)
-                {
-                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                if (Amonestado == 2)
-                {
-                    txtRojasDFI.Text = "1";
-                }
                 Roja = txtRojasDFI.Text;
                 int Expulsion = Convert.ToInt32(Roja);
                 if (Expulsion > 1)
@@ -1676,20 +1605,6 @@ namespace Prode
                 int gol = Convert.ToInt32(Goles);
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaLI.Text;
-                int Amonestado = Convert.ToInt32(Amarilla);
-                if (Amonestado > 2)
-                {
-                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                if (Amonestado == 2)
-                {
-                    txtRojasLI.Text = "1";
-                }
                 Roja = txtRojasLI.Text;
                 int Expulsion = Convert.ToInt32(Roja);
                 if (Expulsion > 1)
@@ -1713,20 +1628,6 @@ namespace Prode
                 int gol = Convert.ToInt32(Goles);
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaVD.Text;
-                int Amonestado = Convert.ToInt32(Amarilla);
-                if (Amonestado > 2)
-                {
-                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                if (Amonestado == 2)
-                {
-                    txtRojasVD.Text = "1";
-                }
                 Roja = txtRojasVD.Text;
                 int Expulsion = Convert.ToInt32(Roja);
                 if (Expulsion > 1)
@@ -1750,20 +1651,6 @@ namespace Prode
                 int gol = Convert.ToInt32(Goles);
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaVID.Text;
-                int Amonestado = Convert.ToInt32(Amarilla);
-                if (Amonestado > 2)
-                {
-                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                if (Amonestado == 2)
-                {
-                    txtRojasVID.Text = "1";
-                }
                 Roja = txtRojasVID.Text;
                 int Expulsion = Convert.ToInt32(Roja);
                 if (Expulsion > 1)
@@ -1788,20 +1675,6 @@ namespace Prode
                 int gol = Convert.ToInt32(Goles);
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaMC.Text;
-                int Amonestado = Convert.ToInt32(Amarilla);
-                if (Amonestado > 2)
-                {
-                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                if (Amonestado == 2)
-                {
-                    txtRojasMC.Text = "1";
-                }
                 Roja = txtRojasMC.Text;
                 int Expulsion = Convert.ToInt32(Roja);
                 if (Expulsion > 1)
@@ -1824,20 +1697,6 @@ namespace Prode
                 int gol = Convert.ToInt32(Goles);
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaVII.Text;
-                int Amonestado = Convert.ToInt32(Amarilla);
-                if (Amonestado > 2)
-                {
-                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                if (Amonestado == 2)
-                {
-                    txtRojasVII.Text = "1";
-                }
                 Roja = txtRojasVII.Text;
                 int Expulsion = Convert.ToInt32(Roja);
                 if (Expulsion > 1)
@@ -1861,20 +1720,6 @@ namespace Prode
                 int gol = Convert.ToInt32(Goles);
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaVI.Text;
-                int Amonestado = Convert.ToInt32(Amarilla);
-                if (Amonestado > 2)
-                {
-                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                if (Amonestado == 2)
-                {
-                    txtRojasVI.Text = "1";
-                }
                 Roja = txtRojasVI.Text;
                 int Expulsion = Convert.ToInt32(Roja);
                 if (Expulsion > 1)
@@ -1897,20 +1742,6 @@ namespace Prode
                 int gol = Convert.ToInt32(Goles);
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaMP.Text;
-                int Amonestado = Convert.ToInt32(Amarilla);
-                if (Amonestado > 2)
-                {
-                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                if (Amonestado == 2)
-                {
-                    txtRojasMP.Text = "1";
-                }
                 Roja = txtRojasMP.Text;
                 int Expulsion = Convert.ToInt32(Roja);
                 if (Expulsion > 1)
@@ -1933,21 +1764,6 @@ namespace Prode
                 int gol = Convert.ToInt32(Goles);
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaED.Text;
-                int Amonestado = Convert.ToInt32(Amarilla);
-                if (Amonestado > 2)
-                {
-                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                if (Amonestado == 2)
-                {
-                    txtRojasED.Text = "1";
-                }
-                Roja = txtRojasED.Text;
                 int Expulsion = Convert.ToInt32(Roja);
                 if (Expulsion > 1)
                 {
@@ -1969,20 +1785,6 @@ namespace Prode
                 int gol = Convert.ToInt32(Goles);
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaCD1.Text;
-                int Amonestado = Convert.ToInt32(Amarilla);
-                if (Amonestado > 2)
-                {
-                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                if (Amonestado == 2)
-                {
-                    txtRojasCD1.Text = "1";
-                }
                 Roja = txtRojasCD1.Text;
                 int Expulsion = Convert.ToInt32(Roja);
                 if (Expulsion > 1)
@@ -2005,20 +1807,6 @@ namespace Prode
                 int gol = Convert.ToInt32(Goles);
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaCD.Text;
-                int Amonestado = Convert.ToInt32(Amarilla);
-                if (Amonestado > 2)
-                {
-                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                if (Amonestado == 2)
-                {
-                    txtRojasCD.Text = "1";
-                }
                 Roja = txtRojasCD.Text;
                 int Expulsion = Convert.ToInt32(Roja);
                 if (Expulsion > 1)
@@ -2041,20 +1829,6 @@ namespace Prode
                 int gol = Convert.ToInt32(Goles);
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaCD2.Text;
-                int Amonestado = Convert.ToInt32(Amarilla);
-                if (Amonestado > 2)
-                {
-                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                if (Amonestado == 2)
-                {
-                    txtRojasCD2.Text = "1";
-                }
                 Roja = txtRojasCD2.Text;
                 int Expulsion = Convert.ToInt32(Roja);
                 if (Expulsion > 1)
@@ -2077,20 +1851,6 @@ namespace Prode
                 int gol = Convert.ToInt32(Goles);
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaEI.Text;
-                int Amonestado = Convert.ToInt32(Amarilla);
-                if (Amonestado > 2)
-                {
-                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                if (Amonestado == 2)
-                {
-                    txtRojasEI.Text = "1";
-                }
                 Roja = txtRojasEI.Text;
                 int Expulsion = Convert.ToInt32(Roja);
                 if (Expulsion > 1)
@@ -2113,20 +1873,6 @@ namespace Prode
                 int gol = Convert.ToInt32(Goles);
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillasSup1.Text;
-                int Amonestado = Convert.ToInt32(Amarilla);
-                if (Amonestado > 2)
-                {
-                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                if (Amonestado == 2)
-                {
-                    txtRojasSup1.Text = "1";
-                }
                 Roja = txtRojasSup1.Text;
                 int Expulsion = Convert.ToInt32(Roja);
                 if (Expulsion > 1)
@@ -2149,20 +1895,6 @@ namespace Prode
                 int gol = Convert.ToInt32(Goles);
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillasSup2.Text;
-                int Amonestado = Convert.ToInt32(Amarilla);
-                if (Amonestado > 2)
-                {
-                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                if (Amonestado == 2)
-                {
-                    txtRojasSup2.Text = "1";
-                }
                 Roja = txtRojasSup2.Text;
                 int Expulsion = Convert.ToInt32(Roja);
                 if (Expulsion > 1)
@@ -2185,20 +1917,6 @@ namespace Prode
                 int gol = Convert.ToInt32(Goles);
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillasSup3.Text;
-                int Amonestado = Convert.ToInt32(Amarilla);
-                if (Amonestado > 2)
-                {
-                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                if (Amonestado == 2)
-                {
-                    txtRojasSup3.Text = "1";
-                }
                 Roja = txtRojasSup3.Text;
                 int Expulsion = Convert.ToInt32(Roja);
                 if (Expulsion > 1)
@@ -2221,20 +1939,6 @@ namespace Prode
                 int gol = Convert.ToInt32(Goles);
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillasSup4.Text;
-                int Amonestado = Convert.ToInt32(Amarilla);
-                if (Amonestado > 2)
-                {
-                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                if (Amonestado == 2)
-                {
-                    txtRojasSup4.Text = "1";
-                }
                 Roja = txtRojasSup4.Text;
                 int Expulsion = Convert.ToInt32(Roja);
                 if (Expulsion > 1)
@@ -2257,20 +1961,6 @@ namespace Prode
                 int gol = Convert.ToInt32(Goles);
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillasSup5.Text;
-                int Amonestado = Convert.ToInt32(Amarilla);
-                if (Amonestado > 2)
-                {
-                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                if (Amonestado == 2)
-                {
-                    txtRojasSup5.Text = "1";
-                }
                 Roja = txtRojasSup5.Text;
                 int Expulsion = Convert.ToInt32(Roja);
                 if (Expulsion > 1)
@@ -2293,20 +1983,6 @@ namespace Prode
                 int gol = Convert.ToInt32(Goles);
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillasSup6.Text;
-                int Amonestado = Convert.ToInt32(Amarilla);
-                if (Amonestado > 2)
-                {
-                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                if (Amonestado == 2)
-                {
-                    txtRojasSup6.Text = "1";
-                }
                 Roja = txtRojasSup6.Text;
                 int Expulsion = Convert.ToInt32(Roja);
                 if (Expulsion > 1)
@@ -2329,20 +2005,6 @@ namespace Prode
                 int gol = Convert.ToInt32(Goles);
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillasSup7.Text;
-                int Amonestado = Convert.ToInt32(Amarilla);
-                if (Amonestado > 2)
-                {
-                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                if (Amonestado == 2)
-                {
-                    txtRojasSup7.Text = "1";
-                }
                 Roja = txtRojasSup7.Text;
                 int Expulsion = Convert.ToInt32(Roja);
                 if (Expulsion > 1)
@@ -3263,6 +2925,943 @@ namespace Prode
             catch (Exception ex)
             { }
         }
+        private void txtAmarillaARQ_TextChanged(object sender, EventArgs e)
+        {
+            string Amarilla = txtAmarillaARQ.Text;
+            if (!string.IsNullOrEmpty(Amarilla))
+            {
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 0)
+                {
+                    if (Amonestado > 2)
+                    {
+                        const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                        const string caption = "Atención";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Exclamation);
+                        Amonestado = 0;
+                        txtRojasARQ.Text = "0";
+                    }
+                    if (Amonestado == 2)
+                    {
+                        txtRojasARQ.Text = "1";
+                    }
+                    if (Amonestado == 1 || Amonestado == 0)
+                    {
+                        txtRojasARQ.Text = "0";
+                    }
+                    if (Amonestado == 0)
+                    {
+                        txtAmarillaARQ.Text = "0";
+                    }
+                }
+                if (Amonestado == 0)
+                {
+                    txtAmarillaARQ.Text = "0";
+                    txtRojasARQ.Text = "0";
+                }
+            }
+            else { txtAmarillaARQ.Text = "0"; }
+        }
+        private void txtAmarillaLD_TextChanged(object sender, EventArgs e)
+        {
+            string Amarilla = txtAmarillaLD.Text;
+            if (!string.IsNullOrEmpty(Amarilla))
+            {
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 0)
+                {
+                    if (Amonestado > 2)
+                    {
+                        const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                        const string caption = "Atención";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Exclamation);
+                        Amonestado = 0;
+                        txtRojasLD.Text = "0";
+                    }
+                    if (Amonestado == 2)
+                    {
+                        txtRojasLD.Text = "1";
+                    }
+                    if (Amonestado == 1 || Amonestado == 0)
+                    {
+                        txtRojasLD.Text = "0";
+                    }
+                    if (Amonestado == 0)
+                    {
+                        txtAmarillaLD.Text = "0";
+                    }
+                }
+                if (Amonestado == 0)
+                {
+                    txtAmarillaLD.Text = "0";
+                    txtRojasLD.Text = "0";
+                }
+            }
+            else { txtAmarillaLD.Text = "0"; }
+        }
+        private void txtAmarillaDFD_TextChanged(object sender, EventArgs e)
+        {
+            string Amarilla = txtAmarillaDFD.Text;
+            if (!string.IsNullOrEmpty(Amarilla))
+            {
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 0)
+                {
+                    if (Amonestado > 2)
+                    {
+                        const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                        const string caption = "Atención";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Exclamation);
+                        Amonestado = 0;
+                        txtRojasDFD.Text = "0";
+                    }
+                    if (Amonestado == 2)
+                    {
+                        txtRojasDFD.Text = "1";
+                    }
+                    if (Amonestado == 1 || Amonestado == 0)
+                    {
+                        txtRojasDFD.Text = "0";
+                    }
+                    if (Amonestado == 0)
+                    {
+                        txtAmarillaDFD.Text = "0";
+                    }
+                }
+                if (Amonestado == 0)
+                {
+                    txtAmarillaDFD.Text = "0";
+                    txtRojasDFD.Text = "0";
+                }
+            }
+            else { txtAmarillaDFD.Text = "0"; }
+        }
+        private void txtAmarillaLIB_TextChanged(object sender, EventArgs e)
+        {
+            string Amarilla = txtAmarillaLIB.Text;
+            if (!string.IsNullOrEmpty(Amarilla))
+            {
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 0)
+                {
+                    if (Amonestado > 2)
+                    {
+                        const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                        const string caption = "Atención";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Exclamation);
+                        Amonestado = 0;
+                        txtRojasLIB.Text = "0";
+                    }
+                    if (Amonestado == 2)
+                    {
+                        txtRojasLIB.Text = "1";
+                    }
+                    if (Amonestado == 1 || Amonestado == 0)
+                    {
+                        txtRojasLIB.Text = "0";
+                    }
+                    if (Amonestado == 0)
+                    {
+                        txtAmarillaLIB.Text = "0";
+                    }
+                }
+                if (Amonestado == 0)
+                {
+                    txtAmarillaLIB.Text = "0";
+                    txtRojasLIB.Text = "0";
+                }
+            }
+            else { txtAmarillaLIB.Text = "0"; }
+        }
+        private void txtAmarillaDFI_TextChanged(object sender, EventArgs e)
+        {
+            string Amarilla = txtAmarillaDFI.Text;
+            if (!string.IsNullOrEmpty(Amarilla))
+            {
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 0)
+                {
+                    if (Amonestado > 2)
+                    {
+                        const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                        const string caption = "Atención";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Exclamation);
+                        Amonestado = 0;
+                        txtRojasDFI.Text = "0";
+                    }
+                    if (Amonestado == 2)
+                    {
+                        txtRojasDFI.Text = "1";
+                    }
+                    if (Amonestado == 1 || Amonestado == 0)
+                    {
+                        txtRojasDFI.Text = "0";
+                    }
+                    if (Amonestado == 0)
+                    {
+                        txtAmarillaDFI.Text = "0";
+                    }
+                }
+                if (Amonestado == 0)
+                {
+                    txtAmarillaDFI.Text = "0";
+                    txtRojasDFI.Text = "0";
+                }
+            }
+            else { txtAmarillaDFI.Text = "0"; }
+        }
+        private void txtAmarillaLI_TextChanged(object sender, EventArgs e)
+        {
+            string Amarilla = txtAmarillaLI.Text;
+            if (!string.IsNullOrEmpty(Amarilla))
+            {
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 0)
+                {
+                    if (Amonestado > 2)
+                    {
+                        const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                        const string caption = "Atención";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Exclamation);
+                        Amonestado = 0;
+                        txtRojasLI.Text = "0";
+                    }
+                    if (Amonestado == 2)
+                    {
+                        txtRojasLI.Text = "1";
+                    }
+                    if (Amonestado == 1 || Amonestado == 0)
+                    {
+                        txtRojasLI.Text = "0";
+                    }
+                    if (Amonestado == 0)
+                    {
+                        txtAmarillaLI.Text = "0";
+                    }
+                }
+                if (Amonestado == 0)
+                {
+                    txtAmarillaLI.Text = "0";
+                    txtRojasLI.Text = "0";
+                }
+            }
+            else { txtAmarillaLI.Text = "0"; }
+        }
+        private void txtAmarillaVD_TextChanged(object sender, EventArgs e)
+        {
+            string Amarilla = txtAmarillaVD.Text;
+            if (!string.IsNullOrEmpty(Amarilla))
+            {
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 0)
+                {
+                    if (Amonestado > 2)
+                    {
+                        const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                        const string caption = "Atención";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Exclamation);
+                        Amonestado = 0;
+                        txtRojasVD.Text = "0";
+                    }
+                    if (Amonestado == 2)
+                    {
+                        txtRojasVD.Text = "1";
+                    }
+                    if (Amonestado == 1 || Amonestado == 0)
+                    {
+                        txtRojasVD.Text = "0";
+                    }
+                    if (Amonestado == 0)
+                    {
+                        txtAmarillaVD.Text = "0";
+                    }
+                }
+                if (Amonestado == 0)
+                {
+                    txtAmarillaVD.Text = "0";
+                    txtRojasVD.Text = "0";
+                }
+            }
+            else { txtAmarillaVD.Text = "0"; }
+        }
+        private void txtAmarillaVID_TextChanged(object sender, EventArgs e)
+        {
+            string Amarilla = txtAmarillaVID.Text;
+            if (!string.IsNullOrEmpty(Amarilla))
+            {
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 0)
+                {
+                    if (Amonestado > 2)
+                    {
+                        const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                        const string caption = "Atención";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Exclamation);
+                        Amonestado = 0;
+                        txtRojasVID.Text = "0";
+                    }
+                    if (Amonestado == 2)
+                    {
+                        txtRojasVID.Text = "1";
+                    }
+                    if (Amonestado == 1 || Amonestado == 0)
+                    {
+                        txtRojasVID.Text = "0";
+                    }
+                    if (Amonestado == 0)
+                    {
+                        txtAmarillaVID.Text = "0";
+                    }
+                }
+                if (Amonestado == 0)
+                {
+                    txtAmarillaVID.Text = "0";
+                    txtRojasVID.Text = "0";
+                }
+            }
+            else { txtAmarillaVID.Text = "0"; }
+        }
+        private void txtAmarillaMC_TextChanged(object sender, EventArgs e)
+        {
+            string Amarilla = txtAmarillaMC.Text;
+            if (!string.IsNullOrEmpty(Amarilla))
+            {
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 0)
+                {
+                    if (Amonestado > 2)
+                    {
+                        const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                        const string caption = "Atención";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Exclamation);
+                        Amonestado = 0;
+                        txtRojasMC.Text = "0";
+                    }
+                    if (Amonestado == 2)
+                    {
+                        txtRojasMC.Text = "1";
+                    }
+                    if (Amonestado == 1 || Amonestado == 0)
+                    {
+                        txtRojasMC.Text = "0";
+                    }
+                    if (Amonestado == 0)
+                    {
+                        txtAmarillaMC.Text = "0";
+                    }
+                }
+                if (Amonestado == 0)
+                {
+                    txtAmarillaMC.Text = "0";
+                    txtRojasMC.Text = "0";
+                }
+            }
+            else { txtAmarillaMC.Text = "0"; }
+        }
+        private void txtAmarillaVII_TextChanged(object sender, EventArgs e)
+        {
+            string Amarilla = txtAmarillaVII.Text;
+            if (!string.IsNullOrEmpty(Amarilla))
+            {
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 0)
+                {
+                    if (Amonestado > 2)
+                    {
+                        const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                        const string caption = "Atención";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Exclamation);
+                        Amonestado = 0;
+                        txtRojasVII.Text = "0";
+                    }
+                    if (Amonestado == 2)
+                    {
+                        txtRojasVII.Text = "1";
+                    }
+                    if (Amonestado == 1 || Amonestado == 0)
+                    {
+                        txtRojasVII.Text = "0";
+                    }
+                    if (Amonestado == 0)
+                    {
+                        txtAmarillaVII.Text = "0";
+                    }
+                }
+                if (Amonestado == 0)
+                {
+                    txtAmarillaVII.Text = "0";
+                    txtRojasVII.Text = "0";
+                }
+            }
+            else { txtAmarillaVII.Text = "0"; }
+        }
+        private void txtAmarillaVI_TextChanged(object sender, EventArgs e)
+        {
+            string Amarilla = txtAmarillaVI.Text;
+            if (!string.IsNullOrEmpty(Amarilla))
+            {
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 0)
+                {
+                    if (Amonestado > 2)
+                    {
+                        const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                        const string caption = "Atención";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Exclamation);
+                        Amonestado = 0;
+                        txtRojasVI.Text = "0";
+                    }
+                    if (Amonestado == 2)
+                    {
+                        txtRojasVI.Text = "1";
+                    }
+                    if (Amonestado == 1 || Amonestado == 0)
+                    {
+                        txtRojasVI.Text = "0";
+                    }
+                    if (Amonestado == 0)
+                    {
+                        txtAmarillaVI.Text = "0";
+                    }
+                }
+                if (Amonestado == 0)
+                {
+                    txtAmarillaVI.Text = "0";
+                    txtRojasVI.Text = "0";
+                }
+            }
+            else { txtAmarillaVI.Text = "0"; }
+        }
+        private void txtAmarillaED_TextChanged(object sender, EventArgs e)
+        {
+            string Amarilla = txtAmarillaED.Text;
+            if (!string.IsNullOrEmpty(Amarilla))
+            {
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 0)
+                {
+                    if (Amonestado > 2)
+                    {
+                        const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                        const string caption = "Atención";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Exclamation);
+                        Amonestado = 0;
+                        txtRojasED.Text = "0";
+                    }
+                    if (Amonestado == 2)
+                    {
+                        txtRojasED.Text = "1";
+                    }
+                    if (Amonestado == 1 || Amonestado == 0)
+                    {
+                        txtRojasED.Text = "0";
+                    }
+                    if (Amonestado == 0)
+                    {
+                        txtAmarillaED.Text = "0";
+                    }
+                }
+                if (Amonestado == 0)
+                {
+                    txtAmarillaED.Text = "0";
+                    txtRojasED.Text = "0";
+                }
+            }
+            else { txtAmarillaED.Text = "0"; }
+        }
+        private void txtAmarillaMP_TextChanged(object sender, EventArgs e)
+        {
+            string Amarilla = txtAmarillaMP.Text;
+            if (!string.IsNullOrEmpty(Amarilla))
+            {
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 0)
+                {
+                    if (Amonestado > 2)
+                    {
+                        const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                        const string caption = "Atención";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Exclamation);
+                        Amonestado = 0;
+                        txtRojasMP.Text = "0";
+                    }
+                    if (Amonestado == 2)
+                    {
+                        txtRojasMP.Text = "1";
+                    }
+                    if (Amonestado == 1 || Amonestado == 0)
+                    {
+                        txtRojasMP.Text = "0";
+                    }
+                    if (Amonestado == 0)
+                    {
+                        txtAmarillaMP.Text = "0";
+                    }
+                }
+                if (Amonestado == 0)
+                {
+                    txtAmarillaMP.Text = "0";
+                    txtRojasMP.Text = "0";
+                }
+            }
+            else { txtAmarillaMP.Text = "0"; }
+        }
+        private void txtAmarillaEI_TextChanged(object sender, EventArgs e)
+        {
+            string Amarilla = txtAmarillaEI.Text;
+            if (!string.IsNullOrEmpty(Amarilla))
+            {
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 0)
+                {
+                    if (Amonestado > 2)
+                    {
+                        const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                        const string caption = "Atención";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Exclamation);
+                        Amonestado = 0;
+                        txtRojasEI.Text = "0";
+                    }
+                    if (Amonestado == 2)
+                    {
+                        txtRojasEI.Text = "1";
+                    }
+                    if (Amonestado == 1 || Amonestado == 0)
+                    {
+                        txtRojasEI.Text = "0";
+                    }
+                    if (Amonestado == 0)
+                    {
+                        txtAmarillaEI.Text = "0";
+                    }
+                }
+                if (Amonestado == 0)
+                {
+                    txtAmarillaEI.Text = "0";
+                    txtRojasEI.Text = "0";
+                }
+            }
+            else { txtAmarillaEI.Text = "0"; }
+        }
+        private void txtAmarillaCD1_TextChanged(object sender, EventArgs e)
+        {
+            string Amarilla = txtAmarillaCD1.Text;
+            if (!string.IsNullOrEmpty(Amarilla))
+            {
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 0)
+                {
+                    if (Amonestado > 2)
+                    {
+                        const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                        const string caption = "Atención";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Exclamation);
+                        Amonestado = 0;
+                        txtRojasCD1.Text = "0";
+                    }
+                    if (Amonestado == 2)
+                    {
+                        txtRojasCD1.Text = "1";
+                    }
+                    if (Amonestado == 1 || Amonestado == 0)
+                    {
+                        txtRojasCD1.Text = "0";
+                    }
+                    if (Amonestado == 0)
+                    {
+                        txtAmarillaCD1.Text = "0";
+                    }
+                }
+                if (Amonestado == 0)
+                {
+                    txtAmarillaCD1.Text = "0";
+                    txtRojasCD1.Text = "0";
+                }
+            }
+            else { txtAmarillaCD1.Text = "0"; }
+        }
+        private void txtAmarillaCD_TextChanged(object sender, EventArgs e)
+        {
+            string Amarilla = txtAmarillaCD.Text;
+            if (!string.IsNullOrEmpty(Amarilla))
+            {
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 0)
+                {
+                    if (Amonestado > 2)
+                    {
+                        const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                        const string caption = "Atención";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Exclamation);
+                        Amonestado = 0;
+                        txtRojasCD.Text = "0";
+                    }
+                    if (Amonestado == 2)
+                    {
+                        txtRojasCD.Text = "1";
+                    }
+                    if (Amonestado == 1 || Amonestado == 0)
+                    {
+                        txtRojasCD.Text = "0";
+                    }
+                    if (Amonestado == 0)
+                    {
+                        txtAmarillaCD.Text = "0";
+                    }
+                }
+                if (Amonestado == 0)
+                {
+                    txtAmarillaCD.Text = "0";
+                    txtRojasCD.Text = "0";
+                }
+            }
+            else { txtAmarillaCD.Text = "0"; }
+        }
+        private void txtAmarillaCD2_TextChanged(object sender, EventArgs e)
+        {
+            string Amarilla = txtAmarillaCD2.Text;
+            if (!string.IsNullOrEmpty(Amarilla))
+            {
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 0)
+                {
+                    if (Amonestado > 2)
+                    {
+                        const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                        const string caption = "Atención";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Exclamation);
+                        Amonestado = 0;
+                        txtRojasCD2.Text = "0";
+                    }
+                    if (Amonestado == 2)
+                    {
+                        txtRojasCD2.Text = "1";
+                    }
+                    if (Amonestado == 1 || Amonestado == 0)
+                    {
+                        txtRojasCD2.Text = "0";
+                    }
+                    if (Amonestado == 0)
+                    {
+                        txtAmarillaCD2.Text = "0";
+                    }
+                }
+                if (Amonestado == 0)
+                {
+                    txtAmarillaCD2.Text = "0";
+                    txtRojasCD2.Text = "0";
+                }
+            }
+            else { txtAmarillaCD2.Text = "0"; }
+        }
+        private void txtAmarillasSup1_TextChanged(object sender, EventArgs e)
+        {
+            string Amarilla = txtAmarillasSup1.Text;
+            if (!string.IsNullOrEmpty(Amarilla))
+            {
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 0)
+                {
+                    if (Amonestado > 2)
+                    {
+                        const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                        const string caption = "Atención";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Exclamation);
+                        Amonestado = 0;
+                        txtRojasSup1.Text = "0";
+                    }
+                    if (Amonestado == 2)
+                    {
+                        txtRojasSup1.Text = "1";
+                    }
+                    if (Amonestado == 1 || Amonestado == 0)
+                    {
+                        txtRojasSup1.Text = "0";
+                    }
+                    if (Amonestado == 0)
+                    {
+                        txtAmarillasSup1.Text = "0";
+                    }
+                }
+                if (Amonestado == 0)
+                {
+                    txtAmarillasSup1.Text = "0";
+                    txtRojasSup1.Text = "0";
+                }
+            }
+            else { txtAmarillasSup1.Text = "0"; }
+        }
+        private void txtAmarillasSup2_TextChanged(object sender, EventArgs e)
+        {
+            string Amarilla = txtAmarillasSup2.Text;
+            if (!string.IsNullOrEmpty(Amarilla))
+            {
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 0)
+                {
+                    if (Amonestado > 2)
+                    {
+                        const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                        const string caption = "Atención";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Exclamation);
+                        Amonestado = 0;
+                        txtRojasSup2.Text = "0";
+                    }
+                    if (Amonestado == 2)
+                    {
+                        txtRojasSup2.Text = "1";
+                    }
+                    if (Amonestado == 1 || Amonestado == 0)
+                    {
+                        txtRojasSup2.Text = "0";
+                    }
+                    if (Amonestado == 0)
+                    {
+                        txtAmarillasSup2.Text = "0";
+                    }
+                }
+                if (Amonestado == 0)
+                {
+                    txtAmarillasSup2.Text = "0";
+                    txtRojasSup2.Text = "0";
+                }
+            }
+            else { txtAmarillasSup2.Text = "0"; }
+        }
+        private void txtAmarillasSup3_TextChanged(object sender, EventArgs e)
+        {
+            string Amarilla = txtAmarillasSup3.Text;
+            if (!string.IsNullOrEmpty(Amarilla))
+            {
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 0)
+                {
+                    if (Amonestado > 2)
+                    {
+                        const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                        const string caption = "Atención";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Exclamation);
+                        Amonestado = 0;
+                        txtRojasSup3.Text = "0";
+                    }
+                    if (Amonestado == 2)
+                    {
+                        txtRojasSup3.Text = "1";
+                    }
+                    if (Amonestado == 1 || Amonestado == 0)
+                    {
+                        txtRojasSup3.Text = "0";
+                    }
+                    if (Amonestado == 0)
+                    {
+                        txtAmarillasSup3.Text = "0";
+                    }
+                }
+                if (Amonestado == 0)
+                {
+                    txtAmarillasSup3.Text = "0";
+                    txtRojasSup3.Text = "0";
+                }
+            }
+            else { txtAmarillasSup3.Text = "0"; }
+        }
+        private void txtAmarillasSup4_TextChanged(object sender, EventArgs e)
+        {
+            string Amarilla = txtAmarillasSup4.Text;
+            if (!string.IsNullOrEmpty(Amarilla))
+            {
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 0)
+                {
+                    if (Amonestado > 2)
+                    {
+                        const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                        const string caption = "Atención";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Exclamation);
+                        Amonestado = 0;
+                        txtRojasSup4.Text = "0";
+                    }
+                    if (Amonestado == 2)
+                    {
+                        txtRojasSup4.Text = "1";
+                    }
+                    if (Amonestado == 1 || Amonestado == 0)
+                    {
+                        txtRojasSup4.Text = "0";
+                    }
+                    if (Amonestado == 0)
+                    {
+                        txtAmarillasSup4.Text = "0";
+                    }
+                }
+                if (Amonestado == 0)
+                {
+                    txtAmarillasSup4.Text = "0";
+                    txtRojasSup4.Text = "0";
+                }
+            }
+            else { txtAmarillasSup4.Text = "0"; }
+        }
+        private void txtAmarillasSup5_TextChanged(object sender, EventArgs e)
+        {
+            string Amarilla = txtAmarillasSup5.Text;
+            if (!string.IsNullOrEmpty(Amarilla))
+            {
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 0)
+                {
+                    if (Amonestado > 2)
+                    {
+                        const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                        const string caption = "Atención";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Exclamation);
+                        Amonestado = 0;
+                        txtRojasSup5.Text = "0";
+                    }
+                    if (Amonestado == 2)
+                    {
+                        txtRojasSup5.Text = "1";
+                    }
+                    if (Amonestado == 1 || Amonestado == 0)
+                    {
+                        txtRojasSup5.Text = "0";
+                    }
+                    if (Amonestado == 0)
+                    {
+                        txtAmarillasSup5.Text = "0";
+                    }
+                }
+                if (Amonestado == 0)
+                {
+                    txtAmarillasSup5.Text = "0";
+                    txtRojasSup5.Text = "0";
+                }
+            }
+            else { txtAmarillasSup5.Text = "0"; }
+        }
+        private void txtAmarillasSup6_TextChanged(object sender, EventArgs e)
+        {
+            string Amarilla = txtAmarillasSup6.Text;
+            if (!string.IsNullOrEmpty(Amarilla))
+            {
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 0)
+                {
+                    if (Amonestado > 2)
+                    {
+                        const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                        const string caption = "Atención";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Exclamation);
+                        Amonestado = 0;
+                        txtRojasSup6.Text = "0";
+                    }
+                    if (Amonestado == 2)
+                    {
+                        txtRojasSup6.Text = "1";
+                    }
+                    if (Amonestado == 1 || Amonestado == 0)
+                    {
+                        txtRojasSup6.Text = "0";
+                    }
+                    if (Amonestado == 0)
+                    {
+                        txtAmarillasSup6.Text = "0";
+                    }
+                }
+                if (Amonestado == 0)
+                {
+                    txtAmarillasSup6.Text = "0";
+                    txtRojasSup6.Text = "0";
+                }
+            }
+            else { txtAmarillasSup6.Text = "0"; }
+        }
+        private void txtAmarillasSup7_TextChanged(object sender, EventArgs e)
+        {
+            string Amarilla = txtAmarillasSup7.Text;
+            if (!string.IsNullOrEmpty(Amarilla))
+            {
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 0)
+                {
+                    if (Amonestado > 2)
+                    {
+                        const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                        const string caption = "Atención";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Exclamation);
+                        Amonestado = 0;
+                        txtRojasSup7.Text = "0";
+                    }
+                    if (Amonestado == 2)
+                    {
+                        txtRojasSup7.Text = "1";
+                    }
+                    if (Amonestado == 1 || Amonestado == 0)
+                    {
+                        txtRojasSup7.Text = "0";
+                    }
+                    if (Amonestado == 0)
+                    {
+                        txtAmarillasSup7.Text = "0";
+                    }
+                }
+                if (Amonestado == 0)
+                {
+                    txtAmarillasSup7.Text = "0";
+                    txtRojasSup7.Text = "0";
+                }
+            }
+            else { txtAmarillasSup7.Text = "0"; }
+        }
         #endregion
+
     }
 }

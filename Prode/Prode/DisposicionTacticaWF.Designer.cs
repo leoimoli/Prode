@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DisposicionTacticaWF));
             this.grbCancha = new System.Windows.Forms.GroupBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.cmbCD2 = new System.Windows.Forms.ComboBox();
             this.cmbCD = new System.Windows.Forms.ComboBox();
             this.cmbCD1 = new System.Windows.Forms.ComboBox();
@@ -334,7 +335,6 @@
             this.grbDuaracionPartido = new System.Windows.Forms.GroupBox();
             this.label70 = new System.Windows.Forms.Label();
             this.cmbMinutos = new System.Windows.Forms.ComboBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.grbCancha.SuspendLayout();
             this.grbCD2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCD2)).BeginInit();
@@ -436,6 +436,15 @@
             this.grbCancha.TabIndex = 0;
             this.grbCancha.TabStop = false;
             this.grbCancha.Visible = false;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(575, 570);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(330, 23);
+            this.progressBar1.TabIndex = 107;
+            this.progressBar1.Value = 50;
+            this.progressBar1.Visible = false;
             // 
             // cmbCD2
             // 
@@ -644,6 +653,7 @@
             this.txtAmarillaCD2.Size = new System.Drawing.Size(29, 20);
             this.txtAmarillaCD2.TabIndex = 69;
             this.txtAmarillaCD2.Text = "0";
+            this.txtAmarillaCD2.TextChanged += new System.EventHandler(this.txtAmarillaCD2_TextChanged);
             // 
             // txtGolesCD2
             // 
@@ -758,6 +768,7 @@
             this.txtAmarillaCD1.Size = new System.Drawing.Size(29, 20);
             this.txtAmarillaCD1.TabIndex = 69;
             this.txtAmarillaCD1.Text = "0";
+            this.txtAmarillaCD1.TextChanged += new System.EventHandler(this.txtAmarillaCD1_TextChanged);
             // 
             // txtGolesCD1
             // 
@@ -872,6 +883,7 @@
             this.txtAmarillaCD.Size = new System.Drawing.Size(29, 20);
             this.txtAmarillaCD.TabIndex = 69;
             this.txtAmarillaCD.Text = "0";
+            this.txtAmarillaCD.TextChanged += new System.EventHandler(this.txtAmarillaCD_TextChanged);
             // 
             // txtGolesCD
             // 
@@ -986,6 +998,7 @@
             this.txtAmarillaEI.Size = new System.Drawing.Size(29, 20);
             this.txtAmarillaEI.TabIndex = 69;
             this.txtAmarillaEI.Text = "0";
+            this.txtAmarillaEI.TextChanged += new System.EventHandler(this.txtAmarillaEI_TextChanged);
             // 
             // txtGolesEI
             // 
@@ -1100,6 +1113,7 @@
             this.txtAmarillaMP.Size = new System.Drawing.Size(29, 20);
             this.txtAmarillaMP.TabIndex = 69;
             this.txtAmarillaMP.Text = "0";
+            this.txtAmarillaMP.TextChanged += new System.EventHandler(this.txtAmarillaMP_TextChanged);
             // 
             // txtGolesMP
             // 
@@ -1214,6 +1228,7 @@
             this.txtAmarillaED.Size = new System.Drawing.Size(29, 20);
             this.txtAmarillaED.TabIndex = 69;
             this.txtAmarillaED.Text = "0";
+            this.txtAmarillaED.TextChanged += new System.EventHandler(this.txtAmarillaED_TextChanged);
             // 
             // txtGolesED
             // 
@@ -1328,6 +1343,7 @@
             this.txtAmarillaVI.Size = new System.Drawing.Size(29, 20);
             this.txtAmarillaVI.TabIndex = 69;
             this.txtAmarillaVI.Text = "0";
+            this.txtAmarillaVI.TextChanged += new System.EventHandler(this.txtAmarillaVI_TextChanged);
             // 
             // txtGolesVI
             // 
@@ -1442,6 +1458,7 @@
             this.txtAmarillaVII.Size = new System.Drawing.Size(29, 20);
             this.txtAmarillaVII.TabIndex = 69;
             this.txtAmarillaVII.Text = "0";
+            this.txtAmarillaVII.TextChanged += new System.EventHandler(this.txtAmarillaVII_TextChanged);
             // 
             // txtGolesVII
             // 
@@ -1556,6 +1573,7 @@
             this.txtAmarillaMC.Size = new System.Drawing.Size(29, 20);
             this.txtAmarillaMC.TabIndex = 69;
             this.txtAmarillaMC.Text = "0";
+            this.txtAmarillaMC.TextChanged += new System.EventHandler(this.txtAmarillaMC_TextChanged);
             // 
             // txtGolesMC
             // 
@@ -1670,6 +1688,7 @@
             this.txtAmarillaVID.Size = new System.Drawing.Size(29, 20);
             this.txtAmarillaVID.TabIndex = 69;
             this.txtAmarillaVID.Text = "0";
+            this.txtAmarillaVID.TextChanged += new System.EventHandler(this.txtAmarillaVID_TextChanged);
             // 
             // txtGolesVID
             // 
@@ -1784,6 +1803,7 @@
             this.txtAmarillaVD.Size = new System.Drawing.Size(29, 20);
             this.txtAmarillaVD.TabIndex = 69;
             this.txtAmarillaVD.Text = "0";
+            this.txtAmarillaVD.TextChanged += new System.EventHandler(this.txtAmarillaVD_TextChanged);
             // 
             // txtGolesVD
             // 
@@ -1898,6 +1918,7 @@
             this.txtAmarillaLI.Size = new System.Drawing.Size(29, 20);
             this.txtAmarillaLI.TabIndex = 69;
             this.txtAmarillaLI.Text = "0";
+            this.txtAmarillaLI.TextChanged += new System.EventHandler(this.txtAmarillaLI_TextChanged);
             // 
             // txtGolesLI
             // 
@@ -2012,6 +2033,7 @@
             this.txtAmarillaDFI.Size = new System.Drawing.Size(29, 20);
             this.txtAmarillaDFI.TabIndex = 69;
             this.txtAmarillaDFI.Text = "0";
+            this.txtAmarillaDFI.TextChanged += new System.EventHandler(this.txtAmarillaDFI_TextChanged);
             // 
             // txtGolesDFI
             // 
@@ -2126,6 +2148,7 @@
             this.txtAmarillaLIB.Size = new System.Drawing.Size(29, 20);
             this.txtAmarillaLIB.TabIndex = 69;
             this.txtAmarillaLIB.Text = "0";
+            this.txtAmarillaLIB.TextChanged += new System.EventHandler(this.txtAmarillaLIB_TextChanged);
             // 
             // txtGolesLIB
             // 
@@ -2240,6 +2263,7 @@
             this.txtAmarillaDFD.Size = new System.Drawing.Size(29, 20);
             this.txtAmarillaDFD.TabIndex = 69;
             this.txtAmarillaDFD.Text = "0";
+            this.txtAmarillaDFD.TextChanged += new System.EventHandler(this.txtAmarillaDFD_TextChanged);
             // 
             // txtGolesDFD
             // 
@@ -2374,6 +2398,7 @@
             this.txtAmarillaARQ.Size = new System.Drawing.Size(29, 20);
             this.txtAmarillaARQ.TabIndex = 69;
             this.txtAmarillaARQ.Text = "0";
+            this.txtAmarillaARQ.TextChanged += new System.EventHandler(this.txtAmarillaARQ_TextChanged);
             // 
             // txtGolesARQ
             // 
@@ -2488,6 +2513,7 @@
             this.txtAmarillaLD.Size = new System.Drawing.Size(29, 20);
             this.txtAmarillaLD.TabIndex = 69;
             this.txtAmarillaLD.Text = "0";
+            this.txtAmarillaLD.TextChanged += new System.EventHandler(this.txtAmarillaLD_TextChanged);
             // 
             // txtGolesLD
             // 
@@ -2674,6 +2700,7 @@
             this.txtAmarillasSup6.Size = new System.Drawing.Size(29, 20);
             this.txtAmarillasSup6.TabIndex = 69;
             this.txtAmarillasSup6.Text = "0";
+            this.txtAmarillasSup6.TextChanged += new System.EventHandler(this.txtAmarillasSup6_TextChanged);
             // 
             // txtGolesSup6
             // 
@@ -2809,6 +2836,7 @@
             this.txtAmarillasSup4.Size = new System.Drawing.Size(29, 20);
             this.txtAmarillasSup4.TabIndex = 69;
             this.txtAmarillasSup4.Text = "0";
+            this.txtAmarillasSup4.TextChanged += new System.EventHandler(this.txtAmarillasSup4_TextChanged);
             // 
             // txtGolesSup4
             // 
@@ -2924,6 +2952,7 @@
             this.txtAmarillasSup2.Size = new System.Drawing.Size(29, 20);
             this.txtAmarillasSup2.TabIndex = 69;
             this.txtAmarillasSup2.Text = "0";
+            this.txtAmarillasSup2.TextChanged += new System.EventHandler(this.txtAmarillasSup2_TextChanged);
             // 
             // txtGolesSup2
             // 
@@ -3049,6 +3078,7 @@
             this.txtAmarillasSup7.Size = new System.Drawing.Size(29, 20);
             this.txtAmarillasSup7.TabIndex = 69;
             this.txtAmarillasSup7.Text = "0";
+            this.txtAmarillasSup7.TextChanged += new System.EventHandler(this.txtAmarillasSup7_TextChanged);
             // 
             // txtGolesSup7
             // 
@@ -3194,6 +3224,7 @@
             this.txtAmarillasSup5.Size = new System.Drawing.Size(29, 20);
             this.txtAmarillasSup5.TabIndex = 69;
             this.txtAmarillasSup5.Text = "0";
+            this.txtAmarillasSup5.TextChanged += new System.EventHandler(this.txtAmarillasSup5_TextChanged);
             // 
             // txtGolesSup5
             // 
@@ -3309,6 +3340,7 @@
             this.txtAmarillasSup3.Size = new System.Drawing.Size(29, 20);
             this.txtAmarillasSup3.TabIndex = 69;
             this.txtAmarillasSup3.Text = "0";
+            this.txtAmarillasSup3.TextChanged += new System.EventHandler(this.txtAmarillasSup3_TextChanged);
             // 
             // txtGolesSup3
             // 
@@ -3424,6 +3456,7 @@
             this.txtAmarillasSup1.Size = new System.Drawing.Size(29, 20);
             this.txtAmarillasSup1.TabIndex = 69;
             this.txtAmarillasSup1.Text = "0";
+            this.txtAmarillasSup1.TextChanged += new System.EventHandler(this.txtAmarillasSup1_TextChanged);
             // 
             // txtGolesSup1
             // 
@@ -3607,15 +3640,6 @@
             this.cmbMinutos.Size = new System.Drawing.Size(212, 21);
             this.cmbMinutos.TabIndex = 88;
             this.cmbMinutos.SelectedIndexChanged += new System.EventHandler(this.cmbMinutos_SelectedIndexChanged);
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(575, 570);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(330, 23);
-            this.progressBar1.TabIndex = 107;
-            this.progressBar1.Value = 50;
-            this.progressBar1.Visible = false;
             // 
             // DisposicionTacticaWF
             // 
