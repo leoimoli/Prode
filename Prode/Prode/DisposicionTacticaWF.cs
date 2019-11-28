@@ -242,6 +242,30 @@ namespace Prode
             }
         }
         #region Botones
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BloquearPantalla();
+                List<string> listaEstadistica = new List<string>();
+                string SistemaTactico = cmbTactica.Text;
+                listaEstadistica = CargarEntidad();
+                bool Exito = FutbolEstadisticaJugadorNeg.GuardarEstadisticaJugador(listaEstadistica, SistemaTactico, idEquipos, idPartidos);
+                if (Exito == true)
+                {
+                    ProgressBar();
+                    const string message2 = "Se registro la formación del equipo exitosamente.";
+                    const string caption2 = "Éxito";
+                    var result2 = MessageBox.Show(message2, caption2,
+                                                 MessageBoxButtons.OK,
+                                                 MessageBoxIcon.Asterisk);
+                    LimpiarCampos();
+                }
+
+            }
+            catch (Exception ex)
+            { }
+        }
         #endregion
         #region Funciones       
         private void AsignarMinutosJugadoresTitulares(string minutos)
@@ -1262,6 +1286,1079 @@ namespace Prode
 
             }
         }
+        private void LimpiarCampos()
+        {
+            progressBar1.Value = Convert.ToInt32(null);
+            progressBar1.Visible = false;
+            btnCancelar.Visible = false;
+            grbCancha.Visible = false;
+            grbSuplentes.Visible = false;
+            chcFutbol11.Checked = true;
+            LimpiarCamposJugadores();
+            idListaJugadoresCargado.Clear();
+        }
+        private void LimpiarCamposJugadores()
+        {
+            pictureArquero.Image = null;
+            txtMinARQ.Clear();
+            txtGolesARQ.Text = "0";
+            txtAmarillaARQ.Text = "0";
+            txtRojasARQ.Text = "0";
+
+            pictureLD.Image = null;
+            txtMinLD.Clear();
+            txtGolesLD.Text = "0";
+            txtAmarillaLD.Text = "0";
+            txtRojasLD.Text = "0";
+
+            pictureDFD.Image = null;
+            txtMinDFD.Clear();
+            txtGolesDFD.Text = "0";
+            txtAmarillaDFD.Text = "0";
+            txtRojasDFD.Text = "0";
+
+            pictureLIB.Image = null;
+            txtMinLIB.Clear();
+            txtGolesLIB.Text = "0";
+            txtAmarillaLIB.Text = "0";
+            txtRojasLIB.Text = "0";
+
+            pictureDFI.Image = null;
+            txtMinDFI.Clear();
+            txtGolesDFI.Text = "0";
+            txtAmarillaDFI.Text = "0";
+            txtRojasDFI.Text = "0";
+
+            pictureLI.Image = null;
+            txtMinLI.Clear();
+            txtGolesLI.Text = "0";
+            txtAmarillaLI.Text = "0";
+            txtRojasLI.Text = "0";
+
+            pictureVD.Image = null;
+            txtMinVD.Clear();
+            txtGolesVD.Text = "0";
+            txtAmarillaVD.Text = "0";
+            txtRojasVD.Text = "0";
+
+            pictureVID.Image = null;
+            txtMinVID.Clear();
+            txtGolesVID.Text = "0";
+            txtAmarillaVID.Text = "0";
+            txtRojasVID.Text = "0";
+
+            pictureMC.Image = null;
+            txtMinMC.Clear();
+            txtGolesMC.Text = "0";
+            txtAmarillaMC.Text = "0";
+            txtRojasMC.Text = "0";
+
+            pictureVII.Image = null;
+            txtMinVII.Clear();
+            txtGolesVII.Text = "0";
+            txtAmarillaVII.Text = "0";
+            txtRojasVII.Text = "0";
+
+            pictureVI.Image = null;
+            txtMinVI.Clear();
+            txtGolesVI.Text = "0";
+            txtAmarillaVI.Text = "0";
+            txtRojasVI.Text = "0";
+
+            pictureMP.Image = null;
+            txtMinMP.Clear();
+            txtGolesMP.Text = "0";
+            txtAmarillaMP.Text = "0";
+            txtRojasMP.Text = "0";
+
+            pictureED.Image = null;
+            txtMinED.Clear();
+            txtGolesED.Text = "0";
+            txtAmarillaED.Text = "0";
+            txtRojasED.Text = "0";
+
+            pictureCD1.Image = null;
+            txtMinCD1.Clear();
+            txtGolesCD1.Text = "0";
+            txtAmarillaCD1.Text = "0";
+            txtRojasCD1.Text = "0";
+
+            pictureCD.Image = null;
+            txtMinCD.Clear();
+            txtGolesCD.Text = "0";
+            txtAmarillaCD.Text = "0";
+            txtRojasCD.Text = "0";
+
+            pictureCD2.Image = null;
+            txtMinCD2.Clear();
+            txtGolesCD2.Text = "0";
+            txtAmarillaCD2.Text = "0";
+            txtRojasCD2.Text = "0";
+
+            pictureEI.Image = null;
+            txtMinEI.Clear();
+            txtGolesEI.Text = "0";
+            txtAmarillaEI.Text = "0";
+            txtRojasEI.Text = "0";
+
+            pictureSup1.Image = null;
+            txtMinSup1.Clear();
+            txtGolesSup1.Text = "0";
+            txtAmarillasSup1.Text = "0";
+            txtRojasSup1.Text = "0";
+
+            pictureSup2.Image = null;
+            txtMinSup2.Clear();
+            txtGolesSup2.Text = "0";
+            txtAmarillasSup2.Text = "0";
+            txtRojasSup2.Text = "0";
+
+            pictureSup3.Image = null;
+            txtMinSup3.Clear();
+            txtGolesSup3.Text = "0";
+            txtAmarillasSup3.Text = "0";
+            txtRojasSup3.Text = "0";
+
+            pictureSup4.Image = null;
+            txtMinSup4.Clear();
+            txtGolesSup4.Text = "0";
+            txtAmarillasSup4.Text = "0";
+            txtRojasSup4.Text = "0";
+
+            pictureSup5.Image = null;
+            txtMinSup5.Clear();
+            txtGolesSup5.Text = "0";
+            txtAmarillasSup5.Text = "0";
+            txtRojasSup5.Text = "0";
+
+            pictureSup6.Image = null;
+            txtMinSup6.Clear();
+            txtGolesSup6.Text = "0";
+            txtAmarillasSup6.Text = "0";
+            txtRojasSup6.Text = "0";
+
+            pictureSup7.Image = null;
+            txtMinSup7.Clear();
+            txtGolesSup7.Text = "0";
+            txtAmarillasSup7.Text = "0";
+            txtRojasSup7.Text = "0";
+
+        }
+        private void ProgressBar()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Maximum = 100000;
+            progressBar1.Step = 1;
+
+            for (int j = 0; j < 100000; j++)
+            {
+                Caluculate(j);
+                progressBar1.PerformStep();
+            }
+        }
+        private void Caluculate(int i)
+        {
+            double pow = Math.Pow(i, i);
+        }
+        private void BloquearPantalla()
+        {
+            grbCancha.Enabled = false;
+            grbSuplentes.Enabled = false;
+            grbDuaracionPartido.Enabled = false;
+            grbTipo.Enabled = false;
+            grbSistemaTactico.Enabled = false;
+        }
+        private List<string> CargarEntidad()
+        {
+            int TotalGoles = 0;
+            List<string> listaString = new List<string>();
+            string id = "";
+            string Minutos = "";
+            string Goles = "";
+            string Amarilla = "";
+            string Roja = "";
+            string Cadena = "";
+
+            if (lblARQ.Text != "@LD")
+            {
+                id = lblARQ.Text;
+                Minutos = txtMinARQ.Text;
+                Goles = txtGolesARQ.Text;
+                int gol = Convert.ToInt32(Goles);
+                TotalGoles = gol + TotalGoles;
+                Amarilla = txtAmarillaARQ.Text;
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 2)
+                {
+                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (Amonestado == 2)
+                {
+                    txtRojasARQ.Text = "1";
+                }
+                Roja = txtRojasARQ.Text;
+                int Expulsion = Convert.ToInt32(Roja);
+                if (Expulsion > 1)
+                {
+                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                listaString.Add(Cadena);
+            }
+
+
+            if (lblLD.Text != "@LD")
+            {
+                id = lblLD.Text;
+                Minutos = txtMinLD.Text;
+                Goles = txtGolesLD.Text;
+                int gol = Convert.ToInt32(Goles);
+                TotalGoles = gol + TotalGoles;
+                Amarilla = txtAmarillaLD.Text;
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 2)
+                {
+                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (Amonestado == 2)
+                {
+                    txtRojasLD.Text = "1";
+                }
+                Roja = txtRojasLD.Text;
+                int Expulsion = Convert.ToInt32(Roja);
+                if (Expulsion > 1)
+                {
+                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                listaString.Add(Cadena);
+            }
+
+
+            if (lblDFD.Text != "@LD")
+            {
+                id = lblDFD.Text;
+                Minutos = txtMinDFD.Text;
+                Goles = txtGolesDFD.Text;
+                int gol = Convert.ToInt32(Goles);
+                TotalGoles = gol + TotalGoles;
+                Amarilla = txtAmarillaDFD.Text;
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 2)
+                {
+                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (Amonestado == 2)
+                {
+                    txtRojasDFD.Text = "1";
+                }
+                Roja = txtRojasDFD.Text;
+                int Expulsion = Convert.ToInt32(Roja);
+                if (Expulsion > 1)
+                {
+                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                listaString.Add(Cadena);
+            }
+
+
+            if (lblLIB.Text != "@LD")
+            {
+                id = lblLIB.Text;
+                Minutos = txtMinLIB.Text;
+                Goles = txtGolesLIB.Text;
+                int gol = Convert.ToInt32(Goles);
+                TotalGoles = gol + TotalGoles;
+                Amarilla = txtAmarillaLIB.Text;
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 2)
+                {
+                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (Amonestado == 2)
+                {
+                    txtRojasLIB.Text = "1";
+                }
+                Roja = txtRojasLIB.Text;
+                int Expulsion = Convert.ToInt32(Roja);
+                if (Expulsion > 1)
+                {
+                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                listaString.Add(Cadena);
+            }
+
+            if (lblDFI.Text != "@LD")
+            {
+                id = lblDFI.Text;
+                Minutos = txtMinDFI.Text;
+                Goles = txtGolesDFI.Text;
+                int gol = Convert.ToInt32(Goles);
+                TotalGoles = gol + TotalGoles;
+                Amarilla = txtAmarillaDFI.Text;
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 2)
+                {
+                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (Amonestado == 2)
+                {
+                    txtRojasDFI.Text = "1";
+                }
+                Roja = txtRojasDFI.Text;
+                int Expulsion = Convert.ToInt32(Roja);
+                if (Expulsion > 1)
+                {
+                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                listaString.Add(Cadena);
+            }
+
+
+            if (lblLI.Text != "@LD")
+            {
+                id = lblLI.Text;
+                Minutos = txtMinLI.Text;
+                Goles = txtGolesLI.Text;
+                int gol = Convert.ToInt32(Goles);
+                TotalGoles = gol + TotalGoles;
+                Amarilla = txtAmarillaLI.Text;
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 2)
+                {
+                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (Amonestado == 2)
+                {
+                    txtRojasLI.Text = "1";
+                }
+                Roja = txtRojasLI.Text;
+                int Expulsion = Convert.ToInt32(Roja);
+                if (Expulsion > 1)
+                {
+                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                listaString.Add(Cadena);
+            }
+
+            if (lblVD.Text != "@LD")
+            {
+                id = lblVD.Text;
+                Minutos = txtMinVD.Text;
+                Goles = txtGolesVD.Text;
+                int gol = Convert.ToInt32(Goles);
+                TotalGoles = gol + TotalGoles;
+                Amarilla = txtAmarillaVD.Text;
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 2)
+                {
+                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (Amonestado == 2)
+                {
+                    txtRojasVD.Text = "1";
+                }
+                Roja = txtRojasVD.Text;
+                int Expulsion = Convert.ToInt32(Roja);
+                if (Expulsion > 1)
+                {
+                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                listaString.Add(Cadena);
+            }
+
+            if (lblVID.Text != "@LD")
+            {
+                id = lblVID.Text;
+                Minutos = txtMinVID.Text;
+                Goles = txtGolesVID.Text;
+                int gol = Convert.ToInt32(Goles);
+                TotalGoles = gol + TotalGoles;
+                Amarilla = txtAmarillaVID.Text;
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 2)
+                {
+                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (Amonestado == 2)
+                {
+                    txtRojasVID.Text = "1";
+                }
+                Roja = txtRojasVID.Text;
+                int Expulsion = Convert.ToInt32(Roja);
+                if (Expulsion > 1)
+                {
+                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                listaString.Add(Cadena);
+            }
+
+
+            if (lblMC.Text != "@LD")
+            {
+                id = lblMC.Text;
+                Minutos = txtMinMC.Text;
+                Goles = txtGolesMC.Text;
+                int gol = Convert.ToInt32(Goles);
+                TotalGoles = gol + TotalGoles;
+                Amarilla = txtAmarillaMC.Text;
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 2)
+                {
+                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (Amonestado == 2)
+                {
+                    txtRojasMC.Text = "1";
+                }
+                Roja = txtRojasMC.Text;
+                int Expulsion = Convert.ToInt32(Roja);
+                if (Expulsion > 1)
+                {
+                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                listaString.Add(Cadena);
+            }
+            if (lblVII.Text != "@LD")
+            {
+                id = lblVII.Text;
+                Minutos = txtMinVII.Text;
+                Goles = txtGolesVII.Text;
+                int gol = Convert.ToInt32(Goles);
+                TotalGoles = gol + TotalGoles;
+                Amarilla = txtAmarillaVII.Text;
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 2)
+                {
+                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (Amonestado == 2)
+                {
+                    txtRojasVII.Text = "1";
+                }
+                Roja = txtRojasVII.Text;
+                int Expulsion = Convert.ToInt32(Roja);
+                if (Expulsion > 1)
+                {
+                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                listaString.Add(Cadena);
+            }
+
+            if (lblVI.Text != "@LD")
+            {
+                id = lblVI.Text;
+                Minutos = txtMinVI.Text;
+                Goles = txtGolesVI.Text;
+                int gol = Convert.ToInt32(Goles);
+                TotalGoles = gol + TotalGoles;
+                Amarilla = txtAmarillaVI.Text;
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 2)
+                {
+                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (Amonestado == 2)
+                {
+                    txtRojasVI.Text = "1";
+                }
+                Roja = txtRojasVI.Text;
+                int Expulsion = Convert.ToInt32(Roja);
+                if (Expulsion > 1)
+                {
+                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                listaString.Add(Cadena);
+            }
+            if (lblMP.Text != "@LD")
+            {
+                id = lblMP.Text;
+                Minutos = txtMinMP.Text;
+                Goles = txtGolesMP.Text;
+                int gol = Convert.ToInt32(Goles);
+                TotalGoles = gol + TotalGoles;
+                Amarilla = txtAmarillaMP.Text;
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 2)
+                {
+                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (Amonestado == 2)
+                {
+                    txtRojasMP.Text = "1";
+                }
+                Roja = txtRojasMP.Text;
+                int Expulsion = Convert.ToInt32(Roja);
+                if (Expulsion > 1)
+                {
+                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                listaString.Add(Cadena);
+            }
+            if (lblED.Text != "@LD")
+            {
+                id = lblED.Text;
+                Minutos = txtMinED.Text;
+                Goles = txtGolesED.Text;
+                int gol = Convert.ToInt32(Goles);
+                TotalGoles = gol + TotalGoles;
+                Amarilla = txtAmarillaED.Text;
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 2)
+                {
+                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (Amonestado == 2)
+                {
+                    txtRojasED.Text = "1";
+                }
+                Roja = txtRojasED.Text;
+                int Expulsion = Convert.ToInt32(Roja);
+                if (Expulsion > 1)
+                {
+                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                listaString.Add(Cadena);
+            }
+            if (lblCD1.Text != "@LD")
+            {
+                id = lblCD1.Text;
+                Minutos = txtMinCD1.Text;
+                Goles = txtGolesCD1.Text;
+                int gol = Convert.ToInt32(Goles);
+                TotalGoles = gol + TotalGoles;
+                Amarilla = txtAmarillaCD1.Text;
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 2)
+                {
+                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (Amonestado == 2)
+                {
+                    txtRojasCD1.Text = "1";
+                }
+                Roja = txtRojasCD1.Text;
+                int Expulsion = Convert.ToInt32(Roja);
+                if (Expulsion > 1)
+                {
+                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                listaString.Add(Cadena);
+            }
+            if (lblCD.Text != "@LD")
+            {
+                id = lblCD.Text;
+                Minutos = txtMinCD.Text;
+                Goles = txtGolesCD.Text;
+                int gol = Convert.ToInt32(Goles);
+                TotalGoles = gol + TotalGoles;
+                Amarilla = txtAmarillaCD.Text;
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 2)
+                {
+                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (Amonestado == 2)
+                {
+                    txtRojasCD.Text = "1";
+                }
+                Roja = txtRojasCD.Text;
+                int Expulsion = Convert.ToInt32(Roja);
+                if (Expulsion > 1)
+                {
+                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                listaString.Add(Cadena);
+            }
+            if (lblCD2.Text != "@LD")
+            {
+                id = lblCD2.Text;
+                Minutos = txtMinCD2.Text;
+                Goles = txtGolesCD2.Text;
+                int gol = Convert.ToInt32(Goles);
+                TotalGoles = gol + TotalGoles;
+                Amarilla = txtAmarillaCD2.Text;
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 2)
+                {
+                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (Amonestado == 2)
+                {
+                    txtRojasCD2.Text = "1";
+                }
+                Roja = txtRojasCD2.Text;
+                int Expulsion = Convert.ToInt32(Roja);
+                if (Expulsion > 1)
+                {
+                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                listaString.Add(Cadena);
+            }
+            if (lblEI.Text != "@LD")
+            {
+                id = lblEI.Text;
+                Minutos = txtMinEI.Text;
+                Goles = txtGolesEI.Text;
+                int gol = Convert.ToInt32(Goles);
+                TotalGoles = gol + TotalGoles;
+                Amarilla = txtAmarillaEI.Text;
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 2)
+                {
+                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (Amonestado == 2)
+                {
+                    txtRojasEI.Text = "1";
+                }
+                Roja = txtRojasEI.Text;
+                int Expulsion = Convert.ToInt32(Roja);
+                if (Expulsion > 1)
+                {
+                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                listaString.Add(Cadena);
+            }
+            if (lblSup1.Text != "@LD")
+            {
+                id = lblSup1.Text;
+                Minutos = txtMinSup1.Text;
+                Goles = txtGolesSup1.Text;
+                int gol = Convert.ToInt32(Goles);
+                TotalGoles = gol + TotalGoles;
+                Amarilla = txtAmarillasSup1.Text;
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 2)
+                {
+                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (Amonestado == 2)
+                {
+                    txtRojasSup1.Text = "1";
+                }
+                Roja = txtRojasSup1.Text;
+                int Expulsion = Convert.ToInt32(Roja);
+                if (Expulsion > 1)
+                {
+                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                listaString.Add(Cadena);
+            }
+            if (lblSup2.Text != "@LD")
+            {
+                id = lblSup2.Text;
+                Minutos = txtMinSup2.Text;
+                Goles = txtGolesSup2.Text;
+                int gol = Convert.ToInt32(Goles);
+                TotalGoles = gol + TotalGoles;
+                Amarilla = txtAmarillasSup2.Text;
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 2)
+                {
+                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (Amonestado == 2)
+                {
+                    txtRojasSup2.Text = "1";
+                }
+                Roja = txtRojasSup2.Text;
+                int Expulsion = Convert.ToInt32(Roja);
+                if (Expulsion > 1)
+                {
+                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                listaString.Add(Cadena);
+            }
+            if (lblSup3.Text != "@LD")
+            {
+                id = lblSup3.Text;
+                Minutos = txtMinSup3.Text;
+                Goles = txtGolesSup3.Text;
+                int gol = Convert.ToInt32(Goles);
+                TotalGoles = gol + TotalGoles;
+                Amarilla = txtAmarillasSup3.Text;
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 2)
+                {
+                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (Amonestado == 2)
+                {
+                    txtRojasSup3.Text = "1";
+                }
+                Roja = txtRojasSup3.Text;
+                int Expulsion = Convert.ToInt32(Roja);
+                if (Expulsion > 1)
+                {
+                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                listaString.Add(Cadena);
+            }
+            if (lblSup4.Text != "@LD")
+            {
+                id = lblSup4.Text;
+                Minutos = txtMinSup4.Text;
+                Goles = txtGolesSup4.Text;
+                int gol = Convert.ToInt32(Goles);
+                TotalGoles = gol + TotalGoles;
+                Amarilla = txtAmarillasSup4.Text;
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 2)
+                {
+                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (Amonestado == 2)
+                {
+                    txtRojasSup4.Text = "1";
+                }
+                Roja = txtRojasSup4.Text;
+                int Expulsion = Convert.ToInt32(Roja);
+                if (Expulsion > 1)
+                {
+                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                listaString.Add(Cadena);
+            }
+            if (lblSup5.Text != "@LD")
+            {
+                id = lblSup5.Text;
+                Minutos = txtMinSup5.Text;
+                Goles = txtGolesSup5.Text;
+                int gol = Convert.ToInt32(Goles);
+                TotalGoles = gol + TotalGoles;
+                Amarilla = txtAmarillasSup5.Text;
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 2)
+                {
+                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (Amonestado == 2)
+                {
+                    txtRojasSup5.Text = "1";
+                }
+                Roja = txtRojasSup5.Text;
+                int Expulsion = Convert.ToInt32(Roja);
+                if (Expulsion > 1)
+                {
+                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                listaString.Add(Cadena);
+            }
+            if (lblSup6.Text != "@LD")
+            {
+                id = lblSup6.Text;
+                Minutos = txtMinSup6.Text;
+                Goles = txtGolesSup6.Text;
+                int gol = Convert.ToInt32(Goles);
+                TotalGoles = gol + TotalGoles;
+                Amarilla = txtAmarillasSup6.Text;
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 2)
+                {
+                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (Amonestado == 2)
+                {
+                    txtRojasSup6.Text = "1";
+                }
+                Roja = txtRojasSup6.Text;
+                int Expulsion = Convert.ToInt32(Roja);
+                if (Expulsion > 1)
+                {
+                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                listaString.Add(Cadena);
+            }
+            if (lblSup7.Text != "@LD")
+            {
+                id = lblSup7.Text;
+                Minutos = txtMinSup7.Text;
+                Goles = txtGolesSup7.Text;
+                int gol = Convert.ToInt32(Goles);
+                TotalGoles = gol + TotalGoles;
+                Amarilla = txtAmarillasSup7.Text;
+                int Amonestado = Convert.ToInt32(Amarilla);
+                if (Amonestado > 2)
+                {
+                    const string message = "Solo se puede cargar 2 Amarillas por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (Amonestado == 2)
+                {
+                    txtRojasSup7.Text = "1";
+                }
+                Roja = txtRojasSup7.Text;
+                int Expulsion = Convert.ToInt32(Roja);
+                if (Expulsion > 1)
+                {
+                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                listaString.Add(Cadena);
+            }
+            return listaString;
+        }
         #endregion
         #region Eventos Combos
         public static List<int> idListaJugadoresCargado;
@@ -2167,336 +3264,5 @@ namespace Prode
             { }
         }
         #endregion
-
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                BloquearPantalla();
-                List<string> listaEstadistica = new List<string>();
-                string SistemaTactico = cmbTactica.Text;
-                listaEstadistica = CargarEntidad();
-                bool Exito = FutbolEstadisticaJugadorNeg.GuardarEstadisticaJugador(listaEstadistica, SistemaTactico, idEquipos, idPartidos);
-                if (Exito == true)
-                {
-                    ProgressBar();
-                    const string message2 = "Se registro la formación del equipo exitosamente.";
-                    const string caption2 = "Éxito";
-                    var result2 = MessageBox.Show(message2, caption2,
-                                                 MessageBoxButtons.OK,
-                                                 MessageBoxIcon.Asterisk);
-                    LimpiarCampos();
-                }
-
-            }
-            catch (Exception ex)
-            { }
-        }
-
-        private void LimpiarCampos()
-        {
-            grbCancha.Enabled = true;
-            grbSuplentes.Enabled = true;
-            grbDuaracionPartido.Enabled = true;
-            grbTipo.Enabled = true;
-            grbSistemaTactico.Enabled = true;
-            grbCancha.Visible = false;
-            grbSuplentes.Visible = false;
-            chcFutbol11.Checked = true;
-            CargarComboMinutos();
-        }
-
-        private void ProgressBar()
-        {
-            progressBar1.Visible = true;
-            progressBar1.Maximum = 100000;
-            progressBar1.Step = 1;
-
-            for (int j = 0; j < 100000; j++)
-            {
-                Caluculate(j);
-                progressBar1.PerformStep();
-            }
-        }
-        private void Caluculate(int i)
-        {
-            double pow = Math.Pow(i, i);
-        }
-
-        private void BloquearPantalla()
-        {
-            grbCancha.Enabled = false;
-            grbSuplentes.Enabled = false;
-            grbDuaracionPartido.Enabled = false;
-            grbTipo.Enabled = false;
-            grbSistemaTactico.Enabled = false;
-        }
-
-        private List<string> CargarEntidad()
-        {
-            List<string> listaString = new List<string>();
-            string id = "";
-            string Minutos = "";
-            string Goles = "";
-            string Amarilla = "";
-            string Roja = "";
-            string Cadena = "";
-
-            if (lblARQ.Text != "@LD")
-            {
-                id = lblARQ.Text;
-                Minutos = txtMinARQ.Text;
-                Goles = txtGolesARQ.Text;
-                Amarilla = txtAmarillaARQ.Text;
-                Roja = txtRojasARQ.Text;
-                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
-                listaString.Add(Cadena);
-            }
-
-
-            if (lblLD.Text != "@LD")
-            {
-                id = lblLD.Text;
-                Minutos = txtMinLD.Text;
-                Goles = txtGolesLD.Text;
-                Amarilla = txtAmarillaLD.Text;
-                Roja = txtRojasLD.Text;
-                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
-                listaString.Add(Cadena);
-            }
-
-
-            if (lblDFD.Text != "@LD")
-            {
-                id = lblDFD.Text;
-                Minutos = txtMinDFD.Text;
-                Goles = txtGolesDFD.Text;
-                Amarilla = txtAmarillaDFD.Text;
-                Roja = txtRojasDFD.Text;
-                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
-                listaString.Add(Cadena);
-            }
-
-
-            if (lblLIB.Text != "@LD")
-            {
-                id = lblLIB.Text;
-                Minutos = txtMinLIB.Text;
-                Goles = txtGolesLIB.Text;
-                Amarilla = txtAmarillaLIB.Text;
-                Roja = txtRojasLIB.Text;
-                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
-                listaString.Add(Cadena);
-            }
-
-            if (lblDFI.Text != "@LD")
-            {
-                id = lblDFI.Text;
-                Minutos = txtMinDFI.Text;
-                Goles = txtGolesDFI.Text;
-                Amarilla = txtAmarillaDFI.Text;
-                Roja = txtRojasDFI.Text;
-                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
-                listaString.Add(Cadena);
-            }
-
-
-            if (lblLI.Text != "@LD")
-            {
-                id = lblLI.Text;
-                Minutos = txtMinLI.Text;
-                Goles = txtGolesLI.Text;
-                Amarilla = txtAmarillaLI.Text;
-                Roja = txtRojasLI.Text;
-                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
-                listaString.Add(Cadena);
-            }
-
-            if (lblVD.Text != "@LD")
-            {
-                id = lblVD.Text;
-                Minutos = txtMinVD.Text;
-                Goles = txtGolesVD.Text;
-                Amarilla = txtAmarillaVD.Text;
-                Roja = txtRojasVD.Text;
-                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
-                listaString.Add(Cadena);
-            }
-
-            if (lblVID.Text != "@LD")
-            {
-                id = lblVID.Text;
-                Minutos = txtMinVID.Text;
-                Goles = txtGolesVID.Text;
-                Amarilla = txtAmarillaVID.Text;
-                Roja = txtRojasVID.Text;
-                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
-                listaString.Add(Cadena);
-            }
-
-
-            if (lblMC.Text != "@LD")
-            {
-                id = lblMC.Text;
-                Minutos = txtMinMC.Text;
-                Goles = txtGolesMC.Text;
-                Amarilla = txtAmarillaMC.Text;
-                Roja = txtRojasMC.Text;
-                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
-                listaString.Add(Cadena);
-            }
-            if (lblVII.Text != "@LD")
-            {
-                id = lblVII.Text;
-                Minutos = txtMinVII.Text;
-                Goles = txtGolesVII.Text;
-                Amarilla = txtAmarillaVII.Text;
-                Roja = txtRojasVII.Text;
-                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
-                listaString.Add(Cadena);
-            }
-
-            if (lblVI.Text != "@LD")
-            {
-                id = lblVI.Text;
-                Minutos = txtMinVI.Text;
-                Goles = txtGolesVI.Text;
-                Amarilla = txtAmarillaVI.Text;
-                Roja = txtRojasVI.Text;
-                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
-                listaString.Add(Cadena);
-            }
-            if (lblMP.Text != "@LD")
-            {
-                id = lblMP.Text;
-                Minutos = txtMinMP.Text;
-                Goles = txtGolesMP.Text;
-                Amarilla = txtAmarillaMP.Text;
-                Roja = txtRojasMP.Text;
-                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
-                listaString.Add(Cadena);
-            }
-            if (lblED.Text != "@LD")
-            {
-                id = lblED.Text;
-                Minutos = txtMinED.Text;
-                Goles = txtGolesED.Text;
-                Amarilla = txtAmarillaED.Text;
-                Roja = txtRojasED.Text;
-                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
-                listaString.Add(Cadena);
-            }
-            if (lblCD1.Text != "@LD")
-            {
-                id = lblCD1.Text;
-                Minutos = txtMinCD1.Text;
-                Goles = txtGolesCD1.Text;
-                Amarilla = txtAmarillaCD1.Text;
-                Roja = txtRojasCD1.Text;
-                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
-                listaString.Add(Cadena);
-            }
-            if (lblCD.Text != "@LD")
-            {
-                id = lblCD.Text;
-                Minutos = txtMinCD.Text;
-                Goles = txtGolesCD.Text;
-                Amarilla = txtAmarillaCD.Text;
-                Roja = txtRojasCD.Text;
-                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
-                listaString.Add(Cadena);
-            }
-            if (lblCD2.Text != "@LD")
-            {
-                id = lblCD2.Text;
-                Minutos = txtMinCD2.Text;
-                Goles = txtGolesCD2.Text;
-                Amarilla = txtAmarillaCD2.Text;
-                Roja = txtRojasCD2.Text;
-                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
-                listaString.Add(Cadena);
-            }
-            if (lblEI.Text != "@LD")
-            {
-                id = lblEI.Text;
-                Minutos = txtMinEI.Text;
-                Goles = txtGolesEI.Text;
-                Amarilla = txtAmarillaEI.Text;
-                Roja = txtRojasEI.Text;
-                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
-                listaString.Add(Cadena);
-            }
-            if (lblSup1.Text != "@LD")
-            {
-                id = lblSup1.Text;
-                Minutos = txtMinSup1.Text;
-                Goles = txtGolesSup1.Text;
-                Amarilla = txtAmarillasSup1.Text;
-                Roja = txtRojasSup1.Text;
-                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
-                listaString.Add(Cadena);
-            }
-            if (lblSup2.Text != "@LD")
-            {
-                id = lblSup2.Text;
-                Minutos = txtMinSup2.Text;
-                Goles = txtGolesSup2.Text;
-                Amarilla = txtAmarillasSup2.Text;
-                Roja = txtRojasSup2.Text;
-                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
-                listaString.Add(Cadena);
-            }
-            if (lblSup3.Text != "@LD")
-            {
-                id = lblSup3.Text;
-                Minutos = txtMinSup3.Text;
-                Goles = txtGolesSup3.Text;
-                Amarilla = txtAmarillasSup3.Text;
-                Roja = txtRojasSup3.Text;
-                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
-                listaString.Add(Cadena);
-            }
-            if (lblSup4.Text != "@LD")
-            {
-                id = lblSup4.Text;
-                Minutos = txtMinSup4.Text;
-                Goles = txtGolesSup4.Text;
-                Amarilla = txtAmarillasSup4.Text;
-                Roja = txtRojasSup4.Text;
-                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
-                listaString.Add(Cadena);
-            }
-            if (lblSup5.Text != "@LD")
-            {
-                id = lblSup5.Text;
-                Minutos = txtMinSup5.Text;
-                Goles = txtGolesSup5.Text;
-                Amarilla = txtAmarillasSup5.Text;
-                Roja = txtRojasSup5.Text;
-                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
-                listaString.Add(Cadena);
-            }
-            if (lblSup6.Text != "@LD")
-            {
-                id = lblSup6.Text;
-                Minutos = txtMinSup6.Text;
-                Goles = txtGolesSup6.Text;
-                Amarilla = txtAmarillasSup6.Text;
-                Roja = txtRojasSup6.Text;
-                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
-                listaString.Add(Cadena);
-            }
-            if (lblSup7.Text != "@LD")
-            {
-                id = lblSup7.Text;
-                Minutos = txtMinSup7.Text;
-                Goles = txtGolesSup7.Text;
-                Amarilla = txtAmarillasSup7.Text;
-                Roja = txtRojasSup7.Text;
-                Cadena = id + "," + Minutos + "," + Goles + "," + Amarilla + "," + Roja;
-                listaString.Add(Cadena);
-            }
-            return listaString;
-        }
     }
 }

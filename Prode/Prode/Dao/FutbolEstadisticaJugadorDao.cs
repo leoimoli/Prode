@@ -23,18 +23,26 @@ namespace Prode.Dao
             exito = ActualizarSistemaTactico(sistemaTactico, idPartidos);
             if (exito == true)
             {
+                List<JugadorEstadisticaPartido> ListaMomentanea = new List<JugadorEstadisticaPartido>();
                 foreach (var item in listaEstadistica)
                 {
                     JugadorEstadisticaPartido listaJugador = new JugadorEstadisticaPartido();
                     string Cadena = item;
+
                     string id = Cadena.Split(',')[0];
-                    string Min = Cadena.Split(',')[1];
-                    string Coma = Min.Split(',')[2];
-                    string Gol = Min.Split(',')[3];
-                    string Coma2 = Min.Split(',')[4];
-                    string Ama = Min.Split(',')[5];
-                    string Coma3 = Min.Split(',')[6];
-                    string Ro = Ama.Split(',')[7];
+                    string Cadena2 = Cadena.Split(',')[1];
+
+                    string Min = Cadena2.Split('-')[0];
+                    string Cadena3 = Cadena2.Split('-')[1];
+
+                    string Gol = Cadena3.Split('.')[0];
+                    string Cadena4 = Cadena3.Split('.')[1];
+
+                    string Ama = Cadena4.Split('+')[0];
+                    string Cadena5 = Cadena4.Split('+')[1];
+
+                    string Ro = Cadena5;
+
                     int idJugador = Convert.ToInt32(id);
                     int Minutos = Convert.ToInt32(Min);
                     int Goles = Convert.ToInt32(Gol);
@@ -58,8 +66,9 @@ namespace Prode.Dao
                     cmd.Parameters.AddWithValue("idEquipo_in", idEquipos);
                     cmd.Parameters.AddWithValue("idPartido_in", idPartidos);
                     cmd.ExecuteNonQuery();
-                    listaStatic.Add(listaJugador);
+                    ListaMomentanea.Add(listaJugador);
                 }
+                listaStatic = ListaMomentanea;
                 exito = true;
 
                 if (exito == true)
@@ -95,7 +104,7 @@ namespace Prode.Dao
             int GolesNew;
             int AmarillasNew;
             int RojasNew;
-            int PJNew = 0;
+            int PJNew;
             foreach (var item in listaStatic)
             {
                 int idJugador = item.idJugador;
@@ -103,7 +112,7 @@ namespace Prode.Dao
                 GolesNew = item.Goles;
                 AmarillasNew = item.Amarillas;
                 RojasNew = item.Rojas;
-                PJNew = PJNew + 1;
+               
                 List<Entidades.JugadorEstadisticaPartido> lista = new List<Entidades.JugadorEstadisticaPartido>();
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = connection;
@@ -121,7 +130,7 @@ namespace Prode.Dao
                     {
                         JugadorEstadisticaPartido listaJugador = new JugadorEstadisticaPartido();
                         listaJugador.idJugador = Convert.ToInt32(item2["idJugador"].ToString());
-                        listaJugador.Minutos = Convert.ToInt32(item2["Minutos"].ToString());
+                        listaJugador.Minutos = Convert.ToInt32(item2["MinutosJugados"].ToString());
                         listaJugador.Goles = Convert.ToInt32(item2["Goles"].ToString());
                         listaJugador.Rojas = Convert.ToInt32(item2["Rojas"].ToString());
                         listaJugador.Amarillas = Convert.ToInt32(item2["Amarillas"].ToString());
@@ -131,13 +140,14 @@ namespace Prode.Dao
                 }
                 if (lista.Count > 0)
                 {
+                    
                     var Jugador = lista.First();
                     ///// Calculo Estadistica
                     int MinutosFinales = Jugador.Minutos + MinutosNew;
                     int GolesFinales = Jugador.Goles + GolesNew;
                     int AmarillasFinales = Jugador.Amarillas + AmarillasNew;
                     int RojasFinales = Jugador.Rojas + RojasNew;
-                    int PJFinales = Jugador.PJ + PJNew;
+                    int PJFinales = Jugador.PJ + 1;
                     exito = false;
                     connection.Close();
                     connection.Open();
@@ -154,6 +164,7 @@ namespace Prode.Dao
                 }
                 else
                 {
+                    PJNew = 1;
                     string procesoInsert = "GuardarEstadisticaTotalJugador";
                     MySqlCommand cmd2 = new MySqlCommand(procesoInsert, connection);
                     cmd2.CommandType = CommandType.StoredProcedure;
@@ -161,7 +172,7 @@ namespace Prode.Dao
                     cmd2.Parameters.AddWithValue("Minutos_in", MinutosNew);
                     cmd2.Parameters.AddWithValue("Goles_in", GolesNew);
                     cmd2.Parameters.AddWithValue("Amarillas_in", AmarillasNew);
-                    cmd2.Parameters.AddWithValue("Amarillas_in", RojasNew);
+                    cmd2.Parameters.AddWithValue("Rojas_in", RojasNew);
                     cmd2.Parameters.AddWithValue("PJ_in", PJNew);
                     cmd2.ExecuteNonQuery();
                 }
