@@ -99,9 +99,9 @@ namespace Prode
                     lblResultadoVisitante.Text = Visitante;
                     lblDiaEdit.Text = partido.FechaPartido.ToShortDateString();
                     lblIdLocal.Text = Convert.ToString(partido.idEquipoLocal);
-                    lblIdVistante.Text = Convert.ToString(partido.idEquipoVisitante);                   
+                    lblIdVistante.Text = Convert.ToString(partido.idEquipoVisitante);
                     idPartido = partido.idPartido;
-                    HabilitarListasJugadores();
+                    HabilitarListasJugadores(idPartido);
                 }
             }
             catch (Exception ex) { }
@@ -121,22 +121,37 @@ namespace Prode
                     if (lista.Count > 0 & lista.Count <= 18)
                     {
                         string ValorIngresado = txtJugadoresLocales.Text;
-                        if (!lista.Any(x => x.ToString() == ValorIngresado))
+                        if (ValorIngresado != "")
                         {
-                            listLocal.Items.Add(ValorIngresado);
-                            txtJugadoresLocales.Clear();
-                            txtJugadoresLocales.Focus();
+                            if (!lista.Any(x => x.ToString() == ValorIngresado))
+                            {
+                                listLocal.Items.Add(ValorIngresado);
+                                int TotalViejo = Convert.ToInt32(lblTotalLocal.Text);
+                                int TotalNuevo = TotalViejo + 1;
+                                lblTotalLocal.Text = Convert.ToString(TotalNuevo);
+                                txtJugadoresLocales.Clear();
+                                txtJugadoresLocales.Focus();
+                            }
+                            else
+                            {
+                                const string message = "El jugador seleccionado ya fue cargado en la lista.";
+                                const string caption = "Atención";
+                                var result = MessageBox.Show(message, caption,
+                                                             MessageBoxButtons.OK,
+                                                           MessageBoxIcon.Exclamation);
+                                throw new Exception();
+                                txtJugadoresLocales.Clear();
+                                txtJugadoresLocales.Focus();
+                            }
                         }
                         else
                         {
-                            const string message = "El jugador seleccionado ya fue cargado en la lista.";
+                            const string message = "No selecciono ningun jugador.";
                             const string caption = "Atención";
                             var result = MessageBox.Show(message, caption,
                                                          MessageBoxButtons.OK,
                                                        MessageBoxIcon.Exclamation);
                             throw new Exception();
-                            txtJugadoresLocales.Clear();
-                            txtJugadoresLocales.Focus();
                         }
                     }
                     else
@@ -153,6 +168,7 @@ namespace Prode
                 {
                     string ValorIngresado = txtJugadoresLocales.Text;
                     listLocal.Items.Add(ValorIngresado);
+                    lblTotalLocal.Text = "1";
                     txtJugadoresLocales.Clear();
                     txtJugadoresLocales.Focus();
                 }
@@ -211,6 +227,9 @@ namespace Prode
                     if (lista.Count > 0 & lista.Count <= 18)
                     {
                         string ValorIngresado = txtJugadoresVisitantes.Text;
+                        int TotalViejo = Convert.ToInt32(lblTotalVisitante.Text);
+                        int TotalNuevo = TotalViejo + 1;
+                        lblTotalVisitante.Text = Convert.ToString(TotalNuevo);
                         if (!lista.Any(x => x.ToString() == ValorIngresado))
                         {
                             listVisitantes.Items.Add(ValorIngresado);
@@ -243,6 +262,7 @@ namespace Prode
                 {
                     string ValorIngresado = txtJugadoresVisitantes.Text;
                     listVisitantes.Items.Add(ValorIngresado);
+                    lblTotalVisitante.Text = "1";
                     txtJugadoresVisitantes.Clear();
                     txtJugadoresVisitantes.Focus();
                 }
@@ -256,6 +276,9 @@ namespace Prode
             try
             {
                 listLocal.Items.RemoveAt(listLocal.SelectedIndex);
+                int TotalViejo = Convert.ToInt32(lblTotalLocal.Text);
+                int TotalNuevo = TotalViejo - 1;
+                lblTotalLocal.Text = Convert.ToString(TotalNuevo);
             }
             catch (Exception ex)
             { }
@@ -265,27 +288,56 @@ namespace Prode
             try
             {
                 listVisitantes.Items.RemoveAt(listVisitantes.SelectedIndex);
+                int TotalViejo = Convert.ToInt32(lblTotalVisitante.Text);
+                int TotalNuevo = TotalViejo - 1;
+                lblTotalVisitante.Text = Convert.ToString(TotalNuevo);
+
             }
             catch (Exception ex)
             { }
         }
         #endregion
         #region Funciones
-        private void HabilitarListasJugadores()
+        private void HabilitarListasJugadores(int idPartido)
         {
-            grbLocal.Visible = true;
-            grbVisitante.Visible = true;
+
             int idEquipoLocal = Convert.ToInt32(lblIdLocal.Text);
-            txtJugadoresLocales.AutoCompleteCustomSource = Clases_Maestras.AutoCompleteJugadores.Autocomplete(idEquipoLocal);
-            txtJugadoresLocales.AutoCompleteMode = AutoCompleteMode.Suggest;
-            txtJugadoresLocales.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            txtJugadoresLocales.Focus();
+            bool ValidarAlineacionesLocalExistentes = false;
+            ValidarAlineacionesLocalExistentes = FutbolPartidoEstadisticaNeg.ValidarAlineacionExistente(idEquipoLocal, idPartido);
+            if (ValidarAlineacionesLocalExistentes == true)
+            {
+                grbLocal.Visible = true;
+                grbLocal.Enabled = false;
+                lblMensajeLocal.Visible = true;
+                lblMensajeLocal.Text = "Ya existe una alineación cargada previamente para el equipo y el partido seleccionado.";
+            }
+            else
+            {
+                grbLocal.Visible = true;
+                grbVisitante.Visible = true;
+
+                txtJugadoresLocales.AutoCompleteCustomSource = Clases_Maestras.AutoCompleteJugadores.Autocomplete(idEquipoLocal);
+                txtJugadoresLocales.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtJugadoresLocales.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                txtJugadoresLocales.Focus();
+            }
 
             int idEquipoVisitante = Convert.ToInt32(lblIdVistante.Text);
-            txtJugadoresVisitantes.AutoCompleteCustomSource = Clases_Maestras.AutoCompleteJugadores.Autocomplete(idEquipoVisitante);
-            txtJugadoresVisitantes.AutoCompleteMode = AutoCompleteMode.Suggest;
-            txtJugadoresVisitantes.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
+            bool ValidarAlineacionesVisitanteExistentes = false;
+            ValidarAlineacionesVisitanteExistentes = FutbolPartidoEstadisticaNeg.ValidarAlineacionExistente(idEquipoVisitante, idPartido);
+            if (ValidarAlineacionesVisitanteExistentes == true)
+            {
+                grbLocal.Visible = true;
+                grbLocal.Enabled = false;
+                lblMensajeLocal.Visible = true;
+                lblMensajeLocal.Text = "Ya existe una alineación cargada previamente para el equipo y el partido seleccionado.";
+            }
+            else
+            {
+                txtJugadoresVisitantes.AutoCompleteCustomSource = Clases_Maestras.AutoCompleteJugadores.Autocomplete(idEquipoVisitante);
+                txtJugadoresVisitantes.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtJugadoresVisitantes.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            }
         }
         #endregion
 

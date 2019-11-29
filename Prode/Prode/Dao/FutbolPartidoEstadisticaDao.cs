@@ -45,6 +45,36 @@ namespace Prode.Dao
             connection.Close();
             return idPartido;
         }
+        public static bool ValidarAlineacionExistente(int idEquipoLocal, int idPartido)
+        {
+            bool Exito = false;
+            connection.Close();
+            connection.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                                      new MySqlParameter("idEquipoLocal_in", idEquipoLocal),
+                 new MySqlParameter("idPartido_in", idPartido)};
+            string proceso = "ValidarAlineacionExistente";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item2 in Tabla.Rows)
+                {
+                  int id = Convert.ToInt32(item2["idJugador"].ToString());
+                    if (id > 0)
+                    {
+                        Exito = true;
+                    }
+                }
+            }
+            connection.Close();
+            return Exito;
+        }
         private static bool RegistrarDatellePartido(PartidoEstadistica _partido, int idPartido)
         {
             bool Exito = false;

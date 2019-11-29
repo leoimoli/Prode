@@ -36,5 +36,18 @@ namespace Prode.Negocio
             }
             return _detallePartido;
         }
+        public static bool ValidarAlineacionExistente(int idEquipoLocal, int idPartido)
+        {
+            bool exito = false;
+            try
+            {
+                exito = FutbolPartidoEstadisticaDao.ValidarAlineacionExistente(idEquipoLocal, idPartido);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return exito;
+        }
     }
 }

@@ -65,6 +65,11 @@
             this.lblDniOApellidoNombre = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.lblIdPartido = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblTotalLocal = new System.Windows.Forms.Label();
+            this.lblTotalVisitante = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblMensajeLocal = new System.Windows.Forms.Label();
             this.grbDatosPartido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -236,6 +241,9 @@
             // 
             // grbLocal
             // 
+            this.grbLocal.Controls.Add(this.lblMensajeLocal);
+            this.grbLocal.Controls.Add(this.lblTotalLocal);
+            this.grbLocal.Controls.Add(this.label4);
             this.grbLocal.Controls.Add(this.button1);
             this.grbLocal.Controls.Add(this.txtJugadoresLocales);
             this.grbLocal.Controls.Add(this.label2);
@@ -245,7 +253,7 @@
             this.grbLocal.Controls.Add(this.listLocal);
             this.grbLocal.Location = new System.Drawing.Point(44, 259);
             this.grbLocal.Name = "grbLocal";
-            this.grbLocal.Size = new System.Drawing.Size(357, 425);
+            this.grbLocal.Size = new System.Drawing.Size(357, 449);
             this.grbLocal.TabIndex = 149;
             this.grbLocal.TabStop = false;
             this.grbLocal.Text = "Alineación Local";
@@ -253,7 +261,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(207, 261);
+            this.button1.Location = new System.Drawing.Point(207, 284);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(78, 32);
             this.button1.TabIndex = 156;
@@ -263,7 +271,7 @@
             // txtJugadoresLocales
             // 
             this.txtJugadoresLocales.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtJugadoresLocales.Location = new System.Drawing.Point(155, 107);
+            this.txtJugadoresLocales.Location = new System.Drawing.Point(155, 130);
             this.txtJugadoresLocales.Name = "txtJugadoresLocales";
             this.txtJugadoresLocales.Size = new System.Drawing.Size(199, 20);
             this.txtJugadoresLocales.TabIndex = 155;
@@ -272,7 +280,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(212, 86);
+            this.label2.Location = new System.Drawing.Point(212, 109);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 18);
             this.label2.TabIndex = 154;
@@ -281,7 +289,7 @@
             // 
             // btnConfirmar
             // 
-            this.btnConfirmar.Location = new System.Drawing.Point(207, 322);
+            this.btnConfirmar.Location = new System.Drawing.Point(207, 345);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(78, 32);
             this.btnConfirmar.TabIndex = 153;
@@ -291,7 +299,7 @@
             // 
             // btnQuitar
             // 
-            this.btnQuitar.Location = new System.Drawing.Point(207, 204);
+            this.btnQuitar.Location = new System.Drawing.Point(207, 227);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(78, 32);
             this.btnQuitar.TabIndex = 152;
@@ -301,7 +309,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(205, 153);
+            this.btnAgregar.Location = new System.Drawing.Point(205, 176);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(78, 32);
             this.btnAgregar.TabIndex = 150;
@@ -312,13 +320,15 @@
             // listLocal
             // 
             this.listLocal.FormattingEnabled = true;
-            this.listLocal.Location = new System.Drawing.Point(6, 19);
+            this.listLocal.Location = new System.Drawing.Point(6, 50);
             this.listLocal.Name = "listLocal";
-            this.listLocal.Size = new System.Drawing.Size(143, 394);
+            this.listLocal.Size = new System.Drawing.Size(143, 368);
             this.listLocal.TabIndex = 151;
             // 
             // grbVisitante
             // 
+            this.grbVisitante.Controls.Add(this.lblTotalVisitante);
+            this.grbVisitante.Controls.Add(this.label6);
             this.grbVisitante.Controls.Add(this.button2);
             this.grbVisitante.Controls.Add(this.label3);
             this.grbVisitante.Controls.Add(this.txtJugadoresVisitantes);
@@ -396,7 +406,7 @@
             this.listVisitantes.FormattingEnabled = true;
             this.listVisitantes.Location = new System.Drawing.Point(6, 19);
             this.listVisitantes.Name = "listVisitantes";
-            this.listVisitantes.Size = new System.Drawing.Size(143, 394);
+            this.listVisitantes.Size = new System.Drawing.Size(143, 368);
             this.listVisitantes.TabIndex = 151;
             // 
             // groupBox1
@@ -468,6 +478,57 @@
             this.lblIdPartido.Text = "@Res";
             this.lblIdPartido.Visible = false;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Tai Le", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(6, 421);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 19);
+            this.label4.TabIndex = 157;
+            this.label4.Text = "Total:";
+            // 
+            // lblTotalLocal
+            // 
+            this.lblTotalLocal.AutoSize = true;
+            this.lblTotalLocal.Font = new System.Drawing.Font("Microsoft Tai Le", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalLocal.Location = new System.Drawing.Point(50, 421);
+            this.lblTotalLocal.Name = "lblTotalLocal";
+            this.lblTotalLocal.Size = new System.Drawing.Size(17, 19);
+            this.lblTotalLocal.TabIndex = 158;
+            this.lblTotalLocal.Text = "0";
+            // 
+            // lblTotalVisitante
+            // 
+            this.lblTotalVisitante.AutoSize = true;
+            this.lblTotalVisitante.Font = new System.Drawing.Font("Microsoft Tai Le", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalVisitante.Location = new System.Drawing.Point(59, 390);
+            this.lblTotalVisitante.Name = "lblTotalVisitante";
+            this.lblTotalVisitante.Size = new System.Drawing.Size(17, 19);
+            this.lblTotalVisitante.TabIndex = 160;
+            this.lblTotalVisitante.Text = "0";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Tai Le", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(15, 390);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(46, 19);
+            this.label6.TabIndex = 159;
+            this.label6.Text = "Total:";
+            // 
+            // lblMensajeLocal
+            // 
+            this.lblMensajeLocal.AutoSize = true;
+            this.lblMensajeLocal.Font = new System.Drawing.Font("Microsoft Tai Le", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensajeLocal.Location = new System.Drawing.Point(94, 16);
+            this.lblMensajeLocal.Name = "lblMensajeLocal";
+            this.lblMensajeLocal.Size = new System.Drawing.Size(80, 25);
+            this.lblMensajeLocal.TabIndex = 159;
+            this.lblMensajeLocal.Text = "Estadio:";
+            this.lblMensajeLocal.Visible = false;
+            // 
             // AlineacionEquipoWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -537,5 +598,10 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label lblIdPartido;
+        private System.Windows.Forms.Label lblTotalLocal;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblTotalVisitante;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblMensajeLocal;
     }
 }
