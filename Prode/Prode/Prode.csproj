@@ -154,6 +154,7 @@
     <Compile Include="Entidades\JugadorEstadisticaPartido.cs" />
     <Compile Include="Entidades\PartidoEstadistica.cs" />
     <Compile Include="Entidades\PlantelActual.cs" />
+    <Compile Include="Entidades\PuestoPorPartido.cs" />
     <Compile Include="Entidades\ResultadoApuestas.cs" />
     <Compile Include="Entidades\Resultados.cs" />
     <Compile Include="Entidades\TipoResultadoPorPartido.cs" />

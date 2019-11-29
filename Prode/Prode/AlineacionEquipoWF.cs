@@ -186,8 +186,9 @@ namespace Prode
                         }
                         if (lista.Count > 0)
                         {
+                            int MarcadorLocal = Convert.ToInt32(lblResultadoLocal.Text);
                             int idEquipo = Convert.ToInt32(lblIdLocal.Text);
-                            DisposicionTacticaWF _disposicion = new DisposicionTacticaWF(lista, idEquipo, idPartido);
+                            DisposicionTacticaWF _disposicion = new DisposicionTacticaWF(lista, idEquipo, idPartido, MarcadorLocal);
                             _disposicion.Show();
                         }
                     }

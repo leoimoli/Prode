@@ -645,6 +645,7 @@
             this.txtRojasCD2.Size = new System.Drawing.Size(29, 20);
             this.txtRojasCD2.TabIndex = 70;
             this.txtRojasCD2.Text = "0";
+            this.txtRojasCD2.TextChanged += new System.EventHandler(this.txtRojasCD2_TextChanged);
             // 
             // txtAmarillaCD2
             // 
@@ -760,6 +761,7 @@
             this.txtRojasCD1.Size = new System.Drawing.Size(29, 20);
             this.txtRojasCD1.TabIndex = 70;
             this.txtRojasCD1.Text = "0";
+            this.txtRojasCD1.TextChanged += new System.EventHandler(this.txtRojasCD1_TextChanged);
             // 
             // txtAmarillaCD1
             // 
@@ -875,6 +877,7 @@
             this.txtRojasCD.Size = new System.Drawing.Size(29, 20);
             this.txtRojasCD.TabIndex = 70;
             this.txtRojasCD.Text = "0";
+            this.txtRojasCD.TextChanged += new System.EventHandler(this.txtRojasCD_TextChanged);
             // 
             // txtAmarillaCD
             // 
@@ -990,6 +993,7 @@
             this.txtRojasEI.Size = new System.Drawing.Size(29, 20);
             this.txtRojasEI.TabIndex = 70;
             this.txtRojasEI.Text = "0";
+            this.txtRojasEI.TextChanged += new System.EventHandler(this.txtRojasEI_TextChanged);
             // 
             // txtAmarillaEI
             // 
@@ -1105,6 +1109,7 @@
             this.txtRojasMP.Size = new System.Drawing.Size(29, 20);
             this.txtRojasMP.TabIndex = 70;
             this.txtRojasMP.Text = "0";
+            this.txtRojasMP.TextChanged += new System.EventHandler(this.txtRojasMP_TextChanged);
             // 
             // txtAmarillaMP
             // 
@@ -1220,6 +1225,7 @@
             this.txtRojasED.Size = new System.Drawing.Size(29, 20);
             this.txtRojasED.TabIndex = 70;
             this.txtRojasED.Text = "0";
+            this.txtRojasED.TextChanged += new System.EventHandler(this.txtRojasED_TextChanged);
             // 
             // txtAmarillaED
             // 
@@ -1335,6 +1341,7 @@
             this.txtRojasVI.Size = new System.Drawing.Size(29, 20);
             this.txtRojasVI.TabIndex = 70;
             this.txtRojasVI.Text = "0";
+            this.txtRojasVI.TextChanged += new System.EventHandler(this.txtRojasVI_TextChanged);
             // 
             // txtAmarillaVI
             // 
@@ -1450,6 +1457,7 @@
             this.txtRojasVII.Size = new System.Drawing.Size(29, 20);
             this.txtRojasVII.TabIndex = 70;
             this.txtRojasVII.Text = "0";
+            this.txtRojasVII.TextChanged += new System.EventHandler(this.txtRojasVII_TextChanged);
             // 
             // txtAmarillaVII
             // 
@@ -1565,6 +1573,7 @@
             this.txtRojasMC.Size = new System.Drawing.Size(29, 20);
             this.txtRojasMC.TabIndex = 70;
             this.txtRojasMC.Text = "0";
+            this.txtRojasMC.TextChanged += new System.EventHandler(this.txtRojasMC_TextChanged);
             // 
             // txtAmarillaMC
             // 
@@ -1680,6 +1689,7 @@
             this.txtRojasVID.Size = new System.Drawing.Size(29, 20);
             this.txtRojasVID.TabIndex = 70;
             this.txtRojasVID.Text = "0";
+            this.txtRojasVID.TextChanged += new System.EventHandler(this.txtRojasVID_TextChanged);
             // 
             // txtAmarillaVID
             // 
@@ -1795,6 +1805,7 @@
             this.txtRojasVD.Size = new System.Drawing.Size(29, 20);
             this.txtRojasVD.TabIndex = 70;
             this.txtRojasVD.Text = "0";
+            this.txtRojasVD.TextChanged += new System.EventHandler(this.txtRojasVD_TextChanged);
             // 
             // txtAmarillaVD
             // 
@@ -1910,6 +1921,7 @@
             this.txtRojasLI.Size = new System.Drawing.Size(29, 20);
             this.txtRojasLI.TabIndex = 70;
             this.txtRojasLI.Text = "0";
+            this.txtRojasLI.TextChanged += new System.EventHandler(this.txtRojasLI_TextChanged);
             // 
             // txtAmarillaLI
             // 
@@ -2025,6 +2037,7 @@
             this.txtRojasDFI.Size = new System.Drawing.Size(29, 20);
             this.txtRojasDFI.TabIndex = 70;
             this.txtRojasDFI.Text = "0";
+            this.txtRojasDFI.TextChanged += new System.EventHandler(this.txtRojasDFI_TextChanged);
             // 
             // txtAmarillaDFI
             // 
@@ -2140,6 +2153,7 @@
             this.txtRojasLIB.Size = new System.Drawing.Size(29, 20);
             this.txtRojasLIB.TabIndex = 70;
             this.txtRojasLIB.Text = "0";
+            this.txtRojasLIB.TextChanged += new System.EventHandler(this.txtRojasLIB_TextChanged);
             // 
             // txtAmarillaLIB
             // 
@@ -2255,6 +2269,7 @@
             this.txtRojasDFD.Size = new System.Drawing.Size(29, 20);
             this.txtRojasDFD.TabIndex = 70;
             this.txtRojasDFD.Text = "0";
+            this.txtRojasDFD.TextChanged += new System.EventHandler(this.txtRojasDFD_TextChanged);
             // 
             // txtAmarillaDFD
             // 
@@ -2390,6 +2405,7 @@
             this.txtRojasARQ.Size = new System.Drawing.Size(29, 20);
             this.txtRojasARQ.TabIndex = 70;
             this.txtRojasARQ.Text = "0";
+            this.txtRojasARQ.TextChanged += new System.EventHandler(this.txtRojasARQ_TextChanged);
             // 
             // txtAmarillaARQ
             // 
@@ -2505,6 +2521,7 @@
             this.txtRojasLD.Size = new System.Drawing.Size(29, 20);
             this.txtRojasLD.TabIndex = 70;
             this.txtRojasLD.Text = "0";
+            this.txtRojasLD.TextChanged += new System.EventHandler(this.txtRojasLD_TextChanged);
             // 
             // txtAmarillaLD
             // 
@@ -2692,6 +2709,7 @@
             this.txtRojasSup6.Size = new System.Drawing.Size(29, 20);
             this.txtRojasSup6.TabIndex = 70;
             this.txtRojasSup6.Text = "0";
+            this.txtRojasSup6.TextChanged += new System.EventHandler(this.txtRojasSup6_TextChanged);
             // 
             // txtAmarillasSup6
             // 
@@ -2828,6 +2846,7 @@
             this.txtRojasSup4.Size = new System.Drawing.Size(29, 20);
             this.txtRojasSup4.TabIndex = 70;
             this.txtRojasSup4.Text = "0";
+            this.txtRojasSup4.TextChanged += new System.EventHandler(this.txtRojasSup4_TextChanged);
             // 
             // txtAmarillasSup4
             // 
@@ -2944,6 +2963,7 @@
             this.txtRojasSup2.Size = new System.Drawing.Size(29, 20);
             this.txtRojasSup2.TabIndex = 70;
             this.txtRojasSup2.Text = "0";
+            this.txtRojasSup2.TextChanged += new System.EventHandler(this.txtRojasSup2_TextChanged);
             // 
             // txtAmarillasSup2
             // 
@@ -3070,6 +3090,7 @@
             this.txtRojasSup7.Size = new System.Drawing.Size(29, 20);
             this.txtRojasSup7.TabIndex = 70;
             this.txtRojasSup7.Text = "0";
+            this.txtRojasSup7.TextChanged += new System.EventHandler(this.txtRojasSup7_TextChanged);
             // 
             // txtAmarillasSup7
             // 
@@ -3216,6 +3237,7 @@
             this.txtRojasSup5.Size = new System.Drawing.Size(29, 20);
             this.txtRojasSup5.TabIndex = 70;
             this.txtRojasSup5.Text = "0";
+            this.txtRojasSup5.TextChanged += new System.EventHandler(this.txtRojasSup5_TextChanged);
             // 
             // txtAmarillasSup5
             // 
@@ -3332,6 +3354,7 @@
             this.txtRojasSup3.Size = new System.Drawing.Size(29, 20);
             this.txtRojasSup3.TabIndex = 70;
             this.txtRojasSup3.Text = "0";
+            this.txtRojasSup3.TextChanged += new System.EventHandler(this.txtRojasSup3_TextChanged);
             // 
             // txtAmarillasSup3
             // 
@@ -3448,6 +3471,7 @@
             this.txtRojasSup1.Size = new System.Drawing.Size(29, 20);
             this.txtRojasSup1.TabIndex = 70;
             this.txtRojasSup1.Text = "0";
+            this.txtRojasSup1.TextChanged += new System.EventHandler(this.txtRojasSup1_TextChanged);
             // 
             // txtAmarillasSup1
             // 
@@ -3584,6 +3608,7 @@
             this.btnVolver.Text = "Volver";
             this.btnVolver.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // btnCancelar
             // 

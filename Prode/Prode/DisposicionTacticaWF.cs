@@ -17,15 +17,16 @@ namespace Prode
         private List<string> listAlineacion;
         private int idEquipos;
         private int idPartidos;
-        public DisposicionTacticaWF(List<string> listAlineacion, int idEquipo, int idPartido)
+        private int MarcadorLocal;
+        public DisposicionTacticaWF(List<string> listAlineacion, int idEquipo, int idPartido, int MarcadorLocal)
         {
             InitializeComponent();
             this.listAlineacion = listAlineacion;
             listaRecibida = listAlineacion;
             this.idEquipos = idEquipo;
             this.idPartidos = idPartido;
+            this.MarcadorLocal = MarcadorLocal;
         }
-
         private void DisposicionTacticaWF_Load(object sender, EventArgs e)
         {
             try
@@ -242,18 +243,22 @@ namespace Prode
             }
         }
         #region Botones
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
             {
                 BloquearPantalla();
+                ProgressBar();
                 List<string> listaEstadistica = new List<string>();
                 string SistemaTactico = cmbTactica.Text;
                 listaEstadistica = CargarEntidad();
                 bool Exito = FutbolEstadisticaJugadorNeg.GuardarEstadisticaJugador(listaEstadistica, SistemaTactico, idEquipos, idPartidos);
                 if (Exito == true)
                 {
-                    ProgressBar();
                     const string message2 = "Se registro la formación del equipo exitosamente.";
                     const string caption2 = "Éxito";
                     var result2 = MessageBox.Show(message2, caption2,
@@ -1296,6 +1301,7 @@ namespace Prode
             chcFutbol11.Checked = true;
             LimpiarCamposJugadores();
             idListaJugadoresCargado.Clear();
+            btnVolver.Enabled = true;
         }
         private void LimpiarCamposJugadores()
         {
@@ -1467,10 +1473,14 @@ namespace Prode
             grbDuaracionPartido.Enabled = false;
             grbTipo.Enabled = false;
             grbSistemaTactico.Enabled = false;
+            btnGuardar.Enabled = false;
+            btnCancelar.Enabled = false;
+            btnVolver.Enabled = false;
         }
         private List<string> CargarEntidad()
         {
             int TotalGoles = 0;
+
             List<string> listaString = new List<string>();
             string id = "";
             string Minutos = "";
@@ -1478,6 +1488,7 @@ namespace Prode
             string Amarilla = "";
             string Roja = "";
             string Cadena = "";
+            string Puesto = "";
 
             if (lblARQ.Text != "@LD")
             {
@@ -1488,17 +1499,8 @@ namespace Prode
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaARQ.Text;
                 Roja = txtRojasARQ.Text;
-                int Expulsion = Convert.ToInt32(Roja);
-                if (Expulsion > 1)
-                {
-                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                Puesto = "ARQ";
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja + ";" + Puesto;
                 listaString.Add(Cadena);
             }
 
@@ -1511,17 +1513,8 @@ namespace Prode
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaLD.Text;
                 Roja = txtRojasLD.Text;
-                int Expulsion = Convert.ToInt32(Roja);
-                if (Expulsion > 1)
-                {
-                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                Puesto = "LD";
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja + ";" + Puesto;
                 listaString.Add(Cadena);
             }
 
@@ -1535,17 +1528,8 @@ namespace Prode
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaDFD.Text;
                 Roja = txtRojasDFD.Text;
-                int Expulsion = Convert.ToInt32(Roja);
-                if (Expulsion > 1)
-                {
-                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                Puesto = "DFD";
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja + ";" + Puesto;
                 listaString.Add(Cadena);
             }
 
@@ -1559,17 +1543,8 @@ namespace Prode
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaLIB.Text;
                 Roja = txtRojasLIB.Text;
-                int Expulsion = Convert.ToInt32(Roja);
-                if (Expulsion > 1)
-                {
-                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                Puesto = "LIB";
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja + ";" + Puesto;
                 listaString.Add(Cadena);
             }
 
@@ -1582,17 +1557,8 @@ namespace Prode
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaDFI.Text;
                 Roja = txtRojasDFI.Text;
-                int Expulsion = Convert.ToInt32(Roja);
-                if (Expulsion > 1)
-                {
-                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                Puesto = "DFI";
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja + ";" + Puesto;
                 listaString.Add(Cadena);
             }
 
@@ -1606,17 +1572,8 @@ namespace Prode
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaLI.Text;
                 Roja = txtRojasLI.Text;
-                int Expulsion = Convert.ToInt32(Roja);
-                if (Expulsion > 1)
-                {
-                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                Puesto = "LI";
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja + ";" + Puesto;
                 listaString.Add(Cadena);
             }
 
@@ -1629,17 +1586,8 @@ namespace Prode
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaVD.Text;
                 Roja = txtRojasVD.Text;
-                int Expulsion = Convert.ToInt32(Roja);
-                if (Expulsion > 1)
-                {
-                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                Puesto = "VD";
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja + ";" + Puesto;
                 listaString.Add(Cadena);
             }
 
@@ -1652,17 +1600,8 @@ namespace Prode
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaVID.Text;
                 Roja = txtRojasVID.Text;
-                int Expulsion = Convert.ToInt32(Roja);
-                if (Expulsion > 1)
-                {
-                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                Puesto = "VID";
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja + ";" + Puesto;
                 listaString.Add(Cadena);
             }
 
@@ -1676,17 +1615,8 @@ namespace Prode
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaMC.Text;
                 Roja = txtRojasMC.Text;
-                int Expulsion = Convert.ToInt32(Roja);
-                if (Expulsion > 1)
-                {
-                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                Puesto = "MC";
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja + ";" + Puesto;
                 listaString.Add(Cadena);
             }
             if (lblVII.Text != "@LD")
@@ -1698,17 +1628,8 @@ namespace Prode
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaVII.Text;
                 Roja = txtRojasVII.Text;
-                int Expulsion = Convert.ToInt32(Roja);
-                if (Expulsion > 1)
-                {
-                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                Puesto = "VII";
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja + ";" + Puesto;
                 listaString.Add(Cadena);
             }
 
@@ -1721,17 +1642,8 @@ namespace Prode
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaVI.Text;
                 Roja = txtRojasVI.Text;
-                int Expulsion = Convert.ToInt32(Roja);
-                if (Expulsion > 1)
-                {
-                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                Puesto = "VI";
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja + ";" + Puesto;
                 listaString.Add(Cadena);
             }
             if (lblMP.Text != "@LD")
@@ -1743,17 +1655,8 @@ namespace Prode
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaMP.Text;
                 Roja = txtRojasMP.Text;
-                int Expulsion = Convert.ToInt32(Roja);
-                if (Expulsion > 1)
-                {
-                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                Puesto = "MP";
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja + ";" + Puesto;
                 listaString.Add(Cadena);
             }
             if (lblED.Text != "@LD")
@@ -1764,17 +1667,8 @@ namespace Prode
                 int gol = Convert.ToInt32(Goles);
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaED.Text;
-                int Expulsion = Convert.ToInt32(Roja);
-                if (Expulsion > 1)
-                {
-                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                Puesto = "ED";
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja + ";" + Puesto;
                 listaString.Add(Cadena);
             }
             if (lblCD1.Text != "@LD")
@@ -1786,17 +1680,8 @@ namespace Prode
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaCD1.Text;
                 Roja = txtRojasCD1.Text;
-                int Expulsion = Convert.ToInt32(Roja);
-                if (Expulsion > 1)
-                {
-                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                Puesto = "CD1";
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja + ";" + Puesto;
                 listaString.Add(Cadena);
             }
             if (lblCD.Text != "@LD")
@@ -1808,17 +1693,8 @@ namespace Prode
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaCD.Text;
                 Roja = txtRojasCD.Text;
-                int Expulsion = Convert.ToInt32(Roja);
-                if (Expulsion > 1)
-                {
-                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                Puesto = "CD";
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja + ";" + Puesto;
                 listaString.Add(Cadena);
             }
             if (lblCD2.Text != "@LD")
@@ -1830,17 +1706,8 @@ namespace Prode
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaCD2.Text;
                 Roja = txtRojasCD2.Text;
-                int Expulsion = Convert.ToInt32(Roja);
-                if (Expulsion > 1)
-                {
-                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                Puesto = "CD2";
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja + ";" + Puesto;
                 listaString.Add(Cadena);
             }
             if (lblEI.Text != "@LD")
@@ -1852,17 +1719,8 @@ namespace Prode
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillaEI.Text;
                 Roja = txtRojasEI.Text;
-                int Expulsion = Convert.ToInt32(Roja);
-                if (Expulsion > 1)
-                {
-                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                Puesto = "EI";
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja + ";" + Puesto;
                 listaString.Add(Cadena);
             }
             if (lblSup1.Text != "@LD")
@@ -1874,17 +1732,8 @@ namespace Prode
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillasSup1.Text;
                 Roja = txtRojasSup1.Text;
-                int Expulsion = Convert.ToInt32(Roja);
-                if (Expulsion > 1)
-                {
-                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                Puesto = "SUP1";
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja + ";" + Puesto;
                 listaString.Add(Cadena);
             }
             if (lblSup2.Text != "@LD")
@@ -1896,17 +1745,8 @@ namespace Prode
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillasSup2.Text;
                 Roja = txtRojasSup2.Text;
-                int Expulsion = Convert.ToInt32(Roja);
-                if (Expulsion > 1)
-                {
-                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                Puesto = "SUP2";
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja + ";" + Puesto;
                 listaString.Add(Cadena);
             }
             if (lblSup3.Text != "@LD")
@@ -1918,17 +1758,8 @@ namespace Prode
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillasSup3.Text;
                 Roja = txtRojasSup3.Text;
-                int Expulsion = Convert.ToInt32(Roja);
-                if (Expulsion > 1)
-                {
-                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                Puesto = "SUP3";
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja + ";" + Puesto;
                 listaString.Add(Cadena);
             }
             if (lblSup4.Text != "@LD")
@@ -1940,17 +1771,8 @@ namespace Prode
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillasSup4.Text;
                 Roja = txtRojasSup4.Text;
-                int Expulsion = Convert.ToInt32(Roja);
-                if (Expulsion > 1)
-                {
-                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                Puesto = "SUP4";
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja + ";" + Puesto;
                 listaString.Add(Cadena);
             }
             if (lblSup5.Text != "@LD")
@@ -1962,17 +1784,8 @@ namespace Prode
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillasSup5.Text;
                 Roja = txtRojasSup5.Text;
-                int Expulsion = Convert.ToInt32(Roja);
-                if (Expulsion > 1)
-                {
-                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                Puesto = "SUP5";
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja + ";" + Puesto;
                 listaString.Add(Cadena);
             }
             if (lblSup6.Text != "@LD")
@@ -1984,17 +1797,8 @@ namespace Prode
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillasSup6.Text;
                 Roja = txtRojasSup6.Text;
-                int Expulsion = Convert.ToInt32(Roja);
-                if (Expulsion > 1)
-                {
-                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                Puesto = "SUP6";
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja + ";" + Puesto;
                 listaString.Add(Cadena);
             }
             if (lblSup7.Text != "@LD")
@@ -2006,19 +1810,12 @@ namespace Prode
                 TotalGoles = gol + TotalGoles;
                 Amarilla = txtAmarillasSup7.Text;
                 Roja = txtRojasSup7.Text;
-                int Expulsion = Convert.ToInt32(Roja);
-                if (Expulsion > 1)
-                {
-                    const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
-                    const string caption = "Atención";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja;
+                Puesto = "SUP7";
+                Cadena = id + "," + Minutos + "-" + Goles + "." + Amarilla + "+" + Roja + ";" + Puesto;
                 listaString.Add(Cadena);
             }
+            if (TotalGoles > MarcadorLocal)
+            { }
             return listaString;
         }
         #endregion
@@ -2026,7 +1823,342 @@ namespace Prode
         public static List<int> idListaJugadoresCargado;
         private int idEquipo;
         private int idPartido;
-
+        private void txtRojasARQ_TextChanged(object sender, EventArgs e)
+        {
+            string Roja = txtRojasARQ.Text;
+            int Expulsion = Convert.ToInt32(Roja);
+            if (Expulsion > 1)
+            {
+                const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                const string caption = "Atención";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                txtRojasARQ.Text = "0";
+            }
+        }
+        private void txtRojasLD_TextChanged(object sender, EventArgs e)
+        {
+            string Roja = txtRojasLD.Text;
+            int Expulsion = Convert.ToInt32(Roja);
+            if (Expulsion > 1)
+            {
+                const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                const string caption = "Atención";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                txtRojasLD.Text = "0";
+            }
+        }
+        private void txtRojasDFD_TextChanged(object sender, EventArgs e)
+        {
+            string Roja = txtRojasDFD.Text;
+            int Expulsion = Convert.ToInt32(Roja);
+            if (Expulsion > 1)
+            {
+                const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                const string caption = "Atención";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                txtRojasDFD.Text = "0";
+            }
+        }
+        private void txtRojasLIB_TextChanged(object sender, EventArgs e)
+        {
+            string Roja = txtRojasLIB.Text;
+            int Expulsion = Convert.ToInt32(Roja);
+            if (Expulsion > 1)
+            {
+                const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                const string caption = "Atención";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                txtRojasLIB.Text = "0";
+            }
+        }
+        private void txtRojasDFI_TextChanged(object sender, EventArgs e)
+        {
+            string Roja = txtRojasDFI.Text;
+            int Expulsion = Convert.ToInt32(Roja);
+            if (Expulsion > 1)
+            {
+                const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                const string caption = "Atención";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                txtRojasDFI.Text = "0";
+            }
+        }
+        private void txtRojasLI_TextChanged(object sender, EventArgs e)
+        {
+            string Roja = txtRojasLI.Text;
+            int Expulsion = Convert.ToInt32(Roja);
+            if (Expulsion > 1)
+            {
+                const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                const string caption = "Atención";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                txtRojasLI.Text = "0";
+            }
+        }
+        private void txtRojasVD_TextChanged(object sender, EventArgs e)
+        {
+            string Roja = txtRojasVD.Text;
+            int Expulsion = Convert.ToInt32(Roja);
+            if (Expulsion > 1)
+            {
+                const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                const string caption = "Atención";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                txtRojasVD.Text = "0";
+            }
+        }
+        private void txtRojasVID_TextChanged(object sender, EventArgs e)
+        {
+            string Roja = txtRojasVID.Text;
+            int Expulsion = Convert.ToInt32(Roja);
+            if (Expulsion > 1)
+            {
+                const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                const string caption = "Atención";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                txtRojasVID.Text = "0";
+            }
+        }
+        private void txtRojasMC_TextChanged(object sender, EventArgs e)
+        {
+            string Roja = txtRojasMC.Text;
+            int Expulsion = Convert.ToInt32(Roja);
+            if (Expulsion > 1)
+            {
+                const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                const string caption = "Atención";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                txtRojasMC.Text = "0";
+            }
+        }
+        private void txtRojasVII_TextChanged(object sender, EventArgs e)
+        {
+            string Roja = txtRojasVII.Text;
+            int Expulsion = Convert.ToInt32(Roja);
+            if (Expulsion > 1)
+            {
+                const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                const string caption = "Atención";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                txtRojasVII.Text = "0";
+            }
+        }
+        private void txtRojasVI_TextChanged(object sender, EventArgs e)
+        {
+            string Roja = txtRojasVI.Text;
+            int Expulsion = Convert.ToInt32(Roja);
+            if (Expulsion > 1)
+            {
+                const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                const string caption = "Atención";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                txtRojasVI.Text = "0";
+            }
+        }
+        private void txtRojasED_TextChanged(object sender, EventArgs e)
+        {
+            string Roja = txtRojasED.Text;
+            int Expulsion = Convert.ToInt32(Roja);
+            if (Expulsion > 1)
+            {
+                const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                const string caption = "Atención";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                txtRojasED.Text = "0";
+            }
+        }
+        private void txtRojasMP_TextChanged(object sender, EventArgs e)
+        {
+            string Roja = txtRojasMP.Text;
+            int Expulsion = Convert.ToInt32(Roja);
+            if (Expulsion > 1)
+            {
+                const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                const string caption = "Atención";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                txtRojasMP.Text = "0";
+            }
+        }
+        private void txtRojasEI_TextChanged(object sender, EventArgs e)
+        {
+            string Roja = txtRojasEI.Text;
+            int Expulsion = Convert.ToInt32(Roja);
+            if (Expulsion > 1)
+            {
+                const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                const string caption = "Atención";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                txtRojasEI.Text = "0";
+            }
+        }
+        private void txtRojasCD1_TextChanged(object sender, EventArgs e)
+        {
+            string Roja = txtRojasCD1.Text;
+            int Expulsion = Convert.ToInt32(Roja);
+            if (Expulsion > 1)
+            {
+                const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                const string caption = "Atención";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                txtRojasCD1.Text = "0";
+            }
+        }
+        private void txtRojasCD_TextChanged(object sender, EventArgs e)
+        {
+            string Roja = txtRojasCD.Text;
+            int Expulsion = Convert.ToInt32(Roja);
+            if (Expulsion > 1)
+            {
+                const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                const string caption = "Atención";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                txtRojasCD.Text = "0";
+            }
+        }
+        private void txtRojasCD2_TextChanged(object sender, EventArgs e)
+        {
+            string Roja = txtRojasCD2.Text;
+            int Expulsion = Convert.ToInt32(Roja);
+            if (Expulsion > 1)
+            {
+                const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                const string caption = "Atención";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                txtRojasCD2.Text = "0";
+            }
+        }
+        private void txtRojasSup1_TextChanged(object sender, EventArgs e)
+        {
+            string Roja = txtRojasSup1.Text;
+            int Expulsion = Convert.ToInt32(Roja);
+            if (Expulsion > 1)
+            {
+                const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                const string caption = "Atención";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                txtRojasSup1.Text = "0";
+            }
+        }
+        private void txtRojasSup2_TextChanged(object sender, EventArgs e)
+        {
+            string Roja = txtRojasSup2.Text;
+            int Expulsion = Convert.ToInt32(Roja);
+            if (Expulsion > 1)
+            {
+                const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                const string caption = "Atención";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                txtRojasSup2.Text = "0";
+            }
+        }
+        private void txtRojasSup3_TextChanged(object sender, EventArgs e)
+        {
+            string Roja = txtRojasSup3.Text;
+            int Expulsion = Convert.ToInt32(Roja);
+            if (Expulsion > 1)
+            {
+                const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                const string caption = "Atención";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                txtRojasSup3.Text = "0";
+            }
+        }
+        private void txtRojasSup4_TextChanged(object sender, EventArgs e)
+        {
+            string Roja = txtRojasSup4.Text;
+            int Expulsion = Convert.ToInt32(Roja);
+            if (Expulsion > 1)
+            {
+                const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                const string caption = "Atención";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                txtRojasSup4.Text = "0";
+            }
+        }
+        private void txtRojasSup5_TextChanged(object sender, EventArgs e)
+        {
+            string Roja = txtRojasSup5.Text;
+            int Expulsion = Convert.ToInt32(Roja);
+            if (Expulsion > 1)
+            {
+                const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                const string caption = "Atención";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                txtRojasSup5.Text = "0";
+            }
+        }
+        private void txtRojasSup6_TextChanged(object sender, EventArgs e)
+        {
+            string Roja = txtRojasSup6.Text;
+            int Expulsion = Convert.ToInt32(Roja);
+            if (Expulsion > 1)
+            {
+                const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                const string caption = "Atención";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                txtRojasSup6.Text = "0";
+            }
+        }
+        private void txtRojasSup7_TextChanged(object sender, EventArgs e)
+        {
+            string Roja = txtRojasSup7.Text;
+            int Expulsion = Convert.ToInt32(Roja);
+            if (Expulsion > 1)
+            {
+                const string message = "Solo se puede cargar 1 Roja por jugador en un mismo partido.";
+                const string caption = "Atención";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                txtRojasSup7.Text = "0";
+            }
+        }
         private void cmbMinutos_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -3861,7 +3993,6 @@ namespace Prode
             }
             else { txtAmarillasSup7.Text = "0"; }
         }
-        #endregion
-
+        #endregion   
     }
 }

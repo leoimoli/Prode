@@ -127,7 +127,6 @@ namespace Prode.Dao
             }
             return ListaAciertos;
         }
-
         public static List<EstadisticasApuestas> BuscarEstadisticaGral(string torneo, string temporada, string nroFecha, string Liga)
         {
             //List<EstadisticasApuestas> ListaResultadosApuestas = new List<EstadisticasApuestas>();
@@ -174,7 +173,6 @@ namespace Prode.Dao
             }
             return Lista;
         }
-
         //public static List<EstadisticasApuestas> BuscarEstadisticaGral(string torneo, string temporada, string nroFecha)
         //{
         //    List<EstadisticasApuestas> ListaEstadistica = new List<EstadisticasApuestas>();
@@ -209,7 +207,6 @@ namespace Prode.Dao
         //        return ListaEstadistica;
         //    }
         //}
-
         private static List<ResultadoApuestas> BuscarTotalAciertosPorApostadores(List<TipoResultadoPorPartido> ListaTipoResultado, List<int> ListaIdPartidos)
         {
             List<ResultadoApuestas> ListaResultadosApuestas = new List<ResultadoApuestas>();

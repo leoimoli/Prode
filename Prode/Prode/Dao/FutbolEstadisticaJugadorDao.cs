@@ -23,6 +23,7 @@ namespace Prode.Dao
             exito = ActualizarSistemaTactico(sistemaTactico, idPartidos);
             if (exito == true)
             {
+                List<string> ListaPuestos = new List<string>();
                 List<JugadorEstadisticaPartido> ListaMomentanea = new List<JugadorEstadisticaPartido>();
                 foreach (var item in listaEstadistica)
                 {
@@ -41,7 +42,11 @@ namespace Prode.Dao
                     string Ama = Cadena4.Split('+')[0];
                     string Cadena5 = Cadena4.Split('+')[1];
 
-                    string Ro = Cadena5;
+                    string Ro = Cadena5.Split(';')[0];
+                    string Cadena6 = Cadena5.Split(';')[1]; ;
+
+                    string Puesto = Cadena6;
+
 
                     int idJugador = Convert.ToInt32(id);
                     int Minutos = Convert.ToInt32(Min);
@@ -49,6 +54,8 @@ namespace Prode.Dao
                     int Amarillas = Convert.ToInt32(Ama);
                     int Rojas = Convert.ToInt32(Ro);
 
+                    string JugadorPuesto = id + "," + Puesto;
+                    ListaPuestos.Add(JugadorPuesto);
                     listaJugador.idJugador = idJugador;
                     listaJugador.Minutos = Minutos;
                     listaJugador.Goles = Goles;
@@ -74,13 +81,40 @@ namespace Prode.Dao
                 if (exito == true)
                 {
                     exito = ActualizarEstadisticaGeneral(idPartidos, idEquipos);
+                    if (exito == true)
+                    {
+                        exito = GuardarPuestosPorPartidos(idPartidos, idEquipos, ListaPuestos);
+                    }
                 }
             }
             connection.Close();
             return exito;
-
         }
+        private static bool GuardarPuestosPorPartidos(int idPartidos, int idEquipos, List<string> listaPuestos)
+        {
+            bool Exito = false;
+            foreach (var item in listaPuestos)
+            {
+                string Cadena = item;
+                string id = Cadena.Split(',')[0];
+                string Puesto = Cadena.Split(',')[1];
+                int idJugador = Convert.ToInt32(id);
 
+                connection.Close();
+                connection.Open();
+                string proceso = "GuardarPuestosPorPartidos";
+                MySqlCommand cmd = new MySqlCommand(proceso, connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("idPartido_in", idPartidos);
+                cmd.Parameters.AddWithValue("Puesto_in", Puesto);
+                cmd.Parameters.AddWithValue("idEquipo_in", idEquipos);
+                cmd.Parameters.AddWithValue("idJugador_in", idJugador);
+                cmd.ExecuteNonQuery();
+            }
+            Exito = true;
+            connection.Close();
+            return Exito;
+        }
         private static bool ActualizarSistemaTactico(string sistemaTactico, int idPartidos)
         {
             bool exito = false;
@@ -112,7 +146,7 @@ namespace Prode.Dao
                 GolesNew = item.Goles;
                 AmarillasNew = item.Amarillas;
                 RojasNew = item.Rojas;
-               
+
                 List<Entidades.JugadorEstadisticaPartido> lista = new List<Entidades.JugadorEstadisticaPartido>();
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = connection;
@@ -140,7 +174,7 @@ namespace Prode.Dao
                 }
                 if (lista.Count > 0)
                 {
-                    
+
                     var Jugador = lista.First();
                     ///// Calculo Estadistica
                     int MinutosFinales = Jugador.Minutos + MinutosNew;
