@@ -9,13 +9,13 @@ namespace Prode.Negocio
 {
     public class FutbolEstadisticaJugadorNeg
     {
-        public static bool GuardarEstadisticaJugador(List<string> listaEstadistica, string sistemaTactico, int idPartidos, int idEquipos)
+        public static bool GuardarEstadisticaJugador(List<string> listaEstadistica, string sistemaTactico, int idEquipos, int idPartidos)
         {
             bool exito = false;
             try
             {
                 //ValidarDatos(_equipo);
-                exito = FutbolEstadisticaJugadorDao.GuardarEstadisticaJugador(listaEstadistica, sistemaTactico, idPartidos, idEquipos);
+                exito = FutbolEstadisticaJugadorDao.GuardarEstadisticaJugador(listaEstadistica, sistemaTactico, idEquipos, idPartidos);
             }
             catch (Exception ex)
              {

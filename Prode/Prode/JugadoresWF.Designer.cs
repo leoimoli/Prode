@@ -65,6 +65,7 @@
             this.txtBuscarApellidoNombre = new System.Windows.Forms.TextBox();
             this.lblDniOApellidoNombre = new System.Windows.Forms.Label();
             this.lblTexto = new System.Windows.Forms.Label();
+            this.btnFutbol = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -72,6 +73,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnFutbol);
             this.groupBox1.Controls.Add(this.btnFicha);
             this.groupBox1.Controls.Add(this.btnAsignar);
             this.groupBox1.Controls.Add(this.btnEditar);
@@ -90,7 +92,7 @@
             // 
             this.btnFicha.Image = global::Prode.Properties.Resources.ficha_policial;
             this.btnFicha.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnFicha.Location = new System.Drawing.Point(9, 295);
+            this.btnFicha.Location = new System.Drawing.Point(9, 236);
             this.btnFicha.Name = "btnFicha";
             this.btnFicha.Size = new System.Drawing.Size(133, 55);
             this.btnFicha.TabIndex = 10;
@@ -104,7 +106,7 @@
             // 
             this.btnAsignar.Image = global::Prode.Properties.Resources.pasar;
             this.btnAsignar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAsignar.Location = new System.Drawing.Point(9, 383);
+            this.btnAsignar.Location = new System.Drawing.Point(9, 312);
             this.btnAsignar.Name = "btnAsignar";
             this.btnAsignar.Size = new System.Drawing.Size(133, 55);
             this.btnAsignar.TabIndex = 9;
@@ -118,7 +120,7 @@
             // 
             this.btnEditar.Image = global::Prode.Properties.Resources.hombre;
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEditar.Location = new System.Drawing.Point(9, 113);
+            this.btnEditar.Location = new System.Drawing.Point(9, 91);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(133, 55);
             this.btnEditar.TabIndex = 8;
@@ -146,7 +148,7 @@
             // 
             this.btnEliminarJugadorMenu.Image = global::Prode.Properties.Resources.boton_eliminar3;
             this.btnEliminarJugadorMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminarJugadorMenu.Location = new System.Drawing.Point(9, 206);
+            this.btnEliminarJugadorMenu.Location = new System.Drawing.Point(9, 161);
             this.btnEliminarJugadorMenu.Name = "btnEliminarJugadorMenu";
             this.btnEliminarJugadorMenu.Size = new System.Drawing.Size(133, 55);
             this.btnEliminarJugadorMenu.TabIndex = 1;
@@ -160,7 +162,7 @@
             // 
             this.btnEstadistica.Image = global::Prode.Properties.Resources.dato;
             this.btnEstadistica.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEstadistica.Location = new System.Drawing.Point(10, 467);
+            this.btnEstadistica.Location = new System.Drawing.Point(10, 391);
             this.btnEstadistica.Name = "btnEstadistica";
             this.btnEstadistica.Size = new System.Drawing.Size(133, 55);
             this.btnEstadistica.TabIndex = 0;
@@ -509,6 +511,19 @@
             this.lblTexto.TabIndex = 37;
             this.lblTexto.Text = "Seleccione una función del Menú";
             // 
+            // btnFutbol
+            // 
+            this.btnFutbol.Image = global::Prode.Properties.Resources.pelota_de_futbol;
+            this.btnFutbol.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFutbol.Location = new System.Drawing.Point(9, 466);
+            this.btnFutbol.Name = "btnFutbol";
+            this.btnFutbol.Size = new System.Drawing.Size(133, 55);
+            this.btnFutbol.TabIndex = 11;
+            this.btnFutbol.Text = "Fútbol";
+            this.btnFutbol.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFutbol.UseVisualStyleBackColor = true;
+            this.btnFutbol.Click += new System.EventHandler(this.btnFutbol_Click);
+            // 
             // JugadoresWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -571,5 +586,6 @@
         private System.Windows.Forms.TextBox txtAltura;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label lblIdJugador;
+        private System.Windows.Forms.Button btnFutbol;
     }
 }

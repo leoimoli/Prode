@@ -46,15 +46,15 @@ namespace Prode.Negocio
                                            MessageBoxIcon.Exclamation);
                 throw new Exception();
             }
-            if (_torneo.CantidadFechas == null || _torneo.CantidadFechas == 0)
-            {
-                const string message = "El campo Cantidad de Fechas es obligatorio.";
-                const string caption = "Error";
-                var result = MessageBox.Show(message, caption,
-                                             MessageBoxButtons.OK,
-                                           MessageBoxIcon.Exclamation);
-                throw new Exception();
-            }
+            //if (_torneo.CantidadFechas == null || _torneo.CantidadFechas == 0)
+            //{
+            //    const string message = "El campo Cantidad de Fechas es obligatorio.";
+            //    const string caption = "Error";
+            //    var result = MessageBox.Show(message, caption,
+            //                                 MessageBoxButtons.OK,
+            //                               MessageBoxIcon.Exclamation);
+            //    throw new Exception();
+            //}
 
             if (String.IsNullOrEmpty(_torneo.Liga))
             {

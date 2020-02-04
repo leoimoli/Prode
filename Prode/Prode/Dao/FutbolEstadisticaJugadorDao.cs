@@ -14,7 +14,7 @@ namespace Prode.Dao
     {
         private static MySql.Data.MySqlClient.MySqlConnection connection = new MySqlConnection(Properties.Settings.Default.db);
         public static List<JugadorEstadisticaPartido> listaStatic;
-        public static bool GuardarEstadisticaJugador(List<string> listaEstadistica, string sistemaTactico, int idPartidos, int idEquipos)
+        public static bool GuardarEstadisticaJugador(List<string> listaEstadistica, string sistemaTactico, int idEquipos, int idPartidos)
         {
             bool exito = false;
             connection.Close();
@@ -43,10 +43,9 @@ namespace Prode.Dao
                     string Cadena5 = Cadena4.Split('+')[1];
 
                     string Ro = Cadena5.Split(';')[0];
-                    string Cadena6 = Cadena5.Split(';')[1]; ;
+                    string Cadena6 = Cadena5.Split(';')[1];
 
                     string Puesto = Cadena6;
-
 
                     int idJugador = Convert.ToInt32(id);
                     int Minutos = Convert.ToInt32(Min);
@@ -69,7 +68,7 @@ namespace Prode.Dao
                     cmd.Parameters.AddWithValue("Minutos_in", Minutos);
                     cmd.Parameters.AddWithValue("Goles_in", Goles);
                     cmd.Parameters.AddWithValue("Amarillas_in", Amarillas);
-                    cmd.Parameters.AddWithValue("Rojas_in", Amarillas);
+                    cmd.Parameters.AddWithValue("Rojas_in", Rojas);
                     cmd.Parameters.AddWithValue("idEquipo_in", idEquipos);
                     cmd.Parameters.AddWithValue("idPartido_in", idPartidos);
                     cmd.ExecuteNonQuery();

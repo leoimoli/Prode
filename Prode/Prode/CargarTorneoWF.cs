@@ -62,7 +62,14 @@ namespace Prode
             Torneo _torneo = new Torneo();
             _torneo.Temporada = cmbTemporada.Text;
             _torneo.NombreTorneo = txtNombreTorneo.Text;
-            _torneo.CantidadFechas = Convert.ToInt32(txtFechas.Text);
+            if (txtFechas.Text != null && txtFechas.Text != "")
+            {
+                _torneo.CantidadFechas = Convert.ToInt32(txtFechas.Text);
+            }
+            else
+            {
+                _torneo.CantidadFechas = 0;
+            }
             _torneo.Liga = txtLiga.Text;
             return _torneo;
         }

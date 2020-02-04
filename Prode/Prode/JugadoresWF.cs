@@ -375,6 +375,12 @@ namespace Prode
         }
         #endregion
         #region Botones
+        private void btnFutbol_Click(object sender, EventArgs e)
+        {
+            MenuFutbolWF _futbol = new MenuFutbolWF();
+            _futbol.Show();
+            Hide();
+        }
         private void btnFicha_Click(object sender, EventArgs e)
         {
             FichaTecnicaWF _ficha = new FichaTecnicaWF();
@@ -572,6 +578,7 @@ namespace Prode
             }
         }
         #endregion
-    
+
+      
     }
 }

@@ -79,6 +79,7 @@
             this.btnEquipos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEquipos.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnEquipos.UseVisualStyleBackColor = true;
+            this.btnEquipos.Click += new System.EventHandler(this.btnEquipos_Click);
             // 
             // btnPracticas
             // 
