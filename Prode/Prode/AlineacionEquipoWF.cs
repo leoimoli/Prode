@@ -18,7 +18,6 @@ namespace Prode
         {
             InitializeComponent();
         }
-
         private void AlineacionEquipoWF_Load(object sender, EventArgs e)
         {
             try
@@ -300,7 +299,6 @@ namespace Prode
         #region Funciones
         private void HabilitarListasJugadores(int idPartido)
         {
-
             int idEquipoLocal = Convert.ToInt32(lblIdLocal.Text);
             bool ValidarAlineacionesLocalExistentes = false;
             ValidarAlineacionesLocalExistentes = FutbolPartidoEstadisticaNeg.ValidarAlineacionExistente(idEquipoLocal, idPartido);
@@ -309,7 +307,7 @@ namespace Prode
                 grbLocal.Visible = true;
                 grbLocal.Enabled = false;
                 lblMensajeLocal.Visible = true;
-                lblMensajeLocal.Text = "Ya existe una alineación cargada previamente para el equipo y el partido seleccionado.";
+                lblMensajeLocal.Text = "Ya existe una alineación para el equipo y el partido seleccionado.";
             }
             else
             {
@@ -327,10 +325,10 @@ namespace Prode
             ValidarAlineacionesVisitanteExistentes = FutbolPartidoEstadisticaNeg.ValidarAlineacionExistente(idEquipoVisitante, idPartido);
             if (ValidarAlineacionesVisitanteExistentes == true)
             {
-                grbLocal.Visible = true;
-                grbLocal.Enabled = false;
-                lblMensajeLocal.Visible = true;
-                lblMensajeLocal.Text = "Ya existe una alineación cargada previamente para el equipo y el partido seleccionado.";
+                grbVisitante.Visible = true;
+                grbVisitante.Enabled = false;
+                lblMensajeVisitante.Visible = true;
+                lblMensajeVisitante.Text = "Ya existe una alineación para el equipo y el partido seleccionado.";
             }
             else
             {
@@ -340,12 +338,47 @@ namespace Prode
             }
         }
         #endregion
-
         private void button3_Click(object sender, EventArgs e)
         {
             MenuFutbolWF _futbol = new MenuFutbolWF();
             _futbol.Show();
             Hide();
+        }
+        private void btnConfirmarVisitante_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                const string message = "Desea confirmar la Alineación seleccionada?";
+                const string caption = "Confirmar alineación";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.YesNo,
+                                             MessageBoxIcon.Question);
+                {
+                    if (result == DialogResult.Yes)
+                    {
+                        List<string> lista = new List<string>();
+                        foreach (var item in listVisitantes.Items)
+                        {
+                            var valor = item.ToString();
+                            string var = valor;
+                            string Apellido = var.Split(' ')[0];
+                            string var2 = var.Split(' ')[1];
+                            string Nombre = var2.Split(',')[0];
+                            string Id = var2.Split(',')[1];
+                            lista.Add(Id + "," + Apellido + " " + Nombre);
+                        }
+                        if (lista.Count > 0)
+                        {
+                            int MarcadorVisitante = Convert.ToInt32(lblResultadoVisitante.Text);
+                            int idEquipo = Convert.ToInt32(lblIdVistante.Text);
+                            DisposicionTacticaWF _disposicion = new DisposicionTacticaWF(lista, idEquipo, idPartido, MarcadorVisitante);
+                            _disposicion.Show();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            { }
         }
     }
 }

@@ -426,6 +426,7 @@ namespace Prode
             txtMarcadorLocal.Visible = false;
             txtMarcadorVisitante.Visible = false;
             lblVS.Visible = false;
+            lblMarcador.Visible = false;
             txtFecha.Clear();
         }
         #endregion

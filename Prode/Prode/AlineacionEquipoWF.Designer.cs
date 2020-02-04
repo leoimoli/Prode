@@ -70,6 +70,7 @@
             this.lblDniOApellidoNombre = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.lblIdPartido = new System.Windows.Forms.Label();
+            this.lblMensajeVisitante = new System.Windows.Forms.Label();
             this.grbDatosPartido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -262,10 +263,10 @@
             // lblMensajeLocal
             // 
             this.lblMensajeLocal.AutoSize = true;
-            this.lblMensajeLocal.Font = new System.Drawing.Font("Microsoft Tai Le", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensajeLocal.Location = new System.Drawing.Point(94, 16);
+            this.lblMensajeLocal.Font = new System.Drawing.Font("Microsoft Tai Le", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensajeLocal.Location = new System.Drawing.Point(4, 16);
             this.lblMensajeLocal.Name = "lblMensajeLocal";
-            this.lblMensajeLocal.Size = new System.Drawing.Size(80, 25);
+            this.lblMensajeLocal.Size = new System.Drawing.Size(48, 14);
             this.lblMensajeLocal.TabIndex = 159;
             this.lblMensajeLocal.Text = "Estadio:";
             this.lblMensajeLocal.Visible = false;
@@ -358,6 +359,7 @@
             // 
             // grbVisitante
             // 
+            this.grbVisitante.Controls.Add(this.lblMensajeVisitante);
             this.grbVisitante.Controls.Add(this.lblTotalVisitante);
             this.grbVisitante.Controls.Add(this.label6);
             this.grbVisitante.Controls.Add(this.button2);
@@ -369,7 +371,7 @@
             this.grbVisitante.Controls.Add(this.listVisitantes);
             this.grbVisitante.Location = new System.Drawing.Point(615, 259);
             this.grbVisitante.Name = "grbVisitante";
-            this.grbVisitante.Size = new System.Drawing.Size(357, 425);
+            this.grbVisitante.Size = new System.Drawing.Size(357, 449);
             this.grbVisitante.TabIndex = 150;
             this.grbVisitante.TabStop = false;
             this.grbVisitante.Text = "Alineación Visitante";
@@ -389,7 +391,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Tai Le", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(15, 390);
+            this.label6.Location = new System.Drawing.Point(15, 421);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 19);
             this.label6.TabIndex = 159;
@@ -397,7 +399,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(204, 261);
+            this.button2.Location = new System.Drawing.Point(204, 292);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(78, 32);
             this.button2.TabIndex = 157;
@@ -408,7 +410,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(212, 86);
+            this.label3.Location = new System.Drawing.Point(212, 117);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 18);
             this.label3.TabIndex = 154;
@@ -418,23 +420,24 @@
             // txtJugadoresVisitantes
             // 
             this.txtJugadoresVisitantes.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtJugadoresVisitantes.Location = new System.Drawing.Point(155, 107);
+            this.txtJugadoresVisitantes.Location = new System.Drawing.Point(155, 138);
             this.txtJugadoresVisitantes.Name = "txtJugadoresVisitantes";
             this.txtJugadoresVisitantes.Size = new System.Drawing.Size(196, 20);
             this.txtJugadoresVisitantes.TabIndex = 150;
             // 
             // btnConfirmarVisitante
             // 
-            this.btnConfirmarVisitante.Location = new System.Drawing.Point(204, 322);
+            this.btnConfirmarVisitante.Location = new System.Drawing.Point(204, 353);
             this.btnConfirmarVisitante.Name = "btnConfirmarVisitante";
             this.btnConfirmarVisitante.Size = new System.Drawing.Size(78, 32);
             this.btnConfirmarVisitante.TabIndex = 153;
             this.btnConfirmarVisitante.Text = "Confirmar";
             this.btnConfirmarVisitante.UseVisualStyleBackColor = true;
+            this.btnConfirmarVisitante.Click += new System.EventHandler(this.btnConfirmarVisitante_Click);
             // 
             // btnQuitarVisitante
             // 
-            this.btnQuitarVisitante.Location = new System.Drawing.Point(204, 204);
+            this.btnQuitarVisitante.Location = new System.Drawing.Point(204, 235);
             this.btnQuitarVisitante.Name = "btnQuitarVisitante";
             this.btnQuitarVisitante.Size = new System.Drawing.Size(78, 32);
             this.btnQuitarVisitante.TabIndex = 152;
@@ -444,7 +447,7 @@
             // 
             // btnAgregarVisitante
             // 
-            this.btnAgregarVisitante.Location = new System.Drawing.Point(204, 153);
+            this.btnAgregarVisitante.Location = new System.Drawing.Point(204, 184);
             this.btnAgregarVisitante.Name = "btnAgregarVisitante";
             this.btnAgregarVisitante.Size = new System.Drawing.Size(78, 32);
             this.btnAgregarVisitante.TabIndex = 150;
@@ -455,7 +458,7 @@
             // listVisitantes
             // 
             this.listVisitantes.FormattingEnabled = true;
-            this.listVisitantes.Location = new System.Drawing.Point(6, 19);
+            this.listVisitantes.Location = new System.Drawing.Point(6, 50);
             this.listVisitantes.Name = "listVisitantes";
             this.listVisitantes.Size = new System.Drawing.Size(143, 368);
             this.listVisitantes.TabIndex = 151;
@@ -508,9 +511,9 @@
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Image = global::Prode.Properties.Resources.deshacer;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button3.Location = new System.Drawing.Point(796, 26);
+            this.button3.Location = new System.Drawing.Point(474, 657);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(49, 48);
+            this.button3.Size = new System.Drawing.Size(80, 51);
             this.button3.TabIndex = 152;
             this.button3.Text = "Volver";
             this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -528,6 +531,17 @@
             this.lblIdPartido.TabIndex = 153;
             this.lblIdPartido.Text = "@Res";
             this.lblIdPartido.Visible = false;
+            // 
+            // lblMensajeVisitante
+            // 
+            this.lblMensajeVisitante.AutoSize = true;
+            this.lblMensajeVisitante.Font = new System.Drawing.Font("Microsoft Tai Le", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensajeVisitante.Location = new System.Drawing.Point(4, 16);
+            this.lblMensajeVisitante.Name = "lblMensajeVisitante";
+            this.lblMensajeVisitante.Size = new System.Drawing.Size(48, 14);
+            this.lblMensajeVisitante.TabIndex = 161;
+            this.lblMensajeVisitante.Text = "Estadio:";
+            this.lblMensajeVisitante.Visible = false;
             // 
             // AlineacionEquipoWF
             // 
@@ -603,5 +617,6 @@
         private System.Windows.Forms.Label lblTotalVisitante;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblMensajeLocal;
+        private System.Windows.Forms.Label lblMensajeVisitante;
     }
 }

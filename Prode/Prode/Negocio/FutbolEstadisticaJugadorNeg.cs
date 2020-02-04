@@ -18,8 +18,7 @@ namespace Prode.Negocio
                 exito = FutbolEstadisticaJugadorDao.GuardarEstadisticaJugador(listaEstadistica, sistemaTactico, idEquipos, idPartidos);
             }
             catch (Exception ex)
-             {
-
+            {
             }
             return exito;
         }
