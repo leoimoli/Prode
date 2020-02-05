@@ -166,6 +166,12 @@
     <Compile Include="EquiposWF.Designer.cs">
       <DependentUpon>EquiposWF.cs</DependentUpon>
     </Compile>
+    <Compile Include="EstadisticaJugadorWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EstadisticaJugadorWF.Designer.cs">
+      <DependentUpon>EstadisticaJugadorWF.cs</DependentUpon>
+    </Compile>
     <Compile Include="FechaWF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EquiposWF.resx">
       <DependentUpon>EquiposWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EstadisticaJugadorWF.resx">
+      <DependentUpon>EstadisticaJugadorWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FechaWF.resx">
       <DependentUpon>FechaWF.cs</DependentUpon>

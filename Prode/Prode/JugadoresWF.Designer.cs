@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JugadoresWF));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnFutbol = new System.Windows.Forms.Button();
             this.btnFicha = new System.Windows.Forms.Button();
             this.btnAsignar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
@@ -65,7 +66,6 @@
             this.txtBuscarApellidoNombre = new System.Windows.Forms.TextBox();
             this.lblDniOApellidoNombre = new System.Windows.Forms.Label();
             this.lblTexto = new System.Windows.Forms.Label();
-            this.btnFutbol = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -87,6 +87,19 @@
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Menú";
+            // 
+            // btnFutbol
+            // 
+            this.btnFutbol.Image = global::Prode.Properties.Resources.pelota_de_futbol;
+            this.btnFutbol.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFutbol.Location = new System.Drawing.Point(9, 466);
+            this.btnFutbol.Name = "btnFutbol";
+            this.btnFutbol.Size = new System.Drawing.Size(133, 55);
+            this.btnFutbol.TabIndex = 11;
+            this.btnFutbol.Text = "Fútbol";
+            this.btnFutbol.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFutbol.UseVisualStyleBackColor = true;
+            this.btnFutbol.Click += new System.EventHandler(this.btnFutbol_Click);
             // 
             // btnFicha
             // 
@@ -235,7 +248,7 @@
             this.txtPeso.Location = new System.Drawing.Point(562, 403);
             this.txtPeso.Name = "txtPeso";
             this.txtPeso.Size = new System.Drawing.Size(269, 23);
-            this.txtPeso.TabIndex = 63;
+            this.txtPeso.TabIndex = 9;
             this.txtPeso.Visible = false;
             this.txtPeso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPeso_KeyPress);
             // 
@@ -245,7 +258,7 @@
             this.txtAltura.Location = new System.Drawing.Point(117, 403);
             this.txtAltura.Name = "txtAltura";
             this.txtAltura.Size = new System.Drawing.Size(269, 23);
-            this.txtAltura.TabIndex = 62;
+            this.txtAltura.TabIndex = 8;
             this.txtAltura.Visible = false;
             this.txtAltura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAltura_KeyPress);
             // 
@@ -257,7 +270,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(439, 481);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(80, 51);
-            this.btnCancelar.TabIndex = 61;
+            this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -283,7 +296,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(526, 481);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(80, 51);
-            this.btnGuardar.TabIndex = 58;
+            this.btnGuardar.TabIndex = 11;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -298,7 +311,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(353, 481);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(80, 51);
-            this.btnEliminar.TabIndex = 59;
+            this.btnEliminar.TabIndex = 13;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -313,7 +326,7 @@
             this.btnCargarImagen.Location = new System.Drawing.Point(913, 354);
             this.btnCargarImagen.Name = "btnCargarImagen";
             this.btnCargarImagen.Size = new System.Drawing.Size(49, 39);
-            this.btnCargarImagen.TabIndex = 57;
+            this.btnCargarImagen.TabIndex = 10;
             this.btnCargarImagen.UseVisualStyleBackColor = false;
             this.btnCargarImagen.Visible = false;
             this.btnCargarImagen.Click += new System.EventHandler(this.btnCargarImagen_Click);
@@ -356,7 +369,7 @@
             this.dtFechaNacimiento.Location = new System.Drawing.Point(562, 307);
             this.dtFechaNacimiento.Name = "dtFechaNacimiento";
             this.dtFechaNacimiento.Size = new System.Drawing.Size(269, 23);
-            this.dtFechaNacimiento.TabIndex = 50;
+            this.dtFechaNacimiento.TabIndex = 7;
             this.dtFechaNacimiento.Visible = false;
             // 
             // cmbSexo
@@ -365,7 +378,7 @@
             this.cmbSexo.Location = new System.Drawing.Point(117, 223);
             this.cmbSexo.Name = "cmbSexo";
             this.cmbSexo.Size = new System.Drawing.Size(269, 24);
-            this.cmbSexo.TabIndex = 49;
+            this.cmbSexo.TabIndex = 4;
             this.cmbSexo.Visible = false;
             // 
             // lblFechaNacimiento
@@ -396,7 +409,7 @@
             this.txtApodo.Location = new System.Drawing.Point(117, 309);
             this.txtApodo.Name = "txtApodo";
             this.txtApodo.Size = new System.Drawing.Size(269, 23);
-            this.txtApodo.TabIndex = 45;
+            this.txtApodo.TabIndex = 6;
             this.txtApodo.Visible = false;
             // 
             // lblNombre
@@ -416,7 +429,7 @@
             this.txtDni.Location = new System.Drawing.Point(562, 223);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(269, 23);
-            this.txtDni.TabIndex = 43;
+            this.txtDni.TabIndex = 5;
             this.txtDni.Visible = false;
             this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             // 
@@ -448,7 +461,7 @@
             this.txtNombre.Location = new System.Drawing.Point(562, 141);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(269, 23);
-            this.txtNombre.TabIndex = 39;
+            this.txtNombre.TabIndex = 3;
             this.txtNombre.Visible = false;
             // 
             // lblDni
@@ -468,7 +481,7 @@
             this.txtApellido.Location = new System.Drawing.Point(117, 141);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(269, 23);
-            this.txtApellido.TabIndex = 37;
+            this.txtApellido.TabIndex = 2;
             this.txtApellido.Visible = false;
             // 
             // btnBuscar
@@ -478,7 +491,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(724, 23);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(49, 39);
-            this.btnBuscar.TabIndex = 35;
+            this.btnBuscar.TabIndex = 1;
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -489,7 +502,7 @@
             this.txtBuscarApellidoNombre.Location = new System.Drawing.Point(317, 33);
             this.txtBuscarApellidoNombre.Name = "txtBuscarApellidoNombre";
             this.txtBuscarApellidoNombre.Size = new System.Drawing.Size(401, 23);
-            this.txtBuscarApellidoNombre.TabIndex = 34;
+            this.txtBuscarApellidoNombre.TabIndex = 0;
             // 
             // lblDniOApellidoNombre
             // 
@@ -510,19 +523,6 @@
             this.lblTexto.Size = new System.Drawing.Size(298, 25);
             this.lblTexto.TabIndex = 37;
             this.lblTexto.Text = "Seleccione una función del Menú";
-            // 
-            // btnFutbol
-            // 
-            this.btnFutbol.Image = global::Prode.Properties.Resources.pelota_de_futbol;
-            this.btnFutbol.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnFutbol.Location = new System.Drawing.Point(9, 466);
-            this.btnFutbol.Name = "btnFutbol";
-            this.btnFutbol.Size = new System.Drawing.Size(133, 55);
-            this.btnFutbol.TabIndex = 11;
-            this.btnFutbol.Text = "Fútbol";
-            this.btnFutbol.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFutbol.UseVisualStyleBackColor = true;
-            this.btnFutbol.Click += new System.EventHandler(this.btnFutbol_Click);
             // 
             // JugadoresWF
             // 

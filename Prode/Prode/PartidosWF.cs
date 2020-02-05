@@ -16,23 +16,26 @@ namespace Prode
         {
             InitializeComponent();
         }
-
         private void PartidosWF_Load(object sender, EventArgs e)
         {
 
         }
-
         private void btnNuevoPartido_Click(object sender, EventArgs e)
         {
             NuevoPartidoWF _NuevoPartido = new NuevoPartidoWF();
             _NuevoPartido.Show();
             Hide();
         }
-
         private void btnEditarAlineacion_Click(object sender, EventArgs e)
         {
             AlineacionEquipoWF _alineacion = new AlineacionEquipoWF();
             _alineacion.Show();
+            Hide();
+        }
+        private void btnFutbol_Click(object sender, EventArgs e)
+        {
+            MenuFutbolWF _futbol = new MenuFutbolWF();
+            _futbol.Show();
             Hide();
         }
     }

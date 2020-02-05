@@ -34,11 +34,13 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevoPartido = new System.Windows.Forms.Button();
             this.btnEstadistica = new System.Windows.Forms.Button();
+            this.btnFutbol = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnFutbol);
             this.groupBox1.Controls.Add(this.btnEditarAlineacion);
             this.groupBox1.Controls.Add(this.btnEditar);
             this.groupBox1.Controls.Add(this.btnNuevoPartido);
@@ -105,6 +107,19 @@
             this.btnEstadistica.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnEstadistica.UseVisualStyleBackColor = true;
             // 
+            // btnFutbol
+            // 
+            this.btnFutbol.Image = global::Prode.Properties.Resources.pelota_de_futbol;
+            this.btnFutbol.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFutbol.Location = new System.Drawing.Point(9, 426);
+            this.btnFutbol.Name = "btnFutbol";
+            this.btnFutbol.Size = new System.Drawing.Size(133, 55);
+            this.btnFutbol.TabIndex = 12;
+            this.btnFutbol.Text = "Fútbol";
+            this.btnFutbol.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFutbol.UseVisualStyleBackColor = true;
+            this.btnFutbol.Click += new System.EventHandler(this.btnFutbol_Click);
+            // 
             // PartidosWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,5 +143,6 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevoPartido;
         private System.Windows.Forms.Button btnEstadistica;
+        private System.Windows.Forms.Button btnFutbol;
     }
 }
