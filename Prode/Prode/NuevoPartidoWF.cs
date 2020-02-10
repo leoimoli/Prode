@@ -430,7 +430,6 @@ namespace Prode
             txtFecha.Clear();
         }
         #endregion
-
         private void btnVolver_Click(object sender, EventArgs e)
         {
             PartidosWF _partidos = new PartidosWF();

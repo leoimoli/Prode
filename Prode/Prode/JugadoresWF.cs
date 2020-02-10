@@ -577,8 +577,14 @@ namespace Prode
                 { }
             }
         }
+
         #endregion
 
-      
+        private void btnEstadistica_Click(object sender, EventArgs e)
+        {
+            EstadisticaJugadorWF _estadistica = new EstadisticaJugadorWF();
+            _estadistica.Show();
+            Hide();
+        }
     }
 }

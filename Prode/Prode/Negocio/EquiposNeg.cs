@@ -170,7 +170,6 @@ namespace Prode.Negocio
             }
             return exito;
         }
-
         public static bool CargaMasivaDeAsignaciones(List<int> listaId, int idEquipoSeleccionado)
         {
             bool exito = false;

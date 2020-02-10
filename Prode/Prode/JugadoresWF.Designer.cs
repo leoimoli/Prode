@@ -183,6 +183,7 @@
             this.btnEstadistica.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEstadistica.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnEstadistica.UseVisualStyleBackColor = true;
+            this.btnEstadistica.Click += new System.EventHandler(this.btnEstadistica_Click);
             // 
             // groupBox2
             // 

@@ -70,6 +70,46 @@ namespace Prode.Dao
             connection.Close();
             return exito;
         }
+
+        public static List<JugadorEstadisticaPartido> BuscarEstadisticaGeneralPorJugador(int idJugador)
+        {
+            connection.Close();
+            connection.Open();
+            List<Entidades.JugadorEstadisticaPartido> lista = new List<Entidades.JugadorEstadisticaPartido>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                                     new MySqlParameter("idJugador_in", idJugador)};
+            string proceso = "BuscarEstadisticaJugador";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    JugadorEstadisticaPartido listaEstadisatica = new JugadorEstadisticaPartido();
+                    listaEstadisatica.PJ = Convert.ToInt32(item["PJ"].ToString());
+                    listaEstadisatica.Minutos = Convert.ToInt32(item["MinutosJugados"].ToString());
+                    listaEstadisatica.Goles = Convert.ToInt32(item["Goles"].ToString());
+                    listaEstadisatica.Amarillas = Convert.ToInt32(item["Amarillas"].ToString());
+                    listaEstadisatica.Rojas = Convert.ToInt32(item["Rojas"].ToString());
+                    if (item["AsistenciaEntrenamiento"].ToString() == "" || item["AsistenciaEntrenamiento"].ToString() == null)
+                    {
+                        listaEstadisatica.Entrenamientos = 0;
+                    }
+                    else
+                    {
+                        listaEstadisatica.Entrenamientos = Convert.ToInt32(item["AsistenciaEntrenamiento"].ToString());
+                    }
+                    lista.Add(listaEstadisatica);
+                }
+            }
+            connection.Close();
+            return lista;
+        }
         public static List<Jugadores> BuscarJugadoresPorId(int idJugadorStatic)
         {
             connection.Close();

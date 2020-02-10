@@ -57,7 +57,19 @@ namespace Prode.Negocio
                 throw new Exception();
             }
         }
+        public static List<JugadorEstadisticaPartido> BuscarEstadisticaGeneralPorJugador(int idJugador)
+        {
+            List<JugadorEstadisticaPartido> _listaEstadistica = new List<JugadorEstadisticaPartido>();
+            try
+            {
+                _listaEstadistica = JugadoresDao.BuscarEstadisticaGeneralPorJugador(idJugador);
+            }
+            catch (Exception ex)
+            {
 
+            }
+            return _listaEstadistica;
+        }
         public static List<Jugadores> BuscarJugadoresPorId(int idJugadorStatic)
         {
             List<Jugadores> _listaJugadores = new List<Jugadores>();
@@ -71,7 +83,6 @@ namespace Prode.Negocio
             }
             return _listaJugadores;
         }
-
         public static bool GuardarFichaTecnicaJugador(FichaTecnica _fichaJugadores)
         {
             bool Exito = false;
@@ -98,7 +109,6 @@ namespace Prode.Negocio
                 throw new Exception();
             }
         }
-
         public static bool EditarFichaTecnicaJugador(FichaTecnica _fichaJugadores)
         {
             bool Exito = false;
@@ -112,7 +122,6 @@ namespace Prode.Negocio
             }
             return Exito;
         }
-
         public static bool EditarJugador(Jugadores _jugadores, int idJugador)
         {
             bool Exito = false;
@@ -166,7 +175,6 @@ namespace Prode.Negocio
             }
             return _listaJugadores;
         }
-
         public static List<string> CargarComboPuestos()
         {
             List<string> lista = new List<string>();

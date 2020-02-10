@@ -14,5 +14,6 @@ namespace Prode.Entidades
         public int Amarillas { get; set; }
         public int Rojas { get; set; }
         public int PJ { get; set; }
+        public int Entrenamientos { get; set; }
     }
 }
