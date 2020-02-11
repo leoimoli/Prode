@@ -162,6 +162,86 @@ namespace Prode.Dao
             connection.Close();
             return lista;
         }
+        public static string Variable;
+        public static List<JugadorEstadisticaPartido> BuscarEstadisticPorTorneoPorJugador(int idJugador, string torneoFinal, string ligaFinal, string temporadaFinal)
+        {
+            int idTorneo = TorneoDao.BuscaIdtorneoPorNombreTemporada(torneoFinal, ligaFinal, temporadaFinal);
+            connection.Close();
+            connection.Open();
+            List<int> ListaidPartidos = new List<int>();
+            ListaidPartidos = BuscarListaDePartidosPoridTorneo(idTorneo);
+            string ListaPartidos;
+            foreach (var item in ListaidPartidos)
+            {
+                ListaPartidos = item.ToString() + "," + Variable;
+                Variable = ListaPartidos;
+            }
+            Variable = Variable.TrimEnd(',');
+            var Variable2 = Variable.Replace('"', ' ');
+            List<Entidades.JugadorEstadisticaPartido> lista = new List<Entidades.JugadorEstadisticaPartido>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                                     new MySqlParameter("Variable2_in", Variable2),
+            new MySqlParameter("idJugador_in", idJugador)};
+            string proceso = "BuscarEstadisticaPorTorneoPorJugador";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    JugadorEstadisticaPartido listaEstadisatica = new JugadorEstadisticaPartido();
+                    listaEstadisatica.PJ = Convert.ToInt32(item["PJ"].ToString());
+                    listaEstadisatica.Minutos = Convert.ToInt32(item["MinutosJugados"].ToString());
+                    listaEstadisatica.Goles = Convert.ToInt32(item["Goles"].ToString());
+                    listaEstadisatica.Amarillas = Convert.ToInt32(item["Amarillas"].ToString());
+                    listaEstadisatica.Rojas = Convert.ToInt32(item["Rojas"].ToString());
+                    if (item["AsistenciaEntrenamiento"].ToString() == "" || item["AsistenciaEntrenamiento"].ToString() == null)
+                    {
+                        listaEstadisatica.Entrenamientos = 0;
+                    }
+                    else
+                    {
+                        listaEstadisatica.Entrenamientos = Convert.ToInt32(item["AsistenciaEntrenamiento"].ToString());
+                    }
+                    lista.Add(listaEstadisatica);
+                }
+            }
+            connection.Close();
+            return lista;
+        }
+        private static List<int> BuscarListaDePartidosPoridTorneo(int idTorneo)
+        {
+            List<int> ListaIdPartidos = new List<int>();
+            connection.Close();
+            connection.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                                      new MySqlParameter("idTorneo_in", idTorneo)};
+            string proceso = "BuscarListaDePartidosPoridTorneo";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                List<int> Partidos = new List<int>();
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    Partidos.Add(Convert.ToInt32(item["idPartido"].ToString()));
+                }
+                ListaIdPartidos = Partidos;
+            }
+            connection.Close();
+            return ListaIdPartidos;
+        }
+
         public static bool AltaFichaTecnica(FichaTecnica _fichaJugadores)
         {
             bool Exito = false;

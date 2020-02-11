@@ -35,12 +35,36 @@ namespace Prode
         {
             try
             {
-                FuncionBuscarJugador();
+                FuncionBuscarEstadisticaGeneral();
             }
             catch (Exception ex)
             { }
         }
-        private void FuncionBuscarJugador()
+        private void FuncionBuscarEstadisticaGeneral()
+        {
+            BuscarJugadorIngresado();
+            HabilitarFiltrosDeBusqueda();
+            List<JugadorEstadisticaPartido> _estadistica = new List<JugadorEstadisticaPartido>();
+            int idJugador = Convert.ToInt32(lblIdJugador.Text);
+            _estadistica = JugadoresNeg.BuscarEstadisticaGeneralPorJugador(idJugador);
+            if (_estadistica.Count > 0)
+            {
+                grbJugador1.Visible = true;
+                lblPartido.Visible = true;
+                lblPartidosJugadosFijo.Visible = true;
+                var estadistica = _estadistica.First();
+                lblPartido.Text = Convert.ToString(estadistica.PJ);
+                lblMinutos.Text = Convert.ToString(estadistica.Minutos);
+                lblGoles.Text = Convert.ToString(estadistica.Goles);
+                lblAmarillas.Text = Convert.ToString(estadistica.Amarillas);
+                lblRojas.Text = Convert.ToString(estadistica.Rojas);
+                if (estadistica.Entrenamientos > 0)
+                { lblEntrenamientos.Text = Convert.ToString(estadistica.Entrenamientos); }
+                else
+                { lblEntrenamientos.Text = "0"; }
+            }
+        }
+        private void BuscarJugadorIngresado()
         {
             List<Jugadores> _jugadores = new List<Jugadores>();
             string ApellidoNombre = txtBuscarApellidoNombre.Text;
@@ -60,25 +84,6 @@ namespace Prode
                 }
                 lblIdJugador.Text = Convert.ToString(jugador.idJugador);
                 grbJugador1.Text = jugador.Apellido + " " + jugador.Nombre;
-                HabilitarFiltrosDeBusqueda();
-                List<JugadorEstadisticaPartido> _estadistica = new List<JugadorEstadisticaPartido>();
-                _estadistica = JugadoresNeg.BuscarEstadisticaGeneralPorJugador(jugador.idJugador);
-                if (_estadistica.Count > 0)
-                {
-                    grbJugador1.Visible = true;
-                    lblPartido.Visible = true;
-                    lblPartidosJugadosFijo.Visible = true;
-                    var estadistica = _estadistica.First();
-                    lblPartido.Text = Convert.ToString(estadistica.PJ);
-                    lblMinutos.Text = Convert.ToString(estadistica.Minutos);
-                    lblGoles.Text = Convert.ToString(estadistica.Goles);
-                    lblAmarillas.Text = Convert.ToString(estadistica.Amarillas);
-                    lblRojas.Text = Convert.ToString(estadistica.Rojas);
-                    if (estadistica.Entrenamientos > 0)
-                    { lblEntrenamientos.Text = Convert.ToString(estadistica.Entrenamientos); }
-                    else
-                    { lblEntrenamientos.Text = "0"; }
-                }
             }
         }
         private void HabilitarFiltrosDeBusqueda()
@@ -121,7 +126,7 @@ namespace Prode
                 btnBuscarPorFiltro.Visible = true;
                 grbJugador1.Visible = false;
             }
-        }     
+        }
         private void chcPartido_CheckedChanged(object sender, EventArgs e)
         {
             if (chcPartido.Checked == true)
@@ -198,6 +203,43 @@ namespace Prode
                 cmbTorneo.Items.Add(item);
             }
             cmbTorneo.Enabled = true;
+        }
+        private void btnBuscarPorFiltro_Click(object sender, EventArgs e)
+        {
+            if (chcTorneo.Checked == true)
+            {
+                if (cmbLiga.Text != "Seleccione" && cmbTorneo.Text != "Seleccione")
+                {
+                    var torneo = cmbTorneo.Text;
+                    string var = torneo;
+                    string Torneo = var.Split('-')[0];
+                    string Temporada = var.Split('-')[1];
+                    string TorneoFinal = Torneo;
+                    string LigaFinal = cmbLiga.Text;
+                    string TemporadaFinal = Temporada;
+                    BuscarJugadorIngresado();
+                    int idJugador = Convert.ToInt32(lblIdJugador.Text);
+                    List<JugadorEstadisticaPartido> _estadistica = new List<JugadorEstadisticaPartido>();
+                    _estadistica = JugadoresNeg.BuscarEstadisticPorTorneoPorJugador(idJugador, TorneoFinal, LigaFinal, TemporadaFinal);
+                    if (_estadistica.Count > 0)
+                    {
+                        grbJugador1.Visible = true;
+                        lblPartido.Visible = true;
+                        lblPartidosJugadosFijo.Visible = true;
+                        var estadistica = _estadistica.First();
+                        lblPartido.Text = Convert.ToString(estadistica.PJ);
+                        lblMinutos.Text = Convert.ToString(estadistica.Minutos);
+                        lblGoles.Text = Convert.ToString(estadistica.Goles);
+                        lblAmarillas.Text = Convert.ToString(estadistica.Amarillas);
+                        lblRojas.Text = Convert.ToString(estadistica.Rojas);
+                        if (estadistica.Entrenamientos > 0)
+                        { lblEntrenamientos.Text = Convert.ToString(estadistica.Entrenamientos); }
+                        else
+                        { lblEntrenamientos.Text = "0"; }
+                    }
+
+                }
+            }
         }
     }
 }

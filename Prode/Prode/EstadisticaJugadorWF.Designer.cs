@@ -540,6 +540,7 @@
             this.btnBuscarPorFiltro.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBuscarPorFiltro.UseVisualStyleBackColor = true;
             this.btnBuscarPorFiltro.Visible = false;
+            this.btnBuscarPorFiltro.Click += new System.EventHandler(this.btnBuscarPorFiltro_Click);
             // 
             // EstadisticaJugadorWF
             // 
