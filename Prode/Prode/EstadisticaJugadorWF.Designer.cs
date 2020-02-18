@@ -50,6 +50,7 @@
             this.lblPartidosJugadosFijo = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.grbFiltroPersona = new System.Windows.Forms.GroupBox();
+            this.btnBuscarPorFiltro = new System.Windows.Forms.Button();
             this.lblTorneo = new System.Windows.Forms.Label();
             this.lblEquipo = new System.Windows.Forms.Label();
             this.chcEntrenamiento = new System.Windows.Forms.CheckBox();
@@ -67,7 +68,6 @@
             this.lblIdJugador = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnBuscarPorFiltro = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.grbJugador.SuspendLayout();
             this.grbJugador1.SuspendLayout();
@@ -182,7 +182,7 @@
             // 
             this.lblEntrenamientos.AutoSize = true;
             this.lblEntrenamientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEntrenamientos.Location = new System.Drawing.Point(152, 321);
+            this.lblEntrenamientos.Location = new System.Drawing.Point(152, 138);
             this.lblEntrenamientos.Name = "lblEntrenamientos";
             this.lblEntrenamientos.Size = new System.Drawing.Size(25, 20);
             this.lblEntrenamientos.TabIndex = 158;
@@ -244,7 +244,7 @@
             // 
             this.lblEntrenamientoFijo.AutoSize = true;
             this.lblEntrenamientoFijo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEntrenamientoFijo.Location = new System.Drawing.Point(20, 321);
+            this.lblEntrenamientoFijo.Location = new System.Drawing.Point(20, 138);
             this.lblEntrenamientoFijo.Name = "lblEntrenamientoFijo";
             this.lblEntrenamientoFijo.Size = new System.Drawing.Size(126, 20);
             this.lblEntrenamientoFijo.TabIndex = 150;
@@ -336,6 +336,19 @@
             this.grbFiltroPersona.TabIndex = 66;
             this.grbFiltroPersona.TabStop = false;
             this.grbFiltroPersona.Text = "Buscar Persona";
+            // 
+            // btnBuscarPorFiltro
+            // 
+            this.btnBuscarPorFiltro.Image = global::Prode.Properties.Resources.buscar;
+            this.btnBuscarPorFiltro.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnBuscarPorFiltro.Location = new System.Drawing.Point(581, 95);
+            this.btnBuscarPorFiltro.Name = "btnBuscarPorFiltro";
+            this.btnBuscarPorFiltro.Size = new System.Drawing.Size(49, 39);
+            this.btnBuscarPorFiltro.TabIndex = 151;
+            this.btnBuscarPorFiltro.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnBuscarPorFiltro.UseVisualStyleBackColor = true;
+            this.btnBuscarPorFiltro.Visible = false;
+            this.btnBuscarPorFiltro.Click += new System.EventHandler(this.btnBuscarPorFiltro_Click);
             // 
             // lblTorneo
             // 
@@ -528,19 +541,6 @@
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Visible = false;
-            // 
-            // btnBuscarPorFiltro
-            // 
-            this.btnBuscarPorFiltro.Image = global::Prode.Properties.Resources.buscar;
-            this.btnBuscarPorFiltro.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnBuscarPorFiltro.Location = new System.Drawing.Point(581, 95);
-            this.btnBuscarPorFiltro.Name = "btnBuscarPorFiltro";
-            this.btnBuscarPorFiltro.Size = new System.Drawing.Size(49, 39);
-            this.btnBuscarPorFiltro.TabIndex = 151;
-            this.btnBuscarPorFiltro.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnBuscarPorFiltro.UseVisualStyleBackColor = true;
-            this.btnBuscarPorFiltro.Visible = false;
-            this.btnBuscarPorFiltro.Click += new System.EventHandler(this.btnBuscarPorFiltro_Click);
             // 
             // EstadisticaJugadorWF
             // 

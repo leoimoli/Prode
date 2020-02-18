@@ -152,6 +152,7 @@ namespace Prode
         {
             if (chcEntrenamiento.Checked == true)
             {
+                BuscarJugadorIngresado();
                 chcGeneral.Checked = false;
                 chcTorneo.Checked = false;
                 chcPartido.Checked = false;
@@ -221,6 +222,34 @@ namespace Prode
                     int idJugador = Convert.ToInt32(lblIdJugador.Text);
                     List<JugadorEstadisticaPartido> _estadistica = new List<JugadorEstadisticaPartido>();
                     _estadistica = JugadoresNeg.BuscarEstadisticPorTorneoPorJugador(idJugador, TorneoFinal, LigaFinal, TemporadaFinal);
+                    if (_estadistica.Count > 0)
+                    {
+                        grbJugador1.Visible = true;
+                        lblPartido.Visible = true;
+                        lblPartidosJugadosFijo.Visible = true;
+                        var estadistica = _estadistica.First();
+                        lblPartido.Text = Convert.ToString(estadistica.PJ);
+                        lblMinutos.Text = Convert.ToString(estadistica.Minutos);
+                        lblGoles.Text = Convert.ToString(estadistica.Goles);
+                        lblAmarillas.Text = Convert.ToString(estadistica.Amarillas);
+                        lblRojas.Text = Convert.ToString(estadistica.Rojas);
+                        if (estadistica.Entrenamientos > 0)
+                        { lblEntrenamientos.Text = Convert.ToString(estadistica.Entrenamientos); }
+                        else
+                        { lblEntrenamientos.Text = "0"; }
+                    }
+
+                }
+            }
+            if (chcPartido.Checked == true)
+            {
+                if (txtEquipo.Text != "" & txtEquipo.Text != null)
+                {
+                    var equipo = txtEquipo.Text;
+                    BuscarJugadorIngresado();
+                    int idJugador = Convert.ToInt32(lblIdJugador.Text);
+                    List<JugadorEstadisticaPartido> _estadistica = new List<JugadorEstadisticaPartido>();
+                    _estadistica = JugadoresNeg.BuscarEstadisticPorEquipoPorJugador(idJugador, equipo);
                     if (_estadistica.Count > 0)
                     {
                         grbJugador1.Visible = true;

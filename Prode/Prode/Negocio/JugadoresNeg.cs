@@ -227,5 +227,19 @@ namespace Prode.Negocio
             }
             return _listaEstadistica;
         }
+
+        public static List<JugadorEstadisticaPartido> BuscarEstadisticPorEquipoPorJugador(int idJugador, string equipo)
+        {
+            List<JugadorEstadisticaPartido> _listaEstadistica = new List<JugadorEstadisticaPartido>();
+            try
+            {
+                _listaEstadistica = JugadoresDao.BuscarEstadisticaPorEquipoPorJugador(idJugador, equipo);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return _listaEstadistica;
+        }
     }
 }

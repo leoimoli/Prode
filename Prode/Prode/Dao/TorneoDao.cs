@@ -168,7 +168,7 @@ namespace Prode.Dao
             connection.Close();
             return FechaValida;
         }
-        public static int BuscaIdtorneoPorNombreTemporada(string torneo, string temporada, string Liga)
+        public static int BuscaIdtorneoPorNombreTemporada(string torneo, string Liga, string temporada)
         {
             int idTorneo = 0;
             connection.Close();
