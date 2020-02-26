@@ -74,5 +74,21 @@ namespace Prode.Clase_Maestra
                 return new string[] { "30", "40", "50", "60","90","120" };
             }
         }
+
+        public static string[] Hora
+        {
+            get
+            {
+                return new string[] { "01hs", "02hs", "03hs", "04hs", "05hs", "06hs", "07hs", "08hs", "09hs", "10hs", "11hs", "12hs", "13hs", "14hs", "15hs", "16hs", "17hs", "18hs", "19hs", "20hs", "21hs", "22hs", "23hs", "24hs", };
+            }
+        }
+
+        public static string[] Lugar
+        {
+            get
+            {
+                return new string[] { "Cancha", "Gimnasio", "Predio Entrenamiento" };
+            }
+        }
     }
 }
