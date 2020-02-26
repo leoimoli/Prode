@@ -94,6 +94,7 @@
             this.btnPracticas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPracticas.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnPracticas.UseVisualStyleBackColor = true;
+            this.btnPracticas.Click += new System.EventHandler(this.btnPracticas_Click);
             // 
             // btnJugadores
             // 

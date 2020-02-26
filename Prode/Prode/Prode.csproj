@@ -160,6 +160,12 @@
     <Compile Include="Entidades\TipoResultadoPorPartido.cs" />
     <Compile Include="Entidades\Torneo.cs" />
     <Compile Include="Entidades\Usuario.cs" />
+    <Compile Include="EntrenamientosWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntrenamientosWF.Designer.cs">
+      <DependentUpon>EntrenamientosWF.cs</DependentUpon>
+    </Compile>
     <Compile Include="EquiposWF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -288,6 +294,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DisposicionTacticaWF.resx">
       <DependentUpon>DisposicionTacticaWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntrenamientosWF.resx">
+      <DependentUpon>EntrenamientosWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EquiposWF.resx">
       <DependentUpon>EquiposWF.cs</DependentUpon>
@@ -471,6 +480,11 @@
     <None Include="Resources\hombre1.png" />
     <None Include="Resources\deshacer1.png" />
     <None Include="Resources\error1.png" />
+    <None Include="Resources\anadir %281%29.png" />
+    <None Include="Resources\mas.png" />
+    <None Include="Resources\mas%281%29.png" />
+    <None Include="Resources\proximo.png" />
+    <None Include="Resources\espalda %281%29.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

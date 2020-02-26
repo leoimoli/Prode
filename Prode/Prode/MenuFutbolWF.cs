@@ -44,5 +44,12 @@ namespace Prode
             _equipo.Show();
             Hide();
         }
+
+        private void btnPracticas_Click(object sender, EventArgs e)
+        {
+            EntrenamientosWF _entrenamiento = new EntrenamientosWF();
+            _entrenamiento.Show();
+            Hide();
+        }
     }
 }

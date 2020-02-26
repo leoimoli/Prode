@@ -35,14 +35,16 @@
             this.btnAsignar = new System.Windows.Forms.Button();
             this.btnJugador = new System.Windows.Forms.Button();
             this.grbJugador = new System.Windows.Forms.GroupBox();
-            this.grbJugador1 = new System.Windows.Forms.GroupBox();
+            this.grbEntrenamientos = new System.Windows.Forms.GroupBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lblEntrenamientoFijo = new System.Windows.Forms.Label();
             this.lblEntrenamientos = new System.Windows.Forms.Label();
+            this.grbJugador1 = new System.Windows.Forms.GroupBox();
             this.lblRojas = new System.Windows.Forms.Label();
             this.lblAmarillas = new System.Windows.Forms.Label();
             this.lblGoles = new System.Windows.Forms.Label();
             this.lblMinutos = new System.Windows.Forms.Label();
             this.lblPartido = new System.Windows.Forms.Label();
-            this.lblEntrenamientoFijo = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -70,6 +72,8 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.grbJugador.SuspendLayout();
+            this.grbEntrenamientos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.grbJugador1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.grbFiltroPersona.SuspendLayout();
@@ -142,6 +146,7 @@
             // 
             // grbJugador
             // 
+            this.grbJugador.Controls.Add(this.grbEntrenamientos);
             this.grbJugador.Controls.Add(this.grbJugador1);
             this.grbJugador.Controls.Add(this.grbFiltroPersona);
             this.grbJugador.Controls.Add(this.lblIdJugador);
@@ -155,22 +160,63 @@
             this.grbJugador.TabStop = false;
             this.grbJugador.Text = "Estadisticas Jugador";
             // 
+            // grbEntrenamientos
+            // 
+            this.grbEntrenamientos.Controls.Add(this.pictureBox2);
+            this.grbEntrenamientos.Controls.Add(this.lblEntrenamientoFijo);
+            this.grbEntrenamientos.Controls.Add(this.lblEntrenamientos);
+            this.grbEntrenamientos.Location = new System.Drawing.Point(323, 161);
+            this.grbEntrenamientos.Name = "grbEntrenamientos";
+            this.grbEntrenamientos.Size = new System.Drawing.Size(200, 187);
+            this.grbEntrenamientos.TabIndex = 159;
+            this.grbEntrenamientos.TabStop = false;
+            this.grbEntrenamientos.Text = "groupBox2";
+            this.grbEntrenamientos.Visible = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.pictureBox2.Location = new System.Drawing.Point(44, 29);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(109, 76);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 159;
+            this.pictureBox2.TabStop = false;
+            // 
+            // lblEntrenamientoFijo
+            // 
+            this.lblEntrenamientoFijo.AutoSize = true;
+            this.lblEntrenamientoFijo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEntrenamientoFijo.Location = new System.Drawing.Point(6, 122);
+            this.lblEntrenamientoFijo.Name = "lblEntrenamientoFijo";
+            this.lblEntrenamientoFijo.Size = new System.Drawing.Size(126, 40);
+            this.lblEntrenamientoFijo.TabIndex = 150;
+            this.lblEntrenamientoFijo.Text = "Asistencias \r\nEntrenamientos:";
+            // 
+            // lblEntrenamientos
+            // 
+            this.lblEntrenamientos.AutoSize = true;
+            this.lblEntrenamientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEntrenamientos.Location = new System.Drawing.Point(138, 132);
+            this.lblEntrenamientos.Name = "lblEntrenamientos";
+            this.lblEntrenamientos.Size = new System.Drawing.Size(25, 20);
+            this.lblEntrenamientos.TabIndex = 158;
+            this.lblEntrenamientos.Text = "@";
+            // 
             // grbJugador1
             // 
-            this.grbJugador1.Controls.Add(this.lblEntrenamientos);
             this.grbJugador1.Controls.Add(this.lblRojas);
             this.grbJugador1.Controls.Add(this.lblAmarillas);
             this.grbJugador1.Controls.Add(this.lblGoles);
             this.grbJugador1.Controls.Add(this.lblMinutos);
             this.grbJugador1.Controls.Add(this.lblPartido);
-            this.grbJugador1.Controls.Add(this.lblEntrenamientoFijo);
             this.grbJugador1.Controls.Add(this.label6);
             this.grbJugador1.Controls.Add(this.label5);
             this.grbJugador1.Controls.Add(this.label4);
             this.grbJugador1.Controls.Add(this.label2);
             this.grbJugador1.Controls.Add(this.lblPartidosJugadosFijo);
             this.grbJugador1.Controls.Add(this.pictureBox1);
-            this.grbJugador1.Location = new System.Drawing.Point(317, 167);
+            this.grbJugador1.Location = new System.Drawing.Point(317, 176);
             this.grbJugador1.Name = "grbJugador1";
             this.grbJugador1.Size = new System.Drawing.Size(276, 354);
             this.grbJugador1.TabIndex = 67;
@@ -178,22 +224,11 @@
             this.grbJugador1.Text = "groupBox3";
             this.grbJugador1.Visible = false;
             // 
-            // lblEntrenamientos
-            // 
-            this.lblEntrenamientos.AutoSize = true;
-            this.lblEntrenamientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEntrenamientos.Location = new System.Drawing.Point(152, 138);
-            this.lblEntrenamientos.Name = "lblEntrenamientos";
-            this.lblEntrenamientos.Size = new System.Drawing.Size(25, 20);
-            this.lblEntrenamientos.TabIndex = 158;
-            this.lblEntrenamientos.Text = "@";
-            this.lblEntrenamientos.Visible = false;
-            // 
             // lblRojas
             // 
             this.lblRojas.AutoSize = true;
             this.lblRojas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRojas.Location = new System.Drawing.Point(152, 284);
+            this.lblRojas.Location = new System.Drawing.Point(152, 319);
             this.lblRojas.Name = "lblRojas";
             this.lblRojas.Size = new System.Drawing.Size(25, 20);
             this.lblRojas.TabIndex = 157;
@@ -203,7 +238,7 @@
             // 
             this.lblAmarillas.AutoSize = true;
             this.lblAmarillas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAmarillas.Location = new System.Drawing.Point(152, 245);
+            this.lblAmarillas.Location = new System.Drawing.Point(152, 272);
             this.lblAmarillas.Name = "lblAmarillas";
             this.lblAmarillas.Size = new System.Drawing.Size(25, 20);
             this.lblAmarillas.TabIndex = 156;
@@ -213,7 +248,7 @@
             // 
             this.lblGoles.AutoSize = true;
             this.lblGoles.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGoles.Location = new System.Drawing.Point(152, 200);
+            this.lblGoles.Location = new System.Drawing.Point(152, 227);
             this.lblGoles.Name = "lblGoles";
             this.lblGoles.Size = new System.Drawing.Size(25, 20);
             this.lblGoles.TabIndex = 155;
@@ -223,7 +258,7 @@
             // 
             this.lblMinutos.AutoSize = true;
             this.lblMinutos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMinutos.Location = new System.Drawing.Point(152, 158);
+            this.lblMinutos.Location = new System.Drawing.Point(152, 184);
             this.lblMinutos.Name = "lblMinutos";
             this.lblMinutos.Size = new System.Drawing.Size(25, 20);
             this.lblMinutos.TabIndex = 154;
@@ -233,29 +268,18 @@
             // 
             this.lblPartido.AutoSize = true;
             this.lblPartido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPartido.Location = new System.Drawing.Point(152, 116);
+            this.lblPartido.Location = new System.Drawing.Point(152, 137);
             this.lblPartido.Name = "lblPartido";
             this.lblPartido.Size = new System.Drawing.Size(25, 20);
             this.lblPartido.TabIndex = 150;
             this.lblPartido.Text = "@";
             this.lblPartido.Visible = false;
             // 
-            // lblEntrenamientoFijo
-            // 
-            this.lblEntrenamientoFijo.AutoSize = true;
-            this.lblEntrenamientoFijo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEntrenamientoFijo.Location = new System.Drawing.Point(20, 138);
-            this.lblEntrenamientoFijo.Name = "lblEntrenamientoFijo";
-            this.lblEntrenamientoFijo.Size = new System.Drawing.Size(126, 20);
-            this.lblEntrenamientoFijo.TabIndex = 150;
-            this.lblEntrenamientoFijo.Text = "Entrenamientos:";
-            this.lblEntrenamientoFijo.Visible = false;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(92, 284);
+            this.label6.Location = new System.Drawing.Point(92, 319);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(54, 20);
             this.label6.TabIndex = 153;
@@ -265,7 +289,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(69, 245);
+            this.label5.Location = new System.Drawing.Point(69, 272);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 20);
             this.label5.TabIndex = 152;
@@ -275,7 +299,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(91, 200);
+            this.label4.Location = new System.Drawing.Point(91, 227);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 20);
             this.label4.TabIndex = 151;
@@ -285,7 +309,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 158);
+            this.label2.Location = new System.Drawing.Point(12, 184);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(134, 20);
             this.label2.TabIndex = 150;
@@ -295,7 +319,7 @@
             // 
             this.lblPartidosJugadosFijo.AutoSize = true;
             this.lblPartidosJugadosFijo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPartidosJugadosFijo.Location = new System.Drawing.Point(10, 116);
+            this.lblPartidosJugadosFijo.Location = new System.Drawing.Point(10, 137);
             this.lblPartidosJugadosFijo.Name = "lblPartidosJugadosFijo";
             this.lblPartidosJugadosFijo.Size = new System.Drawing.Size(136, 20);
             this.lblPartidosJugadosFijo.TabIndex = 149;
@@ -558,6 +582,9 @@
             this.groupBox1.ResumeLayout(false);
             this.grbJugador.ResumeLayout(false);
             this.grbJugador.PerformLayout();
+            this.grbEntrenamientos.ResumeLayout(false);
+            this.grbEntrenamientos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.grbJugador1.ResumeLayout(false);
             this.grbJugador1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -609,5 +636,7 @@
         private System.Windows.Forms.Label lblGoles;
         private System.Windows.Forms.Label lblMinutos;
         private System.Windows.Forms.Button btnBuscarPorFiltro;
+        private System.Windows.Forms.GroupBox grbEntrenamientos;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

@@ -68,22 +68,45 @@ namespace Prode
         {
             List<Jugadores> _jugadores = new List<Jugadores>();
             string ApellidoNombre = txtBuscarApellidoNombre.Text;
-            _jugadores = JugadoresNeg.BuscarJugadoresPorApellidoYNombre(ApellidoNombre);
-            if (_jugadores.Count > 0)
+            if (chcEntrenamiento.Checked == true)
             {
-                var jugador = _jugadores.First();
-                if (jugador.Imagen != null)
+                _jugadores = JugadoresNeg.BuscarJugadoresPorApellidoYNombre(ApellidoNombre);
+                if (_jugadores.Count > 0)
                 {
-                    Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(jugador.Imagen);
-                    pictureBox1.Image = foto1;
+                    var jugador = _jugadores.First();
+                    if (jugador.Imagen != null)
+                    {
+                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(jugador.Imagen);
+                        pictureBox2.Image = foto1;
+                    }
+                    else
+                    {
+                        pictureBox2.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
+                        pictureBox2.Visible = true;
+                    }
+                    lblIdJugador.Text = Convert.ToString(jugador.idJugador);
+                    grbEntrenamientos.Text = jugador.Apellido + " " + jugador.Nombre;
                 }
-                else
+            }
+            else
+            {
+                _jugadores = JugadoresNeg.BuscarJugadoresPorApellidoYNombre(ApellidoNombre);
+                if (_jugadores.Count > 0)
                 {
-                    pictureBox1.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
-                    pictureBox1.Visible = true;
+                    var jugador = _jugadores.First();
+                    if (jugador.Imagen != null)
+                    {
+                        Bitmap foto1 = Clases_Maestras.Funciones.byteToBipmap(jugador.Imagen);
+                        pictureBox1.Image = foto1;
+                    }
+                    else
+                    {
+                        pictureBox1.Image = Image.FromFile("C:\\ProFuSo\\Silueta Jugador.jpg");
+                        pictureBox1.Visible = true;
+                    }
+                    lblIdJugador.Text = Convert.ToString(jugador.idJugador);
+                    grbJugador1.Text = jugador.Apellido + " " + jugador.Nombre;
                 }
-                lblIdJugador.Text = Convert.ToString(jugador.idJugador);
-                grbJugador1.Text = jugador.Apellido + " " + jugador.Nombre;
             }
         }
         private void HabilitarFiltrosDeBusqueda()
@@ -125,6 +148,7 @@ namespace Prode
                 CargarComboLiga();
                 btnBuscarPorFiltro.Visible = true;
                 grbJugador1.Visible = false;
+                grbEntrenamientos.Visible = false;
             }
         }
         private void chcPartido_CheckedChanged(object sender, EventArgs e)
@@ -142,6 +166,7 @@ namespace Prode
                 txtEquipo.Visible = true;
                 btnBuscarPorFiltro.Visible = true;
                 grbJugador1.Visible = false;
+                grbEntrenamientos.Visible = false;
                 txtEquipo.Focus();
                 txtEquipo.AutoCompleteCustomSource = Clases_Maestras.AutoCompletePorEquipo.Autocomplete();
                 txtEquipo.AutoCompleteMode = AutoCompleteMode.Suggest;
@@ -162,8 +187,9 @@ namespace Prode
                 lblLiga.Visible = false;
                 lblEquipo.Visible = false;
                 txtEquipo.Visible = false;
-                btnBuscarPorFiltro.Visible = false;
+                btnBuscarPorFiltro.Visible = true;
                 grbJugador1.Visible = false;
+                grbEntrenamientos.Visible = false;
             }
         }
         private void cmbLiga_SelectedIndexChanged(object sender, EventArgs e)
@@ -225,6 +251,7 @@ namespace Prode
                     if (_estadistica.Count > 0)
                     {
                         grbJugador1.Visible = true;
+                        grbEntrenamientos.Visible = false;
                         lblPartido.Visible = true;
                         lblPartidosJugadosFijo.Visible = true;
                         var estadistica = _estadistica.First();
@@ -253,6 +280,7 @@ namespace Prode
                     if (_estadistica.Count > 0)
                     {
                         grbJugador1.Visible = true;
+                        grbEntrenamientos.Visible = false;
                         lblPartido.Visible = true;
                         lblPartidosJugadosFijo.Visible = true;
                         var estadistica = _estadistica.First();
@@ -267,6 +295,30 @@ namespace Prode
                         { lblEntrenamientos.Text = "0"; }
                     }
 
+                }
+            }
+            if (chcEntrenamiento.Checked == true)
+            {
+                BuscarJugadorIngresado();
+                int idJugador = Convert.ToInt32(lblIdJugador.Text);
+                List<JugadorEstadisticaPartido> _estadistica = new List<JugadorEstadisticaPartido>();
+                _estadistica = JugadoresNeg.BuscarEstadisticaEntrenamientoPorJugador(idJugador);
+                if (_estadistica.Count > 0)
+                {
+                    grbJugador1.Visible = false;
+                    grbEntrenamientos.Visible = true;
+                    lblPartido.Visible = true;
+                    lblPartidosJugadosFijo.Visible = true;
+                    var estadistica = _estadistica.First();
+                    lblPartido.Text = Convert.ToString(estadistica.PJ);
+                    lblMinutos.Text = Convert.ToString(estadistica.Minutos);
+                    lblGoles.Text = Convert.ToString(estadistica.Goles);
+                    lblAmarillas.Text = Convert.ToString(estadistica.Amarillas);
+                    lblRojas.Text = Convert.ToString(estadistica.Rojas);
+                    if (estadistica.Entrenamientos > 0)
+                    { lblEntrenamientos.Text = Convert.ToString(estadistica.Entrenamientos); }
+                    else
+                    { lblEntrenamientos.Text = "0"; }
                 }
             }
         }

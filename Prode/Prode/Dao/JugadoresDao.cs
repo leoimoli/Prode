@@ -214,7 +214,40 @@ namespace Prode.Dao
             connection.Close();
             return lista;
         }
-
+        public static List<JugadorEstadisticaPartido> BuscarEstadisticaEntrenamientoPorJugador(int idJugador)
+        {
+            connection.Close();
+            connection.Open();
+            List<Entidades.JugadorEstadisticaPartido> lista = new List<Entidades.JugadorEstadisticaPartido>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                                       new MySqlParameter("idJugador_in", idJugador)};
+            string proceso = "BuscarEstadisticaEntrenamientoPorJugador";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    JugadorEstadisticaPartido listaEstadisatica = new JugadorEstadisticaPartido();
+                    if (item["asist"].ToString() == "" || item["asist"].ToString() == null)
+                    {
+                        listaEstadisatica.Entrenamientos = 0;
+                    }
+                    else
+                    {
+                        listaEstadisatica.Entrenamientos = Convert.ToInt32(item["asist"].ToString());
+                    }
+                    lista.Add(listaEstadisatica);
+                }
+            }
+            connection.Close();
+            return lista;
+        }
         public static List<JugadorEstadisticaPartido> BuscarEstadisticaPorEquipoPorJugador(int idJugador, string equipo)
         {
             connection.Close();
@@ -264,7 +297,6 @@ namespace Prode.Dao
             connection.Close();
             return lista;
         }
-
         private static List<int> BuscarListaDeIdPartidos(string equipo)
         {
             List<Equipos> _equipo = new List<Equipos>();
