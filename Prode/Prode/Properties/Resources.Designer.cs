@@ -293,6 +293,16 @@ namespace Prode.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Escudo_Uve {
+            get {
+                object obj = ResourceManager.GetObject("Escudo Uve", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap espalda__1_ {
             get {
                 object obj = ResourceManager.GetObject("espalda (1)", resourceCulture);
