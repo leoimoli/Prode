@@ -14,5 +14,8 @@ namespace Prode.Entidades
         public string NombreEstadio { get; set; }
         public string Direccion { get; set; }
         public int idUsuario { get; set; }
+        public int TiraInfantiles { get; set; }
+        public int TiraJuveniles { get; set; }
+        public int TiraMayores { get; set; }
     }
 }

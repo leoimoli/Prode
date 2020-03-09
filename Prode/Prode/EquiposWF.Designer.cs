@@ -54,6 +54,9 @@
             this.txtNombreEquipo = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.chcInfantiles = new System.Windows.Forms.CheckBox();
+            this.chcJuveniles = new System.Windows.Forms.CheckBox();
+            this.chcMayores = new System.Windows.Forms.CheckBox();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -185,6 +188,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chcMayores);
+            this.groupBox1.Controls.Add(this.chcJuveniles);
+            this.groupBox1.Controls.Add(this.chcInfantiles);
             this.groupBox1.Controls.Add(this.lblIdEquipo);
             this.groupBox1.Controls.Add(this.btnVolver);
             this.groupBox1.Controls.Add(this.txtImagen);
@@ -202,7 +208,7 @@
             this.groupBox1.Controls.Add(this.btnCancelar);
             this.groupBox1.Location = new System.Drawing.Point(27, 161);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(856, 381);
+            this.groupBox1.Size = new System.Drawing.Size(856, 424);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Equipo";
@@ -223,7 +229,7 @@
             this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVolver.Image = global::Prode.Properties.Resources.deshacer;
             this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnVolver.Location = new System.Drawing.Point(288, 322);
+            this.btnVolver.Location = new System.Drawing.Point(288, 364);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(80, 51);
             this.btnVolver.TabIndex = 129;
@@ -263,7 +269,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(288, 280);
+            this.progressBar1.Location = new System.Drawing.Point(266, 194);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(330, 23);
             this.progressBar1.TabIndex = 37;
@@ -339,7 +345,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = global::Prode.Properties.Resources.apoyo;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnGuardar.Location = new System.Drawing.Point(538, 322);
+            this.btnGuardar.Location = new System.Drawing.Point(538, 364);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(80, 51);
             this.btnGuardar.TabIndex = 11;
@@ -353,7 +359,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::Prode.Properties.Resources.error;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCancelar.Location = new System.Drawing.Point(412, 322);
+            this.btnCancelar.Location = new System.Drawing.Point(412, 364);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(80, 51);
             this.btnCancelar.TabIndex = 10;
@@ -361,6 +367,42 @@
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // chcInfantiles
+            // 
+            this.chcInfantiles.AutoSize = true;
+            this.chcInfantiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chcInfantiles.Location = new System.Drawing.Point(62, 310);
+            this.chcInfantiles.Name = "chcInfantiles";
+            this.chcInfantiles.Size = new System.Drawing.Size(123, 24);
+            this.chcInfantiles.TabIndex = 131;
+            this.chcInfantiles.Text = "Tira Infantiles";
+            this.chcInfantiles.UseVisualStyleBackColor = true;
+            this.chcInfantiles.Visible = false;
+            // 
+            // chcJuveniles
+            // 
+            this.chcJuveniles.AutoSize = true;
+            this.chcJuveniles.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chcJuveniles.Location = new System.Drawing.Point(349, 310);
+            this.chcJuveniles.Name = "chcJuveniles";
+            this.chcJuveniles.Size = new System.Drawing.Size(123, 24);
+            this.chcJuveniles.TabIndex = 132;
+            this.chcJuveniles.Text = "Tira Juveniles";
+            this.chcJuveniles.UseVisualStyleBackColor = true;
+            this.chcJuveniles.Visible = false;
+            // 
+            // chcMayores
+            // 
+            this.chcMayores.AutoSize = true;
+            this.chcMayores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chcMayores.Location = new System.Drawing.Point(647, 310);
+            this.chcMayores.Name = "chcMayores";
+            this.chcMayores.Size = new System.Drawing.Size(118, 24);
+            this.chcMayores.TabIndex = 133;
+            this.chcMayores.Text = "Tira Mayores";
+            this.chcMayores.UseVisualStyleBackColor = true;
+            this.chcMayores.Visible = false;
             // 
             // EquiposWF
             // 
@@ -415,5 +457,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Label lblIdEquipo;
+        private System.Windows.Forms.CheckBox chcMayores;
+        private System.Windows.Forms.CheckBox chcJuveniles;
+        private System.Windows.Forms.CheckBox chcInfantiles;
     }
 }

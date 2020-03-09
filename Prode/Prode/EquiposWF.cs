@@ -38,7 +38,7 @@ namespace Prode
                 {
 
                     pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-                    var imagen = Image.FromFile(path);                   
+                    var imagen = Image.FromFile(path);
                     pictureBox1.Image = Image.FromFile(path);
                 }
                 if (result == DialogResult.OK)
@@ -219,7 +219,7 @@ namespace Prode
                     {
                         if (result == DialogResult.Yes)
                         {
-                            int idEquipo =Convert.ToInt32(lblIdEquipo.Text);
+                            int idEquipo = Convert.ToInt32(lblIdEquipo.Text);
                             bool Exito = false;
                             Exito = EquiposNeg.EliminarEquipo(idEquipo);
                             if (Exito == true)
@@ -235,7 +235,7 @@ namespace Prode
                         }
                         else
                         { }
-                    }                  
+                    }
                 }
             }
             catch (Exception ex)
@@ -275,6 +275,18 @@ namespace Prode
             _equipo.Direccion = txtDireccion.Text;
             int idusuarioLogueado = Sesion.UsuarioLogueado.IdUsuario;
             _equipo.idUsuario = idusuarioLogueado;
+            if (chcInfantiles.Checked == true)
+            {
+                _equipo.TiraInfantiles = 1;
+            }
+            if (chcJuveniles.Checked == true)
+            {
+                _equipo.TiraJuveniles = 1;
+            }
+            if (chcMayores.Checked == true)
+            {
+                _equipo.TiraMayores = 1;
+            }
             return _equipo;
         }
         private void ProgressBar()
@@ -307,6 +319,9 @@ namespace Prode
             txtNombreEquipo.Focus();
             groupBox1.Text = "Nuevo Equipo";
             btnHabilitarBuscar.Visible = true;
+            chcInfantiles.Visible = true;
+            chcJuveniles.Visible = true;
+            chcMayores.Visible = true;
         }
         private void LimpiarCamposBotonNuevoCliente()
         {

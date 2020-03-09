@@ -34,19 +34,103 @@ namespace Prode.Dao
         public static bool InsertEquipo(Equipos _equipo)
         {
             bool exito = false;
-            connection.Close();
-            connection.Open();
-            string proceso = "AltaEquipo";
-            MySqlCommand cmd = new MySqlCommand(proceso, connection);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("NombreEquipo_in", _equipo.NombreEquipo);
-            cmd.Parameters.AddWithValue("Escudo_in", _equipo.Escudo);
-            cmd.Parameters.AddWithValue("NombreEstadio_in", _equipo.NombreEstadio);
-            cmd.Parameters.AddWithValue("Direccion_in", _equipo.Direccion);
-            cmd.Parameters.AddWithValue("idUsuario_in", _equipo.idUsuario);
-            cmd.ExecuteNonQuery();
-            exito = true;
-            connection.Close();
+
+            if (_equipo.TiraInfantiles == 1)
+            {
+                List<int> TiraInfantiles = new List<int>();
+                for (int i = 2007; i < 2015; i++)
+                {
+                    TiraInfantiles.Add(i);
+                }
+                foreach (var item in TiraInfantiles)
+                {
+                    connection.Close();
+                    connection.Open();
+                    string proceso = "AltaEquipo";
+                    MySqlCommand cmd = new MySqlCommand(proceso, connection);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("NombreEquipo_in", _equipo.NombreEquipo + " " +  item);
+                    cmd.Parameters.AddWithValue("Escudo_in", _equipo.Escudo);
+                    cmd.Parameters.AddWithValue("NombreEstadio_in", _equipo.NombreEstadio);
+                    cmd.Parameters.AddWithValue("Direccion_in", _equipo.Direccion);
+                    cmd.Parameters.AddWithValue("idUsuario_in", _equipo.idUsuario);
+                    cmd.ExecuteNonQuery();
+                    exito = true;
+                }
+            }
+            if (_equipo.TiraJuveniles == 1)
+            {
+                List<string> TiraJuveniles = new List<string>();
+                string Cuarta = "4ta";
+                TiraJuveniles.Add(Cuarta);
+                string Quinta = "5ta";
+                TiraJuveniles.Add(Quinta);
+                string Sexta = "6ta";
+                TiraJuveniles.Add(Sexta);
+                string Septima = "7ma";
+                TiraJuveniles.Add(Septima);
+                string Octava = "8va";
+                TiraJuveniles.Add(Octava);
+                string Novena = "9na";
+                TiraJuveniles.Add(Novena);
+                string PreNovena = "Pre-9na";
+                TiraJuveniles.Add(PreNovena);
+                foreach (var item in TiraJuveniles)
+                {
+                    connection.Close();
+                    connection.Open();
+                    string proceso = "AltaEquipo";
+                    MySqlCommand cmd = new MySqlCommand(proceso, connection);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("NombreEquipo_in", _equipo.NombreEquipo + " " + item);
+                    cmd.Parameters.AddWithValue("Escudo_in", _equipo.Escudo);
+                    cmd.Parameters.AddWithValue("NombreEstadio_in", _equipo.NombreEstadio);
+                    cmd.Parameters.AddWithValue("Direccion_in", _equipo.Direccion);
+                    cmd.Parameters.AddWithValue("idUsuario_in", _equipo.idUsuario);
+                    cmd.ExecuteNonQuery();
+                    exito = true;
+                }
+            }
+            if (_equipo.TiraMayores == 1)
+            {
+                List<string> TiraMayores = new List<string>();
+                string Reserva = "Reserva";
+                TiraMayores.Add(Reserva);
+                string Primera = "1ra";
+                TiraMayores.Add(Primera);
+                foreach (var item in TiraMayores)
+                {
+                    connection.Close();
+                    connection.Open();
+                    string proceso = "AltaEquipo";
+                    MySqlCommand cmd = new MySqlCommand(proceso, connection);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("NombreEquipo_in", _equipo.NombreEquipo + " " + item);
+                    cmd.Parameters.AddWithValue("Escudo_in", _equipo.Escudo);
+                    cmd.Parameters.AddWithValue("NombreEstadio_in", _equipo.NombreEstadio);
+                    cmd.Parameters.AddWithValue("Direccion_in", _equipo.Direccion);
+                    cmd.Parameters.AddWithValue("idUsuario_in", _equipo.idUsuario);
+                    cmd.ExecuteNonQuery();
+                    exito = true;
+                }
+            }
+            if (_equipo.TiraInfantiles == 0 && _equipo.TiraJuveniles == 0 && _equipo.TiraMayores == 0)
+            {
+                connection.Close();
+                connection.Open();
+                string proceso = "AltaEquipo";
+                MySqlCommand cmd = new MySqlCommand(proceso, connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("NombreEquipo_in", _equipo.NombreEquipo);
+                cmd.Parameters.AddWithValue("Escudo_in", _equipo.Escudo);
+                cmd.Parameters.AddWithValue("NombreEstadio_in", _equipo.NombreEstadio);
+                cmd.Parameters.AddWithValue("Direccion_in", _equipo.Direccion);
+                cmd.Parameters.AddWithValue("idUsuario_in", _equipo.idUsuario);
+                cmd.ExecuteNonQuery();
+                exito = true;
+                connection.Close();
+            }
+
             return exito;
         }
         public static List<string> CargarComboEquipo()
