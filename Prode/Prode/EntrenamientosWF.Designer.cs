@@ -300,6 +300,7 @@
             this.btnQuitar1.TabIndex = 43;
             this.btnQuitar1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnQuitar1.UseVisualStyleBackColor = true;
+            this.btnQuitar1.Click += new System.EventHandler(this.btnQuitar1_Click);
             // 
             // btnCargar1
             // 
@@ -309,6 +310,7 @@
             this.btnCargar1.Size = new System.Drawing.Size(43, 44);
             this.btnCargar1.TabIndex = 42;
             this.btnCargar1.UseVisualStyleBackColor = true;
+            this.btnCargar1.Click += new System.EventHandler(this.btnCargar1_Click);
             // 
             // listBox1
             // 

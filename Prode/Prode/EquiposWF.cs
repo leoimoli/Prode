@@ -258,6 +258,9 @@ namespace Prode
             progressBar1.Value = Convert.ToInt32(null);
             progressBar1.Visible = false;
             pictureBox1.Image = null;
+            chcInfantiles.Checked = false;
+            chcJuveniles.Checked = false;
+            chcMayores.Checked = false;
         }
         private Equipos CargarEntidad()
         {

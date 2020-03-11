@@ -55,7 +55,7 @@ namespace Prode
         {
             groupBox2.Visible = true;
             btnGuardar.Visible = true;
-            btnCancelar.Visible = true;            
+            btnCancelar.Visible = true;
         }
         private void btnEtapa1_Click(object sender, EventArgs e)
         {
@@ -85,6 +85,50 @@ namespace Prode
             }
             catch (Exception ex)
             { }
+        }
+
+        private void btnCargar1_Click(object sender, EventArgs e)
+        {
+            int Existe = 0;
+            string valor = listBox2.SelectedItem.ToString();
+            List<string> listaExistente = new List<string>();
+
+            foreach (var item in listBox1.Items)
+            {
+                string valorItem = Convert.ToString(item);
+                listaExistente.Add(valorItem);
+            }
+            foreach (var item in listaExistente)
+            {
+                string ValorExistente = Convert.ToString(item);
+                if (valor == ValorExistente)
+                {
+                    Existe = 1;
+                }
+            }
+            if (Existe == 0)
+            {
+                listBox1.Items.Add(listBox2.SelectedItem.ToString());
+            }
+        }
+
+        private void btnQuitar1_Click(object sender, EventArgs e)
+        {
+            string valorQuitar;
+            if (listBox1.SelectedItem != null)
+            {
+                valorQuitar = listBox1.SelectedItem.ToString();
+                listBox1.Items.Remove(valorQuitar);
+            }
+            else
+            {
+                const string message2 = "Debe seleccionar un elemento para borrar.";
+                const string caption2 = "Atención";
+                var result2 = MessageBox.Show(message2, caption2,
+                                             MessageBoxButtons.OK,
+                                             MessageBoxIcon.Exclamation);
+            }
+           
         }
     }
 }

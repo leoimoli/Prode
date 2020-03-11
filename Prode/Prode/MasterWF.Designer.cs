@@ -110,7 +110,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(135, 17);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Prode Versión-1.0.0";
+            this.label3.Text = "Prode Versión-1.0.1";
             // 
             // MasterWF
             // 

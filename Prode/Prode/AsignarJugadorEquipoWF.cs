@@ -20,6 +20,7 @@ namespace Prode
         }
         private void AsignarJugadorEquipoWF_Load(object sender, EventArgs e)
         {
+            ValorCheck = 1;
             txtBuscarApellidoNombre.AutoCompleteCustomSource = Clases_Maestras.AutoCompletePorJugadores.Autocomplete();
             txtBuscarApellidoNombre.AutoCompleteMode = AutoCompleteMode.Suggest;
             txtBuscarApellidoNombre.AutoCompleteSource = AutoCompleteSource.CustomSource;
@@ -70,21 +71,26 @@ namespace Prode
         {
             try
             {
-                List<Equipos> _equipo = new List<Equipos>();
-                var NombreEquipo = txtBuscar.Text;
-                _equipo = EquiposNeg.BuscarEquipoPorNombre(NombreEquipo);
-                if (_equipo.Count > 0)
-                {
-                    lblPlantel.Visible = true;
-                    var Equipo = _equipo.First();
-                    List<PlantelActual> _plantel = new List<PlantelActual>();
-                    lblIdEquipo.Text = Convert.ToString(Equipo.idEquipo);
-                    _plantel = EquiposNeg.BuscarPlantelActual(Equipo.idEquipo);
-                    ListaPlantel = _plantel;
-                }
+                BuscarEquipoPlantelPorNombre();
+
             }
             catch (Exception ex)
             { }
+        }
+        private void BuscarEquipoPlantelPorNombre()
+        {
+            List<Equipos> _equipo = new List<Equipos>();
+            var NombreEquipo = txtBuscar.Text;
+            _equipo = EquiposNeg.BuscarEquipoPorNombre(NombreEquipo);
+            if (_equipo.Count > 0)
+            {
+                lblPlantel.Visible = true;
+                var Equipo = _equipo.First();
+                List<PlantelActual> _plantel = new List<PlantelActual>();
+                lblIdEquipo.Text = Convert.ToString(Equipo.idEquipo);
+                _plantel = EquiposNeg.BuscarPlantelActual(Equipo.idEquipo);
+                ListaPlantel = _plantel;
+            }
         }
         private void btnAsignar_Click(object sender, EventArgs e)
         {
@@ -206,7 +212,7 @@ namespace Prode
         #region Funciones
         private void LimpiarCampos()
         {
-            dgvPlantel.Rows.Clear();
+            BuscarEquipoPlantelPorNombre();
             groupBox2.Visible = false;
             txtBuscarApellidoNombre.Clear();
             txtBuscarApellidoNombre.Focus();
@@ -219,7 +225,6 @@ namespace Prode
             groupBox1.Visible = true;
             progressBar1.Value = Convert.ToInt32(null);
             progressBar1.Visible = false;
-            dgvMasiva.Rows.Clear();
             dgvMasiva.Visible = false;
             chcPersonal.Checked = true;
             groupBox1.Visible = true;
