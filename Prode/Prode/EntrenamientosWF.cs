@@ -16,7 +16,6 @@ namespace Prode
         {
             InitializeComponent();
         }
-
         private void EntrenamientosWF_Load(object sender, EventArgs e)
         {
             try
@@ -86,7 +85,6 @@ namespace Prode
             catch (Exception ex)
             { }
         }
-
         private void btnCargar1_Click(object sender, EventArgs e)
         {
             int Existe = 0;
@@ -111,7 +109,6 @@ namespace Prode
                 listBox1.Items.Add(listBox2.SelectedItem.ToString());
             }
         }
-
         private void btnQuitar1_Click(object sender, EventArgs e)
         {
             string valorQuitar;
@@ -128,7 +125,98 @@ namespace Prode
                                              MessageBoxButtons.OK,
                                              MessageBoxIcon.Exclamation);
             }
-           
+        }
+        private void btnCargar2_Click(object sender, EventArgs e)
+        {
+            int Existe = 0;
+            string valor = listBox4.SelectedItem.ToString();
+            List<string> listaExistente = new List<string>();
+
+            foreach (var item in listBox3.Items)
+            {
+                string valorItem = Convert.ToString(item);
+                listaExistente.Add(valorItem);
+            }
+            foreach (var item in listaExistente)
+            {
+                string ValorExistente = Convert.ToString(item);
+                if (valor == ValorExistente)
+                {
+                    Existe = 1;
+                }
+            }
+            if (Existe == 0)
+            {
+                listBox3.Items.Add(listBox4.SelectedItem.ToString());
+            }
+        }
+        private void btnCargar3_Click(object sender, EventArgs e)
+        {
+            int Existe = 0;
+            string valor = listBox6.SelectedItem.ToString();
+            List<string> listaExistente = new List<string>();
+
+            foreach (var item in listBox5.Items)
+            {
+                string valorItem = Convert.ToString(item);
+                listaExistente.Add(valorItem);
+            }
+            foreach (var item in listaExistente)
+            {
+                string ValorExistente = Convert.ToString(item);
+                if (valor == ValorExistente)
+                {
+                    Existe = 1;
+                }
+            }
+            if (Existe == 0)
+            {
+                listBox5.Items.Add(listBox6.SelectedItem.ToString());
+            }
+        }
+        private void btnQuitar2_Click(object sender, EventArgs e)
+        {
+            string valorQuitar;
+            if (listBox3.SelectedItem != null)
+            {
+                valorQuitar = listBox3.SelectedItem.ToString();
+                listBox1.Items.Remove(valorQuitar);
+            }
+            else
+            {
+                const string message2 = "Debe seleccionar un elemento para borrar.";
+                const string caption2 = "Atención";
+                var result2 = MessageBox.Show(message2, caption2,
+                                             MessageBoxButtons.OK,
+                                             MessageBoxIcon.Exclamation);
+            }
+        }
+        private void btnQuitar3_Click(object sender, EventArgs e)
+        {
+            string valorQuitar;
+            if (listBox5.SelectedItem != null)
+            {
+                valorQuitar = listBox5.SelectedItem.ToString();
+                listBox1.Items.Remove(valorQuitar);
+            }
+            else
+            {
+                const string message2 = "Debe seleccionar un elemento para borrar.";
+                const string caption2 = "Atención";
+                var result2 = MessageBox.Show(message2, caption2,
+                                             MessageBoxButtons.OK,
+                                             MessageBoxIcon.Exclamation);
+            }
+        }
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Entidades.Entre _apostador = CargarEntidad();
+                bool Exito = ApostadoresNeg.GuardarApostador(_apostador);
+            }
+            catch(Exception ex)
+            { }
         }
     }
 }

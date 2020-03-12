@@ -205,6 +205,7 @@
             this.btnQuitar3.TabIndex = 148;
             this.btnQuitar3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnQuitar3.UseVisualStyleBackColor = true;
+            this.btnQuitar3.Click += new System.EventHandler(this.btnQuitar3_Click);
             // 
             // listBox5
             // 
@@ -222,6 +223,7 @@
             this.btnCargar3.Size = new System.Drawing.Size(43, 44);
             this.btnCargar3.TabIndex = 147;
             this.btnCargar3.UseVisualStyleBackColor = true;
+            this.btnCargar3.Click += new System.EventHandler(this.btnCargar3_Click);
             // 
             // listBox6
             // 
@@ -423,6 +425,7 @@
             this.btnQuitar2.TabIndex = 146;
             this.btnQuitar2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnQuitar2.UseVisualStyleBackColor = true;
+            this.btnQuitar2.Click += new System.EventHandler(this.btnQuitar2_Click);
             // 
             // btnCargar2
             // 
@@ -432,6 +435,7 @@
             this.btnCargar2.Size = new System.Drawing.Size(43, 44);
             this.btnCargar2.TabIndex = 145;
             this.btnCargar2.UseVisualStyleBackColor = true;
+            this.btnCargar2.Click += new System.EventHandler(this.btnCargar2_Click);
             // 
             // listBox3
             // 
@@ -602,6 +606,7 @@
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Visible = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // EntrenamientosWF
             // 
